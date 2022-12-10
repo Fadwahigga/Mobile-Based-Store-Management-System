@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widget/appBar.dart';
+import '../widgets/appBar.dart';
 
 class ProductsListPage extends StatelessWidget {
   ProductsListPage({super.key});

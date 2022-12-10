@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/showsStoreMovement.dart';
-import 'package:gp/widget/buttonContainer.dart';
+import 'package:gp/widgets/buttonContainer.dart';
 
-import '../widget/appBar.dart';
+import '../widgets/appBar.dart';
 
 class PerformancePage extends StatefulWidget {
   const PerformancePage({super.key});

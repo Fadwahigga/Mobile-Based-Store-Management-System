@@ -6,10 +6,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/barCode.dart';
 import 'package:gp/widget/ProductInformationPopUp.dart';
-import 'package:gp/widget/appBar.dart';
-import 'package:gp/widget/confirmAndcancel.dart';
-import 'package:gp/widget/paymentBillPopUp.dart';
-import 'package:gp/widget/smallButton.dart';
+import 'package:gp/widgets/appBar.dart';
+import 'package:gp/widgets/confirmAndcancel.dart';
+import 'package:gp/widgets/paymentBillPopUp.dart';
+import 'package:gp/widgets/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class PuechasesPage extends StatefulWidget {

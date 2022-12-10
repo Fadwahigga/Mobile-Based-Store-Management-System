@@ -5,7 +5,7 @@ import 'package:gp/screens/makeSale.dart';
 import 'package:gp/screens/performance.dart';
 import 'package:gp/screens/puechases.dart';
 import 'package:gp/screens/suppliers.dart';
-import 'package:gp/widget/homeWidget.dart';
+import 'package:gp/widgets/homeWidget.dart';
 
 import 'Inventory .dart';
 

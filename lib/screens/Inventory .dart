@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gp/screens/AddNewProduct.dart';
 import 'package:gp/screens/productsList.dart';
-import 'package:gp/widget/buttonContainer.dart';
-import '../widget/appBar.dart';
+import 'package:gp/widgets/buttonContainer.dart';
+import '../widgets/appBar.dart';
 
 class InventoryPage extends StatelessWidget {
   const InventoryPage({super.key});
