@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/widget/smallButton.dart';
 
 import '../widget/appBar.dart';
 
@@ -17,7 +18,6 @@ class AddNewSupplierPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Spacer(),
             // SizedBox(
             //   height: 40,
             // ),
@@ -42,26 +42,10 @@ class AddNewSupplierPage extends StatelessWidget {
                   labelStyle: const TextStyle(fontSize: 20),
                   floatingLabelBehavior: FloatingLabelBehavior.always),
             ),
-            const Spacer(
-              flex: 3,
+            SizedBox(
+              height: 50,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 120, right: 120),
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 39, 62, 82),
-                  borderRadius: BorderRadius.circular(50)),
-              child: Center(
-                child: Text("Save",
-                    style: GoogleFonts.ebGaramond(
-                        textStyle: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ))),
-              ),
-            ),
-            const Spacer()
+            SmallButton(buttonName: "Save"),
           ],
         ),
       ),

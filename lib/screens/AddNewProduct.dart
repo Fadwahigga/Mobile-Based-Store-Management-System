@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/widget/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 import '../widget/appBar.dart';
@@ -193,22 +194,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               SizedBox(
                 height: 40,
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 120, right: 120),
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 39, 62, 82),
-                    borderRadius: BorderRadius.circular(50)),
-                child: Center(
-                  child: Text("Save",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ))),
-                ),
-              ),
+              SmallButton(buttonName: "Save")
             ],
           ),
         ),

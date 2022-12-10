@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/barCode.dart';
 import 'package:gp/widget/appBar.dart';
+import 'package:gp/widget/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class PuechasesPage extends StatefulWidget {
@@ -245,23 +246,14 @@ class _PuechasesPageState extends State<PuechasesPage> {
             height: 20,
           ),
           //////////////////////////////////////////////////////////////////////////////////////////////
-          Container(
-            margin: EdgeInsets.only(left: 120, right: 120),
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: Color.fromARGB(255, 39, 62, 82),
-                borderRadius: BorderRadius.circular(50)),
-            child: Center(
-              child: (result != null)
-                  ? Text("${result!.code}",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      )))
-                  : const Text('Scan a code'),
-            ),
+          GestureDetector(
+            onTap: () {
+              Get.defaultDialog(
+                title: "",
+                
+              );
+            },
+            child: SmallButton(buttonName: "BUY"),
           ),
 
           ///////////////////////////////////////////////////////////////////////////////////////////////

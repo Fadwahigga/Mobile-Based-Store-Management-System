@@ -19,7 +19,7 @@ class _ShowStoreMovementPageState extends State<ShowStoreMovementPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(100.0),
+          preferredSize: const Size.fromHeight(50.0),
           child: AppBarWidget(appBarTitle: "Show Store Movement")),
       body: Column(
         children: [

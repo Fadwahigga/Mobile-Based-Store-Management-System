@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gp/screens/addnewsupplier.dart';
+import 'package:gp/screens/addnewSupplier.dart';
 import 'package:gp/screens/suppliersList.dart';
 import 'package:gp/widget/appBar.dart';
 import 'package:gp/widget/buttonContainer.dart';
