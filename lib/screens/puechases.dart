@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/barCode.dart';
+import 'package:gp/widget/ProductInformationPopUp.dart';
 import 'package:gp/widget/appBar.dart';
+import 'package:gp/widget/paymentBillPopUp.dart';
 import 'package:gp/widget/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -18,18 +20,15 @@ class PuechasesPage extends StatefulWidget {
 
 class _PuechasesPageState extends State<PuechasesPage> {
   DateTime? _dateTime = DateTime.now();
-
   Barcode? result;
   QRViewController? controller;
-  void onQRViewCreated(QRViewController controller) {
-    this.controller = controller;
-    controller.scannedDataStream.listen((scanData) {
-      setState(() {
-        result = scanData;
-      });
-    });
-  }
-
+  List productsList = [
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,7 +127,10 @@ class _PuechasesPageState extends State<PuechasesPage> {
           Column(
             children: [
               Container(
-                color: const Color.fromARGB(255, 228, 227, 227),
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  color: const Color.fromARGB(255, 228, 227, 227),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -171,55 +173,111 @@ class _PuechasesPageState extends State<PuechasesPage> {
                 height: 10,
               ),
               //////////////////////////////////////////////////////////////////////////////////////////////////
-              Container(
-                color: const Color.fromARGB(255, 228, 227, 227),
-                padding: EdgeInsets.all(15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      "Product ",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                        fontSize: 20,
-                      )),
-                    ),
-                    Container(
-                      color: Colors.white,
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: productsList.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Get.defaultDialog(
+                        barrierDismissible: false,
+                        title: "",
+                        content: ProductInformationPopUp(),
+                        confirm: GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 39, 62, 82),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: Center(
+                              child: Text("Save",
+                                  style: GoogleFonts.ebGaramond(
+                                      textStyle: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ))),
+                            ),
+                          ),
+                        ),
+                        cancel: GestureDetector(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 39, 62, 82),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: Center(
+                              child: Text("Cancel",
+                                  style: GoogleFonts.ebGaramond(
+                                      textStyle: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ))),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      color: const Color.fromARGB(255, 228, 227, 227),
                       padding: EdgeInsets.all(10),
-                      child: Text(
-                        "100",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            productsList[index],
+                            style: GoogleFonts.ebGaramond(
+                                textStyle: const TextStyle(
+                              fontSize: 20,
+                            )),
+                          ),
+                          Container(
+                            color: Colors.white,
+                            padding: EdgeInsets.all(5),
+                            child: Text(
+                              "100",
+                              style: GoogleFonts.ebGaramond(
+                                  textStyle: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                          ),
+                          Container(
+                            color: Colors.white,
+                            padding: EdgeInsets.all(5),
+                            child: Text(
+                              "500",
+                              style: GoogleFonts.ebGaramond(
+                                  textStyle: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 30,
+                          ),
+                          Container(
+                            color: Colors.white,
+                            padding: EdgeInsets.all(5),
+                            child: Text(
+                              "500",
+                              style: GoogleFonts.ebGaramond(
+                                  textStyle: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Container(
-                      color: Colors.white,
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        "5",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold)),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Container(
-                      color: Colors.white,
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        "500",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold)),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                  );
+                },
+              )
               ///////////////////////////////////////////////////////////////////////////////////////////
             ],
           ),
@@ -249,8 +307,47 @@ class _PuechasesPageState extends State<PuechasesPage> {
           GestureDetector(
             onTap: () {
               Get.defaultDialog(
+                barrierDismissible: false,
                 title: "",
-                
+                content: PaymenBillPopUp(),
+                confirm: GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 39, 62, 82),
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Center(
+                      child: Text("Save",
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ))),
+                    ),
+                  ),
+                ),
+                cancel: GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 39, 62, 82),
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Center(
+                      child: Text("Cancel",
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ))),
+                    ),
+                  ),
+                ),
               );
             },
             child: SmallButton(buttonName: "BUY"),
@@ -267,20 +364,12 @@ class _PuechasesPageState extends State<PuechasesPage> {
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///BarCode Function
 
-  // void scanQRCode() async {
-  //   try {
-  //     final qrCode = await FlutterBarcodeScanner.scanBarcode(
-  //         '#ff6666', 'Cancel', true, ScanMode.BARCODE);
-
-  //     if (!mounted) return;
-
-  //     setState(() {
-  //       _barCode = qrCode;
-  //     });
-  //     print("QRCode_Result:--");
-  //     print(qrCode);
-  //   } on PlatformException {
-  //     _barCode = 'Failed to scan QR Code.';
-  //   }
-  // }
+  void onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+      });
+    });
+  }
 }

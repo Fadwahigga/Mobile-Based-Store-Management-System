@@ -1,5 +1,5 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/widget/smallButton.dart';
 
 import '../widget/appBar.dart';
@@ -42,7 +42,7 @@ class AddNewSupplierPage extends StatelessWidget {
                   labelStyle: const TextStyle(fontSize: 20),
                   floatingLabelBehavior: FloatingLabelBehavior.always),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             SmallButton(buttonName: "Save"),

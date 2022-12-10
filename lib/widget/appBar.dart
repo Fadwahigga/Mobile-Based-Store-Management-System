@@ -14,7 +14,7 @@ class AppBarWidget extends StatelessWidget {
         title: Text(appBarTitle!,
             style: GoogleFonts.ebGaramond(
                 textStyle: const TextStyle(
-                    fontSize: 25, fontWeight: FontWeight.bold))),
+                    fontSize: 20, fontWeight: FontWeight.bold))),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 39, 62, 82),
       ),

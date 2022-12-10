@@ -124,7 +124,10 @@ class _MakeSalePageState extends State<MakeSalePage> {
           Column(
             children: [
               Container(
-                color: const Color.fromARGB(255, 228, 227, 227),
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  color: const Color.fromARGB(255, 228, 227, 227),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -169,7 +172,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
               //////////////////////////////////////////////////////////////////////////////////////////////////
               Container(
                 color: const Color.fromARGB(255, 228, 227, 227),
-                padding: EdgeInsets.all(15),
+                padding: EdgeInsets.all(10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -182,7 +185,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                     ),
                     Container(
                       color: Colors.white,
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(5),
                       child: Text(
                         "100",
                         style: GoogleFonts.ebGaramond(
@@ -192,9 +195,9 @@ class _MakeSalePageState extends State<MakeSalePage> {
                     ),
                     Container(
                       color: Colors.white,
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(5),
                       child: Text(
-                        "5",
+                        "500",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold)),
@@ -205,7 +208,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                     ),
                     Container(
                       color: Colors.white,
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(5),
                       child: Text(
                         "500",
                         style: GoogleFonts.ebGaramond(
