@@ -13,11 +13,20 @@ class SuppliersListPage extends StatefulWidget {
 }
 
 class _SuppliersListPageState extends State<SuppliersListPage> {
+  List suppliers = ["fadwa", "rawan", "raheel", "fadwa", "rawan", "raheel"];
+  List suppliersPhone = [
+    "0911111111",
+    "0911001111",
+    "0911133111",
+    "0911133111",
+    "0911112211",
+    "0911110011"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(100.0),
+          preferredSize: const Size.fromHeight(50.0),
           child: AppBarWidget(appBarTitle: "Suppliers List")),
       body: Column(
         children: [
@@ -52,16 +61,22 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
           Column(
             children: [
               Container(
-                color: const Color.fromARGB(255, 228, 227, 227),
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  color: const Color.fromARGB(255, 228, 227, 227),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
+                    const Icon(
+                      Icons.contact_phone,
+                      size: 18,
+                    ),
                     Text(
                       "Supplier Name",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                        fontSize: 20,
-                      )),
+                              fontSize: 20, fontWeight: FontWeight.bold)),
                     ),
                     const SizedBox(
                       width: 30,
@@ -70,8 +85,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                       "Phone number",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                        fontSize: 20,
-                      )),
+                              fontSize: 20, fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),
@@ -81,49 +95,45 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                 height: 15,
               ),
               //////////////////////////////////////////////////////////////////////////////////////////////////
-              Container(
+
+              ///////////////////////////////////////////////////////////////////////////////////////////
+            ],
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: suppliers.length,
+            itemBuilder: (context, index) {
+              return Container(
                 color: const Color.fromARGB(255, 228, 227, 227),
-                padding: const EdgeInsets.all(15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.contact_phone,
-                          size: 18,
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "Supplier Name",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                            fontSize: 15,
-                          )),
-                        ),
-                      ],
+                    const Icon(
+                      Icons.contact_phone,
+                      size: 18,
+                    ),
+                    Text(
+                      suppliers[index],
+                      style: GoogleFonts.ebGaramond(
+                          textStyle: const TextStyle(
+                        fontSize: 20,
+                      )),
                     ),
                     const SizedBox(
                       width: 30,
                     ),
-                    Container(
-                      color: Colors.white,
-                      padding: const EdgeInsets.all(8),
-                      child: Text(
-                        "0911111111",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold)),
-                      ),
+                    Text(
+                      suppliersPhone[index],
+                      style: GoogleFonts.ebGaramond(
+                          textStyle: const TextStyle(
+                        fontSize: 20,
+                      )),
                     ),
                   ],
                 ),
-              ),
-              ///////////////////////////////////////////////////////////////////////////////////////////
-            ],
-          ),
+              );
+            },
+          )
         ],
       ),
     );
