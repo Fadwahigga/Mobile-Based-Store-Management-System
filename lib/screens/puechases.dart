@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/barCode.dart';
 import 'package:gp/widget/ProductInformationPopUp.dart';
 import 'package:gp/widget/appBar.dart';
+import 'package:gp/widget/confirmAndcancel.dart';
 import 'package:gp/widget/paymentBillPopUp.dart';
 import 'package:gp/widget/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -184,42 +185,13 @@ class _PuechasesPageState extends State<PuechasesPage> {
                         title: "",
                         content: ProductInformationPopUp(),
                         confirm: GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 39, 62, 82),
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Center(
-                              child: Text("Save",
-                                  style: GoogleFonts.ebGaramond(
-                                      textStyle: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ))),
-                            ),
-                          ),
-                        ),
+                            onTap: () {},
+                            child: ConfirmAndCancel(Opname: "Save")),
                         cancel: GestureDetector(
                           onTap: () {
                             Get.back();
                           },
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 39, 62, 82),
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Center(
-                              child: Text("Cancel",
-                                  style: GoogleFonts.ebGaramond(
-                                      textStyle: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ))),
-                            ),
-                          ),
+                          child: ConfirmAndCancel(Opname: "Cancel"),
                         ),
                       );
                     },
@@ -312,42 +284,13 @@ class _PuechasesPageState extends State<PuechasesPage> {
                 content: PaymenBillPopUp(),
                 confirm: GestureDetector(
                   onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 39, 62, 82),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Center(
-                      child: Text("Save",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ))),
-                    ),
-                  ),
+                  child: ConfirmAndCancel(Opname: "Save"),
                 ),
                 cancel: GestureDetector(
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 39, 62, 82),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Center(
-                      child: Text("Cancel",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ))),
-                    ),
-                  ),
-                ),
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: ConfirmAndCancel(Opname: "Cancel")),
               );
             },
             child: SmallButton(buttonName: "BUY"),
