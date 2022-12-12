@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/screens/makeSale.dart';
+import 'package:gp/screens/cashierScreens.dart';
 import 'package:gp/screens/performance.dart';
 import 'package:gp/screens/puechases.dart';
 import 'package:gp/screens/suppliers.dart';
@@ -51,7 +51,7 @@ class Home extends StatelessWidget {
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            Get.to(const MakeSalePage());
+                            Get.to(const CashierScreensPage());
                           },
                           child: HomeWidget(
                               name: "Make Sale", imagepath: "images/2.png"),

@@ -2,15 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:google_fonts/google_fonts.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:gp/screens/barCode.dart';
-import 'package:gp/widget/ProductInformationPopUp.dart';
 import 'package:gp/widgets/appBar.dart';
-import 'package:gp/widgets/confirmAndcancel.dart';
 import 'package:gp/widgets/paymentBillPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import '../widgets/productInformationPopUp.dart';
 
 class PuechasesPage extends StatefulWidget {
   const PuechasesPage({super.key});
@@ -28,11 +26,17 @@ class _PuechasesPageState extends State<PuechasesPage> {
     "Product Name",
     "Product Name",
     "Product Name",
-    "Product Name"
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
           child: AppBarWidget(appBarTitle: "Buy from a Supplier")),
@@ -125,76 +129,68 @@ class _PuechasesPageState extends State<PuechasesPage> {
             height: 10,
           ),
           //////////////////////////////////////////////////////////////////////////////////////////////////
-          Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: const Color.fromARGB(255, 228, 227, 227),
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(),
+              color: const Color.fromARGB(255, 228, 227, 227),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  "Product",
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                    fontSize: 20,
+                  )),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      "Product",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                        fontSize: 20,
-                      )),
-                    ),
-                    Text(
-                      "Cost",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                        fontSize: 20,
-                      )),
-                    ),
-                    Text(
-                      "Quantity",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                        fontSize: 20,
-                      )),
-                    ),
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Text(
-                      "Total",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                        fontSize: 20,
-                      )),
-                    ),
-                  ],
+                Text(
+                  "Cost",
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                    fontSize: 20,
+                  )),
                 ),
-              ),
-              ///////////////////////////////////////////////////////////////////////////////////////////////////
-              SizedBox(
-                height: 10,
-              ),
-              //////////////////////////////////////////////////////////////////////////////////////////////////
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: productsList.length,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Get.defaultDialog(
-                        barrierDismissible: false,
-                        title: "",
-                        content: ProductInformationPopUp(),
-                        confirm: GestureDetector(
-                            onTap: () {},
-                            child: ConfirmAndCancel(Opname: "Save")),
-                        cancel: GestureDetector(
-                          onTap: () {
-                            Get.back();
-                          },
-                          child: ConfirmAndCancel(Opname: "Cancel"),
-                        ),
-                      );
-                    },
+                Text(
+                  "Quantity",
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                    fontSize: 20,
+                  )),
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                Text(
+                  "Total",
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                    fontSize: 20,
+                  )),
+                ),
+              ],
+            ),
+          ),
+          ///////////////////////////////////////////////////////////////////////////////////////////////////
+          SizedBox(
+            height: 10,
+          ),
+          //////////////////////////////////////////////////////////////////////////////////////////////////
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: productsList.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Get.defaultDialog(
+                      barrierDismissible: false,
+                      title: "",
+                      content: SingleChildScrollView(
+                          child: ProductInformationPopUp()),
+                    );
+                  },
+                  child: Expanded(
                     child: Container(
                       color: const Color.fromARGB(255, 228, 227, 227),
                       padding: EdgeInsets.all(10),
@@ -247,21 +243,21 @@ class _PuechasesPageState extends State<PuechasesPage> {
                         ],
                       ),
                     ),
-                  );
-                },
-              )
-              ///////////////////////////////////////////////////////////////////////////////////////////
-            ],
+                  ),
+                );
+              },
+            ),
           ),
           //////////////////////////////////////////////////////////////////////////////////////////////
-          Spacer(
-            flex: 3,
+          SizedBox(
+            height: 10,
           ),
           ////////////////////////////////////////////////////////////////////////////////////////////
           Container(
             width: double.infinity,
             color: Color.fromARGB(255, 36, 214, 42),
             margin: EdgeInsets.only(left: 20, right: 20),
+            padding: EdgeInsets.all(10),
             child: Center(
               child: Text("TOTAL = 500",
                   style: GoogleFonts.ebGaramond(
@@ -282,22 +278,14 @@ class _PuechasesPageState extends State<PuechasesPage> {
                 barrierDismissible: false,
                 title: "",
                 content: PaymenBillPopUp(),
-                confirm: GestureDetector(
-                  onTap: () {},
-                  child: ConfirmAndCancel(Opname: "Save"),
-                ),
-                cancel: GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: ConfirmAndCancel(Opname: "Cancel")),
               );
             },
             child: SmallButton(buttonName: "BUY"),
           ),
-
+          SizedBox(
+            height: 10,
+          ),
           ///////////////////////////////////////////////////////////////////////////////////////////////
-          Spacer(),
         ],
       ),
       ///////////////////////////////////////////////////////////////////////////////////////////////////

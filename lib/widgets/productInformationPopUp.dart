@@ -1,9 +1,11 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'appBar.dart';
+import 'confirmAndcancel.dart';
 
 class ProductInformationPopUp extends StatelessWidget {
   const ProductInformationPopUp({super.key});
@@ -11,9 +13,9 @@ class ProductInformationPopUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height - 440,
+      height: MediaQuery.of(context).size.height - 250,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: PreferredSize(
             preferredSize: const Size.fromHeight(72.0),
             child: AppBarWidget(appBarTitle: "Product Information")),
@@ -43,11 +45,11 @@ class ProductInformationPopUp extends StatelessWidget {
                   children: [
                     const Text("New Quantity"),
                     Container(
-                      height: 30,
-                      width: MediaQuery.of(context).size.width - 250,
-                      color: Colors.white,
-                      child: const Center(child: Text("00.0")),
-                    ),
+                        height: 30,
+                        width: MediaQuery.of(context).size.width - 250,
+                        color: Colors.white,
+                        child: const TextField(
+                            keyboardType: TextInputType.number)),
                   ],
                 ),
                 const SizedBox(
@@ -76,7 +78,8 @@ class ProductInformationPopUp extends StatelessWidget {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: const Center(child: Text("00.0")),
+                      child:
+                          const TextField(keyboardType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -88,10 +91,24 @@ class ProductInformationPopUp extends StatelessWidget {
                   child: Text("Delete Product From List ",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold,
                         color: Colors.red,
                       ))),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                GestureDetector(
+                    onTap: () {}, child: ConfirmAndCancel(Opname: "Save")),
+                const SizedBox(
+                  height: 15,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: ConfirmAndCancel(Opname: "Cancel"),
                 ),
               ],
             )),

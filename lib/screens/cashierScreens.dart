@@ -1,9 +1,11 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widgets/appBar.dart';
 import '../widgets/buttonContainer.dart';
+import 'makeSale.dart';
 
 class CashierScreensPage extends StatelessWidget {
   const CashierScreensPage({super.key});
@@ -20,7 +22,9 @@ class CashierScreensPage extends StatelessWidget {
           children: [
             //////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(const MakeSalePage());
+              },
               child: buttonContainer(buttonContainerText: "Cashier 1"),
             ),
             //////////////////////////////////////////////////////////////////////////////////////
@@ -29,7 +33,9 @@ class CashierScreensPage extends StatelessWidget {
             ),
             //////////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(const MakeSalePage());
+              },
               child: buttonContainer(buttonContainerText: "Cashier 2"),
             ),
             //////////////////////////////////////////////////////////////////////////////////////
@@ -38,7 +44,9 @@ class CashierScreensPage extends StatelessWidget {
             ),
             //////////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(const MakeSalePage());
+              },
               child: buttonContainer(buttonContainerText: "Cashier 3"),
             ),
             /////////////////////////////////////////////////////////////////////////////////
