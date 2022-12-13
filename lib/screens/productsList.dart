@@ -12,6 +12,26 @@ class ProductsListPage extends StatelessWidget {
     "Product Name",
     "Product Name",
     "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
+    "Product Name",
     "Product Name"
   ];
 
@@ -48,109 +68,105 @@ class ProductsListPage extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(),
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(),
+              color: const Color.fromARGB(255, 228, 227, 227),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  "Product Name",
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold)),
+                ),
+                Text(
+                  "Cost",
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold)),
+                ),
+                Text(
+                  "Price",
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold)),
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                Text(
+                  "Quantity",
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+          ),
+          ///////////////////////////////////////////////////////////////////////////////////////////////////
+          SizedBox(
+            height: 10,
+          ),
+          //////////////////////////////////////////////////////////////////////////////////////////////////
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: productsList.length,
+              itemBuilder: (context, index) {
+                return Container(
                   color: const Color.fromARGB(255, 228, 227, 227),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      "Product Name",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                    ),
-                    Text(
-                      "Cost",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                    ),
-                    Text(
-                      "Price",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                    ),
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Text(
-                      "Quantity",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                    ),
-                  ],
-                ),
-              ),
-              ///////////////////////////////////////////////////////////////////////////////////////////////////
-              SizedBox(
-                height: 10,
-              ),
-              //////////////////////////////////////////////////////////////////////////////////////////////////
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: productsList.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    color: const Color.fromARGB(255, 228, 227, 227),
-                    padding: EdgeInsets.all(10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          productsList[index],
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        productsList[index],
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 20,
+                        )),
+                      ),
+                      Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          "100",
                           style: GoogleFonts.ebGaramond(
                               textStyle: const TextStyle(
-                            fontSize: 20,
-                          )),
+                                  fontSize: 20, fontWeight: FontWeight.bold)),
                         ),
-                        Container(
-                          color: Colors.white,
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            "100",
-                            style: GoogleFonts.ebGaramond(
-                                textStyle: const TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
-                          ),
+                      ),
+                      Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          "100",
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold)),
                         ),
-                        Container(
-                          color: Colors.white,
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            "100",
-                            style: GoogleFonts.ebGaramond(
-                                textStyle: const TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
-                          ),
+                      ),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          "500",
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold)),
                         ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Container(
-                          color: Colors.white,
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            "500",
-                            style: GoogleFonts.ebGaramond(
-                                textStyle: const TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              )
-              ///////////////////////////////////////////////////////////////////////////////////////////
-            ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         ],
       ),

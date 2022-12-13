@@ -13,8 +13,51 @@ class SuppliersListPage extends StatefulWidget {
 }
 
 class _SuppliersListPageState extends State<SuppliersListPage> {
-  List suppliers = ["fadwa", "rawan", "raheel", "fadwa", "rawan", "raheel"];
+  List suppliers = [
+    "fadwa",
+    "rawan",
+    "raheel",
+    "fadwa",
+    "rawan",
+    "raheel",
+    "fadwa",
+    "rawan",
+    "raheel",
+    "fadwa",
+    "rawan",
+    "raheel",
+    "fadwa",
+    "rawan",
+    "raheel",
+    "fadwa",
+    "rawan",
+    "raheel",
+    "fadwa",
+    "rawan",
+    "raheel",
+    "fadwa",
+    "rawan",
+    "raheel"
+  ];
   List suppliersPhone = [
+    "0911111111",
+    "0911001111",
+    "0911133111",
+    "0911133111",
+    "0911112211",
+    "0911110011",
+    "0911111111",
+    "0911001111",
+    "0911133111",
+    "0911133111",
+    "0911112211",
+    "0911110011",
+    "0911111111",
+    "0911001111",
+    "0911133111",
+    "0911133111",
+    "0911112211",
+    "0911110011",
     "0911111111",
     "0911001111",
     "0911133111",
@@ -58,81 +101,76 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
             height: 15,
           ),
           ///////////////////////////////////////////////////////////////////////////////////////////
-          Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: const Color.fromARGB(255, 228, 227, 227),
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(),
+              color: const Color.fromARGB(255, 228, 227, 227),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                const Icon(
+                  Icons.contact_phone,
+                  size: 18,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    const Icon(
-                      Icons.contact_phone,
-                      size: 18,
-                    ),
-                    Text(
-                      "Supplier Name",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                    ),
-                    const SizedBox(
-                      width: 30,
-                    ),
-                    Text(
-                      "Phone number",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                    ),
-                  ],
+                Text(
+                  "Supplier Name",
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold)),
                 ),
-              ),
-              ///////////////////////////////////////////////////////////////////////////////////////////////////
-              const SizedBox(
-                height: 15,
-              ),
-              //////////////////////////////////////////////////////////////////////////////////////////////////
-
-              ///////////////////////////////////////////////////////////////////////////////////////////
-            ],
+                const SizedBox(
+                  width: 30,
+                ),
+                Text(
+                  "Phone number",
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
           ),
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: suppliers.length,
-            itemBuilder: (context, index) {
-              return Container(
-                color: const Color.fromARGB(255, 228, 227, 227),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    const Icon(
-                      Icons.contact_phone,
-                      size: 18,
-                    ),
-                    Text(
-                      suppliers[index],
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                        fontSize: 20,
-                      )),
-                    ),
-                    const SizedBox(
-                      width: 30,
-                    ),
-                    Text(
-                      suppliersPhone[index],
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                        fontSize: 20,
-                      )),
-                    ),
-                  ],
-                ),
-              );
-            },
+          ///////////////////////////////////////////////////////////////////////////////////////////////////
+          const SizedBox(
+            height: 15,
+          ),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: suppliers.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  color: const Color.fromARGB(255, 228, 227, 227),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const Icon(
+                        Icons.contact_phone,
+                        size: 18,
+                      ),
+                      Text(
+                        suppliers[index],
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 20,
+                        )),
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      Text(
+                        suppliersPhone[index],
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 20,
+                        )),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           )
         ],
       ),
