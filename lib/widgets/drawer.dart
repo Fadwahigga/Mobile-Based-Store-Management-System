@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/screens/login.dart';
 import 'package:gp/widgets/confirmAndcancel.dart';
 
 import '../screens/Inventory .dart';
@@ -163,7 +164,7 @@ class DrawerWidget extends StatelessWidget {
                               child: ConfirmAndCancel(Opname: "Cancel")),
                           GestureDetector(
                               onTap: () {
-                                Get.back();
+                                Get.to(const Login());
                               },
                               child: ConfirmAndCancel(Opname: "   Yes   "))
                         ],

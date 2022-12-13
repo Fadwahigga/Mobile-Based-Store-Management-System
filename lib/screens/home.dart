@@ -8,7 +8,6 @@ import 'package:gp/screens/suppliers.dart';
 import 'package:gp/widgets/drawer.dart';
 import 'package:gp/widgets/homeWidget.dart';
 
-import 'Inventory .dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
