@@ -39,16 +39,7 @@ class CashierScreensPage extends StatelessWidget {
               child: buttonContainer(buttonContainerText: "Cashier 2"),
             ),
             //////////////////////////////////////////////////////////////////////////////////////
-            const SizedBox(
-              height: 30,
-            ),
-            //////////////////////////////////////////////////////////////////////////////////////
-            GestureDetector(
-              onTap: () {
-                Get.to(const MakeSalePage());
-              },
-              child: buttonContainer(buttonContainerText: "Cashier 3"),
-            ),
+
             /////////////////////////////////////////////////////////////////////////////////
           ],
         ),

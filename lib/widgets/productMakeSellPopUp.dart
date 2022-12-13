@@ -5,16 +5,16 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'confirmAndcancel.dart';
 
-class ProductInformationPopUp extends StatelessWidget {
-  const ProductInformationPopUp({super.key});
+class ProductMakeSellPopUp extends StatelessWidget {
+  const ProductMakeSellPopUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: Container(
-          padding: const EdgeInsets.all(10),
-          color: const Color.fromARGB(255, 228, 227, 227),
-          child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Expanded(
+        child: Container(
+            padding: const EdgeInsets.all(10),
+            color: const Color.fromARGB(255, 228, 227, 227),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -36,11 +36,13 @@ class ProductInformationPopUp extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Exist Quantity",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: TextStyle(
-                          fontSize: 20,
-                        ))),
+                    Flexible(
+                      child: Text("Available Quantity",
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: const TextStyle(
+                            fontSize: 18,
+                          ))),
+                    ),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -55,26 +57,7 @@ class ProductInformationPopUp extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("New Quantity",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 20,
-                        ))),
-                    Container(
-                        height: 30,
-                        width: MediaQuery.of(context).size.width - 250,
-                        color: Colors.white,
-                        child: const TextField(
-                            keyboardType: TextInputType.number)),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Old cost",
+                    Text("Price",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
                           fontSize: 20,
@@ -93,7 +76,7 @@ class ProductInformationPopUp extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("New cost",
+                    Text("Quantities",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
                           fontSize: 20,
@@ -135,8 +118,8 @@ class ProductInformationPopUp extends StatelessWidget {
                   child: ConfirmAndCancel(Opname: "Cancel"),
                 ),
               ],
-            ),
-          )),
+            )),
+      ),
     );
   }
 }

@@ -85,7 +85,25 @@ class _PuechasesPageState extends State<PuechasesPage> {
                     )),
                   ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2005),
+                          lastDate: DateTime(2050),
+                          builder: (context, child) {
+                            return Theme(
+                                data: ThemeData(
+                                  primarySwatch: Colors.grey,
+                                ),
+                                child: child!);
+                          },
+                        ).then((value) {
+                          setState(() {
+                            _dateTime = value!;
+                          });
+                        });
+                      },
                       icon: Icon(
                         Icons.calendar_month,
                         size: 35,
@@ -109,7 +127,7 @@ class _PuechasesPageState extends State<PuechasesPage> {
                       child: Image(image: AssetImage("images/barcode.jpg"))),
                 ),
                 Text(
-                  "Search product name or SN",
+                  "Search Product Name Or SN",
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                     fontSize: 18,
@@ -138,7 +156,7 @@ class _PuechasesPageState extends State<PuechasesPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Product",
+                  "  Product Name",
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                     fontSize: 20,
@@ -186,8 +204,7 @@ class _PuechasesPageState extends State<PuechasesPage> {
                     Get.defaultDialog(
                       barrierDismissible: false,
                       title: "",
-                      content: SingleChildScrollView(
-                          child: ProductInformationPopUp()),
+                      content: ProductInformationPopUp(),
                     );
                   },
                   child: Expanded(

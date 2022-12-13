@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'appBar.dart';
 import 'confirmAndcancel.dart';
 
 class PaymenBillPopUp extends StatelessWidget {
@@ -11,17 +10,28 @@ class PaymenBillPopUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height - 250,
-      child: Scaffold(
-        appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(72.0),
-            child: AppBarWidget(appBarTitle: "Payment Bill")),
-        body: Container(
-            padding: const EdgeInsets.all(10),
-            color: const Color.fromARGB(255, 228, 227, 227),
+    return Flexible(
+      child: Container(
+          padding: const EdgeInsets.all(10),
+          color: const Color.fromARGB(255, 228, 227, 227),
+          child: SingleChildScrollView(
             child: Column(
               children: [
+                Container(
+                  width: double.infinity,
+                  color: const Color.fromARGB(255, 39, 62, 82),
+                  child: Center(
+                    child: Text("Payment Bill",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white))),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -100,8 +110,8 @@ class PaymenBillPopUp extends StatelessWidget {
                   child: ConfirmAndCancel(Opname: "Cancel"),
                 ),
               ],
-            )),
-      ),
+            ),
+          )),
     );
   }
 }

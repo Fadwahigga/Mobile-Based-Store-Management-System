@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/home.dart';
-import 'package:gp/screens/signUp.dart';
+import 'package:gp/screens/login.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class Login extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Login",
+              "Sign Up",
               style: GoogleFonts.ebGaramond(
                   textStyle: const TextStyle(
                       fontSize: 40,
@@ -26,6 +26,15 @@ class Login extends StatelessWidget {
             ),
             const SizedBox(
               height: 40,
+            ),
+            TextFormField(
+              decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.person),
+                  hintText: "Name",
+                  border: OutlineInputBorder(borderSide: BorderSide(width: 1))),
+            ),
+            const SizedBox(
+              height: 15,
             ),
             TextFormField(
               keyboardType: TextInputType.emailAddress,
@@ -52,16 +61,16 @@ class Login extends StatelessWidget {
               margin: const EdgeInsets.all(10),
               child: Row(
                 children: [
-                  Text("If You Havan't Account ",
+                  Text("You Have Account",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                               fontSize: 15, fontWeight: FontWeight.bold))),
                   InkWell(
                     onTap: () {
-                      Get.to(SignUp());
+                      Get.to(Login());
                     },
                     child: Text(
-                      " Sign Up",
+                      " Login",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                               fontSize: 22,
@@ -87,7 +96,7 @@ class Login extends StatelessWidget {
                     borderRadius: BorderRadius.circular(40)),
                 child: Center(
                     child: Text(
-                  "Login",
+                  "Sign Up",
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                           color: Colors.white,

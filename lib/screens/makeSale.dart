@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/widgets/paymentMakeSellPopUp.dart';
+import 'package:gp/widgets/productMakeSellPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -50,52 +52,73 @@ class _MakeSalePageState extends State<MakeSalePage> {
       body: Column(
         children: [
           ////////////////////////////////////////////////////////////////////////////////////////////////////
-          Container(
-            decoration: BoxDecoration(
-              border: Border(bottom: BorderSide(color: Colors.black)),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  "choose bill date",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                    fontSize: 25,
-                  )),
-                ),
-                Text(
-                  "${_dateTime!.day.toString()}/${_dateTime!.month.toString()}/${_dateTime!.year.toString()}",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                    fontSize: 20,
-                  )),
-                ),
-                IconButton(
-                    onPressed: () {
-                      showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(2005),
-                        lastDate: DateTime(2050),
-                        builder: (context, child) {
-                          return Theme(
-                              data: ThemeData(
-                                primarySwatch: Colors.grey,
-                              ),
-                              child: child!);
-                        },
-                      ).then((value) {
-                        setState(() {
-                          _dateTime = value!;
+          GestureDetector(
+            onTap: () {
+              showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2005),
+                lastDate: DateTime(2050),
+                builder: (context, child) {
+                  return Theme(
+                      data: ThemeData(
+                        primarySwatch: Colors.grey,
+                      ),
+                      child: child!);
+                },
+              ).then((value) {
+                setState(() {
+                  _dateTime = value!;
+                });
+              });
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border(bottom: BorderSide(color: Colors.black)),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    "choose bill date",
+                    style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
+                      fontSize: 25,
+                    )),
+                  ),
+                  Text(
+                    "${_dateTime!.day.toString()}/${_dateTime!.month.toString()}/${_dateTime!.year.toString()}",
+                    style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
+                      fontSize: 20,
+                    )),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2005),
+                          lastDate: DateTime(2050),
+                          builder: (context, child) {
+                            return Theme(
+                                data: ThemeData(
+                                  primarySwatch: Colors.grey,
+                                ),
+                                child: child!);
+                          },
+                        ).then((value) {
+                          setState(() {
+                            _dateTime = value!;
+                          });
                         });
-                      });
-                    },
-                    icon: Icon(
-                      Icons.calendar_month,
-                      size: 35,
-                    ))
-              ],
+                      },
+                      icon: Icon(
+                        Icons.calendar_month,
+                        size: 35,
+                      ))
+                ],
+              ),
             ),
           ),
           ///////////////////////////////////////////////////////////////////////////////////
@@ -113,7 +136,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                       child: Image(image: AssetImage("images/barcode.jpg"))),
                 ),
                 Text(
-                  "Search product name or SN",
+                  "Search Product Name Or SN",
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                     fontSize: 18,
@@ -186,7 +209,13 @@ class _MakeSalePageState extends State<MakeSalePage> {
               itemCount: productsList.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.defaultDialog(
+                      barrierDismissible: false,
+                      title: "",
+                      content: ProductMakeSellPopUp(),
+                    );
+                  },
                   child: Container(
                     color: const Color.fromARGB(255, 228, 227, 227),
                     padding: EdgeInsets.all(10),
@@ -266,7 +295,11 @@ class _MakeSalePageState extends State<MakeSalePage> {
           //////////////////////////////////////////////////////////////////////////////////////////////
           GestureDetector(
             onTap: () {
-              Get.defaultDialog();
+              Get.defaultDialog(
+                barrierDismissible: false,
+                title: "",
+                content: PaymentMakeSellPopUp(),
+              );
             },
             child: SmallButton(buttonName: "Payment"),
           ),
