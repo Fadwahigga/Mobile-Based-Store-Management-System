@@ -5,6 +5,7 @@ import 'package:gp/screens/cashierScreens.dart';
 import 'package:gp/screens/performance.dart';
 import 'package:gp/screens/puechases.dart';
 import 'package:gp/screens/suppliers.dart';
+import 'package:gp/widgets/drawer.dart';
 import 'package:gp/widgets/homeWidget.dart';
 
 import 'Inventory .dart';
@@ -32,7 +33,7 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-      drawer: const Drawer(),
+      drawer: const DrawerWidget(),
       body: SafeArea(
         child: Center(
           child: Padding(
