@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gp/screens/addnewSupplier.dart';
-import 'package:gp/screens/suppliersList.dart';
 import 'package:gp/widgets/appBar.dart';
 import 'package:gp/widgets/buttonContainer.dart';
+import 'Suppliers Screens/addnewSupplier.dart';
+import 'Suppliers Screens/suppliersList.dart';
 
 class SuppliersPage extends StatelessWidget {
   const SuppliersPage({super.key});
