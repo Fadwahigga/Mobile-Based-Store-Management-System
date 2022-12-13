@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:gp/screens/barCode.dart';
 import 'package:gp/widgets/appBar.dart';
 import 'package:gp/widgets/paymentBillPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
+import '../widgets/barCode.dart';
 import '../widgets/productInformationPopUp.dart';
 
 class PuechasesPage extends StatefulWidget {

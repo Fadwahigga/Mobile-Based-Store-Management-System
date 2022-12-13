@@ -7,9 +7,9 @@ import 'package:gp/widgets/paymentMakeSellPopUp.dart';
 import 'package:gp/widgets/productMakeSellPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-
 import '../widgets/appBar.dart';
-import 'barCode.dart';
+import '../widgets/barCode.dart';
+
 
 class MakeSalePage extends StatefulWidget {
   const MakeSalePage({super.key});
