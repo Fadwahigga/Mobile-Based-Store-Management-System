@@ -3,6 +3,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/widgets/confirmAndcancel.dart';
 
+import '../screens/Inventory .dart';
+import '../screens/cashierScreens.dart';
+import '../screens/performance.dart';
+import '../screens/puechases.dart';
+import '../screens/suppliers.dart';
+
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
 
@@ -56,11 +62,46 @@ class DrawerWidget extends StatelessWidget {
                     textStyle: const TextStyle(
                   fontSize: 20,
                 ))),
-            onTap: () {},
+            onTap: () {
+              Get.to(const PuechasesPage());
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.navigate_next),
+            title: Text("Make Sale",
+                style: GoogleFonts.ebGaramond(
+                    textStyle: const TextStyle(
+                  fontSize: 20,
+                ))),
+            onTap: () {
+              Get.to(const CashierScreensPage());
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.navigate_next),
+            title: Text("Suppliers",
+                style: GoogleFonts.ebGaramond(
+                    textStyle: const TextStyle(
+                  fontSize: 20,
+                ))),
+            onTap: () {
+              Get.to(const SuppliersPage());
+            },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
             title: Text("Inventory",
+                style: GoogleFonts.ebGaramond(
+                    textStyle: const TextStyle(
+                  fontSize: 20,
+                ))),
+            onTap: () {
+              Get.to(const InventoryPage());
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.navigate_next),
+            title: Text("Accounts",
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
                   fontSize: 20,
@@ -74,7 +115,9 @@ class DrawerWidget extends StatelessWidget {
                     textStyle: const TextStyle(
                   fontSize: 20,
                 ))),
-            onTap: () {},
+            onTap: () {
+              Get.to(const PerformancePage());
+            },
           ),
           ListTile(
             leading: const Icon(Icons.logout),
@@ -104,8 +147,7 @@ class DrawerWidget extends StatelessWidget {
                           "Are You Sure You Want To Logout?",
                           style: GoogleFonts.ebGaramond(
                               textStyle: const TextStyle(
-                            fontSize: 18,
-                          )),
+                                  fontSize: 18, fontWeight: FontWeight.bold)),
                         ),
                       ),
                       const SizedBox(

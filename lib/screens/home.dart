@@ -94,7 +94,7 @@ class Home extends StatelessWidget {
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            Get.to(const InventoryPage());
+                            Get.to(const PerformancePage());
                           },
                           child: HomeWidget(
                               name: "Inventory", imagepath: "images/4.png"),
