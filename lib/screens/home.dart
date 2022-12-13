@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/Inventory%20.dart';
+import 'package:gp/screens/accounts.dart';
 import 'package:gp/screens/cashierScreens.dart';
 import 'package:gp/screens/performance.dart';
 import 'package:gp/screens/puechases.dart';
@@ -110,8 +111,13 @@ class Home extends StatelessWidget {
                   child: Row(
                     children: [
                       Expanded(
-                          child: HomeWidget(
-                              name: "Accounts", imagepath: "images/5.png")),
+                          child: GestureDetector(
+                        onTap: () {
+                          Get.to(const AccountsPage());
+                        },
+                        child: HomeWidget(
+                            name: "Accounts", imagepath: "images/5.png"),
+                      )),
                       const SizedBox(
                         width: 20,
                       ),
