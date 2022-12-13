@@ -38,7 +38,7 @@ class ProductInformationPopUp extends StatelessWidget {
                   children: [
                     Text("Exist Quantity",
                         style: GoogleFonts.ebGaramond(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                           fontSize: 20,
                         ))),
                     Container(

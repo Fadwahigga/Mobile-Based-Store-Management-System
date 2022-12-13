@@ -58,7 +58,7 @@ class Login extends StatelessWidget {
                               fontSize: 15, fontWeight: FontWeight.bold))),
                   InkWell(
                     onTap: () {
-                      Get.to(SignUp());
+                      Get.to(const SignUp());
                     },
                     child: Text(
                       " Sign Up",

@@ -15,6 +15,24 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            "HOME",
+            style: GoogleFonts.ebGaramond(
+                textStyle: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold)),
+          ),
+        ),
+      ),
+      drawer: const Drawer(),
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -23,16 +41,9 @@ class Home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ////////////////////////////////////////////////////////////////////////////////////////
-                Text(
-                  "HOME",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          fontSize: 30, fontWeight: FontWeight.bold)),
-                ),
+
                 //////////////////////////////////////////////////////////////////////////////////////////
-                const SizedBox(
-                  height: 10,
-                ),
+
                 ////////////////////////////////////////////////////////////////////////////////////////
                 Expanded(
                   child: Row(

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -67,7 +69,7 @@ class SignUp extends StatelessWidget {
                               fontSize: 15, fontWeight: FontWeight.bold))),
                   InkWell(
                     onTap: () {
-                      Get.to(Login());
+                      Get.to(const Login());
                     },
                     child: Text(
                       " Login",
