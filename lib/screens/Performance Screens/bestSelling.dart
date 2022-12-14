@@ -21,7 +21,7 @@ class _BestSellingPageState extends State<BestSellingPage> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Show Store Movement")),
+          child: AppBarWidget(appBarTitle: "Best Selling")),
       body: Column(
         children: [
           Container(

@@ -32,27 +32,27 @@ class DrawerWidget extends StatelessWidget {
                   color: Colors.black,
                 ))),
             currentAccountPicture: const CircleAvatar(
-              backgroundImage: NetworkImage(
-                  "https://appmaking.co/wp-content/uploads/2021/08/appmaking-logo-colored.png"),
-            ),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(
-                  "https://appmaking.co/wp-content/uploads/2021/08/android-drawer-bg.jpeg",
+                // backgroundImage: NetworkImage(
+                //     "https://appmaking.co/wp-content/uploads/2021/08/appmaking-logo-colored.png"),
                 ),
-                fit: BoxFit.fill,
-              ),
-            ),
+            // decoration: const BoxDecoration(
+            //   image: DecorationImage(
+            //     image: NetworkImage(
+            //       "https://appmaking.co/wp-content/uploads/2021/08/android-drawer-bg.jpeg",
+            //     ),
+            //     fit: BoxFit.fill,
+            //   ),
+            // ),
             otherAccountsPictures: const [
               CircleAvatar(
                 backgroundColor: Colors.white,
-                backgroundImage: NetworkImage(
-                    "https://randomuser.me/api/portraits/women/74.jpg"),
+                // backgroundImage: NetworkImage(
+                //     "https://randomuser.me/api/portraits/women/74.jpg"),
               ),
               CircleAvatar(
                 backgroundColor: Colors.white,
-                backgroundImage: NetworkImage(
-                    "https://randomuser.me/api/portraits/men/47.jpg"),
+                // backgroundImage: NetworkImage(
+                //     "https://randomuser.me/api/portraits/men/47.jpg"),
               ),
             ],
           ),

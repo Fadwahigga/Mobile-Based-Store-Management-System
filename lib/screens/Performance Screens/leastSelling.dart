@@ -22,7 +22,7 @@ class _LeastSellingPageState extends State<LeastSellingPage> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Show Store Movement")),
+          child: AppBarWidget(appBarTitle: "Least Selling")),
       body: Column(
         children: [
           Container(

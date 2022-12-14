@@ -22,7 +22,7 @@ class _ShowProductsQuantitiesPageState
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Show Store Movement")),
+          child: AppBarWidget(appBarTitle: " Show Products Quantities")),
       body: Column(
         children: [
           Container(

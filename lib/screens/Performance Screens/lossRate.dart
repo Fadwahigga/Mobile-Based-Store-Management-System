@@ -22,7 +22,7 @@ class _LossRatePageState extends State<LossRatePage> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Show Store Movement")),
+          child: AppBarWidget(appBarTitle: "Loss Rate")),
       body: Column(
         children: [
           Container(
