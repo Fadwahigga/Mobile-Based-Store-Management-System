@@ -34,7 +34,12 @@ class ProductsListPage extends StatelessWidget {
     "Product Name",
     "Product Name"
   ];
-
+  final TextStyle _textStyle = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(
+    fontSize: 20,
+  ));
+  final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,30 +83,22 @@ class ProductsListPage extends StatelessWidget {
               children: [
                 Text(
                   "Product Name",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold)),
+                  style: _textStyle2,
                 ),
                 Text(
                   "Cost",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold)),
+                  style: _textStyle2,
                 ),
                 Text(
                   "Price",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold)),
+                  style: _textStyle2,
                 ),
                 SizedBox(
                   width: 30,
                 ),
                 Text(
                   "Quantity",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold)),
+                  style: _textStyle2,
                 ),
               ],
             ),
@@ -124,19 +121,14 @@ class ProductsListPage extends StatelessWidget {
                     children: [
                       Text(
                         productsList[index],
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 20,
-                        )),
+                        style: _textStyle,
                       ),
                       Container(
                         color: Colors.white,
                         padding: EdgeInsets.all(10),
                         child: Text(
                           "100",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                          style: _textStyle,
                         ),
                       ),
                       Container(
@@ -144,9 +136,7 @@ class ProductsListPage extends StatelessWidget {
                         padding: EdgeInsets.all(10),
                         child: Text(
                           "100",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                          style: _textStyle,
                         ),
                       ),
                       SizedBox(
@@ -157,9 +147,7 @@ class ProductsListPage extends StatelessWidget {
                         padding: EdgeInsets.all(10),
                         child: Text(
                           "500",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                          style: _textStyle,
                         ),
                       ),
                     ],

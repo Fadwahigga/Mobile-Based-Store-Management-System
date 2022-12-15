@@ -9,9 +9,6 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import '../../widgets/appBar.dart';
 import '../../widgets/barCode.dart';
 
-
-
-
 class AddNewProductPage extends StatefulWidget {
   const AddNewProductPage({super.key});
 
@@ -24,6 +21,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
   Barcode? result;
 
   QRViewController? controller;
+  final TextStyle _textStyle = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
 
   void onQRViewCreated(QRViewController controller) {
     this.controller = controller;
@@ -141,9 +140,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                     children: [
                       Text(
                         "Cost",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold)),
+                        style: _textStyle,
                       ),
                       SizedBox(
                         width: 3,
@@ -159,9 +156,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                       ),
                       Text(
                         "Price",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold)),
+                        style: _textStyle,
                       ),
                       SizedBox(
                         width: 3,
@@ -177,9 +172,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                       ),
                       Text(
                         "Quantity",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold)),
+                        style: _textStyle,
                       ),
                       SizedBox(
                         width: 5,

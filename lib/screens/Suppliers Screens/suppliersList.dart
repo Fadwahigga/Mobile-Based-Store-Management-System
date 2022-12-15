@@ -5,8 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/appBar.dart';
 
-
-
 class SuppliersListPage extends StatefulWidget {
   const SuppliersListPage({super.key});
 
@@ -67,6 +65,12 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
     "0911112211",
     "0911110011"
   ];
+  final TextStyle _textStyle = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(
+    fontSize: 20,
+  ));
+  final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,18 +121,14 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                 ),
                 Text(
                   "Supplier Name",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold)),
+                  style: _textStyle2,
                 ),
                 const SizedBox(
                   width: 30,
                 ),
                 Text(
                   "Phone number",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold)),
+                  style: _textStyle2,
                 ),
               ],
             ),
@@ -149,24 +149,18 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                     children: [
                       const Icon(
                         Icons.contact_phone,
-                        size: 18,
+                        size: 15,
                       ),
                       Text(
                         suppliers[index],
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 20,
-                        )),
+                        style: _textStyle,
                       ),
                       const SizedBox(
                         width: 30,
                       ),
                       Text(
                         suppliersPhone[index],
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 20,
-                        )),
+                        style: _textStyle,
                       ),
                     ],
                   ),

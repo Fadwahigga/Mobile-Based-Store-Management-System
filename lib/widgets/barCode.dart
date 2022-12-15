@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/widgets/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class BarCodeClass extends StatelessWidget {
@@ -38,22 +39,7 @@ class BarCodeClass extends StatelessWidget {
             onTap: () {
               Get.back();
             },
-            child: Container(
-              margin: EdgeInsets.only(left: 120, right: 120),
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 39, 62, 82),
-                  borderRadius: BorderRadius.circular(50)),
-              child: Center(
-                child: Text("Go Back",
-                    style: GoogleFonts.ebGaramond(
-                        textStyle: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ))),
-              ),
-            ),
+            child: SmallButton(buttonName: "Done"),
           )
           // const SizedBox(
           //   height: 20,

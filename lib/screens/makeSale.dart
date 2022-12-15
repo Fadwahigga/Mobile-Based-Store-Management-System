@@ -10,7 +10,6 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import '../widgets/appBar.dart';
 import '../widgets/barCode.dart';
 
-
 class MakeSalePage extends StatefulWidget {
   const MakeSalePage({super.key});
 
@@ -34,6 +33,12 @@ class _MakeSalePageState extends State<MakeSalePage> {
     "Product Name",
     "Product Name",
   ];
+  final TextStyle _textStyle = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(
+    fontSize: 20,
+  ));
+  final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
   void onQRViewCreated(QRViewController controller) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
@@ -88,10 +93,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                   ),
                   Text(
                     "${_dateTime!.day.toString()}/${_dateTime!.month.toString()}/${_dateTime!.year.toString()}",
-                    style: GoogleFonts.ebGaramond(
-                        textStyle: const TextStyle(
-                      fontSize: 20,
-                    )),
+                    style: _textStyle,
                   ),
                   IconButton(
                       onPressed: () {
@@ -137,10 +139,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                 ),
                 Text(
                   "Search Product Name Or SN",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                    fontSize: 18,
-                  )),
+                  style: _textStyle,
                 ),
                 IconButton(
                     onPressed: () {},
@@ -166,34 +165,22 @@ class _MakeSalePageState extends State<MakeSalePage> {
               children: [
                 Text(
                   "Product Name",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                    fontSize: 20,
-                  )),
+                  style: _textStyle2,
                 ),
                 Text(
                   "Price",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                    fontSize: 20,
-                  )),
+                  style: _textStyle2,
                 ),
                 Text(
                   "Quantity",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                    fontSize: 20,
-                  )),
+                  style: _textStyle2,
                 ),
                 SizedBox(
                   width: 30,
                 ),
                 Text(
                   "Total",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                    fontSize: 20,
-                  )),
+                  style: _textStyle2,
                 ),
               ],
             ),
@@ -224,19 +211,14 @@ class _MakeSalePageState extends State<MakeSalePage> {
                       children: [
                         Text(
                           productsList[index],
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                            fontSize: 20,
-                          )),
+                          style: _textStyle,
                         ),
                         Container(
                           color: Colors.white,
                           padding: EdgeInsets.all(5),
                           child: Text(
                             "100",
-                            style: GoogleFonts.ebGaramond(
-                                textStyle: const TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
+                            style: _textStyle,
                           ),
                         ),
                         Container(
@@ -244,9 +226,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                           padding: EdgeInsets.all(5),
                           child: Text(
                             "500",
-                            style: GoogleFonts.ebGaramond(
-                                textStyle: const TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
+                            style: _textStyle,
                           ),
                         ),
                         SizedBox(
@@ -257,9 +237,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                           padding: EdgeInsets.all(5),
                           child: Text(
                             "500",
-                            style: GoogleFonts.ebGaramond(
-                                textStyle: const TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
+                            style: _textStyle,
                           ),
                         ),
                       ],

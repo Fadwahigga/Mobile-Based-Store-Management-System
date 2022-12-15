@@ -8,6 +8,8 @@ class HomeWidget extends StatelessWidget {
   HomeWidget({super.key, @required this.name, @required this.imagepath});
   String? name;
   String? imagepath;
+  final TextStyle _textStyle = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold));
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +31,7 @@ class HomeWidget extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               name!,
-              style: GoogleFonts.ebGaramond(
-                  textStyle: const TextStyle(
-                      fontSize: 25, fontWeight: FontWeight.bold)),
+              style: _textStyle,
             ),
           )
         ],

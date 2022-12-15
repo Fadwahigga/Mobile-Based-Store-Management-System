@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../widgets/appBar.dart';
 
 class ShowProductsQuantitiesPage extends StatefulWidget {
@@ -17,6 +16,8 @@ class _ShowProductsQuantitiesPageState
     extends State<ShowProductsQuantitiesPage> {
   DateTime? _dateTimeFrom = DateTime.now();
   DateTime? _dateTimeTo = DateTime.now();
+  final TextStyle _textStyle = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,9 +64,7 @@ class _ShowProductsQuantitiesPageState
                     padding: const EdgeInsets.all(8),
                     child: Text(
                       "${_dateTimeFrom!.day.toString()}/${_dateTimeFrom!.month.toString()}/${_dateTimeFrom!.year.toString()}",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
+                      style: _textStyle,
                     ),
                   ),
                 ),
@@ -101,9 +100,7 @@ class _ShowProductsQuantitiesPageState
                     padding: const EdgeInsets.all(8),
                     child: Text(
                       "${_dateTimeTo!.day.toString()}/${_dateTimeTo!.month.toString()}/${_dateTimeTo!.year.toString()}",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
+                      style: _textStyle,
                     ),
                   ),
                 ),
