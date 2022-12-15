@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/Performance%20Screens/bestSelling.dart';
 import 'package:gp/screens/Performance%20Screens/leastSelling.dart';
 import 'package:gp/screens/Performance%20Screens/lossRate.dart';
@@ -18,8 +17,6 @@ class PerformancePage extends StatefulWidget {
 }
 
 class _PerformancePageState extends State<PerformancePage> {
-  DateTime? _dateTimeFrom = DateTime.now();
-  DateTime? _dateTimeTo = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
