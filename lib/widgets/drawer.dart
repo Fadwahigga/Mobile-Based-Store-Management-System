@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/login.dart';
 import 'package:gp/widgets/confirmAndcancel.dart';
+import 'package:gp/widgets/smallButton.dart';
 
 import '../screens/Inventory .dart';
 import '../screens/cashierScreens.dart';
@@ -138,7 +139,7 @@ class DrawerWidget extends StatelessWidget {
                       const Icon(
                         Icons.warning_sharp,
                         color: Colors.red,
-                        size: 30,
+                        size: 35,
                       ),
                       const SizedBox(
                         height: 10,
@@ -155,18 +156,48 @@ class DrawerWidget extends StatelessWidget {
                         height: 15,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           GestureDetector(
                               onTap: () {
                                 Get.back();
                               },
-                              child: ConfirmAndCancel(Opname: "Cancel")),
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color:
+                                        const Color.fromARGB(255, 39, 62, 82),
+                                    borderRadius: BorderRadius.circular(50)),
+                                child: Center(
+                                  child: Text("Cancel",
+                                      style: GoogleFonts.ebGaramond(
+                                          textStyle: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ))),
+                                ),
+                              )),
                           GestureDetector(
                               onTap: () {
-                                Get.to(const Login());
+                                Get.off(const Login());
                               },
-                              child: ConfirmAndCancel(Opname: "   Yes   "))
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color:
+                                        const Color.fromARGB(255, 39, 62, 82),
+                                    borderRadius: BorderRadius.circular(50)),
+                                child: Center(
+                                  child: Text("   Yes   ",
+                                      style: GoogleFonts.ebGaramond(
+                                          textStyle: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ))),
+                                ),
+                              ))
                         ],
                       )
                     ],

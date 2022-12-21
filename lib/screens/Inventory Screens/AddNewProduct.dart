@@ -89,7 +89,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    labelText: "Description",
+                    labelText: "Category",
                     labelStyle: const TextStyle(fontSize: 20),
                     floatingLabelBehavior: FloatingLabelBehavior.always),
               ),
@@ -132,7 +132,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
               ),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(10),
                 color: const Color.fromARGB(255, 228, 227, 227),
                 child: SingleChildScrollView(
                   child: Row(

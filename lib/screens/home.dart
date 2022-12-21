@@ -113,7 +113,7 @@ class Home extends StatelessWidget {
                       Expanded(
                           child: GestureDetector(
                         onTap: () {
-                          Get.to(const AccountsPage());
+                          Get.to(AccountsPage());
                         },
                         child: HomeWidget(
                             name: "Accounts", imagepath: "images/5.png"),
