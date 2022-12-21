@@ -20,22 +20,26 @@ class DrawerWidget extends StatelessWidget {
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 39, 62, 82),
+            ),
             accountName: Text("Maneger Name",
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
                   fontSize: 15,
-                  color: Colors.black,
+                  color: Colors.white,
                 ))),
             accountEmail: Text("maneger@gmail.com",
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
                   fontSize: 15,
-                  color: Colors.black,
+                  color: Colors.white,
                 ))),
             currentAccountPicture: const CircleAvatar(
-                // backgroundImage: NetworkImage(
-                //     "https://appmaking.co/wp-content/uploads/2021/08/appmaking-logo-colored.png"),
-                ),
+              backgroundColor: Colors.white,
+              // backgroundImage: NetworkImage(
+              //     "https://appmaking.co/wp-content/uploads/2021/08/appmaking-logo-colored.png"),
+            ),
             // decoration: const BoxDecoration(
             //   image: DecorationImage(
             //     image: NetworkImage(
