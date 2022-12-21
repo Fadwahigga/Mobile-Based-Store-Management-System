@@ -5,16 +5,22 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'confirmAndcancel.dart';
 
-class ProductMakeSellPopUp extends StatelessWidget {
+class ProductMakeSellPopUp extends StatefulWidget {
   const ProductMakeSellPopUp({super.key});
 
   @override
+  State<ProductMakeSellPopUp> createState() => _ProductMakeSellPopUpState();
+}
+
+class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
+  DateTime? _dateTime = DateTime.now();
+  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Expanded(
-        child: Container(
-            padding: const EdgeInsets.all(10),
-            color: const Color.fromARGB(255, 228, 227, 227),
+    return Flexible(
+      child: Container(
+          padding: const EdgeInsets.all(10),
+          color: const Color.fromARGB(255, 228, 227, 227),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -93,6 +99,53 @@ class ProductMakeSellPopUp extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Sale Date",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 20,
+                        ))),
+                    GestureDetector(
+                      onTap: () {
+                        showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2005),
+                          lastDate: DateTime(2050),
+                          builder: (context, child) {
+                            return Theme(
+                                data: ThemeData(
+                                  primarySwatch: Colors.grey,
+                                ),
+                                child: child!);
+                          },
+                        ).then((value) {
+                          setState(() {
+                            _dateTime = value!;
+                          });
+                        });
+                      },
+                      child: Container(
+                        height: 30,
+                        width: MediaQuery.of(context).size.width - 250,
+                        color: Colors.white,
+                        child: Center(
+                            child: Text(
+                          "${_dateTime!.day.toString()}/${_dateTime!.month.toString()}/${_dateTime!.year.toString()}",
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: const TextStyle(
+                            fontSize: 20,
+                          )),
+                        )),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
                 GestureDetector(
                   onTap: () {},
                   child: Text("Delete Product From List ",
@@ -118,8 +171,8 @@ class ProductMakeSellPopUp extends StatelessWidget {
                   child: ConfirmAndCancel(Opname: "Cancel"),
                 ),
               ],
-            )),
-      ),
+            ),
+          )),
     );
   }
 }

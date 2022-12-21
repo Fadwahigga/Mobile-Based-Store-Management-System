@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/screens/home.dart';
+import 'package:gp/screens/manegerOrEmployee.dart';
 import 'package:gp/screens/signUp.dart';
 
 class Login extends StatelessWidget {
@@ -77,7 +77,7 @@ class Login extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(const Home());
+                Get.to(const ManegerOrEmployeePage());
               },
               child: Container(
                 width: double.infinity,

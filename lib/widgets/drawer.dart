@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/login.dart';
-import 'package:gp/widgets/confirmAndcancel.dart';
-import 'package:gp/widgets/smallButton.dart';
-
 import '../screens/Inventory .dart';
 import '../screens/cashierScreens.dart';
 import '../screens/performance.dart';
@@ -20,8 +17,8 @@ class DrawerWidget extends StatelessWidget {
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 39, 62, 82),
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 39, 62, 82),
             ),
             accountName: Text("Maneger Name",
                 style: GoogleFonts.ebGaramond(

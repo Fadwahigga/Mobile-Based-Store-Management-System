@@ -56,11 +56,17 @@ class AccountsPage extends StatelessWidget {
               height: 40,
             ),
             const Divider(),
+            const SizedBox(
+              height: 40,
+            ),
             ////////////////////////////////////////////////////////////////////////////////////////
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 AccountWidget(dataName: "Revenue", money: "1000"),
+                const SizedBox(
+                  width: 15,
+                ),
                 AccountWidget(dataName: "Purchases", money: "1000")
               ],
             ),
@@ -71,7 +77,10 @@ class AccountsPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                AccountWidget(dataName: "Invoices", money: "1000"),
+                AccountWidget(dataName: "Invoices", money: "100"),
+                const SizedBox(
+                  width: 15,
+                ),
                 AccountWidget(dataName: "Sales", money: "1000")
               ],
             )
