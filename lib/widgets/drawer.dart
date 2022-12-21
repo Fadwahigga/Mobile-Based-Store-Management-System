@@ -7,6 +7,7 @@ import '../screens/cashierScreens.dart';
 import '../screens/performance.dart';
 import '../screens/puechases.dart';
 import '../screens/suppliers.dart';
+import 'confirmAndcancel.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -147,58 +148,29 @@ class DrawerWidget extends StatelessWidget {
                       ),
                       Center(
                         child: Text(
-                          "Are You Sure You Want To Logout?",
+                          "Are You Sure?",
                           style: GoogleFonts.ebGaramond(
                               textStyle: const TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold)),
+                                  fontSize: 25, fontWeight: FontWeight.bold)),
                         ),
                       ),
                       const SizedBox(
                         height: 15,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           GestureDetector(
                               onTap: () {
                                 Get.back();
                               },
-                              child: Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    color:
-                                        const Color.fromARGB(255, 39, 62, 82),
-                                    borderRadius: BorderRadius.circular(50)),
-                                child: Center(
-                                  child: Text("Cancel",
-                                      style: GoogleFonts.ebGaramond(
-                                          textStyle: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                      ))),
-                                ),
-                              )),
+                              child: ConfirmAndCancel(Opname: "Cancel")),
                           GestureDetector(
-                              onTap: () {
-                                Get.off(const Login());
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    color:
-                                        const Color.fromARGB(255, 39, 62, 82),
-                                    borderRadius: BorderRadius.circular(50)),
-                                child: Center(
-                                  child: Text("   Yes   ",
-                                      style: GoogleFonts.ebGaramond(
-                                          textStyle: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                      ))),
-                                ),
-                              ))
+                            onTap: () {
+                              Get.off(const Login());
+                            },
+                            child: ConfirmAndCancel(Opname: "   Yes   "),
+                          ),
                         ],
                       )
                     ],

@@ -29,11 +29,12 @@ class ManegerOrEmployeePage extends StatelessWidget {
                       content: Column(
                         children: [
                           SizedBox(
-                            height: 50,
+                            height: 35,
                             child: TextFormField(
                               obscureText: true,
                               decoration: const InputDecoration(
                                   hintText: "Password",
+                                  hintStyle: TextStyle(fontSize: 15),
                                   border: OutlineInputBorder(
                                       borderSide: BorderSide(width: 1))),
                             ),
