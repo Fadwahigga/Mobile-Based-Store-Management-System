@@ -25,7 +25,7 @@ class ManegerOrEmployeePage extends StatelessWidget {
                       title: "Write Password",
                       titleStyle: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
+                              fontSize: 22, fontWeight: FontWeight.bold)),
                       content: Column(
                         children: [
                           SizedBox(
@@ -34,7 +34,7 @@ class ManegerOrEmployeePage extends StatelessWidget {
                               obscureText: true,
                               decoration: const InputDecoration(
                                   hintText: "Password",
-                                  hintStyle: TextStyle(fontSize: 15),
+                                  hintStyle: TextStyle(fontSize: 12),
                                   border: OutlineInputBorder(
                                       borderSide: BorderSide(width: 1))),
                             ),
