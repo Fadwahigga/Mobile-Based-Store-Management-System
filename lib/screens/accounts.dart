@@ -77,7 +77,7 @@ class AccountsPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                AccountWidget(dataName: "Invoices", money: "100"),
+                AccountWidget(dataName: "Invoices", money: "100000"),
                 const SizedBox(
                   width: 15,
                 ),
