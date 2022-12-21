@@ -151,7 +151,7 @@ class DrawerWidget extends StatelessWidget {
                           "Are You Sure?",
                           style: GoogleFonts.ebGaramond(
                               textStyle: const TextStyle(
-                                  fontSize: 25, fontWeight: FontWeight.bold)),
+                                  fontSize: 22, fontWeight: FontWeight.bold)),
                         ),
                       ),
                       const SizedBox(

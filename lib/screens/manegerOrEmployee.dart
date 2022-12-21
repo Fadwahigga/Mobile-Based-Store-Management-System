@@ -29,7 +29,7 @@ class ManegerOrEmployeePage extends StatelessWidget {
                       content: Column(
                         children: [
                           SizedBox(
-                            height: 35,
+                            height: 40,
                             child: TextFormField(
                               obscureText: true,
                               decoration: const InputDecoration(

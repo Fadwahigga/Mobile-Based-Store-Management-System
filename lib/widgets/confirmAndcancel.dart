@@ -10,7 +10,7 @@ class ConfirmAndCancel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 39, 62, 82),
           borderRadius: BorderRadius.circular(30)),
@@ -18,7 +18,7 @@ class ConfirmAndCancel extends StatelessWidget {
         child: Text(Opname!,
             style: GoogleFonts.ebGaramond(
                 textStyle: const TextStyle(
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ))),
