@@ -127,9 +127,8 @@ class DrawerWidget extends StatelessWidget {
             leading: const Icon(Icons.logout),
             title: Text("Logout",
                 style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 20,
-                ))),
+                    textStyle:
+                        const TextStyle(fontSize: 20, color: Colors.red))),
             onTap: () {
               Get.defaultDialog(
                 barrierDismissible: false,
