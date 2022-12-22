@@ -4,6 +4,7 @@ import 'package:gp/screens/Performance%20Screens/bestSelling.dart';
 import 'package:gp/screens/Performance%20Screens/leastSelling.dart';
 import 'package:gp/screens/Performance%20Screens/lossRate.dart';
 import 'package:gp/screens/Performance%20Screens/profitsRate.dart';
+import 'package:gp/screens/Performance%20Screens/selesReports.dart';
 import 'package:gp/screens/Performance%20Screens/showProductsQuantities.dart';
 import 'package:gp/widgets/buttonContainer.dart';
 import '../widgets/appBar.dart';
@@ -32,6 +33,15 @@ class _PerformancePageState extends State<PerformancePage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
+                GestureDetector(
+                  onTap: () {
+                    Get.to(const SelesReportsPage());
+                  },
+                  child: buttonContainer(buttonContainerText: "Seles Reports"),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
                 ////////////////////////////////////////////////////////////////////////////////////////////////
                 GestureDetector(
                   onTap: () {

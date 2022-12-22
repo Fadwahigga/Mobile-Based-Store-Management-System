@@ -5,9 +5,14 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'confirmAndcancel.dart';
 
-class ProductInformationPopUp extends StatelessWidget {
+class ProductInformationPopUp extends StatefulWidget {
   const ProductInformationPopUp({super.key});
 
+  @override
+  State<ProductInformationPopUp> createState() => _ProductInformationPopUpState();
+}
+
+class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
   @override
   Widget build(BuildContext context) {
     return Flexible(

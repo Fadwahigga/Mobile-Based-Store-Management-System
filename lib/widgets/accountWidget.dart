@@ -13,7 +13,8 @@ class AccountWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width / 2.5,
+      width: 150,
+      height: 150,
       padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 228, 227, 227),

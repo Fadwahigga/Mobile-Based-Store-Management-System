@@ -1,7 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/widgets/suppliersBillsPopUp.dart';
 
 import '../../widgets/appBar.dart';
 
@@ -142,27 +144,36 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
               shrinkWrap: true,
               itemCount: suppliers.length,
               itemBuilder: (context, index) {
-                return Container(
-                  color: const Color.fromARGB(255, 228, 227, 227),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const Icon(
-                        Icons.contact_phone,
-                        size: 15,
-                      ),
-                      Text(
-                        suppliers[index],
-                        style: _textStyle,
-                      ),
-                      const SizedBox(
-                        width: 30,
-                      ),
-                      Text(
-                        suppliersPhone[index],
-                        style: _textStyle,
-                      ),
-                    ],
+                return GestureDetector(
+                  onTap: () {
+                    Get.defaultDialog(
+                      barrierDismissible: false,
+                      title: "",
+                      content: const SuppliersBillsPopUp(),
+                    );
+                  },
+                  child: Container(
+                    color: const Color.fromARGB(255, 228, 227, 227),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const Icon(
+                          Icons.contact_phone,
+                          size: 15,
+                        ),
+                        Text(
+                          suppliers[index],
+                          style: _textStyle,
+                        ),
+                        const SizedBox(
+                          width: 30,
+                        ),
+                        Text(
+                          suppliersPhone[index],
+                          style: _textStyle,
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },

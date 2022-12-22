@@ -5,9 +5,14 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'confirmAndcancel.dart';
 
-class PaymentMakeSellPopUp extends StatelessWidget {
+class PaymentMakeSellPopUp extends StatefulWidget {
   const PaymentMakeSellPopUp({super.key});
 
+  @override
+  State<PaymentMakeSellPopUp> createState() => _PaymentMakeSellPopUpState();
+}
+
+class _PaymentMakeSellPopUpState extends State<PaymentMakeSellPopUp> {
   @override
   Widget build(BuildContext context) {
     return Container(
