@@ -19,8 +19,7 @@ class AccountWidget extends StatelessWidget {
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 228, 227, 227),
           borderRadius: BorderRadius.circular(10)),
-      child: Expanded(
-          child: Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const Icon(Icons.monitor_heart_rounded),
@@ -39,7 +38,7 @@ class AccountWidget extends StatelessWidget {
             style: _textStyle2,
           ),
         ],
-      )),
+      ),
     );
   }
 }

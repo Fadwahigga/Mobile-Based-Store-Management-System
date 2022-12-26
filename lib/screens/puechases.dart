@@ -201,46 +201,44 @@ class _PuechasesPageState extends State<PuechasesPage> {
                       content: ProductInformationPopUp(),
                     );
                   },
-                  child: Expanded(
-                    child: Container(
-                      color: const Color.fromARGB(255, 228, 227, 227),
-                      padding: EdgeInsets.all(10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            productsList[index],
+                  child: Container(
+                    color: const Color.fromARGB(255, 228, 227, 227),
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          productsList[index],
+                          style: _textStyle,
+                        ),
+                        Container(
+                          color: Colors.white,
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            "100",
                             style: _textStyle,
                           ),
-                          Container(
-                            color: Colors.white,
-                            padding: EdgeInsets.all(5),
-                            child: Text(
-                              "100",
-                              style: _textStyle,
-                            ),
+                        ),
+                        Container(
+                          color: Colors.white,
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            "500",
+                            style: _textStyle,
                           ),
-                          Container(
-                            color: Colors.white,
-                            padding: EdgeInsets.all(5),
-                            child: Text(
-                              "500",
-                              style: _textStyle,
-                            ),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Container(
+                          color: Colors.white,
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            "500",
+                            style: _textStyle,
                           ),
-                          SizedBox(
-                            width: 30,
-                          ),
-                          Container(
-                            color: Colors.white,
-                            padding: EdgeInsets.all(5),
-                            child: Text(
-                              "500",
-                              style: _textStyle,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 );

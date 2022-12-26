@@ -13,7 +13,6 @@ class ProductMakeSellPopUp extends StatefulWidget {
 }
 
 class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
-  DateTime? _dateTime = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -93,53 +92,6 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                       color: Colors.white,
                       child:
                           const TextField(keyboardType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Sale Date",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 20,
-                        ))),
-                    GestureDetector(
-                      onTap: () {
-                        showDatePicker(
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(2005),
-                          lastDate: DateTime(2050),
-                          builder: (context, child) {
-                            return Theme(
-                                data: ThemeData(
-                                  primarySwatch: Colors.grey,
-                                ),
-                                child: child!);
-                          },
-                        ).then((value) {
-                          setState(() {
-                            _dateTime = value!;
-                          });
-                        });
-                      },
-                      child: Container(
-                        height: 30,
-                        width: MediaQuery.of(context).size.width - 250,
-                        color: Colors.white,
-                        child: Center(
-                            child: Text(
-                          "${_dateTime!.day.toString()}/${_dateTime!.month.toString()}/${_dateTime!.year.toString()}",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                            fontSize: 20,
-                          )),
-                        )),
-                      ),
                     ),
                   ],
                 ),

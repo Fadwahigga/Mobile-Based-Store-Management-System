@@ -43,7 +43,7 @@ class ManegerOrEmployeePage extends StatelessWidget {
                             height: 20,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               GestureDetector(
                                   onTap: () {
