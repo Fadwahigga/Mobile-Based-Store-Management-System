@@ -59,10 +59,10 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
   ];
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
-    fontSize: 15,
+    fontSize: 18,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
