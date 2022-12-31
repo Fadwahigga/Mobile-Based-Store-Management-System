@@ -7,8 +7,10 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:gp/widgets/appBar.dart';
 import 'package:gp/widgets/paymentBillPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
+import '../widgets/Search.dart';
 import '../widgets/barCode.dart';
 import '../widgets/productInformationPopUp.dart';
+
 
 class PuechasesPage extends StatefulWidget {
   const PuechasesPage({super.key});
@@ -140,7 +142,12 @@ class _PuechasesPageState extends State<PuechasesPage> {
                   )),
                 ),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showSearch(
+                          context: context,
+                          // delegate to customize the search bar
+                          delegate: CustomSearchDelegate());
+                    },
                     icon: Icon(
                       Icons.search,
                       size: 35,

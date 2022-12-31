@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/login.dart';
+import 'package:gp/screens/resetPassword.dart';
 import '../screens/Inventory .dart';
+import '../screens/ResetManegerPassword.dart';
 import '../screens/cashierScreens.dart';
 import '../screens/performance.dart';
 import '../screens/puechases.dart';
@@ -121,6 +123,29 @@ class DrawerWidget extends StatelessWidget {
                 ))),
             onTap: () {
               Get.to(const PerformancePage());
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.navigate_next),
+            title: Text("Reset Password",
+                style: GoogleFonts.ebGaramond(
+                    textStyle: const TextStyle(
+                  fontSize: 20,
+                ))),
+            onTap: () {
+              Get.to(const ResetPassword());
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.navigate_next),
+            title: Text("Reset Maneger Password",
+                style: GoogleFonts.ebGaramond(
+                    textStyle: const TextStyle(
+                  fontSize: 20,
+                ))),
+            onTap: () {
+              Get.to(const ResetManegerPassword());
             },
           ),
           ListTile(

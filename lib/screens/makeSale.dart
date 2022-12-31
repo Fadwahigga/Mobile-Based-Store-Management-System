@@ -7,6 +7,7 @@ import 'package:gp/widgets/paymentMakeSellPopUp.dart';
 import 'package:gp/widgets/productMakeSellPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import '../widgets/Search.dart';
 import '../widgets/appBar.dart';
 import '../widgets/barCode.dart';
 
@@ -142,7 +143,12 @@ class _MakeSalePageState extends State<MakeSalePage> {
                   style: _textStyle,
                 ),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showSearch(
+                          context: context,
+                          // delegate to customize the search bar
+                          delegate: CustomSearchDelegate());
+                    },
                     icon: Icon(
                       Icons.search,
                       size: 35,

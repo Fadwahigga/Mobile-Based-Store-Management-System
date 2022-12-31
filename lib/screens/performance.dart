@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:gp/screens/Performance%20Screens/selesReports.dart';
 import 'package:gp/widgets/buttonContainer.dart';
 import '../widgets/appBar.dart';
-import 'Performance Screens/showsStoreMovement.dart';
+import 'Performance Screens/Dashboard.dart';
 
 class PerformancePage extends StatefulWidget {
   const PerformancePage({super.key});
@@ -40,10 +40,9 @@ class _PerformancePageState extends State<PerformancePage> {
                 ////////////////////////////////////////////////////////////////////////////////////////////////
                 GestureDetector(
                   onTap: () {
-                    Get.to(const ShowStoreMovementPage());
+                    Get.to(const Dashboard());
                   },
-                  child: buttonContainer(
-                      buttonContainerText: "Show Store Movement"),
+                  child: buttonContainer(buttonContainerText: "Dashboard"),
                 ),
               ],
             ),

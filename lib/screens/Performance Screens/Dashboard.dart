@@ -7,15 +7,16 @@ import 'package:gp/screens/PerformanceCharts/ShowStoreMovementChart.dart';
 import '../../widgets/appBar.dart';
 import '../PerformanceCharts/BestSellingChart.dart';
 import '../PerformanceCharts/LeastSellingChart.dart';
+import '../PerformanceCharts/LowStockProductsChart.dart';
 
-class ShowStoreMovementPage extends StatefulWidget {
-  const ShowStoreMovementPage({super.key});
+class Dashboard extends StatefulWidget {
+  const Dashboard({super.key});
 
   @override
-  State<ShowStoreMovementPage> createState() => _ShowStoreMovementPageState();
+  State<Dashboard> createState() => _DashboardState();
 }
 
-class _ShowStoreMovementPageState extends State<ShowStoreMovementPage> {
+class _DashboardState extends State<Dashboard> {
   DateTime? _dateTimeFrom = DateTime.now();
   DateTime? _dateTimeTo = DateTime.now();
   @override
@@ -23,7 +24,7 @@ class _ShowStoreMovementPageState extends State<ShowStoreMovementPage> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Show Store Movement")),
+          child: AppBarWidget(appBarTitle: "Dashboard")),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
@@ -117,23 +118,26 @@ class _ShowStoreMovementPageState extends State<ShowStoreMovementPage> {
             const SizedBox(
               height: 10,
             ),
-            ShowStoreMovementChart(),
-            const SizedBox(
-              height: 10,
-            ),
+            Text("Store Movement",
+                style: GoogleFonts.ebGaramond(
+                    textStyle: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold))),
+            const ShowStoreMovementChart(),
             Text("Best Selling Chart",
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),
             BestSellingChart(),
-            const SizedBox(
-              height: 10,
-            ),
             Text("Least Selling Chart",
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),
-            LeastSellingChart()
+            LeastSellingChart(),
+            Text("Low Stock Products",
+                style: GoogleFonts.ebGaramond(
+                    textStyle: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold))),
+            LowStockProductsChart()
           ],
         ),
       ),
