@@ -40,6 +40,8 @@ dependencies:
   get: ^4.6.5
   calendar_date_picker2: ^0.3.3
   qr_code_scanner: ^1.0.1
+  syncfusion_flutter_charts: ^20.4.41
+  charts_flutter: ^0.12.0
 
 
 

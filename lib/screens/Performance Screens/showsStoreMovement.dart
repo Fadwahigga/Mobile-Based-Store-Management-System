@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/screens/PerformanceCharts/ShowStoreMovementChart.dart';
 
 import '../../widgets/appBar.dart';
-
-
 
 class ShowStoreMovementPage extends StatefulWidget {
   const ShowStoreMovementPage({super.key});
@@ -23,7 +22,8 @@ class _ShowStoreMovementPageState extends State<ShowStoreMovementPage> {
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
           child: AppBarWidget(appBarTitle: "Show Store Movement")),
-      body: Column(
+      body: ListView(
+        shrinkWrap: true,
         children: [
           Container(
             color: const Color.fromARGB(255, 228, 227, 227),
@@ -110,6 +110,10 @@ class _ShowStoreMovementPageState extends State<ShowStoreMovementPage> {
               ],
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          ShowStoreMovementChart()
         ],
       ),
     );

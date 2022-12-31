@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/appBar.dart';
-
-
+import '../PerformanceCharts/LeastSellingChart.dart';
 
 class LeastSellingPage extends StatefulWidget {
   const LeastSellingPage({super.key});
@@ -110,6 +109,10 @@ class _LeastSellingPageState extends State<LeastSellingPage> {
               ],
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          LeastSellingChart()
         ],
       ),
     );

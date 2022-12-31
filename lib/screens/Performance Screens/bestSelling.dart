@@ -2,9 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/screens/PerformanceCharts/BestSellingChart.dart';
 import '../../widgets/appBar.dart';
-
-
 
 class BestSellingPage extends StatefulWidget {
   const BestSellingPage({super.key});
@@ -109,6 +108,10 @@ class _BestSellingPageState extends State<BestSellingPage> {
               ],
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          BestSellingChart()
         ],
       ),
     );
