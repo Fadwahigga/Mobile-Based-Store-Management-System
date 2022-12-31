@@ -11,15 +11,14 @@ import '../widgets/Search.dart';
 import '../widgets/barCode.dart';
 import '../widgets/productInformationPopUp.dart';
 
-
-class PuechasesPage extends StatefulWidget {
-  const PuechasesPage({super.key});
+class PurchasesPage extends StatefulWidget {
+  const PurchasesPage({super.key});
 
   @override
-  State<PuechasesPage> createState() => _PuechasesPageState();
+  State<PurchasesPage> createState() => _PurchasesPageState();
 }
 
-class _PuechasesPageState extends State<PuechasesPage> {
+class _PurchasesPageState extends State<PurchasesPage> {
   DateTime? _dateTime = DateTime.now();
   Barcode? result;
   QRViewController? controller;

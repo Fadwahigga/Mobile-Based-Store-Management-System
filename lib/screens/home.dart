@@ -5,7 +5,7 @@ import 'package:gp/screens/Inventory%20.dart';
 import 'package:gp/screens/accounts.dart';
 import 'package:gp/screens/cashierScreens.dart';
 import 'package:gp/screens/performance.dart';
-import 'package:gp/screens/puechases.dart';
+import 'package:gp/screens/purchases.dart';
 import 'package:gp/screens/suppliers.dart';
 import 'package:gp/widgets/drawer.dart';
 import 'package:gp/widgets/homeWidget.dart';
@@ -52,10 +52,10 @@ class Home extends StatelessWidget {
                       Expanded(
                         child: GestureDetector(
                             onTap: () {
-                              Get.to(const PuechasesPage());
+                              Get.to(const PurchasesPage());
                             },
                             child: HomeWidget(
-                                name: "Puechases", imagepath: "images/1.png")),
+                                name: "Purchases", imagepath: "images/1.png")),
                       ),
                       const SizedBox(
                         width: 20,

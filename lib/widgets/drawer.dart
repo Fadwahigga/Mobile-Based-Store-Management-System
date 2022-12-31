@@ -7,7 +7,7 @@ import '../screens/Inventory .dart';
 import '../screens/ResetManegerPassword.dart';
 import '../screens/cashierScreens.dart';
 import '../screens/performance.dart';
-import '../screens/puechases.dart';
+import '../screens/purchases.dart';
 import '../screens/suppliers.dart';
 import 'confirmAndcancel.dart';
 
@@ -69,7 +69,7 @@ class DrawerWidget extends StatelessWidget {
                   fontSize: 20,
                 ))),
             onTap: () {
-              Get.to(const PuechasesPage());
+              Get.to(const PurchasesPage());
             },
           ),
           ListTile(
