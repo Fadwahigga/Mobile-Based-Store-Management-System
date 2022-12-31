@@ -74,16 +74,9 @@ class AccountsPage extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                AccountWidget(dataName: "Invoices", money: "100000"),
-                const SizedBox(
-                  width: 15,
-                ),
-                AccountWidget(dataName: "Sales", money: "1000")
-              ],
-            )
+            SizedBox(
+                width: double.infinity,
+                child: AccountWidget(dataName: "Sales", money: "1000"))
           ],
         ),
       ),
