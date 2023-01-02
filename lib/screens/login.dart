@@ -47,7 +47,7 @@ class Login extends StatelessWidget {
                       icon: const Icon(Icons.remove_red_eye_outlined)),
                   prefixIcon: const Icon(Icons.password),
                   hintText: "Password",
-                  hintStyle: TextStyle(fontSize: 12),
+                  hintStyle: const TextStyle(fontSize: 12),
                   border: const OutlineInputBorder(
                       borderSide: BorderSide(width: 1))),
             ),
