@@ -40,7 +40,7 @@ class _DashboardState extends State<Dashboard> {
                     "From",
                     style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold)),
+                            fontSize: 15, fontWeight: FontWeight.bold)),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -70,7 +70,7 @@ class _DashboardState extends State<Dashboard> {
                         "${_dateTimeFrom!.day.toString()}/${_dateTimeFrom!.month.toString()}/${_dateTimeFrom!.year.toString()}",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold)),
+                                fontSize: 15, fontWeight: FontWeight.bold)),
                       ),
                     ),
                   ),
@@ -78,7 +78,7 @@ class _DashboardState extends State<Dashboard> {
                     "To",
                     style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold)),
+                            fontSize: 15, fontWeight: FontWeight.bold)),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -108,7 +108,7 @@ class _DashboardState extends State<Dashboard> {
                         "${_dateTimeTo!.day.toString()}/${_dateTimeTo!.month.toString()}/${_dateTimeTo!.year.toString()}",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold)),
+                                fontSize: 15, fontWeight: FontWeight.bold)),
                       ),
                     ),
                   ),
@@ -121,22 +121,22 @@ class _DashboardState extends State<Dashboard> {
             Text("Store Movement",
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold))),
+                        fontSize: 15, fontWeight: FontWeight.bold))),
             const ShowStoreMovementChart(),
             Text("Best Selling Chart",
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold))),
+                        fontSize: 15, fontWeight: FontWeight.bold))),
             BestSellingChart(),
             Text("Least Selling Chart",
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold))),
+                        fontSize: 15, fontWeight: FontWeight.bold))),
             LeastSellingChart(),
             Text("Low Stock Products",
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold))),
+                        fontSize: 15, fontWeight: FontWeight.bold))),
             LowStockProductsChart()
           ],
         ),

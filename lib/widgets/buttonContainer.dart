@@ -11,7 +11,7 @@ class buttonContainer extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(left: 20, right: 20),
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: const Color.fromARGB(255, 39, 62, 82)),
@@ -19,7 +19,7 @@ class buttonContainer extends StatelessWidget {
         child: Text(buttonContainerText!,
             style: GoogleFonts.ebGaramond(
                 textStyle: const TextStyle(
-              fontSize: 20,
+              fontSize: 15,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ))),

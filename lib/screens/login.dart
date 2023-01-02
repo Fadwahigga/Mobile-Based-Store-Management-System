@@ -49,27 +49,29 @@ class Login extends StatelessWidget {
                       borderSide: BorderSide(width: 1))),
             ),
             Container(
-              margin: const EdgeInsets.all(10),
-              child: Row(
-                children: [
-                  Text("If You Havan't Account ",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold))),
-                  InkWell(
-                    onTap: () {
-                      Get.to(const SignUp());
-                    },
-                    child: Text(
-                      " Sign Up",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 39, 62, 82))),
-                    ),
-                  )
-                ],
+              margin: const EdgeInsets.all(5),
+              child: Expanded(
+                child: Row(
+                  children: [
+                    Text("If You Havan't Account ",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold))),
+                    InkWell(
+                      onTap: () {
+                        Get.to(const SignUp());
+                      },
+                      child: Text(
+                        " Sign Up",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 39, 62, 82))),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             const SizedBox(

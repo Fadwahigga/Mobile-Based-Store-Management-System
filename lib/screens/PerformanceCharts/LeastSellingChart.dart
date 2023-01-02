@@ -26,11 +26,6 @@ class LeastSellingChart extends StatelessWidget {
       soldquantity: 450,
       color: charts.ColorUtil.fromDartColor(Colors.yellow),
     ),
-    BarChartModel(
-      productname: "product5",
-      soldquantity: 650,
-      color: charts.ColorUtil.fromDartColor(Colors.lightBlueAccent),
-    ),
   ];
 
   @override

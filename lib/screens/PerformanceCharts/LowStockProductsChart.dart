@@ -26,11 +26,6 @@ class LowStockProductsChart extends StatelessWidget {
       quantity: 450,
       color: charts.ColorUtil.fromDartColor(Colors.yellow),
     ),
-    BarChartModel(
-      productname: "product5",
-      quantity: 650,
-      color: charts.ColorUtil.fromDartColor(Colors.lightBlueAccent),
-    ),
   ];
 
   @override

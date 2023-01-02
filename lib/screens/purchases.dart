@@ -36,10 +36,10 @@ class _PurchasesPageState extends State<PurchasesPage> {
   ];
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
-    fontSize: 20,
+    fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,14 +81,14 @@ class _PurchasesPageState extends State<PurchasesPage> {
                     "Choose Bill Date",
                     style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
-                      fontSize: 25,
+                      fontSize: 15,
                     )),
                   ),
                   Text(
                     "${_dateTime!.day.toString()}/${_dateTime!.month.toString()}/${_dateTime!.year.toString()}",
                     style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
-                      fontSize: 22,
+                      fontSize: 15,
                     )),
                   ),
                   IconButton(
@@ -133,11 +133,14 @@ class _PurchasesPageState extends State<PurchasesPage> {
                       width: 70,
                       child: Image(image: AssetImage("images/barcode.jpg"))),
                 ),
+                SizedBox(
+                  width: 3,
+                ),
                 Text(
                   "Search Product Name Or SN",
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 15,
                   )),
                 ),
                 IconButton(
@@ -180,7 +183,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
                   style: _textStyle2,
                 ),
                 SizedBox(
-                  width: 30,
+                  width: 10,
                 ),
                 Text(
                   "Total",

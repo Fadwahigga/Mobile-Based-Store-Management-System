@@ -27,7 +27,7 @@ class _PaymentMakeSellPopUpState extends State<PaymentMakeSellPopUp> {
                 child: Text("Payment Bill",
                     style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
-                            fontSize: 18,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: Colors.white))),
               ),
@@ -41,7 +41,7 @@ class _PaymentMakeSellPopUpState extends State<PaymentMakeSellPopUp> {
                 Text("Total",
                     style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                     ))),
                 Container(
                   height: 30,
@@ -60,7 +60,7 @@ class _PaymentMakeSellPopUpState extends State<PaymentMakeSellPopUp> {
                 Text("Payed",
                     style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                     ))),
                 Container(
                   height: 30,
@@ -79,7 +79,7 @@ class _PaymentMakeSellPopUpState extends State<PaymentMakeSellPopUp> {
                 Text("Change",
                     style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                     ))),
                 Container(
                   height: 30,

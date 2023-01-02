@@ -59,10 +59,10 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
   ];
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
-    fontSize: 18,
+    fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +81,7 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
                   "From",
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
-                          fontSize: 22, fontWeight: FontWeight.bold)),
+                          fontSize: 15, fontWeight: FontWeight.bold)),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -111,7 +111,7 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
                       "${_dateTimeFrom!.day.toString()}/${_dateTimeFrom!.month.toString()}/${_dateTimeFrom!.year.toString()}",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
+                              fontSize: 15, fontWeight: FontWeight.bold)),
                     ),
                   ),
                 ),
@@ -119,7 +119,7 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
                   "To",
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold)),
+                          fontSize: 15, fontWeight: FontWeight.bold)),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -149,7 +149,7 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
                       "${_dateTimeTo!.day.toString()}/${_dateTimeTo!.month.toString()}/${_dateTimeTo!.year.toString()}",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
+                              fontSize: 15, fontWeight: FontWeight.bold)),
                     ),
                   ),
                 ),
@@ -170,22 +170,13 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
                   "Product Name",
                   style: _textStyle2,
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
                 Text(
                   "Price",
                   style: _textStyle2,
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
                 Text(
                   " Sold Quantity",
                   style: _textStyle2,
-                ),
-                const SizedBox(
-                  width: 20,
                 ),
                 Text(
                   "Total",

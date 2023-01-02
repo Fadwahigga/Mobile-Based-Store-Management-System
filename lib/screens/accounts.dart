@@ -9,7 +9,7 @@ import '../widgets/appBar.dart';
 class AccountsPage extends StatelessWidget {
   AccountsPage({super.key});
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class AccountsPage extends StatelessWidget {
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                         color: Colors.white,
-                        fontSize: 40,
+                        fontSize: 20,
                       )),
                     ),
                   ),
@@ -45,7 +45,7 @@ class AccountsPage extends StatelessWidget {
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                               color: Colors.white,
-                              fontSize: 40,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold)),
                     ),
                   ),
@@ -60,19 +60,18 @@ class AccountsPage extends StatelessWidget {
               height: 40,
             ),
             ////////////////////////////////////////////////////////////////////////////////////////
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                AccountWidget(dataName: "Revenue", money: "1000"),
-                const SizedBox(
-                  width: 15,
-                ),
-                AccountWidget(dataName: "Purchases", money: "1000")
-              ],
+            SizedBox(
+                width: double.infinity,
+                child: AccountWidget(dataName: "Revenue", money: "1000")),
+            const SizedBox(
+              height: 10,
             ),
+            SizedBox(
+                width: double.infinity,
+                child: AccountWidget(dataName: "Purchases", money: "1000")),
             //////////////////////////////////////////////////////////////////////////////////////////
             const SizedBox(
-              height: 40,
+              height: 10,
             ),
             SizedBox(
                 width: double.infinity,

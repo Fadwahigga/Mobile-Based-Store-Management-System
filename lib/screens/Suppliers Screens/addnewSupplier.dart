@@ -6,8 +6,6 @@ import 'package:gp/widgets/smallButton.dart';
 
 import '../../widgets/appBar.dart';
 
-
-
 class AddNewSupplierPage extends StatelessWidget {
   const AddNewSupplierPage({super.key});
 
@@ -30,7 +28,7 @@ class AddNewSupplierPage extends StatelessWidget {
               decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  labelStyle: const TextStyle(fontSize: 20),
+                  labelStyle: const TextStyle(fontSize: 15),
                   labelText: "Supplier Name",
                   floatingLabelBehavior: FloatingLabelBehavior.always),
             ),
@@ -43,7 +41,7 @@ class AddNewSupplierPage extends StatelessWidget {
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
                   labelText: "Supplier Phone Number",
-                  labelStyle: const TextStyle(fontSize: 20),
+                  labelStyle: const TextStyle(fontSize: 15),
                   floatingLabelBehavior: FloatingLabelBehavior.always),
             ),
             const SizedBox(

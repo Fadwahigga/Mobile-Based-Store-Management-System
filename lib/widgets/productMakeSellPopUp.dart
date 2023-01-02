@@ -30,7 +30,7 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                     child: Text("Product Information",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                                fontSize: 18,
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white))),
                   ),
@@ -45,7 +45,7 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                       child: Text("Available Quantity",
                           style: GoogleFonts.ebGaramond(
                               textStyle: const TextStyle(
-                            fontSize: 18,
+                            fontSize: 15,
                           ))),
                     ),
                     Container(
@@ -65,7 +65,7 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                     Text("Price",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 15,
                         ))),
                     Container(
                       height: 30,
@@ -84,7 +84,7 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                     Text("Quantities",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 15,
                         ))),
                     Container(
                       height: 30,
@@ -103,7 +103,7 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                   child: Text("Delete Product From List ",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold,
                         color: Colors.red,
                       ))),

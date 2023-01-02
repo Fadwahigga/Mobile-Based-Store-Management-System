@@ -9,7 +9,8 @@ class ProductInformationPopUp extends StatefulWidget {
   const ProductInformationPopUp({super.key});
 
   @override
-  State<ProductInformationPopUp> createState() => _ProductInformationPopUpState();
+  State<ProductInformationPopUp> createState() =>
+      _ProductInformationPopUpState();
 }
 
 class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
@@ -30,7 +31,7 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                     child: Text("Product Information",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                                fontSize: 18,
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white))),
                   ),
@@ -44,8 +45,11 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                     Text("Exist Quantity",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 15,
                         ))),
+                    const SizedBox(
+                      width: 3,
+                    ),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -63,8 +67,11 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                     Text("New Quantity",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 15,
                         ))),
+                    const SizedBox(
+                      width: 3,
+                    ),
                     Container(
                         height: 30,
                         width: MediaQuery.of(context).size.width - 250,
@@ -82,7 +89,7 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                     Text("Old cost",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 15,
                         ))),
                     Container(
                       height: 30,
@@ -101,7 +108,7 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                     Text("New cost",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 15,
                         ))),
                     Container(
                       height: 30,
@@ -120,7 +127,7 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                   child: Text("Delete Product From List ",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold,
                         color: Colors.red,
                       ))),

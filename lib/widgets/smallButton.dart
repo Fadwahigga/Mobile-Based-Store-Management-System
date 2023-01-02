@@ -11,7 +11,7 @@ class SmallButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(left: 120, right: 120),
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 39, 62, 82),
           borderRadius: BorderRadius.circular(50)),
@@ -19,7 +19,7 @@ class SmallButton extends StatelessWidget {
         child: Text(buttonName!,
             style: GoogleFonts.ebGaramond(
                 textStyle: const TextStyle(
-              fontSize: 20,
+              fontSize: 15,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ))),

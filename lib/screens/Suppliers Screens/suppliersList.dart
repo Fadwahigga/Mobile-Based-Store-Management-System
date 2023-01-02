@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/widgets/suppliersBillsPopUp.dart';
 
+import '../../widgets/Search.dart';
 import '../../widgets/appBar.dart';
 
 class SuppliersListPage extends StatefulWidget {
@@ -69,10 +70,10 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
   ];
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
-    fontSize: 20,
+    fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,11 +93,16 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                   "Search By Supplier Name Or Number",
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 15,
                   )),
                 ),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showSearch(
+                          context: context,
+                          // delegate to customize the search bar
+                          delegate: CustomSearchDelegate());
+                    },
                     icon: const Icon(
                       Icons.search,
                       size: 30,

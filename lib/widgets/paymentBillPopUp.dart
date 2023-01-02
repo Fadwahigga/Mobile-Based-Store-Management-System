@@ -29,7 +29,7 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                     child: Text("Payment Bill",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                                fontSize: 18,
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white))),
                   ),
@@ -40,7 +40,11 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Text("Total"),
+                    Text("Total",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 15,
+                        ))),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -55,7 +59,11 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Text("Payed"),
+                    Text("Payed",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 15,
+                        ))),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -70,7 +78,11 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Text("Change"),
+                    Text("Change",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 15,
+                        ))),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -85,7 +97,7 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                 Text(" Save This Bill To A Supplier Account",
                     style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
-                      fontSize: 15,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 39, 62, 82),
                     ))),
@@ -97,7 +109,7 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: "Search For A Supplier",
-                      hintStyle: const TextStyle(fontSize: 15),
+                      hintStyle: const TextStyle(fontSize: 10),
                       floatingLabelBehavior: FloatingLabelBehavior.always),
                 ),
                 const SizedBox(

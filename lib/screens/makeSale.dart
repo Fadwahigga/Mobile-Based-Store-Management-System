@@ -36,10 +36,10 @@ class _MakeSalePageState extends State<MakeSalePage> {
   ];
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
-    fontSize: 20,
+    fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
   void onQRViewCreated(QRViewController controller) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
@@ -87,10 +87,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                 children: [
                   Text(
                     "choose bill date",
-                    style: GoogleFonts.ebGaramond(
-                        textStyle: const TextStyle(
-                      fontSize: 25,
-                    )),
+                    style: _textStyle,
                   ),
                   Text(
                     "${_dateTime!.day.toString()}/${_dateTime!.month.toString()}/${_dateTime!.year.toString()}",
@@ -182,7 +179,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                   style: _textStyle2,
                 ),
                 SizedBox(
-                  width: 30,
+                  width: 10,
                 ),
                 Text(
                   "Total",
