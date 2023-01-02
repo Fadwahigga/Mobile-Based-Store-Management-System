@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-      drawer: const DrawerWidget(),
+      drawer: DrawerWidget(),
       body: SafeArea(
         child: Center(
           child: Padding(

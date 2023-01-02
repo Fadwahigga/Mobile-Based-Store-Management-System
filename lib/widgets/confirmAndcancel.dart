@@ -18,7 +18,7 @@ class ConfirmAndCancel extends StatelessWidget {
         child: Text(Opname!,
             style: GoogleFonts.ebGaramond(
                 textStyle: const TextStyle(
-              fontSize: 15,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ))),

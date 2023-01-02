@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/manegerOrEmployee.dart';
 import 'package:gp/screens/signUp.dart';
+import 'package:gp/widgets/buttonContainer.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -20,7 +21,7 @@ class Login extends StatelessWidget {
               "Login",
               style: GoogleFonts.ebGaramond(
                   textStyle: const TextStyle(
-                      fontSize: 40,
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 39, 62, 82))),
             ),
@@ -32,6 +33,7 @@ class Login extends StatelessWidget {
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.email),
                   hintText: "Email",
+                  hintStyle: TextStyle(fontSize: 12),
                   border: OutlineInputBorder(borderSide: BorderSide(width: 1))),
             ),
             const SizedBox(
@@ -45,11 +47,12 @@ class Login extends StatelessWidget {
                       icon: const Icon(Icons.remove_red_eye_outlined)),
                   prefixIcon: const Icon(Icons.password),
                   hintText: "Password",
+                  hintStyle: TextStyle(fontSize: 12),
                   border: const OutlineInputBorder(
                       borderSide: BorderSide(width: 1))),
             ),
             Container(
-              margin: const EdgeInsets.all(5),
+              margin: const EdgeInsets.all(10),
               child: Expanded(
                 child: Row(
                   children: [
@@ -65,7 +68,7 @@ class Login extends StatelessWidget {
                         " Sign Up",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                                fontSize: 20,
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromARGB(255, 39, 62, 82))),
                       ),
@@ -81,22 +84,7 @@ class Login extends StatelessWidget {
               onTap: () {
                 Get.to(const ManegerOrEmployeePage());
               },
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 39, 62, 82),
-                    borderRadius: BorderRadius.circular(40)),
-                child: Center(
-                    child: Text(
-                  "Login",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold)),
-                )),
-              ),
+              child: buttonContainer(buttonContainerText: "Login"),
             )
           ],
         ),

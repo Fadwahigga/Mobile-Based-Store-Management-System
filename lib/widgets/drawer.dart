@@ -12,8 +12,11 @@ import '../screens/suppliers.dart';
 import 'confirmAndcancel.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
-
+  DrawerWidget({super.key});
+  final TextStyle _textStyle = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(
+    fontSize: 15,
+  ));
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -23,18 +26,8 @@ class DrawerWidget extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 39, 62, 82),
             ),
-            accountName: Text("Maneger Name",
-                style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
-                ))),
-            accountEmail: Text("maneger@gmail.com",
-                style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
-                ))),
+            accountName: Text("Maneger Name", style: _textStyle),
+            accountEmail: Text("maneger@gmail.com", style: _textStyle),
             currentAccountPicture: const CircleAvatar(
               backgroundColor: Colors.white,
               // backgroundImage: NetworkImage(
@@ -63,64 +56,40 @@ class DrawerWidget extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Puechases",
-                style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 20,
-                ))),
+            title: Text("Puechases", style: _textStyle),
             onTap: () {
               Get.to(const PurchasesPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Make Sale",
-                style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 20,
-                ))),
+            title: Text("Make Sale", style: _textStyle),
             onTap: () {
               Get.to(const CashierScreensPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Suppliers",
-                style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 20,
-                ))),
+            title: Text("Suppliers", style: _textStyle),
             onTap: () {
               Get.to(const SuppliersPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Inventory",
-                style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 20,
-                ))),
+            title: Text("Inventory", style: _textStyle),
             onTap: () {
               Get.to(const InventoryPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Accounts",
-                style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 20,
-                ))),
+            title: Text("Accounts", style: _textStyle),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Performance",
-                style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 20,
-                ))),
+            title: Text("Performance", style: _textStyle),
             onTap: () {
               Get.to(const PerformancePage());
             },
@@ -128,22 +97,14 @@ class DrawerWidget extends StatelessWidget {
           const Divider(),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Reset Password",
-                style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 20,
-                ))),
+            title: Text("Reset Password", style: _textStyle),
             onTap: () {
               Get.to(const ResetPassword());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Reset Maneger Password",
-                style: GoogleFonts.ebGaramond(
-                    textStyle: const TextStyle(
-                  fontSize: 20,
-                ))),
+            title: Text("Reset Maneger Password", style: _textStyle),
             onTap: () {
               Get.to(const ResetManegerPassword());
             },
@@ -153,7 +114,7 @@ class DrawerWidget extends StatelessWidget {
             title: Text("Logout",
                 style: GoogleFonts.ebGaramond(
                     textStyle:
-                        const TextStyle(fontSize: 20, color: Colors.red))),
+                        const TextStyle(fontSize: 15, color: Colors.red))),
             onTap: () {
               Get.defaultDialog(
                 barrierDismissible: false,
@@ -173,9 +134,7 @@ class DrawerWidget extends StatelessWidget {
                       Center(
                         child: Text(
                           "Are You Sure?",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                                  fontSize: 25, fontWeight: FontWeight.bold)),
+                          style: _textStyle,
                         ),
                       ),
                       const SizedBox(

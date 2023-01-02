@@ -25,7 +25,7 @@ class ManegerOrEmployeePage extends StatelessWidget {
                       title: "Write Password",
                       titleStyle: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                              fontSize: 22, fontWeight: FontWeight.bold)),
+                              fontSize: 15, fontWeight: FontWeight.bold)),
                       content: Column(
                         children: [
                           SizedBox(
@@ -54,7 +54,7 @@ class ManegerOrEmployeePage extends StatelessWidget {
                                 onTap: () {
                                   Get.off(const Home());
                                 },
-                                child: ConfirmAndCancel(Opname: "  OK  "),
+                                child: ConfirmAndCancel(Opname: "   OK   "),
                               ),
                             ],
                           )
