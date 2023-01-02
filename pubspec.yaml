@@ -42,8 +42,19 @@ dependencies:
   qr_code_scanner: ^1.0.1
   syncfusion_flutter_charts: ^20.4.41
   charts_flutter: ^0.12.0
+  flutter_launcher_icons: ^0.11.0
+  flutter_native_splash: ^2.2.16
 
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/logo2.png"
+
+flutter_native_splash:
+  image: images/logos.png
+  color: "#ffffff"
+  
 
 dev_dependencies:
   flutter_test:
