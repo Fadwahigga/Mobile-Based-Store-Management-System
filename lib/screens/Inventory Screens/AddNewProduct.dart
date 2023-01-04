@@ -54,7 +54,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Get.to(BarCodeClass(funBar: onQRViewCreated));
+                        Get.to(BarCodeClass());
                       },
                       child: SizedBox(
                           width: 70,

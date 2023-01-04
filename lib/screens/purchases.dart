@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:gp/widgets/appBar.dart';
+
 import 'package:gp/widgets/paymentBillPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
 import '../widgets/Search.dart';
+import '../widgets/appBar.dart';
 import '../widgets/barCode.dart';
 import '../widgets/productInformationPopUp.dart';
 
@@ -20,8 +20,8 @@ class PurchasesPage extends StatefulWidget {
 
 class _PurchasesPageState extends State<PurchasesPage> {
   DateTime? _dateTime = DateTime.now();
-  Barcode? result;
-  QRViewController? controller;
+  // Barcode? result;
+  // QRViewController? controller;
   List productsList = [
     "Product Name",
     "Product Name",
@@ -40,6 +40,16 @@ class _PurchasesPageState extends State<PurchasesPage> {
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
+  @override
+  // void reassemble() {
+  //   super.reassemble();
+  //   if (Platform.isAndroid) {
+  //     controller!.pauseCamera();
+  //   } else if (Platform.isIOS) {
+  //     controller!.resumeCamera();
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,7 +137,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(BarCodeClass(funBar: onQRViewCreated));
+                    Get.to(BarCodeClass());
                   },
                   child: SizedBox(
                       width: 70,
@@ -292,12 +302,13 @@ class _PurchasesPageState extends State<PurchasesPage> {
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///BarCode Function
 
-  void onQRViewCreated(QRViewController controller) {
-    this.controller = controller;
-    controller.scannedDataStream.listen((scanData) {
-      setState(() {
-        result = scanData;
-      });
-    });
-  }
+  // void onQRViewCreated(QRViewController controller) {
+  //   this.controller = controller;
+  //   controller.scannedDataStream.listen((scanData) {
+  //     setState(() {
+  //       result = scanData;
+  //     });
+  //   });
+  // }
+
 }

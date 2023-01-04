@@ -1,56 +1,88 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_const_constructors
 // ignore_for_file: file_names, must_be_immutable
 
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:gp/widgets/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-class BarCodeClass extends StatelessWidget {
-  BarCodeClass({
-    Key? key,
-    required this.funBar,
-  }) : super(key: key);
+import 'Search.dart';
 
+class BarCodeClass extends StatefulWidget {
+  const BarCodeClass({super.key});
+
+  @override
+  State<BarCodeClass> createState() => _BarCodeClassState();
+}
+
+class _BarCodeClassState extends State<BarCodeClass> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-
-  void Function(QRViewController)? funBar;
+  Barcode? result;
+  QRViewController? controller;
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (Platform.isAndroid) {
+      controller!.pauseCamera();
+    } else if (Platform.isIOS) {
+      controller!.resumeCamera();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            height: 500,
-            child: Expanded(
-              child: QRView(
-                key: qrKey,
-                onQRViewCreated: funBar!,
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 3,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: QRView(
+                  cameraFacing: CameraFacing.back,
+                  overlay: QrScannerOverlayShape(),
+                  key: qrKey,
+                  onQRViewCreated: _onQRViewCreated,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 100,
-          ),
-          GestureDetector(
-            onTap: () {
-              Get.back();
-            },
-            child: SmallButton(buttonName: "Done"),
-          )
-          // const SizedBox(
-          //   height: 20,
-          // ),
-          // Center(
-          //   child: (result != null)
-          //       ? Text(
-          //           'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}')
-          //       : const Text('Scan a code'),
-          // )
-        ],
+            Expanded(
+              flex: 1,
+              child: Center(
+                child: (result != null)
+                    ? Text('${result!.code} Now click on search')
+                    : Text(
+                        'Touch the screen and point the camera to Scan a code'),
+              ),
+            ),
+            GestureDetector(
+                onTap: () {
+                  showSearch(
+                      context: context,
+                      // delegate to customize the search bar
+                      delegate: CustomSearchDelegate());
+                },
+                child: SmallButton(buttonName: "search")),
+            Spacer()
+          ],
+        ),
       ),
     );
+  }
+
+  void _onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
   }
 }
