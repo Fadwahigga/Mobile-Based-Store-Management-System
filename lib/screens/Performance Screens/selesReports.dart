@@ -62,7 +62,7 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
     fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -164,18 +164,18 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
               color: const Color.fromARGB(255, 228, 227, 227),
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
                   "Product Name",
                   style: _textStyle2,
                 ),
                 Text(
-                  "Price",
+                  "       Price",
                   style: _textStyle2,
                 ),
                 Text(
-                  " Sold Quantity",
+                  "Sold Quantity",
                   style: _textStyle2,
                 ),
                 Text(
@@ -213,9 +213,6 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
                         Text(
                           "500",
                           style: _textStyle,
-                        ),
-                        const SizedBox(
-                          width: 30,
                         ),
                         Text(
                           "500",

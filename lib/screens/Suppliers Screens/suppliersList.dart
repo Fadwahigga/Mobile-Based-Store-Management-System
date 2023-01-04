@@ -73,7 +73,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
     fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,9 +131,6 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                   "Supplier Name",
                   style: _textStyle2,
                 ),
-                const SizedBox(
-                  width: 30,
-                ),
                 Text(
                   "Phone number",
                   style: _textStyle2,
@@ -170,9 +167,6 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                         Text(
                           suppliers[index],
                           style: _textStyle,
-                        ),
-                        const SizedBox(
-                          width: 30,
                         ),
                         Text(
                           suppliersPhone[index],

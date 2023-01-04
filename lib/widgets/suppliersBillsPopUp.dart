@@ -29,7 +29,7 @@ class _SuppliersBillsPopUpState extends State<SuppliersBillsPopUp> {
     fontSize: 10,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -192,15 +192,12 @@ class _SuppliersBillsPopUpState extends State<SuppliersBillsPopUp> {
                                 style: _textStyle,
                               ),
                               Text(
-                                "100",
+                                "1000000",
                                 style: _textStyle,
                               ),
                               Text(
                                 "500",
                                 style: _textStyle,
-                              ),
-                              const SizedBox(
-                                width: 20,
                               ),
                               Text(
                                 "500",

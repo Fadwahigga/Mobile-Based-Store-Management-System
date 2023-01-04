@@ -179,9 +179,6 @@ class _PurchasesPageState extends State<PurchasesPage> {
                   "Quantity",
                   style: _textStyle2,
                 ),
-                SizedBox(
-                  width: 10,
-                ),
                 Text(
                   "Total",
                   style: _textStyle2,
@@ -233,9 +230,6 @@ class _PurchasesPageState extends State<PurchasesPage> {
                             style: _textStyle,
                           ),
                         ),
-                        SizedBox(
-                          width: 30,
-                        ),
                         Container(
                           color: Colors.white,
                           padding: EdgeInsets.all(5),
@@ -260,7 +254,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
             width: double.infinity,
             color: Color.fromARGB(255, 36, 214, 42),
             margin: EdgeInsets.only(left: 20, right: 20),
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(5),
             child: Center(
               child: Text("TOTAL = 500",
                   style: GoogleFonts.ebGaramond(

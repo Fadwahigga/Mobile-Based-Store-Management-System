@@ -39,7 +39,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
     fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
   void onQRViewCreated(QRViewController controller) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
@@ -178,9 +178,6 @@ class _MakeSalePageState extends State<MakeSalePage> {
                   "Quantity",
                   style: _textStyle2,
                 ),
-                SizedBox(
-                  width: 10,
-                ),
                 Text(
                   "Total",
                   style: _textStyle2,
@@ -232,9 +229,6 @@ class _MakeSalePageState extends State<MakeSalePage> {
                             style: _textStyle,
                           ),
                         ),
-                        SizedBox(
-                          width: 30,
-                        ),
                         Container(
                           color: Colors.white,
                           padding: EdgeInsets.all(5),
@@ -259,7 +253,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
             width: double.infinity,
             color: Color.fromARGB(255, 36, 214, 42),
             margin: EdgeInsets.only(left: 20, right: 20),
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(5),
             child: Center(
               child: Text("TOTAL = 500",
                   style: GoogleFonts.ebGaramond(

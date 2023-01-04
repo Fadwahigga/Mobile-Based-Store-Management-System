@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../widgets/Search.dart';
 import '../../widgets/appBar.dart';
 
 class ProductsListPage extends StatelessWidget {
@@ -36,7 +37,7 @@ class ProductsListPage extends StatelessWidget {
   ];
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
-    fontSize: 20,
+    fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
@@ -62,7 +63,12 @@ class ProductsListPage extends StatelessWidget {
                   )),
                 ),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showSearch(
+                          context: context,
+                          // delegate to customize the search bar
+                          delegate: CustomSearchDelegate());
+                    },
                     icon: const Icon(
                       Icons.search,
                       size: 30,
@@ -86,15 +92,12 @@ class ProductsListPage extends StatelessWidget {
                   style: _textStyle2,
                 ),
                 Text(
-                  "Cost",
+                  "    Cost",
                   style: _textStyle2,
                 ),
                 Text(
-                  "Price",
+                  "    Price",
                   style: _textStyle2,
-                ),
-                SizedBox(
-                  width: 30,
                 ),
                 Text(
                   "Quantity",
@@ -123,32 +126,17 @@ class ProductsListPage extends StatelessWidget {
                         productsList[index],
                         style: _textStyle,
                       ),
-                      Container(
-                        color: Colors.white,
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          "100",
-                          style: _textStyle,
-                        ),
+                      Text(
+                        "100",
+                        style: _textStyle,
                       ),
-                      Container(
-                        color: Colors.white,
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          "100",
-                          style: _textStyle,
-                        ),
+                      Text(
+                        "100",
+                        style: _textStyle,
                       ),
-                      SizedBox(
-                        width: 30,
-                      ),
-                      Container(
-                        color: Colors.white,
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          "500",
-                          style: _textStyle,
-                        ),
+                      Text(
+                        "500",
+                        style: _textStyle,
                       ),
                     ],
                   ),
