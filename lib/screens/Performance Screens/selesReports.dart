@@ -171,7 +171,7 @@ class _SelesReportsPageState extends State<SelesReportsPage> {
                   style: _textStyle2,
                 ),
                 Text(
-                  "       Price",
+                  "Price",
                   style: _textStyle2,
                 ),
                 Text(
