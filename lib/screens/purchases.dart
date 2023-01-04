@@ -133,9 +133,6 @@ class _PurchasesPageState extends State<PurchasesPage> {
                       width: 70,
                       child: Image(image: AssetImage("images/barcode.jpg"))),
                 ),
-                SizedBox(
-                  width: 3,
-                ),
                 Text(
                   "Search Product Name Or SN",
                   style: GoogleFonts.ebGaramond(
@@ -171,7 +168,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "  Product Name",
+                  "Product Name",
                   style: _textStyle2,
                 ),
                 Text(
