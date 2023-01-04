@@ -14,7 +14,6 @@ class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height / 3,
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 228, 227, 227),
@@ -24,16 +23,14 @@ class HomeWidget extends StatelessWidget {
         children: [
           Expanded(
               child: Padding(
-            padding: const EdgeInsets.all(25.0),
+            padding: const EdgeInsets.all(20.0),
             child: Image.asset(imagepath!),
           )),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-              child: Text(
-                name!,
-                style: _textStyle,
-              ),
+            child: Text(
+              name!,
+              style: _textStyle,
             ),
           )
         ],

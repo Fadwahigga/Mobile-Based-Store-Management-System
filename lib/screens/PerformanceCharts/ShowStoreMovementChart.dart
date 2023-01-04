@@ -24,13 +24,13 @@ class _ShowStoreMovementChartState extends State<ShowStoreMovementChart> {
     return Container(
       width: double.infinity,
       height: 600,
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: SfCartesianChart(
         primaryXAxis: CategoryAxis(),
         legend: Legend(
           isVisible: true,
         ),
-        tooltipBehavior: TooltipBehavior(enable: true),
+        tooltipBehavior: TooltipBehavior(enable: false),
         series: <ChartSeries<SalesData, String>>[
           LineSeries<SalesData, String>(
             dataSource: data,

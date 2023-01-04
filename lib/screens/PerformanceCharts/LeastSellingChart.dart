@@ -26,6 +26,11 @@ class LeastSellingChart extends StatelessWidget {
       soldquantity: 450,
       color: charts.ColorUtil.fromDartColor(Colors.yellow),
     ),
+    BarChartModel(
+      productname: "product5",
+      soldquantity: 400,
+      color: charts.ColorUtil.fromDartColor(Colors.yellow),
+    ),
   ];
 
   @override
@@ -42,10 +47,10 @@ class LeastSellingChart extends StatelessWidget {
 
     return Container(
       height: MediaQuery.of(context).size.height - 200,
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: charts.BarChart(
         series,
-        animate: true,
+        animate: false,
       ),
     );
   }

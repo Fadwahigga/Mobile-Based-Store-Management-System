@@ -56,7 +56,7 @@ class Login extends StatelessWidget {
               child: Expanded(
                 child: Row(
                   children: [
-                    Text("If You Havan't Account ",
+                    Text("Don't Have An Account?",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.bold))),
@@ -68,7 +68,7 @@ class Login extends StatelessWidget {
                         " Sign Up",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
-                                fontSize: 15,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromARGB(255, 39, 62, 82))),
                       ),

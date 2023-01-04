@@ -34,108 +34,101 @@ class Home extends StatelessWidget {
         ),
       ),
       drawer: DrawerWidget(),
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ////////////////////////////////////////////////////////////////////////////////////////
-
-                //////////////////////////////////////////////////////////////////////////////////////////
-
-                ////////////////////////////////////////////////////////////////////////////////////////
-                Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: GestureDetector(
-                            onTap: () {
-                              Get.to(const PurchasesPage());
-                            },
-                            child: HomeWidget(
-                                name: "Purchases", imagepath: "images/1.png")),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.to(const CashierScreensPage());
-                          },
-                          child: HomeWidget(
-                              name: "Make Sale", imagepath: "images/2.png"),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                ///////////////////////////////////////////////////////////
-                Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.to(const SuppliersPage());
-                          },
-                          child: HomeWidget(
-                              name: "Suppliers", imagepath: "images/3.png"),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.to(const InventoryPage());
-                          },
-                          child: HomeWidget(
-                              name: "Inventory", imagepath: "images/4.png"),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                /////////////////////////////////////////////////////////////
-                Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                          child: GestureDetector(
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            //////////////////////////////////////////////////////////////////////////////////////////////
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: GestureDetector(
                         onTap: () {
-                          Get.to(AccountsPage());
+                          Get.to(const PurchasesPage());
                         },
                         child: HomeWidget(
-                            name: "Accounts", imagepath: "images/5.png"),
-                      )),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.to(const PerformancePage());
-                          },
-                          child: HomeWidget(
-                              name: "Performance", imagepath: "images/6.png"),
-                        ),
-                      )
-                    ],
+                            name: "Purchases", imagepath: "images/1.png")),
                   ),
-                )
-              ],
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(const CashierScreensPage());
+                      },
+                      child: HomeWidget(
+                          name: "Make Sale", imagepath: "images/2.png"),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
+            const SizedBox(
+              height: 15,
+            ),
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(const SuppliersPage());
+                      },
+                      child: HomeWidget(
+                          name: "Suppliers", imagepath: "images/3.png"),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(const InventoryPage());
+                      },
+                      child: HomeWidget(
+                          name: "Inventory", imagepath: "images/4.png"),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                      child: GestureDetector(
+                    onTap: () {
+                      Get.to(AccountsPage());
+                    },
+                    child:
+                        HomeWidget(name: "Accounts", imagepath: "images/5.png"),
+                  )),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(const PerformancePage());
+                      },
+                      child: HomeWidget(
+                          name: "Performance", imagepath: "images/6.png"),
+                    ),
+                  )
+                ],
+              ),
+            )
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+          ],
         ),
       ),
     );
