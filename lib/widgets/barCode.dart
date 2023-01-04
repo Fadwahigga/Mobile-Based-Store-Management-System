@@ -19,15 +19,6 @@ class _BarCodeClassState extends State<BarCodeClass> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   Barcode? result;
   QRViewController? controller;
-  @override
-  void reassemble() {
-    super.reassemble();
-    if (Platform.isAndroid) {
-      controller!.pauseCamera();
-    } else if (Platform.isIOS) {
-      controller!.resumeCamera();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +31,6 @@ class _BarCodeClassState extends State<BarCodeClass> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: QRView(
-                  cameraFacing: CameraFacing.back,
-                  overlay: QrScannerOverlayShape(),
                   key: qrKey,
                   onQRViewCreated: _onQRViewCreated,
                 ),
@@ -78,11 +67,5 @@ class _BarCodeClassState extends State<BarCodeClass> {
         result = scanData;
       });
     });
-  }
-
-  @override
-  void dispose() {
-    controller?.dispose();
-    super.dispose();
   }
 }
