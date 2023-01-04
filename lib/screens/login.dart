@@ -11,8 +11,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Padding(
+      body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -51,31 +50,29 @@ class Login extends StatelessWidget {
                   border: const OutlineInputBorder(
                       borderSide: BorderSide(width: 1))),
             ),
-            Container(
-              margin: const EdgeInsets.all(10),
-              child: Expanded(
-                child: Row(
-                  children: [
-                    Text("Don't Have An Account?",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold))),
-                    InkWell(
-                      onTap: () {
-                        Get.to(const SignUp());
-                      },
-                      child: Text(
-                        " Sign Up",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 39, 62, 82))),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+            const SizedBox(
+              height: 15,
+            ),
+            Row(
+              children: [
+                Text("Don't Have An Account?",
+                    style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold))),
+                InkWell(
+                  onTap: () {
+                    Get.to(const SignUp());
+                  },
+                  child: Text(
+                    " Sign Up",
+                    style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 39, 62, 82))),
+                  ),
+                )
+              ],
             ),
             const SizedBox(
               height: 40,
@@ -88,7 +85,7 @@ class Login extends StatelessWidget {
             )
           ],
         ),
-      )),
+      ),
     );
   }
 }

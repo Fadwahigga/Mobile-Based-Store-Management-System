@@ -78,29 +78,29 @@ class SignUp extends StatelessWidget {
                   border: const OutlineInputBorder(
                       borderSide: BorderSide(width: 1))),
             ),
-            Container(
-              margin: const EdgeInsets.all(10),
-              child: Row(
-                children: [
-                  Text("Already Have A Account?",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold))),
-                  InkWell(
-                    onTap: () {
-                      Get.to(const Login());
-                    },
-                    child: Text(
-                      " Login",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 39, 62, 82))),
-                    ),
-                  )
-                ],
-              ),
+            const SizedBox(
+              height: 15,
+            ),
+            Row(
+              children: [
+                Text("Already Have A Account?",
+                    style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold))),
+                InkWell(
+                  onTap: () {
+                    Get.to(const Login());
+                  },
+                  child: Text(
+                    " Login",
+                    style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 39, 62, 82))),
+                  ),
+                )
+              ],
             ),
             const SizedBox(
               height: 40,
