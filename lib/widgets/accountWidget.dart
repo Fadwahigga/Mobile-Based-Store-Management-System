@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AccountWidget extends StatelessWidget {
   AccountWidget({super.key, @required this.dataName, @required this.money});
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
   String? dataName;
   String? money;
 
@@ -15,7 +15,7 @@ class AccountWidget extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width / 3,
       height: MediaQuery.of(context).size.height / 6,
-      padding: const EdgeInsets.all(25),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 228, 227, 227),
           borderRadius: BorderRadius.circular(10)),

@@ -34,18 +34,18 @@ class AccountsPage extends StatelessWidget {
                       "Balance",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                      )),
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold)),
                     ),
                   ),
                   Center(
                     child: Text(
-                      "1000.00 SD",
+                      "1000000.00 SD",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 25,
                               fontWeight: FontWeight.bold)),
                     ),
                   ),
@@ -68,7 +68,7 @@ class AccountsPage extends StatelessWidget {
             ),
             SizedBox(
                 width: double.infinity,
-                child: AccountWidget(dataName: "Purchases", money: "1000")),
+                child: AccountWidget(dataName: "Purchases", money: "1000000")),
             //////////////////////////////////////////////////////////////////////////////////////////
             const SizedBox(
               height: 10,

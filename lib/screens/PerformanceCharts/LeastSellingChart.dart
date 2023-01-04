@@ -47,7 +47,7 @@ class LeastSellingChart extends StatelessWidget {
 
     return Container(
       height: MediaQuery.of(context).size.height - 200,
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
       child: charts.BarChart(
         series,
         animate: false,
