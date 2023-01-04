@@ -29,7 +29,7 @@ class BestSellingChart extends StatelessWidget {
     BarChartModel(
       productname: "product5",
       soldquantity: 300,
-      color: charts.ColorUtil.fromDartColor(Colors.black),
+      color: charts.ColorUtil.fromDartColor(Colors.blue),
     ),
   ];
 
