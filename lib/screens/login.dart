@@ -5,7 +5,7 @@ import 'package:gp/screens/manegerOrEmployee.dart';
 import 'package:gp/screens/signUp.dart';
 import 'package:gp/widgets/buttonContainer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../controllers/LoginAndSingup.dart';
+import '../controllers/LoginAndSignup.dart';
 import '../widgets/confirmAndcancel.dart';
 
 class Login extends StatefulWidget {

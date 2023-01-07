@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/controllers/LoginAndSingup.dart';
+import 'package:gp/controllers/LoginAndSignup.dart';
 import 'package:gp/screens/login.dart';
 import 'package:gp/widgets/buttonContainer.dart';
 import '../widgets/confirmAndcancel.dart';
