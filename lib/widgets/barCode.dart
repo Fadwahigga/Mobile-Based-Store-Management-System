@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_const_constructors
 // ignore_for_file: file_names, must_be_immutable
 
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:gp/widgets/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
