@@ -31,30 +31,30 @@ class _LoginState extends State<Login> {
   //   read();
   // }
 
-  DatabaseHelper databaseHelper = DatabaseHelper();
-  String msgStatus = '';
+  // DatabaseHelper databaseHelper = DatabaseHelper();
+  // String msgStatus = '';
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  _onPressed() {
-    setState(() {
-      if (_emailController.text.trim().toLowerCase().isNotEmpty &&
-          _passwordController.text.trim().isNotEmpty) {
-        databaseHelper
-            .loginData(_emailController.text.trim().toLowerCase(),
-                _passwordController.text.trim())
-            .whenComplete(() {
-          if (databaseHelper.status) {
-            _showDialog();
-            msgStatus = 'Check email or password';
-          } else {
-            Get.to(const ManegerOrEmployeePage());
-          }
-        });
-      }
-    });
-  }
+  // _onPressed() {
+  //   setState(() {
+  //     if (_emailController.text.trim().toLowerCase().isNotEmpty &&
+  //         _passwordController.text.trim().isNotEmpty) {
+  //       databaseHelper
+  //           .loginData(_emailController.text.trim().toLowerCase(),
+  //               _passwordController.text.trim())
+  //           .whenComplete(() {
+  //         if (databaseHelper.status) {
+  //           _showDialog();
+  //           msgStatus = 'Check email or password';
+  //         } else {
+  //           Get.to(const ManegerOrEmployeePage());
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +141,8 @@ class _LoginState extends State<Login> {
           ),
           GestureDetector(
             onTap: () {
-              _onPressed();
+              // _onPressed();
+              Get.to(const ManegerOrEmployeePage());
             },
             child: buttonContainer(buttonContainerText: "Login"),
           )
@@ -150,21 +151,21 @@ class _LoginState extends State<Login> {
     ));
   }
 
-  void _showDialog() {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text('Failed'),
-            content: const Text('Check your email or password'),
-            actions: [
-              GestureDetector(
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: ConfirmAndCancel(Opname: "Cancel"))
-            ],
-          );
-        });
-  }
+  // void _showDialog() {
+  //   showDialog(
+  //       context: context,
+  //       builder: (BuildContext context) {
+  //         return AlertDialog(
+  //           title: const Text('Failed'),
+  //           content: const Text('Check your email or password'),
+  //           actions: [
+  //             GestureDetector(
+  //                 onTap: () {
+  //                   Get.back();
+  //                 },
+  //                 child: ConfirmAndCancel(Opname: "Cancel"))
+  //           ],
+  //         );
+  //       });
+  // }
 }

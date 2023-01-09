@@ -17,34 +17,34 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  DatabaseHelper databaseHelper = DatabaseHelper();
-  String msgStatus = '';
+  // DatabaseHelper databaseHelper = DatabaseHelper();
+  // String msgStatus = '';
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _manegerPasswordController =
       TextEditingController();
-  _onPressed() {
-    setState(() {
-      if (_emailController.text.trim().toLowerCase().isNotEmpty &&
-          _passwordController.text.trim().isNotEmpty) {
-        databaseHelper
-            .registerData(
-                _nameController.text.trim(),
-                _emailController.text.trim().toLowerCase(),
-                _passwordController.text.trim(),
-                _manegerPasswordController.text.trim())
-            .whenComplete(() {
-          if (databaseHelper.status) {
-            _showDialog();
-            msgStatus = 'Check email or password';
-          } else {
-            Get.to(const ManegerOrEmployeePage());
-          }
-        });
-      }
-    });
-  }
+  // _onPressed() {
+  //   setState(() {
+  //     if (_emailController.text.trim().toLowerCase().isNotEmpty &&
+  //         _passwordController.text.trim().isNotEmpty) {
+  //       databaseHelper
+  //           .registerData(
+  //               _nameController.text.trim(),
+  //               _emailController.text.trim().toLowerCase(),
+  //               _passwordController.text.trim(),
+  //               _manegerPasswordController.text.trim())
+  //           .whenComplete(() {
+  //         if (databaseHelper.status) {
+  //           _showDialog();
+  //           msgStatus = 'Check email or password';
+  //         } else {
+  //           Get.to(const ManegerOrEmployeePage());
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -168,7 +168,8 @@ class _SignUpState extends State<SignUp> {
                 ),
                 GestureDetector(
                     onTap: () {
-                      _onPressed();
+                      // _onPressed();
+                      Get.to(const ManegerOrEmployeePage());
                     },
                     child: buttonContainer(buttonContainerText: "Sign Up"))
               ],
@@ -179,21 +180,21 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  void _showDialog() {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text('Failed'),
-            content: const Text('Check your email or password'),
-            actions: [
-              GestureDetector(
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: ConfirmAndCancel(Opname: "Cancel"))
-            ],
-          );
-        });
-  }
+  // void _showDialog() {
+  //   showDialog(
+  //       context: context,
+  //       builder: (BuildContext context) {
+  //         return AlertDialog(
+  //           title: const Text('Failed'),
+  //           content: const Text('Check your email or password'),
+  //           actions: [
+  //             GestureDetector(
+  //                 onTap: () {
+  //                   Get.back();
+  //                 },
+  //                 child: ConfirmAndCancel(Opname: "Cancel"))
+  //           ],
+  //         );
+  //       });
+  // }
 }
