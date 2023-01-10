@@ -9,7 +9,7 @@ import '../../screens/HomeScreens/InventoryScreens/Inventory .dart';
 import '../../screens/HomeScreens/Performance Screens/performance.dart';
 import '../../screens/HomeScreens/PurchasesScreen/purchases.dart';
 import '../../screens/HomeScreens/SuppliersScreens/suppliers.dart';
-import '../../screens/HomeScreens/cashierScreens/cashierScreens.dart';
+import '../../screens/HomeScreens/makeSaleScreen/cashierScreens.dart';
 import '../SharedWidgets/confirmAndcancel.dart';
 
 

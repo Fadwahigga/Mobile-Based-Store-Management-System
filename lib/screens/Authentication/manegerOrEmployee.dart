@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/SharedWidgets/buttonContainer.dart';
 import '../../widgets/SharedWidgets/confirmAndcancel.dart';
-import '../HomeScreens/cashierScreens/cashierScreens.dart';
+import '../HomeScreens/makeSaleScreen/cashierScreens.dart';
 import '../home.dart';
 class ManegerOrEmployeePage extends StatelessWidget {
   const ManegerOrEmployeePage({super.key});

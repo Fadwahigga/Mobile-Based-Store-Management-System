@@ -9,7 +9,7 @@ import 'HomeScreens/InventoryScreens/Inventory .dart';
 import 'HomeScreens/Performance Screens/performance.dart';
 import 'HomeScreens/PurchasesScreen/purchases.dart';
 import 'HomeScreens/SuppliersScreens/suppliers.dart';
-import 'HomeScreens/cashierScreens/cashierScreens.dart';
+import 'HomeScreens/makeSaleScreen/cashierScreens.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
