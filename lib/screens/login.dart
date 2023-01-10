@@ -4,9 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/manegerOrEmployee.dart';
 import 'package:gp/screens/signUp.dart';
 import 'package:gp/widgets/buttonContainer.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import '../controllers/LoginAndSignup.dart';
-import '../widgets/confirmAndcancel.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -16,45 +13,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  // read() async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   const key = 'token';
-  //   final value = prefs.get(key) ?? 0;
-  //   if (value != '0') {
-  //     Get.to(const ManegerOrEmployeePage());
-  //   }
-  // }
-
-  // @override
-  // initState() {
-  //   super.initState();
-  //   read();
-  // }
-
-  // DatabaseHelper databaseHelper = DatabaseHelper();
-  // String msgStatus = '';
-
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
-  // _onPressed() {
-  //   setState(() {
-  //     if (_emailController.text.trim().toLowerCase().isNotEmpty &&
-  //         _passwordController.text.trim().isNotEmpty) {
-  //       databaseHelper
-  //           .loginData(_emailController.text.trim().toLowerCase(),
-  //               _passwordController.text.trim())
-  //           .whenComplete(() {
-  //         if (databaseHelper.status) {
-  //           _showDialog();
-  //           msgStatus = 'Check email or password';
-  //         } else {
-  //           Get.to(const ManegerOrEmployeePage());
-  //         }
-  //       });
-  //     }
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -150,22 +110,4 @@ class _LoginState extends State<Login> {
       ),
     ));
   }
-
-  // void _showDialog() {
-  //   showDialog(
-  //       context: context,
-  //       builder: (BuildContext context) {
-  //         return AlertDialog(
-  //           title: const Text('Failed'),
-  //           content: const Text('Check your email or password'),
-  //           actions: [
-  //             GestureDetector(
-  //                 onTap: () {
-  //                   Get.back();
-  //                 },
-  //                 child: ConfirmAndCancel(Opname: "Cancel"))
-  //           ],
-  //         );
-  //       });
-  // }
 }
