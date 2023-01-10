@@ -1,4 +1,7 @@
 Mobile-Based-Store-Management-System
+HOME PAGE
+![photo_2023-01-11_00-01-54](https://user-images.githubusercontent.com/75944731/211672437-10f3495e-7e94-4d71-aeea-a20aaccdfa4b.jpg)
+
 A new Flutter project.
 
 ## Getting Started
