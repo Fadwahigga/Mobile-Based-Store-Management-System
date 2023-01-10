@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../widgets/SharedWidgets/appBar.dart';
-import '../../widgets/SharedWidgets/buttonContainer.dart';
-import 'Inventory Screens/AddNewProduct.dart';
-import 'Inventory Screens/productsList.dart';
+import 'package:gp/screens/HomeScreens/InventoryScreens/productsList.dart';
+
+import '../../../widgets/SharedWidgets/appBar.dart';
+import '../../../widgets/SharedWidgets/buttonContainer.dart';
+import 'AddNewProduct.dart';
 
 class InventoryPage extends StatelessWidget {
   const InventoryPage({super.key});

@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/widgets/accountWidget.dart';
 
-import '../../widgets/SharedWidgets/appBar.dart';
+import '../../../widgets/AccountWidget/accountWidget.dart';
+import '../../../widgets/SharedWidgets/appBar.dart';
+
 
 
 class AccountsPage extends StatelessWidget {

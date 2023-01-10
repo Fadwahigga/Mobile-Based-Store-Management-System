@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/widgets/drawer.dart';
-import 'package:gp/widgets/homeWidget.dart';
 
-import 'HomeScreens/Inventory .dart';
+import '../widgets/DrawarWidget/drawer.dart';
+import '../widgets/homeWidget/homeWidget.dart';
+import 'HomeScreens/AccountsScreen/accounts.dart';
+import 'HomeScreens/InventoryScreens/Inventory .dart';
 import 'HomeScreens/Performance Screens/performance.dart';
-import 'HomeScreens/Suppliers Screens/suppliers.dart';
-import 'HomeScreens/accounts.dart';
-import 'HomeScreens/cashier Screens/cashierScreens.dart';
-import 'HomeScreens/purchases.dart';
+import 'HomeScreens/PurchasesScreen/purchases.dart';
+import 'HomeScreens/SuppliersScreens/suppliers.dart';
+import 'HomeScreens/cashierScreens/cashierScreens.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:gp/widgets/SharedWidgets/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-import '../Search.dart';
+import '../SearchWidget/Search.dart';
+
 
 class BarCodeClass extends StatefulWidget {
   const BarCodeClass({super.key});

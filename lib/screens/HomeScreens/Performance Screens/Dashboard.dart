@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../widgets/SharedWidgets/appBar.dart';
-import '../PerformanceCharts/BestSellingChart.dart';
-import '../PerformanceCharts/LeastSellingChart.dart';
-import '../PerformanceCharts/LowStockProductsChart.dart';
-import '../PerformanceCharts/ShowStoreMovementChart.dart';
+import 'PerformanceCharts/BestSellingChart.dart';
+import 'PerformanceCharts/LeastSellingChart.dart';
+import 'PerformanceCharts/LowStockProductsChart.dart';
+import 'PerformanceCharts/ShowStoreMovementChart.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
