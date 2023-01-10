@@ -5,9 +5,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-import '../../widgets/SharedWidgets/appBar.dart';
-import '../../widgets/SharedWidgets/barCode.dart';
-import '../../widgets/SharedWidgets/smallButton.dart';
+import '../../../widgets/SharedWidgets/appBar.dart';
+import '../../../widgets/SharedWidgets/barCode.dart';
+import '../../../widgets/SharedWidgets/smallButton.dart';
+
 
 class AddNewProductPage extends StatefulWidget {
   const AddNewProductPage({super.key});

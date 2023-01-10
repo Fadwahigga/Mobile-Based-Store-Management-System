@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../widgets/Search.dart';
-import '../../widgets/SharedWidgets/appBar.dart';
-import '../../widgets/SupplierWidgets/suppliersBillsPopUp.dart';
+
+import '../../../widgets/Search.dart';
+import '../../../widgets/SharedWidgets/appBar.dart';
+import '../../../widgets/SupplierWidgets/suppliersBillsPopUp.dart';
+
 
 class SuppliersListPage extends StatefulWidget {
   const SuppliersListPage({super.key});

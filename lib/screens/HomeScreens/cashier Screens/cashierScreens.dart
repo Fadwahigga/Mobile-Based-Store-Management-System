@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../widgets/SharedWidgets/appBar.dart';
-import '../widgets/SharedWidgets/buttonContainer.dart';
+import '../../../widgets/SharedWidgets/appBar.dart';
+import '../../../widgets/SharedWidgets/buttonContainer.dart';
 import 'makeSale.dart';
 
 class CashierScreensPage extends StatelessWidget {

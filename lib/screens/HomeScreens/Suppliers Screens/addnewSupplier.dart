@@ -3,9 +3,8 @@
 
 import 'package:flutter/material.dart';
 
-import '../../widgets/SharedWidgets/appBar.dart';
-import '../../widgets/SharedWidgets/smallButton.dart';
-
+import '../../../widgets/SharedWidgets/appBar.dart';
+import '../../../widgets/SharedWidgets/smallButton.dart';
 class AddNewSupplierPage extends StatelessWidget {
   const AddNewSupplierPage({super.key});
 

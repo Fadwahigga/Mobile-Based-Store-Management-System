@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gp/screens/Performance%20Screens/selesReports.dart';
-import '../widgets/SharedWidgets/appBar.dart';
-import '../widgets/SharedWidgets/buttonContainer.dart';
-import 'Performance Screens/Dashboard.dart';
+
+import '../../../widgets/SharedWidgets/appBar.dart';
+import '../../../widgets/SharedWidgets/buttonContainer.dart';
+import '../../Performance Screens/Dashboard.dart';
 
 class PerformancePage extends StatefulWidget {
   const PerformancePage({super.key});

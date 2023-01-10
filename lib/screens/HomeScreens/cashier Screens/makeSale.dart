@@ -1,27 +1,27 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_string_escapes, avoid_print, prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_const_constructors, unnecessary_string_escapes, file_names, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-import '../widgets/PurchasesWidgets/paymentBillPopUp.dart';
-import '../widgets/PurchasesWidgets/productInformationPopUp.dart';
-import '../widgets/Search.dart';
-import '../widgets/SharedWidgets/appBar.dart';
-import '../widgets/SharedWidgets/barCode.dart';
-import '../widgets/SharedWidgets/smallButton.dart';
-
-class PurchasesPage extends StatefulWidget {
-  const PurchasesPage({super.key});
+import '../../../widgets/MakeSellWidgets/paymentMakeSellPopUp.dart';
+import '../../../widgets/MakeSellWidgets/productMakeSellPopUp.dart';
+import '../../../widgets/Search.dart';
+import '../../../widgets/SharedWidgets/appBar.dart';
+import '../../../widgets/SharedWidgets/barCode.dart';
+import '../../../widgets/SharedWidgets/smallButton.dart';
+class MakeSalePage extends StatefulWidget {
+  const MakeSalePage({super.key});
 
   @override
-  State<PurchasesPage> createState() => _PurchasesPageState();
+  State<MakeSalePage> createState() => _MakeSalePageState();
 }
 
-class _PurchasesPageState extends State<PurchasesPage> {
+class _MakeSalePageState extends State<MakeSalePage> {
   DateTime? _dateTime = DateTime.now();
-  // Barcode? result;
-  // QRViewController? controller;
+  Barcode? result;
+  QRViewController? controller;
   List productsList = [
     "Product Name",
     "Product Name",
@@ -39,24 +39,22 @@ class _PurchasesPageState extends State<PurchasesPage> {
     fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
-  @override
-  // void reassemble() {
-  //   super.reassemble();
-  //   if (Platform.isAndroid) {
-  //     controller!.pauseCamera();
-  //   } else if (Platform.isIOS) {
-  //     controller!.resumeCamera();
-  //   }
-  // }
+      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+  void onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Buy from a Supplier")),
+          child: AppBarWidget(appBarTitle: "Make A Sale")),
       body: Column(
         children: [
           ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,18 +86,12 @@ class _PurchasesPageState extends State<PurchasesPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    "Choose Bill Date",
-                    style: GoogleFonts.ebGaramond(
-                        textStyle: const TextStyle(
-                      fontSize: 15,
-                    )),
+                    "choose bill date",
+                    style: _textStyle,
                   ),
                   Text(
                     "${_dateTime!.day.toString()}/${_dateTime!.month.toString()}/${_dateTime!.year.toString()}",
-                    style: GoogleFonts.ebGaramond(
-                        textStyle: const TextStyle(
-                      fontSize: 15,
-                    )),
+                    style: _textStyle,
                   ),
                   IconButton(
                       onPressed: () {
@@ -145,10 +137,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
                 ),
                 Text(
                   "Search Product Name Or SN",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                    fontSize: 15,
-                  )),
+                  style: _textStyle,
                 ),
                 IconButton(
                     onPressed: () {
@@ -182,7 +171,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
                   style: _textStyle2,
                 ),
                 Text(
-                  "Cost",
+                  "Price",
                   style: _textStyle2,
                 ),
                 Text(
@@ -211,7 +200,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
                     Get.defaultDialog(
                       barrierDismissible: false,
                       title: "",
-                      content: ProductInformationPopUp(),
+                      content: ProductMakeSellPopUp(),
                     );
                   },
                   child: Container(
@@ -284,31 +273,18 @@ class _PurchasesPageState extends State<PurchasesPage> {
               Get.defaultDialog(
                 barrierDismissible: false,
                 title: "",
-                content: PaymenBillPopUp(),
+                content: PaymentMakeSellPopUp(),
               );
             },
-            child: SmallButton(buttonName: "BUY"),
+            child: SmallButton(buttonName: "Payment"),
           ),
           SizedBox(
             height: 10,
-          ),
+          )
           ///////////////////////////////////////////////////////////////////////////////////////////////
         ],
       ),
       ///////////////////////////////////////////////////////////////////////////////////////////////////
     );
   }
-
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ///BarCode Function
-
-  // void onQRViewCreated(QRViewController controller) {
-  //   this.controller = controller;
-  //   controller.scannedDataStream.listen((scanData) {
-  //     setState(() {
-  //       result = scanData;
-  //     });
-  //   });
-  // }
-
 }

@@ -1,26 +1,27 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_string_escapes, file_names, unnecessary_string_interpolations
+// ignore_for_file: prefer_const_constructors, unnecessary_string_escapes, avoid_print, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-import '../widgets/MakeSellWidgets/paymentMakeSellPopUp.dart';
-import '../widgets/MakeSellWidgets/productMakeSellPopUp.dart';
-import '../widgets/Search.dart';
-import '../widgets/SharedWidgets/appBar.dart';
-import '../widgets/SharedWidgets/barCode.dart';
-import '../widgets/SharedWidgets/smallButton.dart';
-class MakeSalePage extends StatefulWidget {
-  const MakeSalePage({super.key});
+
+import '../../widgets/PurchasesWidgets/paymentBillPopUp.dart';
+import '../../widgets/PurchasesWidgets/productInformationPopUp.dart';
+import '../../widgets/Search.dart';
+import '../../widgets/SharedWidgets/appBar.dart';
+import '../../widgets/SharedWidgets/barCode.dart';
+import '../../widgets/SharedWidgets/smallButton.dart';
+
+class PurchasesPage extends StatefulWidget {
+  const PurchasesPage({super.key});
 
   @override
-  State<MakeSalePage> createState() => _MakeSalePageState();
+  State<PurchasesPage> createState() => _PurchasesPageState();
 }
 
-class _MakeSalePageState extends State<MakeSalePage> {
+class _PurchasesPageState extends State<PurchasesPage> {
   DateTime? _dateTime = DateTime.now();
-  Barcode? result;
-  QRViewController? controller;
+  // Barcode? result;
+  // QRViewController? controller;
   List productsList = [
     "Product Name",
     "Product Name",
@@ -38,22 +39,24 @@ class _MakeSalePageState extends State<MakeSalePage> {
     fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
-  void onQRViewCreated(QRViewController controller) {
-    this.controller = controller;
-    controller.scannedDataStream.listen((scanData) {
-      setState(() {
-        result = scanData;
-      });
-    });
-  }
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
+  @override
+  // void reassemble() {
+  //   super.reassemble();
+  //   if (Platform.isAndroid) {
+  //     controller!.pauseCamera();
+  //   } else if (Platform.isIOS) {
+  //     controller!.resumeCamera();
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Make A Sale")),
+          child: AppBarWidget(appBarTitle: "Buy from a Supplier")),
       body: Column(
         children: [
           ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,12 +88,18 @@ class _MakeSalePageState extends State<MakeSalePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    "choose bill date",
-                    style: _textStyle,
+                    "Choose Bill Date",
+                    style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
+                      fontSize: 15,
+                    )),
                   ),
                   Text(
                     "${_dateTime!.day.toString()}/${_dateTime!.month.toString()}/${_dateTime!.year.toString()}",
-                    style: _textStyle,
+                    style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
+                      fontSize: 15,
+                    )),
                   ),
                   IconButton(
                       onPressed: () {
@@ -136,7 +145,10 @@ class _MakeSalePageState extends State<MakeSalePage> {
                 ),
                 Text(
                   "Search Product Name Or SN",
-                  style: _textStyle,
+                  style: GoogleFonts.ebGaramond(
+                      textStyle: const TextStyle(
+                    fontSize: 15,
+                  )),
                 ),
                 IconButton(
                     onPressed: () {
@@ -170,7 +182,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                   style: _textStyle2,
                 ),
                 Text(
-                  "Price",
+                  "Cost",
                   style: _textStyle2,
                 ),
                 Text(
@@ -199,7 +211,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                     Get.defaultDialog(
                       barrierDismissible: false,
                       title: "",
-                      content: ProductMakeSellPopUp(),
+                      content: ProductInformationPopUp(),
                     );
                   },
                   child: Container(
@@ -272,18 +284,31 @@ class _MakeSalePageState extends State<MakeSalePage> {
               Get.defaultDialog(
                 barrierDismissible: false,
                 title: "",
-                content: PaymentMakeSellPopUp(),
+                content: PaymenBillPopUp(),
               );
             },
-            child: SmallButton(buttonName: "Payment"),
+            child: SmallButton(buttonName: "BUY"),
           ),
           SizedBox(
             height: 10,
-          )
+          ),
           ///////////////////////////////////////////////////////////////////////////////////////////////
         ],
       ),
       ///////////////////////////////////////////////////////////////////////////////////////////////////
     );
   }
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ///BarCode Function
+
+  // void onQRViewCreated(QRViewController controller) {
+  //   this.controller = controller;
+  //   controller.scannedDataStream.listen((scanData) {
+  //     setState(() {
+  //       result = scanData;
+  //     });
+  //   });
+  // }
+
 }
