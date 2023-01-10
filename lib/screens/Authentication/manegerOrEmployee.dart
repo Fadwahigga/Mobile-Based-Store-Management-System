@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/screens/cashierScreens.dart';
-import 'package:gp/screens/home.dart';
 
-import '../widgets/SharedWidgets/buttonContainer.dart';
-import '../widgets/SharedWidgets/confirmAndcancel.dart';
+import '../../widgets/SharedWidgets/buttonContainer.dart';
+import '../../widgets/SharedWidgets/confirmAndcancel.dart';
+import '../HomeScreens/cashier Screens/cashierScreens.dart';
+import '../home.dart';
 class ManegerOrEmployeePage extends StatelessWidget {
   const ManegerOrEmployeePage({super.key});
 

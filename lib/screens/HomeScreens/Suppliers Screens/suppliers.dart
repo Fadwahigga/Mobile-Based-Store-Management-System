@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../widgets/SharedWidgets/appBar.dart';
 import '../../../widgets/SharedWidgets/buttonContainer.dart';
-import '../../Suppliers Screens/addnewSupplier.dart';
-import '../../Suppliers Screens/suppliersList.dart';
+import 'addnewSupplier.dart';
+import 'suppliersList.dart';
+
 
 
 class SuppliersPage extends StatelessWidget {

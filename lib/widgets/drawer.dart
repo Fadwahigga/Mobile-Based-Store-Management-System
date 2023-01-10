@@ -4,11 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import '../screens/Authentication/ResetpasswordsScreens/ResetManegerPassword.dart';
 import '../screens/Authentication/ResetpasswordsScreens/resetPassword.dart';
 import '../screens/Authentication/login.dart';
-import '../screens/Inventory .dart';
-import '../screens/cashierScreens.dart';
-import '../screens/performance.dart';
-import '../screens/purchases.dart';
-import '../screens/suppliers.dart';
+import '../screens/HomeScreens/Inventory .dart';
+import '../screens/HomeScreens/Performance Screens/performance.dart';
+import '../screens/HomeScreens/Suppliers Screens/suppliers.dart';
+import '../screens/HomeScreens/cashier Screens/cashierScreens.dart';
+import '../screens/HomeScreens/purchases.dart';
 import 'SharedWidgets/confirmAndcancel.dart';
 
 class DrawerWidget extends StatelessWidget {

@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/screens/manegerOrEmployee.dart';
+
+import '../manegerOrEmployee.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
