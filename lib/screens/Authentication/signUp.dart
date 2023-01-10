@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/login.dart';
 import 'package:gp/widgets/buttonContainer.dart';
-import 'manegerOrEmployee.dart';
+
+import '../manegerOrEmployee.dart';
+
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
