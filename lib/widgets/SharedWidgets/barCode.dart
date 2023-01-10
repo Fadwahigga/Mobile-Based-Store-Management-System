@@ -2,10 +2,10 @@
 // ignore_for_file: file_names, must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:gp/widgets/smallButton.dart';
+import 'package:gp/widgets/SharedWidgets/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-import 'Search.dart';
+import '../Search.dart';
 
 class BarCodeClass extends StatefulWidget {
   const BarCodeClass({super.key});

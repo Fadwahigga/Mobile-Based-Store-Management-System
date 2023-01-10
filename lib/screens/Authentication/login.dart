@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/manegerOrEmployee.dart';
-import 'package:gp/screens/signUp.dart';
-import 'package:gp/widgets/buttonContainer.dart';
+
+import '../../widgets/SharedWidgets/buttonContainer.dart';
+import 'signUp.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

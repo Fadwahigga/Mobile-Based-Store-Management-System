@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gp/widgets/appBar.dart';
-import 'package:gp/widgets/buttonContainer.dart';
+import '../widgets/SharedWidgets/appBar.dart';
+import '../widgets/SharedWidgets/buttonContainer.dart';
 import 'Suppliers Screens/addnewSupplier.dart';
 import 'Suppliers Screens/suppliersList.dart';
 

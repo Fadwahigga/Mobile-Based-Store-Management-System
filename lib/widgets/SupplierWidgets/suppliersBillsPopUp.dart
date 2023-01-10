@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'confirmAndcancel.dart';
+import '../SharedWidgets/confirmAndcancel.dart';
+
 
 class SuppliersBillsPopUp extends StatefulWidget {
   const SuppliersBillsPopUp({super.key});

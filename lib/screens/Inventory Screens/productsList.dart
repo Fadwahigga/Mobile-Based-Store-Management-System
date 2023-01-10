@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../widgets/Search.dart';
-import '../../widgets/appBar.dart';
+import '../../widgets/SharedWidgets/appBar.dart';
+
 
 class ProductsListPage extends StatelessWidget {
   ProductsListPage({super.key});

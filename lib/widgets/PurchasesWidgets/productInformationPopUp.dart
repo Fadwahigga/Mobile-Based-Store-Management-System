@@ -3,16 +3,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'confirmAndcancel.dart';
 
-class PaymenBillPopUp extends StatefulWidget {
-  const PaymenBillPopUp({super.key});
+import '../SharedWidgets/confirmAndcancel.dart';
+
+class ProductInformationPopUp extends StatefulWidget {
+  const ProductInformationPopUp({super.key});
 
   @override
-  State<PaymenBillPopUp> createState() => _PaymenBillPopUpState();
+  State<ProductInformationPopUp> createState() =>
+      _ProductInformationPopUpState();
 }
 
-class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
+class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -21,12 +23,13 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
           color: const Color.fromARGB(255, 228, 227, 227),
           child: SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   width: double.infinity,
                   color: const Color.fromARGB(255, 39, 62, 82),
                   child: Center(
-                    child: Text("Payment Bill",
+                    child: Text("Product Information",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
                                 fontSize: 15,
@@ -35,82 +38,100 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                   ),
                 ),
                 const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text("Total",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
-                    Container(
-                      height: 30,
-                      width: MediaQuery.of(context).size.width - 250,
-                      color: Colors.white,
-                      child: const Center(child: Text("00.0")),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text("Payed",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
-                    Container(
-                      height: 30,
-                      width: MediaQuery.of(context).size.width - 250,
-                      color: Colors.white,
-                      child: const Center(child: Text("00.0")),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text("Change",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
-                    Container(
-                      height: 30,
-                      width: MediaQuery.of(context).size.width - 250,
-                      color: Colors.white,
-                      child: const Center(child: Text("00.0")),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Text(" Save This Bill To A Supplier Account",
-                    style: GoogleFonts.ebGaramond(
-                        textStyle: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 39, 62, 82),
-                    ))),
-                const SizedBox(
                   height: 10,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      hintText: "Search For A Supplier",
-                      hintStyle: const TextStyle(fontSize: 10),
-                      floatingLabelBehavior: FloatingLabelBehavior.always),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Exist Quantity",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 15,
+                        ))),
+                    const SizedBox(
+                      width: 3,
+                    ),
+                    Container(
+                      height: 30,
+                      width: MediaQuery.of(context).size.width - 250,
+                      color: Colors.white,
+                      child: const Center(child: Text("00.0")),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("New Quantity",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 15,
+                        ))),
+                    const SizedBox(
+                      width: 3,
+                    ),
+                    Container(
+                        height: 30,
+                        width: MediaQuery.of(context).size.width - 250,
+                        color: Colors.white,
+                        child: const TextField(
+                            keyboardType: TextInputType.number)),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Old cost",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 15,
+                        ))),
+                    Container(
+                      height: 30,
+                      width: MediaQuery.of(context).size.width - 250,
+                      color: Colors.white,
+                      child: const Center(child: Text("00.0")),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("New cost",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 15,
+                        ))),
+                    Container(
+                      height: 30,
+                      width: MediaQuery.of(context).size.width - 250,
+                      color: Colors.white,
+                      child:
+                          const TextField(keyboardType: TextInputType.number),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Text("Delete Product From List ",
+                      style: GoogleFonts.ebGaramond(
+                          textStyle: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red,
+                      ))),
                 ),
                 const SizedBox(
                   height: 30,

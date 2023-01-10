@@ -3,10 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/widgets/suppliersBillsPopUp.dart';
-
 import '../../widgets/Search.dart';
-import '../../widgets/appBar.dart';
+import '../../widgets/SharedWidgets/appBar.dart';
+import '../../widgets/SupplierWidgets/suppliersBillsPopUp.dart';
 
 class SuppliersListPage extends StatefulWidget {
   const SuppliersListPage({super.key});

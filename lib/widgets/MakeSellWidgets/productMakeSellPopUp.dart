@@ -3,17 +3,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'confirmAndcancel.dart';
 
-class ProductInformationPopUp extends StatefulWidget {
-  const ProductInformationPopUp({super.key});
+import '../SharedWidgets/confirmAndcancel.dart';
+
+
+class ProductMakeSellPopUp extends StatefulWidget {
+  const ProductMakeSellPopUp({super.key});
 
   @override
-  State<ProductInformationPopUp> createState() =>
-      _ProductInformationPopUpState();
+  State<ProductMakeSellPopUp> createState() => _ProductMakeSellPopUpState();
 }
 
-class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
+class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -42,13 +43,12 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Exist Quantity",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
-                    const SizedBox(
-                      width: 3,
+                    Flexible(
+                      child: Text("Available Quantity",
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: const TextStyle(
+                            fontSize: 15,
+                          ))),
                     ),
                     Container(
                       height: 30,
@@ -64,29 +64,7 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("New Quantity",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
-                    const SizedBox(
-                      width: 3,
-                    ),
-                    Container(
-                        height: 30,
-                        width: MediaQuery.of(context).size.width - 250,
-                        color: Colors.white,
-                        child: const TextField(
-                            keyboardType: TextInputType.number)),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Old cost",
+                    Text("Price",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
                           fontSize: 15,
@@ -105,7 +83,7 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("New cost",
+                    Text("Quantities",
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
                           fontSize: 15,

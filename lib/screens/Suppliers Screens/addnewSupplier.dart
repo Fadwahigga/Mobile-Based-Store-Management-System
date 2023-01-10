@@ -2,9 +2,9 @@
 // ignore_for_file: file_names, duplicate_ignore
 
 import 'package:flutter/material.dart';
-import 'package:gp/widgets/smallButton.dart';
 
-import '../../widgets/appBar.dart';
+import '../../widgets/SharedWidgets/appBar.dart';
+import '../../widgets/SharedWidgets/smallButton.dart';
 
 class AddNewSupplierPage extends StatelessWidget {
   const AddNewSupplierPage({super.key});

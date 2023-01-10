@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/widgets/smallButton.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-import '../../widgets/appBar.dart';
-import '../../widgets/barCode.dart';
+import '../../widgets/SharedWidgets/appBar.dart';
+import '../../widgets/SharedWidgets/barCode.dart';
+import '../../widgets/SharedWidgets/smallButton.dart';
 
 class AddNewProductPage extends StatefulWidget {
   const AddNewProductPage({super.key});

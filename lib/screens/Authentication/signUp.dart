@@ -1,12 +1,10 @@
 // ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/screens/login.dart';
-import 'package:gp/widgets/buttonContainer.dart';
-
+import '../../widgets/SharedWidgets/buttonContainer.dart';
 import '../manegerOrEmployee.dart';
+import 'login.dart';
 
 
 class SignUp extends StatefulWidget {

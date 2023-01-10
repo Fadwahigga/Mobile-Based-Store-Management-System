@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:gp/widgets/paymentBillPopUp.dart';
-import 'package:gp/widgets/smallButton.dart';
+import '../widgets/PurchasesWidgets/paymentBillPopUp.dart';
+import '../widgets/PurchasesWidgets/productInformationPopUp.dart';
 import '../widgets/Search.dart';
-import '../widgets/appBar.dart';
-import '../widgets/barCode.dart';
-import '../widgets/productInformationPopUp.dart';
+import '../widgets/SharedWidgets/appBar.dart';
+import '../widgets/SharedWidgets/barCode.dart';
+import '../widgets/SharedWidgets/smallButton.dart';
 
 class PurchasesPage extends StatefulWidget {
   const PurchasesPage({super.key});

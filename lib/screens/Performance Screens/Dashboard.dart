@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/PerformanceCharts/ShowStoreMovementChart.dart';
-
-import '../../widgets/appBar.dart';
+import '../../widgets/SharedWidgets/appBar.dart';
 import '../PerformanceCharts/BestSellingChart.dart';
 import '../PerformanceCharts/LeastSellingChart.dart';
 import '../PerformanceCharts/LowStockProductsChart.dart';

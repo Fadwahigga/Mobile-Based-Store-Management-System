@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gp/widgets/buttonContainer.dart';
-import '../widgets/appBar.dart';
+import '../widgets/SharedWidgets/appBar.dart';
+import '../widgets/SharedWidgets/buttonContainer.dart';
 import 'Inventory Screens/AddNewProduct.dart';
 import 'Inventory Screens/productsList.dart';
 
