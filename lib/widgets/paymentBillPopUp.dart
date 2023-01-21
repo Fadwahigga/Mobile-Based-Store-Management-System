@@ -131,7 +131,7 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: const Center(child: Text("search Result")),
+                      child: const Center(child: Text("Search Result")),
                     ),
                   ],
                 ),
