@@ -66,11 +66,20 @@ class MakeSaleSearch extends SearchDelegate {
                   builder: (controller) {
                     return InkWell(
                       onTap: () {
-                        controller.total +=
-                            double.parse(snapshot.data![index]['price']);
+                        // print( double.parse(snapshot.data![index]['price']));
+                        // print(int.parse(snapshot.data![index]['stock_quantity']));
+                        controller.total = 0.0;
+                        controller.total =
+                            double.parse(snapshot.data![index]['price']) *
+                                int.parse(
+                                    snapshot.data![index]['stock_quantity']);
+                        controller.totalResult += double.parse(snapshot.data![index]['price']) *
+                                int.parse(
+                                    snapshot.data![index]['stock_quantity']);
                         controller.paymentData.add({
-                          "id": snapshot.data![index]['id'].toString(),
-                          "quantity": double.parse(snapshot.data![index]['stock_quantity'])
+                          "id": snapshot.data![index]['id'],
+                          "quantity": int.parse(
+                              snapshot.data![index]['stock_quantity'])
                         });
                         controller.setSaleData(map: snapshot.data![index]);
                         Get.back();

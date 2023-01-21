@@ -16,48 +16,6 @@ import '../../widgets/appBar.dart';
 
 class SelesReportsPage extends GetWidget<PerformanceController> {
   SelesReportsPage({Key? key}) : super(key: key);
-  // List productsList = [
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  // ];
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
     fontSize: 15,
@@ -100,7 +58,13 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                                 ),
                                 child: child!);
                           },
-                        ).then((date) => controller.setDateFrom(date!));
+                        ).then((date) {
+                          controller.setDateFrom(date!);
+                          controller.getDataByDate(
+                            to: controller.dateTimeTo!,
+                            from: controller.dateTimeFrom!,
+                          );
+                        });
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -138,7 +102,13 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                                 ),
                                 child: child!);
                           },
-                        ).then((date) => controller.setDateTo(date!));
+                        ).then((date) {
+                          controller.setDateFrom(date!);
+                          controller.getDataByDate(
+                            to: controller.dateTimeTo!,
+                            from: controller.dateTimeFrom!,
+                          );
+                        });
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -226,8 +196,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                               style: _textStyle,
                             ),
                             Text(
-                              "500"
-                                  .toString(),
+                              "500".toString(),
                               style: _textStyle,
                             ),
                           ],
