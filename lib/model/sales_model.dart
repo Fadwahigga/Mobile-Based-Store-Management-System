@@ -10,7 +10,7 @@ class SalesModel {
     return SalesModel(
       itemName: json['item_name'],
       price: json['price'],
-      soldQunatity:json['sold_quantity']
+      soldQunatity:json['stock_quantity']
     );
   }
 }
