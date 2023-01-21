@@ -69,6 +69,34 @@ class PerformanceController extends GetxController {
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
     }
   }
+  
+
+  // * Get Date By Date From And To 
+    getDataByDate({required DateTime to ,required DateTime from}) async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      http.Response response =
+          await http.get(Uri.http(baseUrl, apiSalesReport,{'to':to.toString(),'from':from.toString()}), headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ${prefs.getString('token')}'
+      });
+      print("Out sideeeeeeee");
+      print(json.decode(response.body));
+      if (response.statusCode == 201 || response.statusCode == 200) {
+        listOfPerfomanceModel.clear();
+        var body = json.decode(response.body);
+        print("sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf");
+        print(body);
+        for (var i = 0; i < body['data'].length; i++) {
+          listOfPerfomanceModel.add(PerformanceModel.formJson(body['data'][i]));
+        }
+        update();
+      }
+      ApiStatus.checkStatus(response);
+    } catch (e) {
+      return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
+    }
+  }
 
   // ************* Get Performance Data ******************
 

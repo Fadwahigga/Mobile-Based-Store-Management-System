@@ -9,8 +9,7 @@ import 'package:gp/shared/constants.dart';
 import 'package:gp/widgets/paymentMakeSellPopUp.dart';
 import 'package:gp/widgets/productMakeSellPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-import '../../widgets/Search.dart';
+
 import '../../widgets/appBar.dart';
 import '../../widgets/barCode.dart';
 
@@ -22,18 +21,6 @@ import '../../widgets/barCode.dart';
 // }
 
 class MakeSalePage extends GetWidget<SalesController> {
-  // List productsList = [
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  //   "Product Name",
-  // ];
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
     fontSize: 15,
@@ -122,8 +109,11 @@ class MakeSalePage extends GetWidget<SalesController> {
                     Get.to(BarCodeClass());
                   },
                   child: SizedBox(
-                      width: 70,
-                      child: Image(image: AssetImage("images/barcode.jpg"))),
+                    width: 70,
+                    child: Image(
+                      image: AssetImage("images/barcode.jpg"),
+                    ),
+                  ),
                 ),
                 Text(
                   "Search Product Name Or SN",
@@ -230,7 +220,8 @@ class MakeSalePage extends GetWidget<SalesController> {
                                 color: Colors.white,
                                 padding: EdgeInsets.all(5),
                                 child: Text(
-                                  controller.listOfSalesModel[index].price.toString(),
+                                  controller.listOfSalesModel[index].price
+                                      .toString(),
                                   style: _textStyle,
                                 ),
                               ),
@@ -254,7 +245,7 @@ class MakeSalePage extends GetWidget<SalesController> {
                 margin: EdgeInsets.only(left: 20, right: 20),
                 padding: EdgeInsets.all(5),
                 child: Center(
-                  child: Text("TOTAL = ${controller.total.toString()}",
+                  child: Text("TOTAL = ${controller.totalResult.toString()}",
                       style: GoogleFonts.ebGaramond(
                           textStyle: TextStyle(
                               fontSize: 18,
