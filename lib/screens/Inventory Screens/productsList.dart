@@ -43,7 +43,7 @@ class ProductsListPage extends GetWidget<InventoryController> {
                       showSearch(
                           context: context,
                           // delegate to customize the search bar
-                          delegate: SearchByName(apiPath: apiInventory,nameAtapi: "name"));
+                          delegate: SearchByName(apiPath: apiInventory,nameAtapi: "item_name"));
                     },
                     icon: const Icon(
                       Icons.search,

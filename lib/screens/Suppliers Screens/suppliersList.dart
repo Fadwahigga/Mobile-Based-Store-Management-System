@@ -7,8 +7,8 @@ import 'package:gp/shared/constants.dart';
 import 'package:gp/widgets/suppliersBillsPopUp.dart';
 
 import '../../controller/supplier_controller.dart';
-import '../../widgets/Search.dart';
 import '../../widgets/appBar.dart';
+import '../search/search.dart';
 
 class SuppliersListPage extends StatefulWidget {
   const SuppliersListPage({super.key});
@@ -18,58 +18,6 @@ class SuppliersListPage extends StatefulWidget {
 }
 
 class _SuppliersListPageState extends State<SuppliersListPage> {
-  // List suppliers = [
-  //   "fadwa",
-  //   "rawan",
-  //   "raheel",
-  //   "fadwa",
-  //   "rawan",
-  //   "raheel",
-  //   "fadwa",
-  //   "rawan",
-  //   "raheel",
-  //   "fadwa",
-  //   "rawan",
-  //   "raheel",
-  //   "fadwa",
-  //   "rawan",
-  //   "raheel",
-  //   "fadwa",
-  //   "rawan",
-  //   "raheel",
-  //   "fadwa",
-  //   "rawan",
-  //   "raheel",
-  //   "fadwa",
-  //   "rawan",
-  //   "raheel"
-  // ];
-  // List suppliersPhone = [
-  //   "0911111111",
-  //   "0911001111",
-  //   "0911133111",
-  //   "0911133111",
-  //   "0911112211",
-  //   "0911110011",
-  //   "0911111111",
-  //   "0911001111",
-  //   "0911133111",
-  //   "0911133111",
-  //   "0911112211",
-  //   "0911110011",
-  //   "0911111111",
-  //   "0911001111",
-  //   "0911133111",
-  //   "0911133111",
-  //   "0911112211",
-  //   "0911110011",
-  //   "0911111111",
-  //   "0911001111",
-  //   "0911133111",
-  //   "0911133111",
-  //   "0911112211",
-  //   "0911110011"
-  // ];
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
     fontSize: 15,
@@ -103,7 +51,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                       showSearch(
                           context: context,
                           // delegate to customize the search bar
-                          delegate: SearchByName(apiPath: apiSuppliers,nameAtapi: "id" ),
+                          delegate: Search(apiPath: apiSuppliers, nameAtapi: 'name'),
                           );
                     },
                     icon: const Icon(
