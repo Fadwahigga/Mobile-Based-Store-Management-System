@@ -117,6 +117,25 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                   ],
                 ),
                 const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("Supplier Name",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 15,
+                        ))),
+                    Container(
+                      height: 30,
+                      width: MediaQuery.of(context).size.width - 250,
+                      color: Colors.white,
+                      child: const Center(child: Text("search result")),
+                    ),
+                  ],
+                ),
+                const SizedBox(
                   height: 30,
                 ),
                 GestureDetector(
