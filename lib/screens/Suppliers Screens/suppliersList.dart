@@ -49,11 +49,10 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                 IconButton(
                     onPressed: () {
                       showSearch(
-                        context: context,
-                        // delegate to customize the search bar
-                        delegate:
-                            Search(apiPath: apiSuppliers, nameAtapi: 'name'),
-                      );
+                          context: context,
+                          // delegate to customize the search bar
+                          delegate:
+                              Search(apiPath: apiSuppliers, nameAtapi: "name"));
                     },
                     icon: const Icon(
                       Icons.search,
