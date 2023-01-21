@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../widgets/DrawarWidget/drawer.dart';
-import '../widgets/homeWidget/homeWidget.dart';
-import 'HomeScreens/AccountsScreen/accounts.dart';
-import 'HomeScreens/InventoryScreens/Inventory .dart';
-import 'HomeScreens/Performance Screens/performance.dart';
-import 'HomeScreens/PurchasesScreen/purchases.dart';
-import 'HomeScreens/SuppliersScreens/suppliers.dart';
-import 'HomeScreens/makeSaleScreen/cashierScreens.dart';
+import 'package:gp/screens/Inventory%20Screens/Inventory%20.dart';
+import 'package:gp/screens/accounts.dart';
+import 'package:gp/screens/cashierScreens.dart';
+import 'package:gp/screens/Performance%20Screens/performance.dart';
+import 'package:gp/screens/purchases/purchases.dart';
+import 'package:gp/screens/Suppliers%20Screens/suppliers.dart';
+import 'package:gp/widgets/drawer.dart';
+import 'package:gp/widgets/homeWidget.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -47,7 +46,7 @@ class Home extends StatelessWidget {
                   Expanded(
                     child: GestureDetector(
                         onTap: () {
-                          Get.to(const PurchasesPage());
+                          Get.to( () => PurchasesPage());
                         },
                         child: HomeWidget(
                             name: "Purchases", imagepath: "images/1.png")),

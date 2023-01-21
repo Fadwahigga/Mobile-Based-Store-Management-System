@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'screens/Authentication/login.dart';
+import 'package:gp/screens/home.dart';
+import 'package:gp/screens/login/login.dart';
+import 'package:gp/shared/my_binding/my_binding.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 //New Commit
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  print(prefs.getString('token'));
+  runApp( MyApp(prefs:prefs));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key,required this.prefs });
+  final SharedPreferences prefs;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      initialBinding: MyBinding(),
+      home: prefs.getString('token') != null ? const Home() : const Login(),
     );
   }
 }
