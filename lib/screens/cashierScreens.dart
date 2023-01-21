@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 import '../widgets/appBar.dart';
 import '../widgets/buttonContainer.dart';
-import 'makeSale.dart';
+import 'make_a_sale/makeSale.dart';
 
 class CashierScreensPage extends StatelessWidget {
   const CashierScreensPage({super.key});
