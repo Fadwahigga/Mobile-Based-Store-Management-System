@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/screens/search/search.dart';
+import '../shared/constants.dart';
 import 'confirmAndcancel.dart';
 
 class PaymenBillPopUp extends StatefulWidget {
@@ -94,23 +96,25 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                 const SizedBox(
                   height: 30,
                 ),
-                Text(" Save This Bill To A Supplier Account",
-                    style: GoogleFonts.ebGaramond(
-                        textStyle: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 39, 62, 82),
-                    ))),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      hintText: "Search For A Supplier",
-                      hintStyle: const TextStyle(fontSize: 10),
-                      floatingLabelBehavior: FloatingLabelBehavior.always),
+                Row(
+                  children: [
+                    Text("Save This Bill To A Supplier Account",
+                        style: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 39, 62, 82),
+                        ))),
+                    IconButton(
+                        onPressed: () {
+                          showSearch(
+                              context: context,
+                              // delegate to customize the search bar
+                              delegate: Search(
+                                  apiPath: apiSuppliers, nameAtapi: "name"));
+                        },
+                        icon: Icon(Icons.search))
+                  ],
                 ),
                 const SizedBox(
                   height: 30,

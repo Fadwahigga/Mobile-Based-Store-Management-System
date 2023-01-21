@@ -40,7 +40,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Search By Supplier Name Or Number",
+                  "Search By Supplier Name",
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                     fontSize: 15,
@@ -51,8 +51,8 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                       showSearch(
                           context: context,
                           // delegate to customize the search bar
-                          delegate: Search(apiPath: apiSuppliers, nameAtapi: 'name'),
-                          );
+                          delegate:
+                              Search(apiPath: apiSuppliers, nameAtapi: "name"));
                     },
                     icon: const Icon(
                       Icons.search,
@@ -72,12 +72,9 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
               color: const Color.fromARGB(255, 228, 227, 227),
             ),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const Icon(
-                  Icons.contact_phone,
-                  size: 18,
-                ),
                 Text(
                   "Supplier Name",
                   style: _textStyle2,
@@ -108,23 +105,29 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              controller.getSupplierInvoices(id: controller.supplierList[index]['id']);
+                              controller.getSupplierInvoices(
+                                  id: controller.supplierList[index]['id']);
                               Get.defaultDialog(
                                 barrierDismissible: false,
                                 title: "",
-                                content:  SuppliersBillsPopUp(),
+                                content: SuppliersBillsPopUp(),
                               );
                             },
                             child: Container(
                               color: const Color.fromARGB(255, 228, 227, 227),
                               child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [
-                                  const Icon(
-                                    Icons.contact_phone,
-                                    size: 15,
-                                  ),
+                                  ///////////////////////////////////Delete /////////////////////////
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.delete,
+                                        color: Colors.red,
+                                      )),
+                                  /////////////////////////////////////////////////////////////////////
                                   Text(
                                     controller.supplierList[index]['name'],
                                     style: _textStyle,

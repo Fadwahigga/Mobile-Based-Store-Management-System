@@ -32,7 +32,7 @@ class ProductsListPage extends GetWidget<InventoryController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Search By product Name Or number",
+                  "Search By Product Name",
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                     fontSize: 18,
@@ -43,7 +43,8 @@ class ProductsListPage extends GetWidget<InventoryController> {
                       showSearch(
                           context: context,
                           // delegate to customize the search bar
-                          delegate: SearchByName(apiPath: apiInventory,nameAtapi: "item_name"));
+                          delegate: SearchByName(
+                              apiPath: apiInventory, nameAtapi: "item_name"));
                     },
                     icon: const Icon(
                       Icons.search,
@@ -68,11 +69,11 @@ class ProductsListPage extends GetWidget<InventoryController> {
                   style: _textStyle2,
                 ),
                 Text(
-                  "    Cost",
+                  "Cost",
                   style: _textStyle2,
                 ),
                 Text(
-                  "    Price",
+                  "Price",
                   style: _textStyle2,
                 ),
                 Text(
@@ -92,7 +93,9 @@ class ProductsListPage extends GetWidget<InventoryController> {
               return Expanded(
                 child: controller.productsList.isEmpty
                     ? Center(
-                        child: CircularProgressIndicator(color: const Color.fromARGB(255, 39, 62, 82),),
+                        child: CircularProgressIndicator(
+                          color: const Color.fromARGB(255, 39, 62, 82),
+                        ),
                       )
                     : ListView.builder(
                         shrinkWrap: true,
@@ -104,6 +107,14 @@ class ProductsListPage extends GetWidget<InventoryController> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
+                                ///////////////////////////////////Delete /////////////////////////
+                                IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                    )),
+                                    /////////////////////////////////////////////////////////////////////
                                 Text(
                                   controller.productsList[index].productName,
                                   style: _textStyle,
