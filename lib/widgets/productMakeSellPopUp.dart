@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/controller/sales_controller.dart';
 import 'confirmAndcancel.dart';
 
 class ProductMakeSellPopUp extends StatefulWidget {
@@ -99,7 +100,9 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                   height: 30,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    
+                  },
                   child: Text("Delete Product From List ",
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
