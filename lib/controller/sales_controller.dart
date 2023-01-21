@@ -14,19 +14,24 @@ class SalesController extends GetxController {
   // *********** Variables *************
 
   RxList<SalesModel> listOfSalesModel = <SalesModel>[].obs;
+  double total = 0.0;
   RxBool isThereData = false.obs;
+
+  List<Map<String,dynamic>> paymentData = [];
 
   DateTime? dateTime = DateTime.now();
   Barcode? result;
   QRViewController? controller;
 
+  // List<Map<String, dynamic>> makeAsale = [];
+
   // *********** Methods ***************
 
-  @override
-  onInit() {
-    super.onInit();
-    getSalesData();
-  }
+  // @override
+  // onInit() {
+  //   super.onInit();
+  //   // getSalesData();
+  // }
 
   void onQRViewCreated(QRViewController controller) {
     this.controller = controller;
@@ -42,25 +47,34 @@ class SalesController extends GetxController {
   }
 
   //* =================== Get Data Fot Sale ========================
-  getSalesData() async {
+  setSaleData({required Map<String, dynamic> map}) {
+    listOfSalesModel.add(SalesModel.fromJson(map));
+    update();
+  }
+
+  payment({required List<Map<String, dynamic>> paymentData}) async {
     isThereData.value = false;
     try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      http.Response response =
-          await http.get(Uri.http(baseUrl, "$apiSales/1"), headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Bearer ${prefs.getString('token')}'
-      });
-      if (response.statusCode == 201 || response.statusCode == 200) {
-        var body = json.decode(response.body);
-        print(body['data']);
-        //Todo: HERE AFTER FALAH fixing the bug
-        // for (var i = 0; i < body['data'].length; i++) {
-        //   listOfSalesModel.add(SalesModel.fromJson(body['data'][i]));
-        // }
-        listOfSalesModel.add(SalesModel.fromJson(body['data']));
-        isThereData.value = body['data'] != null;
-      }
+      SharedPreferences prefs = await SharedPreferences.getInstance();  
+      http.Response response = await http.post(
+          Uri.http(baseUrl, apiSales, {'products': paymentData}),
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ${prefs.getString('token')}'
+          });
+          print("The payment DATaaaaaaaaaaaaaaaaaaaaa SENT");
+          var body = json.decode(response.body);
+          print(body);
+      // if (response.statusCode == 201 || response.statusCode == 200) {
+      //   var body = json.decode(response.body);
+      //   print(body['data']);
+      //   //Todo: HERE AFTER FALAH fixing the bug
+      //   // for (var i = 0; i < body['data'].length; i++) {
+      //   //   listOfSalesModel.add(SalesModel.fromJson(body['data'][i]));
+      //   // }
+      //   listOfSalesModel.add(SalesModel.fromJson(body['data']));
+      //   isThereData.value = body['data'] != null;
+      // }
       ApiStatus.checkStatus(response);
     } catch (e) {
       print(e);
