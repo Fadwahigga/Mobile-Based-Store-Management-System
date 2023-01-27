@@ -59,6 +59,7 @@ class PurchaseSearchSupplier extends SearchDelegate {
                             phone: snapshot.data![index]['phone'].toString(),
                             name: snapshot.data![index]['name'],
                             id: snapshot.data![index]['id']);
+
                         Get.back();
                       },
                       child: ListTile(
