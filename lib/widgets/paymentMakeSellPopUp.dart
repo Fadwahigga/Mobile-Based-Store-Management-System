@@ -98,9 +98,9 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                   width: MediaQuery.of(context).size.width - 250,
                   color: Colors.white,
                   child: Center(
-                      child: Text(
-                          (controller.totalResultselse - controller.changeresult)
-                              .toString())),
+                      child: Text((controller.totalResultselse -
+                              controller.changeresult)
+                          .toString())),
                 ),
               ],
             ),
@@ -111,11 +111,12 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
               builder: (controller) {
                 return GestureDetector(
                     onTap: () {
+                      controller.payment(paymentData: controller.paymentData);
                       Get.back();
+
                       Get.snackbar("Done", "Success process",
                           snackPosition: SnackPosition.BOTTOM,
                           duration: const Duration(seconds: 60));
-                      controller.payment(paymentData: controller.paymentData);
                     },
                     child: ConfirmAndCancel(Opname: "Save"));
               },
