@@ -135,8 +135,27 @@ class _HomeState extends State<Home> {
                     )
                   ],
                 ),
-              )
-              //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 39, 62, 82),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                  child: Text("Generate Offers",
+                      style: GoogleFonts.ebGaramond(
+                          textStyle: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ))),
+                ),
+              ),
+              ////////////////////////////////////////////////////////////////////////////////////////////////////
             ],
           ),
         ),
