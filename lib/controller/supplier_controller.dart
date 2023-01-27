@@ -141,11 +141,13 @@ class SupplierController extends GetxController {
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
     }
   }
+
 ////////////////////////////
-removeFromList(int index) {
+  removeFromList(int index) {
     supplierList.removeAt(index);
     update();
   }
+
   ////////////////////////////////
   //================ Delete supplier ////////////////
   deleteSupplier(int id) async {
@@ -174,7 +176,8 @@ removeFromList(int index) {
         var body = json.decode(response.body);
         print(body);
         listOfSupplierModel.clear();
-        for (var i = 0; i < body['data']['invoices'].length; i++) {
+        //body['data']['invoices'].length
+        for (var i = 0; i < listOfSupplierModel.length; i++) {
           listOfSupplierModel
               .add(SupplierModel.fromJson(body['data']['invoices'][i]));
         }

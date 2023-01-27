@@ -16,7 +16,7 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
     fontSize: 10,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold));
 
   @override
   Widget build(BuildContext context) {
@@ -181,15 +181,17 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
-                                    controller.listOfSupplierModel[index].productName ,
+                                    controller
+                                        .listOfSupplierModel[index].productName,
                                     style: _textStyle,
                                   ),
                                   Text(
-                                   controller.listOfSupplierModel[index].cost,
+                                    controller.listOfSupplierModel[index].cost,
                                     style: _textStyle,
                                   ),
                                   Text(
-                                    controller.listOfSupplierModel[index].quantity,
+                                    controller
+                                        .listOfSupplierModel[index].quantity,
                                     style: _textStyle,
                                   ),
                                   Text(
