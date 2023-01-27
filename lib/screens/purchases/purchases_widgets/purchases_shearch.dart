@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gp/model/purhcase_model.dart';
 import 'package:gp/repo/purchases_repo.dart';
 import 'package:gp/shared/constants.dart';
 

@@ -1,19 +1,24 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/controller/purchase_controller.dart';
 import 'confirmAndcancel.dart';
 
-class ProductInformationPopUp extends StatefulWidget {
-  const ProductInformationPopUp({super.key});
+class ProductInformationPopUp extends GetWidget<PurchaseController> {
+  ProductInformationPopUp(
+      {Key? key,
+      required this.index,
+      required this.existQuantity,
+      required this.oldCost})
+      : super(key: key);
+  String existQuantity;
+  String oldCost;
+  final int index;
+  TextEditingController newCostController = TextEditingController();
+  TextEditingController newQuantityController = TextEditingController();
 
-  @override
-  State<ProductInformationPopUp> createState() =>
-      _ProductInformationPopUpState();
-}
-
-class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -28,12 +33,15 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                   width: double.infinity,
                   color: const Color.fromARGB(255, 39, 62, 82),
                   child: Center(
-                    child: Text("Product Information",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white))),
+                    child: Text(
+                      "Product Information",
+                      style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -54,7 +62,7 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: const Center(child: Text("00.0")),
+                      child: Center(child: Text(existQuantity)),
                     ),
                   ],
                 ),
@@ -76,7 +84,8 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                         height: 30,
                         width: MediaQuery.of(context).size.width - 250,
                         color: Colors.white,
-                        child: const TextField(
+                        child: TextField(
+                            controller: newQuantityController,
                             keyboardType: TextInputType.number)),
                   ],
                 ),
@@ -86,16 +95,19 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Old cost",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
+                    Text(
+                      "Old cost",
+                      style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
                           fontSize: 15,
-                        ))),
+                        ),
+                      ),
+                    ),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: const Center(child: Text("00.0")),
+                      child: Center(child: Text(oldCost)),
                     ),
                   ],
                 ),
@@ -117,29 +129,47 @@ class _ProductInformationPopUpState extends State<ProductInformationPopUp> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child:
-                          const TextField(keyboardType: TextInputType.number),
+                      child: TextField(
+                          controller: newCostController,
+                          keyboardType: TextInputType.number),
                     ),
                   ],
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Text("Delete Product From List ",
-                      style: GoogleFonts.ebGaramond(
+                GetBuilder<PurchaseController>(
+                  builder: (controller) {
+                    return GestureDetector(
+                      onTap: () {
+                        controller.removeFromList(index);
+                        Get.back();
+                      },
+                      child: Text(
+                        "Delete Product From List ",
+                        style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red,
-                      ))),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                GestureDetector(
-                    onTap: () {}, child: ConfirmAndCancel(Opname: "Save")),
+                GetBuilder<PurchaseController>(builder: (controller) {
+                  return GestureDetector(
+                      onTap: () {
+                        // oldCost = newCostController as String;
+                        // existQuantity = newQuantityController as String;
+                        Get.back();
+                      },
+                      child: ConfirmAndCancel(Opname: "Save"));
+                }),
                 const SizedBox(
                   height: 15,
                 ),

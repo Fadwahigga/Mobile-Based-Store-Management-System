@@ -12,8 +12,7 @@ class PurchaseModel {
   final String price;
   final String quantity;
   final int id;
-  final int total;
-  
+  final double total;
 
   factory PurchaseModel.fromJson(Map<String, dynamic> json) {
     return PurchaseModel(
@@ -21,8 +20,7 @@ class PurchaseModel {
         price: json['price'] ?? 'null',
         productName: json['item_name'] ?? 'null',
         quantity: json['stock_quantity'] ?? 'null',
-        id:json['id'] ?? "null",
-        total: json['total'] ?? '500'
-        );
+        id: json['id'] ?? "null",
+        total: json['total'] ?? '0');
   }
 }

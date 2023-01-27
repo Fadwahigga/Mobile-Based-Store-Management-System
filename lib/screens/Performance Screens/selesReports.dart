@@ -1,11 +1,13 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/performance_controller.dart';
 
 import '../../widgets/appBar.dart';
+import '../../widgets/confirmAndcancel.dart';
 
 // class SelesReportsPage extends StatefulWidget {
 //   const SelesReportsPage({super.key});
@@ -21,7 +23,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
     fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,7 +105,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                                 child: child!);
                           },
                         ).then((date) {
-                          controller.setDateFrom(date!);
+                          controller.setDateTo(date!);
                           controller.getDataByDate(
                             to: controller.dateTimeTo!,
                             from: controller.dateTimeFrom!,
@@ -135,7 +137,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
               color: const Color.fromARGB(255, 228, 227, 227),
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
                   "Product Name",
@@ -157,18 +159,82 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
             ),
           ),
           ///////////////////////////////////////////////////////////////////////////////////////////////////
-
           //////////////////////////////////////////////////////////////////////////////////////////////////
           Expanded(
             child: GetBuilder<PerformanceController>(
               builder: (controller) {
                 return ListView.builder(
-                  shrinkWrap: true,
                   itemCount: controller.listOfPerfomanceModel.length,
                   itemBuilder: (context, index) {
-                    return GestureDetector(
+                    return Slidable(
+                      endActionPane: ActionPane(
+                        motion: const ScrollMotion(),
+                        children: [
+                          SlidableAction(
+                            onPressed: ((context) {
+                              Get.defaultDialog(
+                                barrierDismissible: false,
+                                title: "",
+                                content: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      const Icon(
+                                        Icons.warning_sharp,
+                                        color: Colors.red,
+                                        size: 35,
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Center(
+                                        child: Text(
+                                          "Are You Sure?",
+                                          style: _textStyle,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 15,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          GestureDetector(
+                                              onTap: () {
+                                                Get.back();
+                                              },
+                                              child: ConfirmAndCancel(
+                                                  Opname: " Cancel ")),
+                                          GestureDetector(
+                                            onTap: () {
+                                              controller.deleteSalesData(
+                                                  id: index);
+                                              controller.removeFromList(index);
+                                              Get.back();
+                                            },
+                                            child: ConfirmAndCancel(
+                                                Opname: "   Yes   "),
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }),
+                            backgroundColor: const Color(0xFFFE4A49),
+                            foregroundColor: Colors.white,
+                            autoClose: true,
+                            icon: Icons.delete,
+                            label: 'Delete',
+                            spacing: 10,
+                            borderRadius: BorderRadius.circular(2),
+                          ),
+                        ],
+                      ),
                       child: Container(
-                        padding: const EdgeInsets.all(3),
+                        padding: const EdgeInsets.all(15),
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 228, 227, 227),
                           border: Border.fromBorderSide(
@@ -178,27 +244,45 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
-                              controller
-                                  .listOfPerfomanceModel[index].productName
-                                  .toString(),
-                              style: _textStyle,
+                            SizedBox(
+                              width: 100,
+                              child: Text(
+                                controller
+                                    .listOfPerfomanceModel[index].productName
+                                    .toString(),
+                                style: _textStyle,
+                              ),
                             ),
-                            Text(
-                              controller.listOfPerfomanceModel[index].price
-                                  .toString(),
-                              style: _textStyle,
+                            SizedBox(
+                              width: 60,
+                              child: Text(
+                                controller.listOfPerfomanceModel[index].price
+                                    .toString(),
+                                style: _textStyle,
+                              ),
                             ),
-                            Text(
-                              controller
-                                  .listOfPerfomanceModel[index].soldQuantity
-                                  .toString(),
-                              style: _textStyle,
+                            SizedBox(
+                              width: 60,
+                              child: Text(
+                                controller
+                                    .listOfPerfomanceModel[index].soldQuantity
+                                    .toString(),
+                                style: _textStyle,
+                              ),
                             ),
-                            Text(
-                              "500".toString(),
-                              style: _textStyle,
-                            ),
+                            SizedBox(
+                              width: 60,
+                              child: Text(
+                                (double.parse(controller
+                                            .listOfPerfomanceModel[index]
+                                            .soldQuantity) *
+                                        double.parse(controller
+                                            .listOfPerfomanceModel[index]
+                                            .price))
+                                    .toString(),
+                                style: _textStyle,
+                              ),
+                            )
                           ],
                         ),
                       ),

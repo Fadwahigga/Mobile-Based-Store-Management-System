@@ -20,12 +20,15 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
               width: double.infinity,
               color: const Color.fromARGB(255, 39, 62, 82),
               child: Center(
-                child: Text("Payment Bill",
-                    style: GoogleFonts.ebGaramond(
-                        textStyle: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white))),
+                child: Text(
+                  "Payment Bill",
+                  style: GoogleFonts.ebGaramond(
+                    textStyle: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -45,7 +48,8 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(child: Text(controller.total.toString())),
+                      child: Center(
+                          child: Text(controller.totalResultselse.toString())),
                     );
                   },
                 ),
@@ -66,7 +70,15 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                   height: 30,
                   width: MediaQuery.of(context).size.width - 250,
                   color: Colors.white,
-                  child: const Center(child: Text("00.0")),
+                  child: TextFormField(
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                    onChanged: ((value) {
+                      controller.changeresult += double.parse(value);
+                    }),
+                    keyboardType: TextInputType.number,
+                    controller: controller.PayedController,
+                  ),
                 ),
               ],
             ),
@@ -85,7 +97,10 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                   height: 30,
                   width: MediaQuery.of(context).size.width - 250,
                   color: Colors.white,
-                  child: const Center(child: Text("00.0")),
+                  child: Center(
+                      child: Text(
+                          (controller.totalResultselse - controller.changeresult)
+                              .toString())),
                 ),
               ],
             ),
@@ -95,8 +110,13 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
             GetBuilder<SalesController>(
               builder: (controller) {
                 return GestureDetector(
-                    onTap: () =>
-                        controller.payment(paymentData: controller.paymentData),
+                    onTap: () {
+                      Get.back();
+                      Get.snackbar("Done", "Success process",
+                          snackPosition: SnackPosition.BOTTOM,
+                          duration: const Duration(seconds: 60));
+                      controller.payment(paymentData: controller.paymentData);
+                    },
                     child: ConfirmAndCancel(Opname: "Save"));
               },
             ),

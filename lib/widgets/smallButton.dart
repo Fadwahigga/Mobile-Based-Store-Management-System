@@ -16,13 +16,16 @@ class SmallButton extends StatelessWidget {
           color: const Color.fromARGB(255, 39, 62, 82),
           borderRadius: BorderRadius.circular(50)),
       child: Center(
-        child: Text(buttonName!,
-            style: GoogleFonts.ebGaramond(
-                textStyle: const TextStyle(
+        child: Text(
+          buttonName!,
+          style: GoogleFonts.ebGaramond(
+            textStyle: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.bold,
               color: Colors.white,
-            ))),
+            ),
+          ),
+        ),
       ),
     );
   }

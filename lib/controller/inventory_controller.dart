@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -13,6 +15,7 @@ import '../shared/constants.dart';
 class InventoryController extends GetxController {
   // ********* Variables ***********
   List<InventoryModel> productsList = [];
+  RxBool isThereData = false.obs;
 
   GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
@@ -34,6 +37,28 @@ class InventoryController extends GetxController {
     super.onInit();
     getProductList();
   }
+  //============ Delete Product ============
+
+  deleteProduct({required int id}) async {
+    isThereData.value = false;
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      http.Response response =
+          await http.delete(Uri.http(baseUrl, "$apiInventory/$id"), headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ${prefs.getString('token')}'
+      });
+      if (response.statusCode == 201 || response.statusCode == 200) {
+        update();
+        return Get.snackbar('Delete', "The product has deleted",
+            snackPosition: SnackPosition.TOP,
+            duration: const Duration(seconds: 4));
+      }
+      ApiStatus.checkStatus(response);
+    } catch (e) {
+      return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
+    }
+  }
 
   // ========= Get The List Of Product =========
   getProductList() async {
@@ -46,8 +71,6 @@ class InventoryController extends GetxController {
       });
       if (response.statusCode == 201 || response.statusCode == 200) {
         var body = json.decode(response.body);
-        print(body);
-        print(body['data'] == null);
         for (var i = 0; i < body['data'].length; i++) {
           productsList.add(InventoryModel.fromJson(body['data'][i]));
         }
@@ -70,42 +93,42 @@ class InventoryController extends GetxController {
     required String price,
   }) async {
     showDialog(
-        barrierDismissible: false,
-        context: Get.context!,
-        builder: (BuildContext context) => Center(
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: Center(
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Row(
-                  children: const [
-                    CircularProgressIndicator(
-                      color: kprimaryColor,
-                      backgroundColor: kprimaryColor,
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(
-                      'Adding...',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ],
-                ),
+      barrierDismissible: false,
+      context: Get.context!,
+      builder: (BuildContext context) => Center(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Center(
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                children: const [
+                  CircularProgressIndicator(
+                    color: kprimaryColor,
+                    backgroundColor: kprimaryColor,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    'Adding...',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal),
+                  ),
+                ],
               ),
             ),
           ),
         ),
-      );
+      ),
+    );
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response =
@@ -136,8 +159,15 @@ class InventoryController extends GetxController {
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
     }
   }
+
+  //==================Delete From List ===============
+  removeFromList(int index) {
+    productsList.removeAt(index);
+    update();
+  }
+
   // =========== To Clear All TextEditingController ==============
-  clearText(){
+  clearText() {
     categoryController.clear();
     productNameController.clear();
     costController.clear();
@@ -152,9 +182,11 @@ class InventoryController extends GetxController {
     controller.scannedDataStream.listen((scanData) {
       result = scanData;
       update();
-      
     });
   }
+
+  // =========== Get Search Data By Scan Bar Code
+  getBarCodeSearchData() {}
 
   // ========= Set Date Time =========
   setDataTime({required DateTime date}) {

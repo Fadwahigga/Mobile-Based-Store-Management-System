@@ -6,14 +6,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/sales_controller.dart';
 import 'confirmAndcancel.dart';
 
-class ProductMakeSellPopUp extends StatefulWidget {
-  const ProductMakeSellPopUp({super.key});
+class ProductMakeSellPopUp extends GetWidget<SalesController> {
+  const ProductMakeSellPopUp(
+      {Key? key,
+      required this.availableQuantity,
+      required this.price,
+      required this.index})
+      : super(key: key);
+  final String availableQuantity;
+  final String price;
+  final int index;
 
-  @override
-  State<ProductMakeSellPopUp> createState() => _ProductMakeSellPopUpState();
-}
-
-class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -53,7 +56,7 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: const Center(child: Text("00.0")),
+                      child: Center(child: Text(availableQuantity)),
                     ),
                   ],
                 ),
@@ -72,7 +75,7 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: const Center(child: Text("00.0")),
+                      child: Center(child: Text(price)),
                     ),
                   ],
                 ),
@@ -91,8 +94,14 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child:
-                          const TextField(keyboardType: TextInputType.number),
+                      child: TextFormField(
+                        onChanged: ((value) {
+                          controller.quantitiesController.text =
+                              value.toString();
+                        }),
+                        keyboardType: TextInputType.number,
+                        controller: controller.quantitiesController,
+                      ),
                     ),
                   ],
                 ),
@@ -101,7 +110,8 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    
+                    controller.listOfSalesModel.removeAt(index);
+                    Get.back();
                   },
                   child: Text("Delete Product From List ",
                       style: GoogleFonts.ebGaramond(
@@ -115,7 +125,10 @@ class _ProductMakeSellPopUpState extends State<ProductMakeSellPopUp> {
                   height: 30,
                 ),
                 GestureDetector(
-                    onTap: () {}, child: ConfirmAndCancel(Opname: "Save")),
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: ConfirmAndCancel(Opname: "Save")),
                 const SizedBox(
                   height: 15,
                 ),

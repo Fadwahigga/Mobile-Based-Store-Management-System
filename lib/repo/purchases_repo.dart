@@ -12,7 +12,9 @@ class PurchasesRepo {
   static List<InventoryModel> listOfInventoryModel = [];
 
   static Future<List<InventoryModel>> getProductList(
-      {required String apiPath,required String nameAtapi ,required String? itemName}) async {
+      {required String apiPath,
+      required String nameAtapi,
+      required String? itemName}) async {
     listOfInventoryModel.clear();
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();

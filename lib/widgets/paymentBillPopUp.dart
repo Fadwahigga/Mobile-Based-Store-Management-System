@@ -3,18 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/screens/search/search.dart';
+import 'package:gp/screens/purchases/purchases_widgets/purchase_search_supplier.dart';
+import '../controller/purchase_controller.dart';
 import '../shared/constants.dart';
 import 'confirmAndcancel.dart';
 
-class PaymenBillPopUp extends StatefulWidget {
-  const PaymenBillPopUp({super.key});
+class PaymentBillPopUp extends StatelessWidget {
+  const PaymentBillPopUp({Key? key, required this.total}) : super(key: key);
+  final String total;
 
-  @override
-  State<PaymenBillPopUp> createState() => _PaymenBillPopUpState();
-}
-
-class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -51,7 +48,12 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: const Center(child: Text("00.0")),
+                      child: Center(
+                          child: Text(total,
+                              style: GoogleFonts.ebGaramond(
+                                  textStyle: const TextStyle(
+                                fontSize: 15,
+                              )))),
                     ),
                   ],
                 ),
@@ -70,7 +72,12 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: const Center(child: Text("00.0")),
+                      child: Center(
+                          child: Text("00.0",
+                              style: GoogleFonts.ebGaramond(
+                                  textStyle: const TextStyle(
+                                fontSize: 15,
+                              )))),
                     ),
                   ],
                 ),
@@ -89,7 +96,12 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: const Center(child: Text("00.0")),
+                      child: Center(
+                          child: Text("00.0",
+                              style: GoogleFonts.ebGaramond(
+                                  textStyle: const TextStyle(
+                                fontSize: 15,
+                              )))),
                     ),
                   ],
                 ),
@@ -98,22 +110,25 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                 ),
                 Row(
                   children: [
-                    Text("Save This Bill To A Supplier Account",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
+                    Text(
+                      "Save This Bill To A Supplier Account",
+                      style: GoogleFonts.ebGaramond(
+                        textStyle: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 39, 62, 82),
-                        ))),
+                        ),
+                      ),
+                    ),
                     IconButton(
                         onPressed: () {
                           showSearch(
                               context: context,
                               // delegate to customize the search bar
-                              delegate: Search(
+                              delegate: PurchaseSearchSupplier(
                                   apiPath: apiSuppliers, nameAtapi: "name"));
                         },
-                        icon: Icon(Icons.search))
+                        icon: const Icon(Icons.search))
                   ],
                 ),
                 const SizedBox(
@@ -131,7 +146,24 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: const Center(child: Text("Search result")),
+                      child: Center(
+                        child: GetBuilder<PurchaseController>(
+                          builder: (controller) {
+                            return controller.purchaseMap.isNotEmpty
+                                ? Text(
+                                    controller.purchaseMap['name'].toString(),
+                                    style: GoogleFonts.ebGaramond(
+                                        textStyle: const TextStyle(
+                                      fontSize: 15,
+                                    )))
+                                : Text("Search Result",
+                                    style: GoogleFonts.ebGaramond(
+                                        textStyle: const TextStyle(
+                                      fontSize: 15,
+                                    )));
+                          },
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -141,9 +173,10 @@ class _PaymenBillPopUpState extends State<PaymenBillPopUp> {
                 GestureDetector(
                     onTap: () {
                       Get.back();
+                      // ToDo: Here Fadwa add the payment method that i will explain it.
                       Get.snackbar("Done", "Success process",
                           snackPosition: SnackPosition.BOTTOM,
-                          duration: const Duration(seconds: 2));
+                          duration: const Duration(seconds: 3));
                     },
                     child: ConfirmAndCancel(Opname: "Save")),
                 const SizedBox(

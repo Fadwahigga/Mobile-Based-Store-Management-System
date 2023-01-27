@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, body_might_complete_normally_nullable
 
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/login_controller.dart';
 import 'package:gp/screens/login/login.dart';
 import 'package:gp/widgets/buttonContainer.dart';
-import '../manegerOrEmployee.dart';
 
 class SignUp extends GetWidget<LoginController> {
   const SignUp({super.key});

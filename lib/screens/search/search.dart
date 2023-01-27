@@ -2,13 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gp/model/purhcase_model.dart';
-import 'package:gp/repo/purchases_repo.dart';
 import 'package:gp/repo/search_repo.dart';
 import 'package:gp/shared/constants.dart';
 
 import '../../../controller/purchase_controller.dart';
-import '../../../model/inventroy_model.dart';
 
 class Search extends SearchDelegate {
   Search({required this.apiPath, required this.nameAtapi});
@@ -56,7 +53,7 @@ class Search extends SearchDelegate {
 // third overwrite to show query result
   @override
   Widget buildResults(BuildContext context) {
-    return FutureBuilder<List<Map<String,dynamic>>>(
+    return FutureBuilder<List<Map<String, dynamic>>>(
         future: SearchRepo.getData(
             apiPath: apiPath, nameAtapi: nameAtapi, itemName: query.trim()),
         builder: (context, snapshot) {
@@ -80,8 +77,7 @@ class Search extends SearchDelegate {
                         Get.back();
                       },
                       child: ListTile(
-                        title:
-                            Text(snapshot.data![index]['name']),
+                        title: Text(snapshot.data![index]['name']),
                       ),
                     );
                   },

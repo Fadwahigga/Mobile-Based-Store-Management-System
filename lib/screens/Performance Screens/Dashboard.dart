@@ -128,7 +128,7 @@ class Dashboard extends GetWidget<PerformanceController> {
                     textStyle: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),
           ),
-          BestSellingChart(),
+          const BestSellingChart(),
           Padding(
             padding: const EdgeInsets.only(left: 10),
             child: Text("Least Selling Chart",
@@ -136,7 +136,7 @@ class Dashboard extends GetWidget<PerformanceController> {
                     textStyle: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),
           ),
-          LeastSellingChart(),
+          const LeastSellingChart(),
           Padding(
             padding: const EdgeInsets.only(left: 10),
             child: Text("Low Stock Products",
@@ -144,7 +144,7 @@ class Dashboard extends GetWidget<PerformanceController> {
                     textStyle: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),
           ),
-          LowStockProductsChart()
+          const LowStockProductsChart()
         ],
       ),
     );

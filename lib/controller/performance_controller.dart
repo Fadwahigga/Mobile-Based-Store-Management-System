@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -19,10 +21,11 @@ class PerformanceController extends GetxController {
   List<PerformanceModel> listOfPerfomanceModel = [];
 
   Map<String, dynamic>? dashboardData;
+  RxBool isThereData = false.obs;
 
-  List<charts.Series<dynamic, String>> series = []; 
-  List<charts.Series<dynamic, String>> series2 = []; 
-  List<charts.Series<dynamic, String>> series3 = []; 
+  List<charts.Series<dynamic, String>> series = [];
+  List<charts.Series<dynamic, String>> series2 = [];
+  List<charts.Series<dynamic, String>> series3 = [];
 
   // *********** Methods **********
 
@@ -69,17 +72,18 @@ class PerformanceController extends GetxController {
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
     }
   }
-  
 
-  // * Get Date By Date From And To 
-    getDataByDate({required DateTime to ,required DateTime from}) async {
+  // * Get Date By Date From And To
+  getDataByDate({required DateTime to, required DateTime from}) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      http.Response response =
-          await http.get(Uri.http(baseUrl, apiSalesReport,{'to':to.toString(),'from':from.toString()}), headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Bearer ${prefs.getString('token')}'
-      });
+      http.Response response = await http.get(
+          Uri.http(baseUrl, apiSalesReport,
+              {'to': to.toString(), 'from': from.toString()}),
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ${prefs.getString('token')}'
+          });
       print("Out sideeeeeeee");
       print(json.decode(response.body));
       if (response.statusCode == 201 || response.statusCode == 200) {
@@ -123,27 +127,52 @@ class PerformanceController extends GetxController {
                 charts.ColorUtil.fromDartColor(Colors.blueGrey),
           ),
         );
-        series2.add(
-          charts.Series(
-            id: "Loc Stock",
-            data: dashboardData!['leastSelling'] ?? [],
-            domainFn: (dynamic series, _) => series['item_name'] ?? "null",
-            measureFn: (dynamic series, _) => int.parse(series['sales'] ?? "null"),
-            colorFn: (dynamic series, _) =>
-                charts.ColorUtil.fromDartColor(Colors.blueGrey),
-          )
-        );
-         series3.add(
-          charts.Series(
-            id: "Quantity",
-            data: dashboardData!['lowStock'] ?? [],
-            domainFn: (dynamic series, _) => series['barcode'] ?? "null",
-            measureFn: (dynamic series, _) => int.parse(series['stock_quantity'] ?? "null"),
-            colorFn: (dynamic series, _) =>
-                charts.ColorUtil.fromDartColor(Colors.blueGrey),
-          )
-        );
+        series2.add(charts.Series(
+          id: "Loc Stock",
+          data: dashboardData!['leastSelling'] ?? [],
+          domainFn: (dynamic series, _) => series['item_name'] ?? "null",
+          measureFn: (dynamic series, _) =>
+              int.parse(series['sales'] ?? "null"),
+          colorFn: (dynamic series, _) =>
+              charts.ColorUtil.fromDartColor(Colors.blueGrey),
+        ));
+        series3.add(charts.Series(
+          id: "Quantity",
+          data: dashboardData!['lowStock'] ?? [],
+          domainFn: (dynamic series, _) => series['barcode'] ?? "null",
+          measureFn: (dynamic series, _) =>
+              int.parse(series['stock_quantity'] ?? "null"),
+          colorFn: (dynamic series, _) =>
+              charts.ColorUtil.fromDartColor(Colors.blueGrey),
+        ));
         update();
+      }
+      ApiStatus.checkStatus(response);
+    } catch (e) {
+      return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
+    }
+  }
+
+  void removeFromList(int index) {
+    listOfPerfomanceModel.removeAt(index);
+    update();
+  }
+
+  //* ========================== DELETE Data =================
+  deleteSalesData({required int id}) async {
+    isThereData.value = false;
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      http.Response response =
+          await http.delete(Uri.http(baseUrl, "$apiSales/$id"), headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ${prefs.getString('token')}'
+      });
+      if (response.statusCode == 201 || response.statusCode == 200) {
+        update();
+        return Get.snackbar('Delete', "The product has deleted",
+            snackPosition: SnackPosition.TOP,
+            duration: const Duration(seconds: 1));
       }
       ApiStatus.checkStatus(response);
     } catch (e) {

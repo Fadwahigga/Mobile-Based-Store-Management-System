@@ -3,22 +3,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/controller/sales_controller.dart';
+
 import 'package:gp/screens/make_a_sale/make_sale_search.dart';
-import 'package:gp/shared/constants.dart';
 import 'package:gp/widgets/paymentMakeSellPopUp.dart';
 import 'package:gp/widgets/productMakeSellPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
 
+import '../../controller/sales_controller.dart';
+import '../../shared/constants.dart';
 import '../../widgets/appBar.dart';
 import '../../widgets/barCode.dart';
-
-// class MakeSalePage extends StatefulWidget {
-//   const MakeSalePage({super.key});
-
-//   @override
-//   State<MakeSalePage> createState() => _MakeSalePageState();
-// }
 
 class MakeSalePage extends GetWidget<SalesController> {
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
@@ -26,7 +20,7 @@ class MakeSalePage extends GetWidget<SalesController> {
     fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold));
 
   MakeSalePage({Key? key}) : super(key: key);
 
@@ -73,27 +67,28 @@ class MakeSalePage extends GetWidget<SalesController> {
                     style: _textStyle,
                   ),
                   IconButton(
-                      onPressed: () {
-                        showDatePicker(
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(2005),
-                          lastDate: DateTime(2050),
-                          builder: (context, child) {
-                            return Theme(
-                                data: ThemeData(
-                                  primarySwatch: Colors.grey,
-                                ),
-                                child: child!);
-                          },
-                        ).then((value) {
-                          controller.setDateTime(value);
-                        });
-                      },
-                      icon: Icon(
-                        Icons.calendar_month,
-                        size: 35,
-                      ))
+                    onPressed: () {
+                      showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2005),
+                        lastDate: DateTime(2050),
+                        builder: (context, child) {
+                          return Theme(
+                              data: ThemeData(
+                                primarySwatch: Colors.grey,
+                              ),
+                              child: child!);
+                        },
+                      ).then((value) {
+                        controller.setDateTime(value);
+                      });
+                    },
+                    icon: Icon(
+                      Icons.calendar_month,
+                      size: 35,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -183,51 +178,67 @@ class MakeSalePage extends GetWidget<SalesController> {
                           Get.defaultDialog(
                             barrierDismissible: false,
                             title: "",
-                            content: ProductMakeSellPopUp(),
+                            content: ProductMakeSellPopUp(
+                              availableQuantity: controller
+                                  .listOfSalesModel[index].soldQunatity,
+                              index: index,
+                              price: controller.listOfSalesModel[index].price,
+                            ),
                           );
                         },
                         child: Container(
-                          color: const Color.fromARGB(255, 228, 227, 227),
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Text(
-                                controller.listOfSalesModel[index].itemName
-                                    .toString(),
-                                style: _textStyle,
-                              ),
-                              Container(
-                                color: Colors.white,
-                                padding: EdgeInsets.all(5),
-                                child: Text(
-                                  controller.listOfSalesModel[index].price
-                                      .toString(),
-                                  style: _textStyle,
+                            color: const Color.fromARGB(255, 228, 227, 227),
+                            padding: EdgeInsets.all(10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  width: 100,
+                                  color: Colors.white,
+                                  padding: EdgeInsets.all(3),
+                                  child: Text(
+                                    controller.listOfSalesModel[index].itemName
+                                        .toString(),
+                                    style: _textStyle,
+                                  ),
                                 ),
-                              ),
-                              Container(
-                                color: Colors.white,
-                                padding: EdgeInsets.all(5),
-                                child: Text(
-                                  controller
-                                      .listOfSalesModel[index].soldQunatity
-                                      .toString(),
-                                  style: _textStyle,
+                                Container(
+                                  width: 70,
+                                  color: Colors.white,
+                                  padding: EdgeInsets.all(3),
+                                  child: Text(
+                                    controller.listOfSalesModel[index].price
+                                        .toString(),
+                                    style: _textStyle,
+                                  ),
                                 ),
-                              ),
-                              Container(
-                                color: Colors.white,
-                                padding: EdgeInsets.all(5),
-                                child: Text(
-                                  controller.listOfSalesModel[index].price
-                                      .toString(),
-                                  style: _textStyle,
+                                Container(
+                                  width: 70,
+                                  color: Colors.white,
+                                  padding: EdgeInsets.all(3),
+                                  child: Text(
+                                    controller
+                                        .listOfSalesModel[index].soldQunatity,
+                                    style: _textStyle,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
+                                Container(
+                                  width: 70,
+                                  color: Colors.white,
+                                  padding: EdgeInsets.all(3),
+                                  child: Text(
+                                    (double.parse(controller
+                                                .listOfSalesModel[index]
+                                                .price) *
+                                            double.parse(controller
+                                                .listOfSalesModel[index]
+                                                .soldQunatity))
+                                        .toString(),
+                                    style: _textStyle,
+                                  ),
+                                ),
+                              ],
+                            )),
                       );
                     },
                   )),
@@ -245,7 +256,8 @@ class MakeSalePage extends GetWidget<SalesController> {
                 margin: EdgeInsets.only(left: 20, right: 20),
                 padding: EdgeInsets.all(5),
                 child: Center(
-                  child: Text("TOTAL = ${controller.totalResult.toString()}",
+                  child: Text(
+                      "TOTAL = ${controller.totalResultselse.toString()}",
                       style: GoogleFonts.ebGaramond(
                           textStyle: TextStyle(
                               fontSize: 18,

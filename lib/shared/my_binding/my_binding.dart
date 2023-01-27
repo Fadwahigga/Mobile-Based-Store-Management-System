@@ -11,13 +11,12 @@ import '../../controller/purchase_controller.dart';
 class MyBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => LoginController(),fenix: true );
-    Get.lazyPut(() => InventoryController(),fenix: true );
-    Get.lazyPut(() => SupplierController(),fenix: true );
-    Get.lazyPut(() => AccountController(),fenix: true );
-    Get.lazyPut(() => PerformanceController(),fenix: true );
-    Get.lazyPut(() => PurchaseController(),fenix: true );
-    Get.lazyPut(() => SalesController(),fenix: true );
+    Get.lazyPut(() => LoginController(), fenix: true);
+    Get.lazyPut(() => InventoryController(), fenix: true);
+    Get.lazyPut(() => SupplierController(), fenix: true);
+    Get.lazyPut(() => AccountController(), fenix: true);
+    Get.lazyPut(() => PerformanceController(), fenix: true);
+    Get.lazyPut(() => PurchaseController(), fenix: true);
+    Get.lazyPut(() => SalesController(), fenix: true);
   }
-
 }

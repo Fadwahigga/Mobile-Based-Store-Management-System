@@ -1,31 +1,39 @@
-import 'dart:convert';
-
 import 'package:get/get.dart';
 import 'package:gp/model/inventroy_model.dart';
 import 'package:gp/model/purhcase_model.dart';
-import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
-
-import '../shared/api_status.dart';
-import '../shared/constants.dart';
 
 class PurchaseController extends GetxController {
   // ************* Vaiables ****************
   List<PurchaseModel> listOfPurchaseModel = [];
-  int total = 0;
+  double total = 0;
+  double totalresute = 0;
+
+  Map<String, dynamic> purchaseMap = {};
 
   // ************* Methods *****************
 
   setData(InventoryModel snapshot) {
     listOfPurchaseModel.add(PurchaseModel(
-        total: 500,
+        total: double.parse(snapshot.cost) * double.parse(snapshot.quantity),
         cost: snapshot.cost,
         id: snapshot.id,
         price: snapshot.price,
         productName: snapshot.productName,
         quantity: snapshot.quantity));
-        update();
+    update();
   }
+
+  removeFromList(int index) {
+    listOfPurchaseModel.removeAt(index);
+    update();
+  }
+
+  setSupplierData(
+      {required String phone, required String name, required int id}) {
+    purchaseMap = {'phone': phone, 'name': name, 'id': id};
+    update();
+  }
+
   // @override
   // onInit() {
   //   super.onInit();

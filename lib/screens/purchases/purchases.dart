@@ -1,52 +1,27 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_string_escapes, avoid_print, prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_const_constructors, unnecessary_string_escapes, avoid_print, prefer_typing_uninitialized_variables, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/controller/inventory_controller.dart';
 import 'package:gp/controller/purchase_controller.dart';
-import 'package:gp/screens/purchases/purchases_widgets/purchases_shearch.dart';
+import 'package:gp/screens/purchases/purchases_widgets/purchases_shearch_inventory.dart';
 import 'package:gp/shared/constants.dart';
 
 import 'package:gp/widgets/paymentBillPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
-import '../../widgets/Search.dart';
 import '../../widgets/appBar.dart';
 import '../../widgets/barCode.dart';
 import '../../widgets/productInformationPopUp.dart';
 
 class PurchasesPage extends GetWidget<PurchaseController> {
-  // DateTime? _dateTime = DateTime.now();
-
-  // Barcode? result;
-  // QRViewController? controller;
-  List productsList = [
-    "Product Name",
-    "Product Name",
-    "Product Name",
-    "Product Name",
-    "Product Name",
-    "Product Name",
-    "Product Name",
-    "Product Name",
-    "Product Name",
-    "Product Name",
-  ];
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
     fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
-  @override
-  // void reassemble() {
-  //   super.reassemble();
-  //   if (Platform.isAndroid) {
-  //     controller!.pauseCamera();
-  //   } else if (Platform.isIOS) {
-  //     controller!.resumeCamera();
-  //   }
-  // }
+
+  PurchasesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -149,17 +124,18 @@ class PurchasesPage extends GetWidget<PurchaseController> {
                   )),
                 ),
                 IconButton(
-                    onPressed: () {
-                      showSearch(
-                          context: context,
-                          // delegate to customize the search bar
-                          delegate: PurchaseSearch(
-                              apiPath: apiInventory, nameAtapi: "item_name"));
-                    },
-                    icon: Icon(
-                      Icons.search,
-                      size: 35,
-                    ))
+                  onPressed: () {
+                    showSearch(
+                        context: context,
+                        // delegate to customize the search bar
+                        delegate: PurchasesSearchInventory(
+                            apiPath: apiInventory, nameAtapi: "item_name"));
+                  },
+                  icon: Icon(
+                    Icons.search,
+                    size: 35,
+                  ),
+                ),
               ],
             ),
           ),
@@ -212,38 +188,52 @@ class PurchasesPage extends GetWidget<PurchaseController> {
                         Get.defaultDialog(
                           barrierDismissible: false,
                           title: "",
-                          content: ProductInformationPopUp(),
+                          content: ProductInformationPopUp(
+                              existQuantity: controller
+                                  .listOfPurchaseModel[index].quantity,
+                              oldCost:
+                                  controller.listOfPurchaseModel[index].cost,
+                              index: index),
                         );
                       },
                       child: Container(
                         color: const Color.fromARGB(255, 228, 227, 227),
-                        padding: EdgeInsets.all(10),
+                        padding: EdgeInsets.all(15),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
-                              controller.listOfPurchaseModel[index].productName,
-                              style: _textStyle,
+                            Container(
+                              width: 100,
+                              color: Colors.white,
+                              padding: EdgeInsets.all(3),
+                              child: Text(
+                                controller
+                                    .listOfPurchaseModel[index].productName,
+                                style: _textStyle,
+                              ),
                             ),
                             Container(
+                              width: 70,
                               color: Colors.white,
-                              padding: EdgeInsets.all(5),
+                              padding: EdgeInsets.all(3),
                               child: Text(
                                 controller.listOfPurchaseModel[index].cost,
                                 style: _textStyle,
                               ),
                             ),
                             Container(
+                              width: 70,
                               color: Colors.white,
-                              padding: EdgeInsets.all(5),
+                              padding: EdgeInsets.all(3),
                               child: Text(
                                 controller.listOfPurchaseModel[index].quantity,
                                 style: _textStyle,
                               ),
                             ),
                             Container(
+                              width: 70,
                               color: Colors.white,
-                              padding: EdgeInsets.all(5),
+                              padding: EdgeInsets.all(3),
                               child: Text(
                                 controller.listOfPurchaseModel[index].total
                                     .toString(),
@@ -272,7 +262,7 @@ class PurchasesPage extends GetWidget<PurchaseController> {
                 margin: EdgeInsets.only(left: 20, right: 20),
                 padding: EdgeInsets.all(5),
                 child: Center(
-                  child: Text("TOTAL = ${controller.total.toString()}",
+                  child: Text("TOTAL = ${controller.totalresute.toString()}",
                       style: GoogleFonts.ebGaramond(
                           textStyle: TextStyle(
                               fontSize: 18,
@@ -292,7 +282,9 @@ class PurchasesPage extends GetWidget<PurchaseController> {
               Get.defaultDialog(
                 barrierDismissible: false,
                 title: "",
-                content: PaymenBillPopUp(),
+                content: PaymentBillPopUp(
+                  total: controller.total.toString(),
+                ),
               );
             },
             child: SmallButton(buttonName: "BUY"),

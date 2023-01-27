@@ -48,6 +48,7 @@ dependencies:
   shared_preferences: ^2.0.15
   http: ^0.13.5
   upgrader: ^5.1.0
+  flutter_slidable: ^2.0.0
   # flutter_native_splash: ^2.2.16
 
 

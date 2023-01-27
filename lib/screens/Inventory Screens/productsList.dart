@@ -1,13 +1,14 @@
 // ignore_for_file: must_be_immutable, file_names, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/inventory_controller.dart';
-import 'package:gp/shared/constants.dart';
-
-import '../../widgets/Search.dart';
+import '../../shared/constants.dart';
 import '../../widgets/appBar.dart';
+import '../../widgets/confirmAndcancel.dart';
+import '../make_a_sale/make_sale_search.dart';
 
 class ProductsListPage extends GetWidget<InventoryController> {
   ProductsListPage({super.key});
@@ -16,7 +17,7 @@ class ProductsListPage extends GetWidget<InventoryController> {
     fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +44,7 @@ class ProductsListPage extends GetWidget<InventoryController> {
                       showSearch(
                           context: context,
                           // delegate to customize the search bar
-                          delegate: SearchByName(
+                          delegate: MakeSaleSearch(
                               apiPath: apiInventory, nameAtapi: "item_name"));
                     },
                     icon: const Icon(
@@ -88,56 +89,144 @@ class ProductsListPage extends GetWidget<InventoryController> {
             height: 10,
           ),
           //////////////////////////////////////////////////////////////////////////////////////////////////
-          GetBuilder<InventoryController>(
-            builder: (_) {
-              return Expanded(
-                child: controller.productsList.isEmpty
+          Expanded(
+            child: GetBuilder<InventoryController>(
+              builder: (controller) {
+                return controller.productsList.isEmpty
                     ? Center(
-                        child: CircularProgressIndicator(
-                          color: const Color.fromARGB(255, 39, 62, 82),
+                        child: const CircularProgressIndicator(
+                          color: kprimaryColor,
                         ),
                       )
                     : ListView.builder(
                         shrinkWrap: true,
                         itemCount: controller.productsList.length,
                         itemBuilder: (context, index) {
-                          return Container(
-                            color: const Color.fromARGB(255, 228, 227, 227),
-                            padding: EdgeInsets.all(10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          return Slidable(
+                            endActionPane: ActionPane(
+                              motion: const ScrollMotion(),
                               children: [
-                                ///////////////////////////////////Delete /////////////////////////
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.delete,
-                                      color: Colors.red,
-                                    )),
-                                    /////////////////////////////////////////////////////////////////////
-                                Text(
-                                  controller.productsList[index].productName,
-                                  style: _textStyle,
+                                // A SlidableAction can have an icon and/or a label.
+                                SlidableAction(
+                                  onPressed: ((context) {
+                                    Get.defaultDialog(
+                                      barrierDismissible: false,
+                                      title: "",
+                                      content: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          children: [
+                                            const Icon(
+                                              Icons.warning_sharp,
+                                              color: Colors.red,
+                                              size: 35,
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            Center(
+                                              child: Text(
+                                                "Are You Sure?",
+                                                style: _textStyle,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 15,
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                GestureDetector(
+                                                    onTap: () {
+                                                      Get.back();
+                                                    },
+                                                    child: ConfirmAndCancel(
+                                                        Opname: " Cancel ")),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    controller.deleteProduct(
+                                                        id: index);
+                                                    controller
+                                                        .removeFromList(index);
+                                                    Get.back();
+                                                  },
+                                                  child: ConfirmAndCancel(
+                                                      Opname: "   Yes   "),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  }),
+                                  backgroundColor: Color(0xFFFE4A49),
+                                  foregroundColor: Colors.white,
+                                  icon: Icons.delete,
+                                  spacing: 10,
+                                  label: 'Delete',
+                                  borderRadius: BorderRadius.circular(2),
                                 ),
-                                Text(
-                                  controller.productsList[index].cost,
-                                  style: _textStyle,
+                                const SizedBox(
+                                  width: 5,
                                 ),
-                                Text(
-                                  controller.productsList[index].price,
-                                  style: _textStyle,
-                                ),
-                                Text(
-                                  controller.productsList[index].quantity,
-                                  style: _textStyle,
+                                SlidableAction(
+                                  onPressed: ((context) {}),
+                                  backgroundColor: Colors.blue,
+                                  foregroundColor: Colors.white,
+                                  icon: Icons.edit,
+                                  autoClose: true,
+                                  label: 'Edit',
+                                  spacing: 10,
+                                  borderRadius: BorderRadius.circular(2),
                                 ),
                               ],
                             ),
+                            child: Container(
+                              color: const Color.fromARGB(255, 228, 227, 227),
+                              padding: EdgeInsets.all(15),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                    width: 100,
+                                    child: Text(
+                                      controller
+                                          .productsList[index].productName,
+                                      style: _textStyle,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 60,
+                                    child: Text(
+                                      controller.productsList[index].cost,
+                                      style: _textStyle,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 60,
+                                    child: Text(
+                                      controller.productsList[index].price,
+                                      style: _textStyle,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 60,
+                                    child: Text(
+                                      controller.productsList[index].quantity,
+                                      style: _textStyle,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           );
                         },
-                      ),
-              );
-            },
+                      );
+              },
+            ),
           ),
         ],
       ),

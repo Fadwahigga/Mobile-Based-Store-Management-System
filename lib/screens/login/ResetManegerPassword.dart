@@ -1,10 +1,9 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, body_might_complete_normally_nullable
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/login_controller.dart';
-import 'package:gp/screens/manegerOrEmployee.dart';
 
 class ResetManegerPassword extends GetWidget<LoginController> {
   const ResetManegerPassword({super.key});

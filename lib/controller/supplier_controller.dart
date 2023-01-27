@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -15,7 +17,7 @@ class SupplierController extends GetxController {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
 
-  List<Map<String,dynamic>> supplierList = [];
+  List<Map<String, dynamic>> supplierList = [];
   List<SupplierModel> listOfSupplierModel = [];
 
   GlobalKey<FormState> supplierKey = GlobalKey<FormState>();
@@ -27,22 +29,23 @@ class SupplierController extends GetxController {
 
   //================ Set Date =================
 
-  setDateFrom(DateTime date){
+  setDateFrom(DateTime date) {
     dateTimeFrom = date;
     update();
   }
 
-  setDateTo(DateTime date){
+  setDateTo(DateTime date) {
     dateTimeTo = date;
     update();
   }
+
   // ************** Here for added new supplier *******************
   addNewSupplier(
       {required String name,
       required String phone,
       required GlobalKey<FormState> key}) async {
-        print("WEeeeeeeeeeeeeeeeee are printing phone");
-         print(phone.toString());
+    print("WEeeeeeeeeeeeeeeeee are printing phone");
+    print(phone.toString());
     if (key.currentState!.validate()) {
       key.currentState!.save();
       showDialog(
@@ -112,7 +115,7 @@ class SupplierController extends GetxController {
     }
   }
 
-    // ************** Here to get supplier data *******************
+  // ************** Here to get supplier data *******************
 
   getSuppliersData() async {
     try {
@@ -130,7 +133,7 @@ class SupplierController extends GetxController {
         for (var i = 0; i < body['data'].length; i++) {
           supplierList.add(body['data'][i]);
         }
-        
+
         update();
       }
       ApiStatus.checkStatus(response);
@@ -138,11 +141,26 @@ class SupplierController extends GetxController {
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
     }
   }
-  /////////////////////////////////////
+////////////////////////////
+removeFromList(int index) {
+    supplierList.removeAt(index);
+    update();
+  }
+  ////////////////////////////////
+  //================ Delete supplier ////////////////
+  deleteSupplier(int id) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final http.Response response =
+        await http.delete(Uri.http(baseUrl, "$apiSuppliers/$id"), headers: {
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ${prefs.getString('token')}'
+    });
 
+    return response;
+  }
 
   //* ================ HERE To Get Supplier Invoices ===================
-    getSupplierInvoices({required int id}) async {
+  getSupplierInvoices({required int id}) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response = await http.get(
@@ -157,13 +175,15 @@ class SupplierController extends GetxController {
         print(body);
         listOfSupplierModel.clear();
         for (var i = 0; i < body['data']['invoices'].length; i++) {
-          listOfSupplierModel.add(SupplierModel.fromJson(body['data']['invoices'][i]));
+          listOfSupplierModel
+              .add(SupplierModel.fromJson(body['data']['invoices'][i]));
         }
         update();
       }
       ApiStatus.checkStatus(response);
     } catch (e) {
-      return Get.defaultDialog(title: 'Supplier Inovices!', middleText: e.toString());
+      return Get.defaultDialog(
+          title: 'Supplier Inovices!', middleText: e.toString());
     }
   }
 }

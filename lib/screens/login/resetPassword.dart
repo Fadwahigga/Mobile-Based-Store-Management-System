@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/login_controller.dart';
-import 'package:gp/screens/manegerOrEmployee.dart';
 
 class ResetPassword extends GetWidget<LoginController> {
   const ResetPassword({super.key});

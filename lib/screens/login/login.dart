@@ -1,9 +1,10 @@
+// ignore_for_file: body_might_complete_normally_nullable
+
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/login_controller.dart';
-import 'package:gp/screens/manegerOrEmployee.dart';
 import 'package:gp/screens/login/signUp.dart';
 import 'package:gp/widgets/buttonContainer.dart';
 

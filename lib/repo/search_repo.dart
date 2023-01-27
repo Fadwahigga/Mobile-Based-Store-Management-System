@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
-import 'package:gp/model/inventroy_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -9,10 +8,12 @@ import '../shared/api_status.dart';
 import '../shared/constants.dart';
 
 class SearchRepo {
-  static List<Map<String,dynamic>> listOfData = [];
+  static List<Map<String, dynamic>> listOfData = [];
 
-  static Future<List<Map<String,dynamic>>> getData(
-      {required String apiPath,required String nameAtapi ,required String? itemName}) async {
+  static Future<List<Map<String, dynamic>>> getData(
+      {required String apiPath,
+      required String nameAtapi,
+      required String? itemName}) async {
     listOfData.clear();
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();

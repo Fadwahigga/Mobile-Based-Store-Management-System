@@ -2,12 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gp/controller/sales_controller.dart';
 import 'package:gp/repo/search_repo.dart';
 import 'package:gp/shared/constants.dart';
 
-class MakeSaleSearch extends SearchDelegate {
-  MakeSaleSearch({required this.apiPath, required this.nameAtapi});
+import '../../../controller/purchase_controller.dart';
+
+class PurchaseSearchSupplier extends SearchDelegate {
+  PurchaseSearchSupplier({required this.apiPath, required this.nameAtapi});
   final String apiPath;
   final String nameAtapi;
 // Demo list to show querying
@@ -49,34 +50,19 @@ class MakeSaleSearch extends SearchDelegate {
             return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
-                return GetBuilder<SalesController>(
+                return GetBuilder<PurchaseController>(
                   builder: (controller) {
+                    print(snapshot.data![index]);
                     return InkWell(
                       onTap: () {
-                        controller.totalResultselse +=
-                            double.parse(snapshot.data![index]['price']) *
-                                double.parse(
-                                    snapshot.data![index]['stock_quantity']);
-                        controller.total =
-                            double.parse(snapshot.data![index]['price']) *
-                                double.parse(
-                                    snapshot.data![index]['stock_quantity']);
-
-                        // controller.total = double.parse(
-                        //         snapshot.data![index]['price']) *
-                        //     int.parse(snapshot.data![index]['stock_quantity']);
-                        // controller.totalResult += double.parse(
-                        //         snapshot.data![index]['price']) *
-                        //     int.parse(snapshot.data![index]['stock_quantity']);
-                        // controller.paymentData.add({
-                        //   "id": snapshot.data![index]['id'],
-                        //   "quantity": snapshot.data![index]['stock_quantity']
-                        // });
-                        controller.setSaleData(map: snapshot.data![index]);
+                        controller.setSupplierData(
+                            phone: snapshot.data![index]['phone'].toString(),
+                            name: snapshot.data![index]['name'],
+                            id: snapshot.data![index]['id']);
                         Get.back();
                       },
                       child: ListTile(
-                        title: Text(snapshot.data![index]['item_name']),
+                        title: Text(snapshot.data![index]['name']),
                       ),
                     );
                   },

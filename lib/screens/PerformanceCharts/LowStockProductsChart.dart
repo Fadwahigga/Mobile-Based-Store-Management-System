@@ -8,7 +8,7 @@ import '../../controller/performance_controller.dart';
 import '../../shared/constants.dart';
 
 class LowStockProductsChart extends StatelessWidget {
-  LowStockProductsChart({Key? key}) : super(key: key);
+  const LowStockProductsChart({Key? key}) : super(key: key);
   
 
   @override
