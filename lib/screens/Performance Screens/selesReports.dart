@@ -164,6 +164,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
             child: GetBuilder<PerformanceController>(
               builder: (controller) {
                 return ListView.builder(
+                  shrinkWrap: true,
                   itemCount: controller.listOfPerfomanceModel.length,
                   itemBuilder: (context, index) {
                     return Slidable(
@@ -238,7 +239,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 228, 227, 227),
                           border: Border.fromBorderSide(
-                            BorderSide(),
+                            BorderSide(width: 0.1),
                           ),
                         ),
                         child: Row(

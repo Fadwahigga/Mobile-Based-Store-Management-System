@@ -112,6 +112,4 @@ class SalesController extends GetxController {
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
     }
   }
-
-  
 }
