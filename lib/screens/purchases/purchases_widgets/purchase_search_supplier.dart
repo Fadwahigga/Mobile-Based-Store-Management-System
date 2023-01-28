@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gp/repo/search_repo.dart';
 import 'package:gp/shared/constants.dart';
-
 import '../../../controller/purchase_controller.dart';
 
 class PurchaseSearchSupplier extends SearchDelegate {
