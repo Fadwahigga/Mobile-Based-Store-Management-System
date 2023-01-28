@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/performance_controller.dart';
 import 'package:gp/shared/constants.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -21,11 +22,13 @@ class ShowStoreMovementChart extends GetWidget<PerformanceController> {
   Widget build(BuildContext context) {
     return GetBuilder<PerformanceController>(
       builder: (controller) => controller.dashboardData == null
-          ?  Container(
-            width: double.infinity,
+          ? Container(
+              width: double.infinity,
               height: 600,
               alignment: Alignment.center,
-              child: const CircularProgressIndicator(color: kprimaryColor,),
+              child: const CircularProgressIndicator(
+                color: kprimaryColor,
+              ),
             )
           : Container(
               width: double.infinity,
@@ -44,7 +47,15 @@ class ShowStoreMovementChart extends GetWidget<PerformanceController> {
                     yValueMapper: (dynamic sales, _) =>
                         int.parse(sales['views']),
                     name: 'Sales',
-                    dataLabelSettings: const DataLabelSettings(isVisible: true),
+                    dataLabelSettings: DataLabelSettings(
+                        showCumulativeValues: true,
+                        labelAlignment: ChartDataLabelAlignment.outer,
+                        labelPosition: ChartDataLabelPosition.outside,
+                        isVisible: true,
+                        textStyle: GoogleFonts.ebGaramond(
+                            textStyle: const TextStyle(
+                          fontSize: 15,
+                        ))),
                   ),
                 ],
               ),

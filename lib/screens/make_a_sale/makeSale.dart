@@ -20,7 +20,7 @@ class MakeSalePage extends GetWidget<SalesController> {
     fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
 
   MakeSalePage({Key? key}) : super(key: key);
 
@@ -216,10 +216,11 @@ class MakeSalePage extends GetWidget<SalesController> {
                                   width: 70,
                                   color: Colors.white,
                                   padding: EdgeInsets.all(3),
-                                  child: Text(
-                                    controller
-                                        .listOfSalesModel[index].soldQunatity,
-                                    style: _textStyle,
+                                  child: Center(
+                                    child: Text(
+                                      "1",
+                                      style: _textStyle,
+                                    ),
                                   ),
                                 ),
                                 Container(
@@ -230,9 +231,7 @@ class MakeSalePage extends GetWidget<SalesController> {
                                     (double.parse(controller
                                                 .listOfSalesModel[index]
                                                 .price) *
-                                            double.parse(controller
-                                                .listOfSalesModel[index]
-                                                .soldQunatity))
+                                            double.parse("1"))
                                         .toString(),
                                     style: _textStyle,
                                   ),

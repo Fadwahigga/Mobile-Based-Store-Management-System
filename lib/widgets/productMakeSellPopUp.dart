@@ -7,7 +7,7 @@ import 'package:gp/controller/sales_controller.dart';
 import 'confirmAndcancel.dart';
 
 class ProductMakeSellPopUp extends GetWidget<SalesController> {
-  const ProductMakeSellPopUp(
+  ProductMakeSellPopUp(
       {Key? key,
       required this.availableQuantity,
       required this.price,
@@ -16,7 +16,10 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
   final String availableQuantity;
   final String price;
   final int index;
-
+  final TextStyle _textStyle = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(
+    fontSize: 15,
+  ));
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -33,10 +36,11 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                   child: Center(
                     child: Text("Product Information",
                         style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white))),
+                          textStyle: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        )),
                   ),
                 ),
                 const SizedBox(
@@ -46,17 +50,14 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Flexible(
-                      child: Text("Available Quantity",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                            fontSize: 15,
-                          ))),
+                      child: Text("Available Quantity", style: _textStyle),
                     ),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(child: Text(availableQuantity)),
+                      child: Center(
+                          child: Text(availableQuantity, style: _textStyle)),
                     ),
                   ],
                 ),
@@ -66,16 +67,12 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Price",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
+                    Text("Price", style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(child: Text(price)),
+                      child: Center(child: Text(price, style: _textStyle)),
                     ),
                   ],
                 ),
@@ -85,16 +82,13 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Quantities",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
+                    Text("Quantities", style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
                       child: TextFormField(
+                        style: _textStyle,
                         onChanged: ((value) {
                           controller.quantitiesController.text =
                               value.toString();

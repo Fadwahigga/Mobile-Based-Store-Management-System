@@ -55,8 +55,7 @@ class MakeSaleSearch extends SearchDelegate {
                       onTap: () {
                         controller.totalResultselse +=
                             double.parse(snapshot.data![index]['price']) *
-                                double.parse(
-                                    snapshot.data![index]['stock_quantity']);
+                                double.parse("1");
                         controller.total =
                             double.parse(snapshot.data![index]['price']) *
                                 double.parse(

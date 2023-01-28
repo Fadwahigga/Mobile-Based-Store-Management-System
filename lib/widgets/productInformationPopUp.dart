@@ -13,6 +13,10 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
       required this.existQuantity,
       required this.oldCost})
       : super(key: key);
+  final TextStyle _textStyle = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(
+    fontSize: 15,
+  ));
   String existQuantity;
   String oldCost;
   final int index;
@@ -50,11 +54,7 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Exist Quantity",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
+                    Text("Exist Quantity", style: _textStyle),
                     const SizedBox(
                       width: 3,
                     ),
@@ -62,7 +62,8 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(child: Text(existQuantity)),
+                      child:
+                          Center(child: Text(existQuantity, style: _textStyle)),
                     ),
                   ],
                 ),
@@ -72,11 +73,7 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("New Quantity",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
+                    Text("New Quantity", style: _textStyle),
                     const SizedBox(
                       width: 3,
                     ),
@@ -84,7 +81,8 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                         height: 30,
                         width: MediaQuery.of(context).size.width - 250,
                         color: Colors.white,
-                        child: TextField(
+                        child: TextFormField(
+                            style: _textStyle,
                             controller: newQuantityController,
                             keyboardType: TextInputType.number)),
                   ],
@@ -97,17 +95,13 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                   children: [
                     Text(
                       "Old cost",
-                      style: GoogleFonts.ebGaramond(
-                        textStyle: const TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
+                      style: _textStyle,
                     ),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(child: Text(oldCost)),
+                      child: Center(child: Text(oldCost, style: _textStyle)),
                     ),
                   ],
                 ),
@@ -119,17 +113,14 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                   children: [
                     Text(
                       "New cost",
-                      style: GoogleFonts.ebGaramond(
-                        textStyle: const TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
+                      style: _textStyle,
                     ),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: TextField(
+                      child: TextFormField(
+                          style: _textStyle,
                           controller: newCostController,
                           keyboardType: TextInputType.number),
                     ),

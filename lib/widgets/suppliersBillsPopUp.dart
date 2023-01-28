@@ -13,10 +13,10 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
 
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
-    fontSize: 10,
+    fontSize: 15,
   ));
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
-      textStyle: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold));
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +49,7 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                     children: [
                       Text(
                         "From",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.bold)),
+                        style: _textStyle,
                       ),
                       GetBuilder<SupplierController>(
                         builder: (controller) => GestureDetector(
@@ -78,19 +76,14 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                             padding: const EdgeInsets.all(5),
                             child: Text(
                               "${controller.dateTimeFrom.day.toString()}/${controller.dateTimeFrom.month.toString()}/${controller.dateTimeFrom.year.toString()}",
-                              style: GoogleFonts.ebGaramond(
-                                textStyle: const TextStyle(
-                                    fontSize: 10, fontWeight: FontWeight.bold),
-                              ),
+                              style: _textStyle,
                             ),
                           ),
                         ),
                       ),
                       Text(
                         "To",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.bold)),
+                        style: _textStyle,
                       ),
                       GetBuilder<SupplierController>(
                         builder: (controller) => GestureDetector(
@@ -117,10 +110,7 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                             padding: const EdgeInsets.all(5),
                             child: Text(
                               "${controller.dateTimeTo.day.toString()}/${controller.dateTimeTo.month.toString()}/${controller.dateTimeTo.year.toString()}",
-                              style: GoogleFonts.ebGaramond(
-                                  textStyle: const TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold)),
+                              style: _textStyle,
                             ),
                           ),
                         ),

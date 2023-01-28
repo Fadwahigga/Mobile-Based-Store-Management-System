@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-
 import '../model/performance_model.dart';
 import '../shared/api_status.dart';
 import '../shared/constants.dart';

@@ -13,18 +13,7 @@ class PurchaseSearch extends SearchDelegate {
   final String apiPath;
   final String nameAtapi;
 // Demo list to show querying
-  List<String> searchTerms = [
-    "Product Name1",
-    "Product Name2",
-    "Product Name3",
-    "Product Name4",
-    "Product Name5",
-    "Product Name6",
-    "Product Name7",
-    "Product Name8",
-    "Product Name9",
-    "Product Name10",
-  ];
+  List<String> searchTerms = [];
 
 // first overwrite to
 // clear the search text

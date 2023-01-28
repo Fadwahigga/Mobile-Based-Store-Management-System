@@ -9,8 +9,12 @@ import '../shared/constants.dart';
 import 'confirmAndcancel.dart';
 
 class PaymentBillPopUp extends StatelessWidget {
-  const PaymentBillPopUp({Key? key, required this.total}) : super(key: key);
+  PaymentBillPopUp({Key? key, required this.total}) : super(key: key);
   final String total;
+  final TextStyle _textStyle = GoogleFonts.ebGaramond(
+      textStyle: const TextStyle(
+    fontSize: 15,
+  ));
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +43,7 @@ class PaymentBillPopUp extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Total",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
+                    Text("Total", style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -63,21 +63,12 @@ class PaymentBillPopUp extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Payed",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
+                    Text("Payed", style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(
-                          child: Text("00.0",
-                              style: GoogleFonts.ebGaramond(
-                                  textStyle: const TextStyle(
-                                fontSize: 15,
-                              )))),
+                      child: Center(child: Text("00.0", style: _textStyle)),
                     ),
                   ],
                 ),
@@ -87,21 +78,12 @@ class PaymentBillPopUp extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Change",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
+                    Text("Change", style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(
-                          child: Text("00.0",
-                              style: GoogleFonts.ebGaramond(
-                                  textStyle: const TextStyle(
-                                fontSize: 15,
-                              )))),
+                      child: Center(child: Text("00.0", style: _textStyle)),
                     ),
                   ],
                 ),
@@ -137,11 +119,7 @@ class PaymentBillPopUp extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Supplier Name",
-                        style: GoogleFonts.ebGaramond(
-                            textStyle: const TextStyle(
-                          fontSize: 15,
-                        ))),
+                    Text("Supplier Name", style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -152,15 +130,8 @@ class PaymentBillPopUp extends StatelessWidget {
                             return controller.purchaseMap.isNotEmpty
                                 ? Text(
                                     controller.purchaseMap['name'].toString(),
-                                    style: GoogleFonts.ebGaramond(
-                                        textStyle: const TextStyle(
-                                      fontSize: 15,
-                                    )))
-                                : Text("Search Result",
-                                    style: GoogleFonts.ebGaramond(
-                                        textStyle: const TextStyle(
-                                      fontSize: 15,
-                                    )));
+                                    style: _textStyle)
+                                : Text("Search Result", style: _textStyle);
                           },
                         ),
                       ),

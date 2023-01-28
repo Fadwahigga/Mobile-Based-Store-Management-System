@@ -23,7 +23,7 @@ class ManegerOrEmployeePage extends GetWidget<LoginController> {
             GestureDetector(
                 onTap: () {
                   Get.defaultDialog(
-                      title: "Write Password",
+                      title: "Write Maneger Password",
                       titleStyle: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                               fontSize: 15, fontWeight: FontWeight.bold)),
@@ -60,9 +60,11 @@ class ManegerOrEmployeePage extends GetWidget<LoginController> {
                                   },
                                   child: ConfirmAndCancel(Opname: "Cancel")),
                               GestureDetector(
-                                onTap: () => controller.signInManager(password: controller.managerPassController.text),
-                                  // Get.off(const Home());
-                                
+                                onTap: () => controller.signInManager(
+                                    password:
+                                        controller.managerPassController.text),
+                                // Get.off(const Home());
+
                                 child: ConfirmAndCancel(Opname: "   OK   "),
                               ),
                             ],
