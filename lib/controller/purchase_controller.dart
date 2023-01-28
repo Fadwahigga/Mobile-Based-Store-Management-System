@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gp/model/inventroy_model.dart';
 import 'package:gp/model/purhcase_model.dart';
@@ -7,8 +8,16 @@ class PurchaseController extends GetxController {
   List<PurchaseModel> listOfPurchaseModel = [];
   double total = 0;
   double totalresute = 0;
+  double change = 0;
+  TextEditingController newCostController = TextEditingController();
+  TextEditingController newQuantityController = TextEditingController();
+  TextEditingController payedController = TextEditingController();
 
   Map<String, dynamic> purchaseMap = {};
+  getChange() {
+    change = totalresute - double.parse(payedController.text);
+    update();
+  }
 
   // ************* Methods *****************
 

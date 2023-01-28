@@ -67,15 +67,12 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                   width: MediaQuery.of(context).size.width - 250,
                   color: Colors.white,
                   child: TextFormField(
-                    maxLines: 1,
-                    style: _textStyle,
-                    textAlign: TextAlign.center,
-                    onChanged: ((value) {
-                      controller.changeresult += double.parse(value);
-                    }),
-                    keyboardType: TextInputType.number,
-                    controller: controller.PayedController,
-                  ),
+                      onChanged: (value) {
+                        controller.getChange();
+                      },
+                      controller: controller.PayedController,
+                      style: _textStyle,
+                      keyboardType: TextInputType.number),
                 ),
               ],
             ),
@@ -91,10 +88,7 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                   width: MediaQuery.of(context).size.width - 250,
                   color: Colors.white,
                   child: Center(
-                      child: Text(
-                          (controller.totalResultselse -
-                                  controller.changeresult)
-                              .toString(),
+                      child: Text(controller.change.toString(),
                           style: _textStyle)),
                 ),
               ],

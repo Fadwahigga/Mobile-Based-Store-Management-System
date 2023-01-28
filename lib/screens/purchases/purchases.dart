@@ -282,9 +282,7 @@ class PurchasesPage extends GetWidget<PurchaseController> {
               Get.defaultDialog(
                 barrierDismissible: false,
                 title: "",
-                content: PaymentBillPopUp(
-                  total: controller.total.toString(),
-                ),
+                content: PaymentBillPopUp(),
               );
             },
             child: SmallButton(buttonName: "BUY"),

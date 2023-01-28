@@ -8,9 +8,11 @@ import '../controller/purchase_controller.dart';
 import '../shared/constants.dart';
 import 'confirmAndcancel.dart';
 
-class PaymentBillPopUp extends StatelessWidget {
-  PaymentBillPopUp({Key? key, required this.total}) : super(key: key);
-  final String total;
+class PaymentBillPopUp extends GetWidget<PurchaseController> {
+  PaymentBillPopUp({
+    Key? key,
+  }) : super(key: key);
+
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
     fontSize: 15,
@@ -49,7 +51,7 @@ class PaymentBillPopUp extends StatelessWidget {
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
                       child: Center(
-                          child: Text(total,
+                          child: Text(controller.totalresute.toString(),
                               style: GoogleFonts.ebGaramond(
                                   textStyle: const TextStyle(
                                 fontSize: 15,
@@ -68,7 +70,14 @@ class PaymentBillPopUp extends StatelessWidget {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(child: Text("00.0", style: _textStyle)),
+                      child: Center(
+                          child: TextFormField(
+                              onChanged: (value) {
+                                controller.getChange();
+                              },
+                              controller: controller.payedController,
+                              style: _textStyle,
+                              keyboardType: TextInputType.number)),
                     ),
                   ],
                 ),
@@ -83,7 +92,9 @@ class PaymentBillPopUp extends StatelessWidget {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(child: Text("00.0", style: _textStyle)),
+                      child: Center(
+                          child: Text(controller.change.toString(),
+                              style: _textStyle)),
                     ),
                   ],
                 ),

@@ -17,12 +17,15 @@ class SalesController extends GetxController {
   RxList<SalesModel> listOfSalesModel = <SalesModel>[].obs;
   double total = 0.0;
   RxBool isThereData = false.obs;
-
+ double change = 0;
   double totalResultselse = 0;
 
   TextEditingController quantitiesController = TextEditingController();
   TextEditingController PayedController = TextEditingController();
-  double changeresult = 0.0;
+ getChange() {
+    change = totalResultselse - double.parse(PayedController.text);
+    update();
+  }
 
   List<Map<String, dynamic>> paymentData = [];
   DateTime? dateTime = DateTime.now();
