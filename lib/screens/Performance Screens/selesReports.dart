@@ -40,9 +40,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
               children: [
                 Text(
                   "From",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.bold)),
+                  style: _textStyle2,
                 ),
                 GetBuilder<PerformanceController>(
                   builder: (controller) {
@@ -74,9 +72,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                         padding: const EdgeInsets.all(8),
                         child: Text(
                           "${controller.dateTimeFrom!.day.toString()}/${controller.dateTimeFrom!.month.toString()}/${controller.dateTimeFrom!.year.toString()}",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold)),
+                          style: _textStyle2,
                         ),
                       ),
                     );
@@ -84,9 +80,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                 ),
                 Text(
                   "To",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.bold)),
+                  style: _textStyle2,
                 ),
                 GetBuilder<PerformanceController>(
                   builder: (controller) {
@@ -118,9 +112,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                         padding: const EdgeInsets.all(8),
                         child: Text(
                           "${controller.dateTimeTo!.day.toString()}/${controller.dateTimeTo!.month.toString()}/${controller.dateTimeTo!.year.toString()}",
-                          style: GoogleFonts.ebGaramond(
-                              textStyle: const TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold)),
+                          style: _textStyle2,
                         ),
                       ),
                     );

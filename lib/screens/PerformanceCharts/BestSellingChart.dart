@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gp/controller/performance_controller.dart';
@@ -51,9 +52,22 @@ class BestSellingChart extends GetWidget<PerformanceController> {
               )
             : Container(
                 height: MediaQuery.of(context).size.height - 200,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                padding: const EdgeInsets.only(
+                  left: 5,
+                ),
                 child: charts.BarChart(
+                  defaultRenderer: charts.BarRendererConfig(
+                    maxBarWidthPx: 30,
+                  ),
+                  domainAxis: const OrdinalAxisSpec(
+                      renderSpec: SmallTickRendererSpec(
+                          labelRotation: 60,
+                          labelOffsetFromAxisPx: 3,
+                          labelAnchor: TickLabelAnchor.centered,
+                          labelStyle: TextStyleSpec(
+                            lineHeight: 2,
+                            fontSize: 10,
+                          ))),
                   controller.series,
                   animate: true,
                 ),

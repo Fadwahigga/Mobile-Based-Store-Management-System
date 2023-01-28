@@ -12,11 +12,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   print(prefs.getString('token'));
-  runApp( MyApp(prefs:prefs));
+  runApp(MyApp(prefs: prefs));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key,required this.prefs });
+  const MyApp({super.key, required this.prefs});
   final SharedPreferences prefs;
 
   // This widget is the root of your application.
