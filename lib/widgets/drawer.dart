@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/controller/login_controller.dart';
 import 'package:gp/screens/accounts.dart';
 import 'package:gp/screens/login/login.dart';
 import 'package:gp/screens/login/resetPassword.dart';
@@ -13,7 +14,7 @@ import '../screens/purchases/purchases.dart';
 import '../screens/Suppliers Screens/suppliers.dart';
 import 'confirmAndcancel.dart';
 
-class DrawerWidget extends StatelessWidget {
+class DrawerWidget extends GetWidget<LoginController> {
   DrawerWidget({super.key});
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
@@ -28,39 +29,16 @@ class DrawerWidget extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 39, 62, 82),
             ),
-            accountName: Text("Maneger Name", style: _textStyle),
-            accountEmail: Text("maneger@gmail.com", style: _textStyle),
-            currentAccountPicture: const CircleAvatar(
-              backgroundColor: Colors.white,
-              // backgroundImage: NetworkImage(
-              //     "https://appmaking.co/wp-content/uploads/2021/08/appmaking-logo-colored.png"),
-            ),
-            // decoration: const BoxDecoration(
-            //   image: DecorationImage(
-            //     image: NetworkImage(
-            //       "https://appmaking.co/wp-content/uploads/2021/08/android-drawer-bg.jpeg",
-            //     ),
-            //     fit: BoxFit.fill,
-            //   ),
-            // ),
-            otherAccountsPictures: const [
-              CircleAvatar(
-                backgroundColor: Colors.white,
-                // backgroundImage: NetworkImage(
-                //     "https://randomuser.me/api/portraits/women/74.jpg"),
-              ),
-              CircleAvatar(
-                backgroundColor: Colors.white,
-                // backgroundImage: NetworkImage(
-                //     "https://randomuser.me/api/portraits/men/47.jpg"),
-              ),
-            ],
+            accountName:
+                Text(controller.nameController.text, style: _textStyle),
+            accountEmail:
+                Text(controller.emailController.text, style: _textStyle),
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
             title: Text("Puechases", style: _textStyle),
             onTap: () {
-              Get.to( PurchasesPage());
+              Get.to(PurchasesPage());
             },
           ),
           ListTile(

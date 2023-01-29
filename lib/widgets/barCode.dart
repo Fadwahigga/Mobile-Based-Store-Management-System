@@ -35,7 +35,7 @@ class BarCodeClass extends StatelessWidget {
                             builder: (controller) {
                               return InkWell(
                                 onTap: () {
-                                  controller.total += 500;
+                                  // controller.total += 500;
                                   controller.setData(snapshot.data![index]);
                                   Get.back();
                                 },

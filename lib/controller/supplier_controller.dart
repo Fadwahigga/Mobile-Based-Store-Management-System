@@ -150,15 +150,28 @@ class SupplierController extends GetxController {
 
   ////////////////////////////////
   //================ Delete supplier ////////////////
+  RxBool isThereData = false.obs;
   deleteSupplier(int id) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final http.Response response =
-        await http.delete(Uri.http(baseUrl, "$apiSuppliers/$id"), headers: {
-      'Accept': 'application/json',
-      'Authorization': 'Bearer ${prefs.getString('token')}'
-    });
-
-    return response;
+    isThereData.value = false;
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      http.Response response =
+          await http.delete(Uri.http(baseUrl, apiSales), headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ${prefs.getString('token')}'
+      }, body: {
+        'id': id.toString()
+      });
+      if (response.statusCode == 201 || response.statusCode == 200) {
+        update();
+        return Get.snackbar('Delete', "The product has deleted",
+            snackPosition: SnackPosition.TOP,
+            duration: const Duration(seconds: 1));
+      }
+      ApiStatus.checkStatus(response);
+    } catch (e) {
+      return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
+    }
   }
 
   //* ================ HERE To Get Supplier Invoices ===================
