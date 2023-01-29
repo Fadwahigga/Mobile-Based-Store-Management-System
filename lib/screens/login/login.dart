@@ -63,11 +63,16 @@ class Login extends GetWidget<LoginController> {
                       }
                     },
                     controller: controller.passwordLoginController,
-                    obscureText: true,
+                    obscureText: controller.passVisibility,
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.remove_red_eye_outlined)),
+                          icon: controller.passVisibility
+                              ? const Icon(Icons.visibility_off)
+                              : const Icon(Icons.visibility),
+                          onPressed: (() {
+                            controller.passVisibility;
+                          }),
+                        ),
                         prefixIcon: const Icon(Icons.password),
                         hintText: "Password",
                         hintStyle: const TextStyle(fontSize: 12),

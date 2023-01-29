@@ -14,7 +14,7 @@ import '../shared/constants.dart';
 
 class LoginController extends GetxController {
   // ******* Variables ***********
-
+  bool passVisibility = true;
   // Here is controllers for signup
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -44,6 +44,9 @@ class LoginController extends GetxController {
   GlobalKey<FormState> resetManagerPasswordKey = GlobalKey<FormState>();
 
   // ******* Methods ***********
+  passwordEye() {
+    passVisibility = !passVisibility;
+  }
 
   /// ========= SignUp Method =========
   signUp({
