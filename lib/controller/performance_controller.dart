@@ -32,7 +32,6 @@ class PerformanceController extends GetxController {
   onInit() {
     super.onInit();
     getSalesReportsData();
-    getDashBoardData();
   }
 
   //================ Set Date =================
@@ -103,14 +102,16 @@ class PerformanceController extends GetxController {
 
   // ************* Get Performance Data ******************
 
-  getDashBoardData() async {
+  getDashBoardData({required DateTime to, required DateTime from}) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      http.Response response =
-          await http.get(Uri.http(baseUrl, apiReports), headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Bearer ${prefs.getString('token')}'
-      });
+      http.Response response = await http.get(
+          Uri.http(baseUrl, apiReports,
+              {'to': to.toString(), 'from': from.toString()}),
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ${prefs.getString('token')}'
+          });
       if (response.statusCode == 201 || response.statusCode == 200) {
         var body = json.decode(response.body);
         print("Dashboardddddddddddddddddddddddddd");

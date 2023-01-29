@@ -154,6 +154,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                 ),
                 GestureDetector(
                     onTap: () {
+                      controller.listOfPurchaseModel.clear();
                       Get.back();
                       // ToDo: Here Fadwa add the payment method that i will explain it.
                       Get.snackbar("Done", "Success process",

@@ -79,7 +79,7 @@ class LoginController extends GetxController {
                       width: 20,
                     ),
                     Text(
-                      'Login...',
+                      'Sign Up...',
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 14,
@@ -249,14 +249,17 @@ class LoginController extends GetxController {
       );
       try {
         SharedPreferences prefs = await SharedPreferences.getInstance();
-        http.Response response = await http
-            .post(Uri.http(baseUrl, isManager ? apiChangePasswordManager : apiChangePassword), headers: {
-          'Accept': 'application/json',
-          'Authorization': 'Bearer ${prefs.getString('token')}'
-        }, body: {
-          'password': currentPasswod,
-          'new_password': newPassword,
-        });
+        http.Response response = await http.post(
+            Uri.http(baseUrl,
+                isManager ? apiChangePasswordManager : apiChangePassword),
+            headers: {
+              'Accept': 'application/json',
+              'Authorization': 'Bearer ${prefs.getString('token')}'
+            },
+            body: {
+              'password': currentPasswod,
+              'new_password': newPassword,
+            });
         var body = json.decode(response.body);
         print("Change Passworddddddddddddddd");
         print(body);
@@ -264,8 +267,7 @@ class LoginController extends GetxController {
           Get.back();
           passwordLoginController.clear();
           emailLoginController.clear();
-          Get.off(() => const Home(),
-              transition: Transition.zoom);
+          Get.off(() => const Home(), transition: Transition.zoom);
           return Get.defaultDialog(
               title: "Change Passwod",
               middleText: "Changed password successfully ;)");
@@ -282,9 +284,7 @@ class LoginController extends GetxController {
   }
 
   /// ========== Sign in manager with just password ==========
-   signInManager({
-    required String password
-  }) async {
+  signInManager({required String password}) async {
     if (password.trim().length > 7) {
       showDialog(
         barrierDismissible: false,
@@ -325,8 +325,8 @@ class LoginController extends GetxController {
       );
       try {
         SharedPreferences prefs = await SharedPreferences.getInstance();
-        http.Response response = await http
-            .post(Uri.http(baseUrl, apiLoginManager), headers: {
+        http.Response response =
+            await http.post(Uri.http(baseUrl, apiLoginManager), headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer ${prefs.getString('token')}'
         }, body: {
@@ -335,8 +335,7 @@ class LoginController extends GetxController {
         if (response.statusCode == 201 || response.statusCode == 200) {
           Get.back();
           managerPassController.clear();
-          return Get.to(() => const Home(),
-              transition: Transition.zoom);
+          return Get.to(() => const Home(), transition: Transition.zoom);
         }
         Get.back();
         ApiStatus.checkStatus(response);

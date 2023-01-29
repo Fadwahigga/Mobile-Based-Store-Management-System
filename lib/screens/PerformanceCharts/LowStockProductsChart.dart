@@ -40,7 +40,7 @@ class LowStockProductsChart extends StatelessWidget {
                           lineHeight: 2,
                           fontSize: 10,
                         ))),
-                controller.series,
+                controller.series3,
                 animate: true,
               ),
             );

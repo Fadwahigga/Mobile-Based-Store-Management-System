@@ -50,7 +50,7 @@ class LeastSellingChart extends GetWidget<PerformanceController> {
                           lineHeight: 2,
                           fontSize: 10,
                         ))),
-                controller.series,
+                controller.series2,
                 animate: true,
               ),
             );

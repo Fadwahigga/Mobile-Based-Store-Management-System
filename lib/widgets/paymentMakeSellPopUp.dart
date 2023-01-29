@@ -101,11 +101,11 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                 return GestureDetector(
                     onTap: () {
                       controller.payment(paymentData: controller.paymentData);
+                      controller.listOfSalesModel.clear();
                       Get.back();
-
                       Get.snackbar("Done", "Success process",
                           snackPosition: SnackPosition.BOTTOM,
-                          duration: const Duration(seconds: 60));
+                          duration: const Duration(seconds: 3));
                     },
                     child: ConfirmAndCancel(Opname: "Save"));
               },

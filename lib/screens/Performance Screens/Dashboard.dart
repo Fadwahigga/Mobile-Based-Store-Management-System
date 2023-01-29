@@ -53,6 +53,10 @@ class Dashboard extends GetWidget<PerformanceController> {
                       },
                     ).then((value) {
                       controller.setDateFrom(value!);
+                      controller.getDashBoardData(
+                        to: controller.dateTimeTo!,
+                        from: controller.dateTimeFrom!,
+                      );
                     });
                   },
                   child: GetBuilder<PerformanceController>(
@@ -91,6 +95,10 @@ class Dashboard extends GetWidget<PerformanceController> {
                       },
                     ).then((value) {
                       controller.setDateTo(value!);
+                      controller.getDashBoardData(
+                        to: controller.dateTimeTo!,
+                        from: controller.dateTimeFrom!,
+                      );
                     });
                   },
                   child: GetBuilder<PerformanceController>(

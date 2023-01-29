@@ -39,21 +39,25 @@ class InventoryController extends GetxController {
   }
   //============ Delete Product ============
 
-  deleteProduct({required int id}) async {
+  deleteProduct(int id) async {
+    isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      http.Response response =
-          await http.delete(Uri.http(baseUrl, "$apiInventory/$id"), headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Bearer ${prefs.getString('token')}',
-        'Content-Type': 'application/json'
-      });
+      http.Response response = await http.delete(
+        Uri.http(baseUrl, "$apiInventory/$id"),
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${prefs.getString('token')}'
+        },
+      );
+      print(json.decode(response.body));
       if (response.statusCode == 201 || response.statusCode == 200) {
         update();
-        return Get.snackbar('Delete', "The product has deleted",
+        Get.snackbar('Product', 'The product has deleted successfully',
             snackPosition: SnackPosition.TOP,
-            duration: const Duration(seconds: 4));
+            duration: const Duration(seconds: 2));
       }
+
       ApiStatus.checkStatus(response);
     } catch (e) {
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
