@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:gp/controller/sales_controller.dart';
 import 'package:gp/repo/purchases_repo.dart';
 import 'package:gp/shared/constants.dart';
-import '../../../controller/purchase_controller.dart';
 import '../../../model/inventroy_model.dart';
 
 class MakeSaleSearch extends SearchDelegate {

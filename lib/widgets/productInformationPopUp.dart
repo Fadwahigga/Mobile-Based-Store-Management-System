@@ -133,7 +133,8 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                   builder: (controller) {
                     return GestureDetector(
                       onTap: () {
-                        controller.deleteItem(index);
+                        controller.totalAfterdeletItem(index);
+                        controller.removeFromList(index);
                         Get.back();
                       },
                       child: Text(

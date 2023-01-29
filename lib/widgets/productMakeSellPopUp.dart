@@ -99,11 +99,8 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                 GestureDetector(
                   onTap: () {
                     Get.back();
-                    controller.listOfSalesModel.removeAt(index);
-                    controller.totalResultselse -
-                        double.parse(controller.quantitiesController.text) *
-                            double.parse(
-                                controller.listOfSalesModel[index].price);
+                    controller.totalAfterdeletItem(index);
+                    controller.deleteItem(index);
                   },
                   child: Text("Delete Product From List ",
                       style: GoogleFonts.ebGaramond(

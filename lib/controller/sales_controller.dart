@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print, dead_code, non_constant_identifier_names
 
 import 'dart:convert';
-
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -15,7 +15,7 @@ import '../shared/constants.dart';
 class SalesController extends GetxController {
   // *********** Variables *************
 
-  RxList<SalesModel> listOfSalesModel = <SalesModel>[].obs;
+  List<SalesModel> listOfSalesModel = [];
 
   RxBool isThereData = false.obs;
   double change = 0;
@@ -105,11 +105,24 @@ class SalesController extends GetxController {
         soldQunatity: snapshot.quantity));
     update();
   }
+
 /////////////////////
   // setSaleData({required Map<String, dynamic> map}) {
   //   listOfSalesModel.add(SalesModel.fromJson(map));
   //   update();
   // }
+  //////////////////////
+  deleteItem(int index) {
+    listOfSalesModel.removeAt(index);
+
+    update();
+  }
+
+  totalAfterdeletItem(int index) {
+    totalResultselse -= listOfSalesModel[index].total;
+    update();
+  }
+  //////////////////////////
 
   payment({
     required List<Map<String, dynamic>> paymentData,

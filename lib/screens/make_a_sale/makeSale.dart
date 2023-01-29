@@ -167,75 +167,75 @@ class MakeSalePage extends GetWidget<SalesController> {
           ),
           //////////////////////////////////////////////////////////////////////////////////////////////////
           Expanded(
-            child: Obx(() => controller.listOfSalesModel.isEmpty
-                ? Center(child: const SizedBox())
-                : ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: controller.listOfSalesModel.length,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          Get.defaultDialog(
-                            barrierDismissible: false,
-                            title: "",
-                            content: ProductMakeSellPopUp(
-                              index: index,
-                            ),
-                          );
-                        },
-                        child: Container(
-                            color: const Color.fromARGB(255, 228, 227, 227),
-                            padding: EdgeInsets.all(10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
-                                  width: 100,
-                                  color: Colors.white,
-                                  padding: EdgeInsets.all(3),
-                                  child: Text(
-                                    controller.listOfSalesModel[index].itemName
-                                        .toString(),
-                                    style: _textStyle,
-                                  ),
-                                ),
-                                Container(
-                                  width: 70,
-                                  color: Colors.white,
-                                  padding: EdgeInsets.all(3),
-                                  child: Text(
-                                    controller.listOfSalesModel[index].price
-                                        .toString(),
-                                    style: _textStyle,
-                                  ),
-                                ),
-                                Container(
-                                  width: 70,
-                                  color: Colors.white,
-                                  padding: EdgeInsets.all(3),
-                                  child: Center(
-                                    child: Text(
-                                      controller
-                                          .listOfSalesModel[index].soldQunatity,
-                                      style: _textStyle,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 70,
-                                  color: Colors.white,
-                                  padding: EdgeInsets.all(3),
-                                  child: Text(
-                                    controller.listOfSalesModel[index].total
-                                        .toString(),
-                                    style: _textStyle,
-                                  ),
-                                ),
-                              ],
-                            )),
+            child: GetBuilder<SalesController>(builder: (controller) {
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: controller.listOfSalesModel.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Get.defaultDialog(
+                        barrierDismissible: false,
+                        title: "",
+                        content: ProductMakeSellPopUp(
+                          index: index,
+                        ),
                       );
                     },
-                  )),
+                    child: Container(
+                        color: const Color.fromARGB(255, 228, 227, 227),
+                        padding: EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                              width: 100,
+                              color: Colors.white,
+                              padding: EdgeInsets.all(3),
+                              child: Text(
+                                controller.listOfSalesModel[index].itemName
+                                    .toString(),
+                                style: _textStyle,
+                              ),
+                            ),
+                            Container(
+                              width: 70,
+                              color: Colors.white,
+                              padding: EdgeInsets.all(3),
+                              child: Text(
+                                controller.listOfSalesModel[index].price
+                                    .toString(),
+                                style: _textStyle,
+                              ),
+                            ),
+                            Container(
+                              width: 70,
+                              color: Colors.white,
+                              padding: EdgeInsets.all(3),
+                              child: Center(
+                                child: Text(
+                                  controller
+                                      .listOfSalesModel[index].soldQunatity,
+                                  style: _textStyle,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: 70,
+                              color: Colors.white,
+                              padding: EdgeInsets.all(3),
+                              child: Text(
+                                controller.listOfSalesModel[index].total
+                                    .toString(),
+                                style: _textStyle,
+                              ),
+                            ),
+                          ],
+                        )),
+                  );
+                },
+              );
+            }),
           ),
           //////////////////////////////////////////////////////////////////////////////////////////////
           SizedBox(

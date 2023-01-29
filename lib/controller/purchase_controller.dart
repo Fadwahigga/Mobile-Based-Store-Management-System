@@ -33,11 +33,6 @@ class PurchaseController extends GetxController {
     update();
   }
 
-// delet from list
-  deleteItem(int index) {
-    removeFromList(index);
-  }
-
   // set new quantity
   newvalu(int index) {
     listOfPurchaseModel[index].quantity = newQuantityController.text;
@@ -74,6 +69,11 @@ class PurchaseController extends GetxController {
 
   removeFromList(int index) {
     listOfPurchaseModel.removeAt(index);
+    update();
+  }
+
+  totalAfterdeletItem(int index) {
+    totalresute -= listOfPurchaseModel[index].total;
     update();
   }
 
