@@ -28,6 +28,12 @@ class SalesController extends GetxController {
     update();
   }
 
+  totalOnsave() {
+    totalResultselse = 0.0;
+    change = 0;
+    update();
+  }
+
   newvalu(int index) {
     listOfSalesModel[index].soldQunatity = quantitiesController.text;
     update();
@@ -147,6 +153,9 @@ class SalesController extends GetxController {
           },
         );
       }
+      listOfSalesModel.clear();
+      PayedController.clear();
+      paymentData.clear();
       return Get.back();
       // ApiStatus.checkStatus(response);
 

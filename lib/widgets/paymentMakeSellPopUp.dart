@@ -101,7 +101,7 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                 return GestureDetector(
                     onTap: () {
                       controller.payment(paymentData: controller.paymentData);
-                      controller.listOfSalesModel.clear();
+                      controller.totalOnsave();
                       Get.back();
                       Get.snackbar("Done", "Success process",
                           snackPosition: SnackPosition.BOTTOM,

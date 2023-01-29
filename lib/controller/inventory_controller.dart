@@ -44,15 +44,22 @@ class InventoryController extends GetxController {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response = await http.delete(
-        Uri.http(baseUrl, "$apiInventory/$id"),
-        headers: {
-          'Accept': 'application/json',
-          'Authorization': 'Bearer ${prefs.getString('token')}'
-        },
-      );
+          Uri.http(
+            baseUrl,
+            apiInventory,
+          ),
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ${prefs.getString('token')}'
+          },
+          body: {
+            'id': id.toString()
+          });
       print(json.decode(response.body));
       if (response.statusCode == 201 || response.statusCode == 200) {
+        print(response.body);
         update();
+
         Get.snackbar('Product', 'The product has deleted successfully',
             snackPosition: SnackPosition.TOP,
             duration: const Duration(seconds: 2));
