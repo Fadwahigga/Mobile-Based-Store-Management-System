@@ -1,11 +1,19 @@
+// ignore_for_file: avoid_print
+
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:gp/model/inventroy_model.dart';
 import 'package:gp/model/purhcase_model.dart';
+import 'package:gp/shared/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PurchaseController extends GetxController {
   // ************* Vaiables ****************
   List<PurchaseModel> listOfPurchaseModel = [];
+  RxBool isThereData = false.obs;
   double total = 0;
   double totalresute = 0;
   double change = 0;
@@ -41,12 +49,14 @@ class PurchaseController extends GetxController {
     listOfPurchaseModel[index].total =
         double.parse(newQuantityController.text) *
             double.parse(newCostController.text);
+
     update();
   }
 
   newtotalreselt(index) {
     totalresute += double.parse(newQuantityController.text) *
         double.parse(newCostController.text);
+
     update();
   }
   // ************* Methods *****************
@@ -71,8 +81,47 @@ class PurchaseController extends GetxController {
       {required String phone, required String name, required int id}) {
     purchaseMap = {'phone': phone, 'name': name, 'id': id};
     update();
-  }
+  } ////////////////////////////
 
+  List<Map<String, dynamic>> paymentData = [];
+  payment({
+    required List<Map<String, dynamic>> paymentData,
+  }) async {
+    isThereData.value = false;
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      print(json.encode(paymentData));
+      for (var i = 0; i < paymentData.length; i++) {
+        await http.post(
+          Uri.http(
+            baseUrl,
+            apiSales,
+          ),
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ${prefs.getString('token')}'
+          },
+          body: {
+            'id': paymentData[i]['id'].toString(),
+            'quantity': paymentData[i]['quantity'].toString(),
+            'cost': paymentData[i]['cost'].toString(),
+            'price': paymentData[i]['price'].toString(),
+          },
+        );
+      }
+      listOfPurchaseModel.clear();
+      payedController.clear();
+      purchaseMap.clear();
+      return Get.back();
+
+      // ApiStatus.checkStatus(response);
+
+    } catch (e) {
+      print(e);
+      return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
+    }
+  }
+///////////////////////////////////
   // @override
   // onInit() {
   //   super.onInit();

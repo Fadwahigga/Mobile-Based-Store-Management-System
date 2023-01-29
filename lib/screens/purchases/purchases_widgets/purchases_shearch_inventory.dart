@@ -54,9 +54,9 @@ class PurchasesSearchInventory extends SearchDelegate {
                   builder: (controller) {
                     return InkWell(
                       onTap: () {
-                        controller.totalresute +=
-                            double.parse(snapshot.data![index].cost) *
-                                double.parse(snapshot.data![index].quantity);
+                        // controller.totalresute +=
+                        //     double.parse(snapshot.data![index].cost) *
+                        //         double.parse(snapshot.data![index].quantity);
 
                         controller.setData(snapshot.data![index]);
                         Get.back();

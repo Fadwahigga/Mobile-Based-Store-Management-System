@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../model/inventroy_model.dart';
 import '../model/sales_model.dart';
 import '../shared/constants.dart';
 
@@ -15,7 +16,7 @@ class SalesController extends GetxController {
   // *********** Variables *************
 
   RxList<SalesModel> listOfSalesModel = <SalesModel>[].obs;
-  double total = 0.0;
+
   RxBool isThereData = false.obs;
   double change = 0;
   double totalResultselse = 0;
@@ -33,16 +34,16 @@ class SalesController extends GetxController {
   }
 
   newtotal(int index) {
-    total = double.parse(quantitiesController.text) *
-        double.parse(listOfSalesModel[index].soldQunatity);
+    listOfSalesModel[index].total = double.parse(quantitiesController.text) *
+        double.parse(listOfSalesModel[index].price);
     update();
   }
 
-  // newtotalreselt(index) {
-  //   totalresute += double.parse(newQuantityController.text) *
-  //       double.parse(newCostController.text);
-  //   update();
-  // }
+  newtotalreselt(index) {
+    totalResultselse += double.parse(quantitiesController.text) *
+        double.parse(listOfSalesModel[index].price);
+    update();
+  }
 
   List<Map<String, dynamic>> paymentData = [];
   DateTime? dateTime = DateTime.now();
@@ -94,11 +95,21 @@ class SalesController extends GetxController {
   //     );
   //   }
   // }
-
-  setSaleData({required Map<String, dynamic> map}) {
-    listOfSalesModel.add(SalesModel.fromJson(map));
+  ////////////////////////
+  setData(InventoryModel snapshot) {
+    listOfSalesModel.add(SalesModel(
+        total: double.parse(snapshot.price) * double.parse(snapshot.quantity),
+        id: snapshot.id,
+        price: snapshot.price,
+        itemName: snapshot.productName,
+        soldQunatity: snapshot.quantity));
     update();
   }
+/////////////////////
+  // setSaleData({required Map<String, dynamic> map}) {
+  //   listOfSalesModel.add(SalesModel.fromJson(map));
+  //   update();
+  // }
 
   payment({
     required List<Map<String, dynamic>> paymentData,

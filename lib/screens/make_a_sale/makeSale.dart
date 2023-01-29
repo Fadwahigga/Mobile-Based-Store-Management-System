@@ -179,10 +179,7 @@ class MakeSalePage extends GetWidget<SalesController> {
                             barrierDismissible: false,
                             title: "",
                             content: ProductMakeSellPopUp(
-                              availableQuantity: controller
-                                  .listOfSalesModel[index].soldQunatity,
                               index: index,
-                              price: controller.listOfSalesModel[index].price,
                             ),
                           );
                         },
@@ -229,7 +226,8 @@ class MakeSalePage extends GetWidget<SalesController> {
                                   color: Colors.white,
                                   padding: EdgeInsets.all(3),
                                   child: Text(
-                                    controller.total.toString(),
+                                    controller.listOfSalesModel[index].total
+                                        .toString(),
                                     style: _textStyle,
                                   ),
                                 ),

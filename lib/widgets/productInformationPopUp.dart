@@ -157,10 +157,10 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                       onTap: () {
                         Get.back();
                         controller.newvalu(index);
-                        // controller.newtotal(index);
+                        controller.newtotal(index);
                         controller.newtotalreselt(index);
-                        controller.newQuantityController.clear();
                         controller.newCostController.clear();
+                        controller.newQuantityController.clear();
                       },
                       child: ConfirmAndCancel(Opname: "Save"));
                 }),

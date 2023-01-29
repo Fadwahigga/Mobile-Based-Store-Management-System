@@ -7,14 +7,8 @@ import 'package:gp/controller/sales_controller.dart';
 import 'confirmAndcancel.dart';
 
 class ProductMakeSellPopUp extends GetWidget<SalesController> {
-  ProductMakeSellPopUp(
-      {Key? key,
-      required this.availableQuantity,
-      required this.price,
-      required this.index})
-      : super(key: key);
-  final String availableQuantity;
-  final String price;
+  ProductMakeSellPopUp({Key? key, required this.index}) : super(key: key);
+
   final int index;
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
@@ -57,7 +51,9 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
                       child: Center(
-                          child: Text(availableQuantity, style: _textStyle)),
+                          child: Text(
+                              controller.listOfSalesModel[index].soldQunatity,
+                              style: _textStyle)),
                     ),
                   ],
                 ),
@@ -72,7 +68,9 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(child: Text(price, style: _textStyle)),
+                      child: Center(
+                          child: Text(controller.listOfSalesModel[index].price,
+                              style: _textStyle)),
                     ),
                   ],
                 ),
@@ -89,10 +87,6 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                       color: Colors.white,
                       child: TextFormField(
                         style: _textStyle,
-                        onChanged: ((value) {
-                          controller.quantitiesController.text =
-                              value.toString();
-                        }),
                         keyboardType: TextInputType.number,
                         controller: controller.quantitiesController,
                       ),
@@ -104,8 +98,12 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    controller.listOfSalesModel.removeAt(index);
                     Get.back();
+                    controller.listOfSalesModel.removeAt(index);
+                    controller.totalResultselse -
+                        double.parse(controller.quantitiesController.text) *
+                            double.parse(
+                                controller.listOfSalesModel[index].price);
                   },
                   child: Text("Delete Product From List ",
                       style: GoogleFonts.ebGaramond(
@@ -123,6 +121,7 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                       Get.back();
                       controller.newvalu(index);
                       controller.newtotal(index);
+                      controller.newtotalreselt(index);
                       controller.quantitiesController.clear();
                     },
                     child: ConfirmAndCancel(Opname: "Save")),
