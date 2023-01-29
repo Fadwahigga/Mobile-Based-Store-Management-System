@@ -218,7 +218,8 @@ class MakeSalePage extends GetWidget<SalesController> {
                                   padding: EdgeInsets.all(3),
                                   child: Center(
                                     child: Text(
-                                      "1",
+                                      controller
+                                          .listOfSalesModel[index].soldQunatity,
                                       style: _textStyle,
                                     ),
                                   ),
@@ -228,11 +229,7 @@ class MakeSalePage extends GetWidget<SalesController> {
                                   color: Colors.white,
                                   padding: EdgeInsets.all(3),
                                   child: Text(
-                                    (double.parse(controller
-                                                .listOfSalesModel[index]
-                                                .price) *
-                                            double.parse("1"))
-                                        .toString(),
+                                    controller.total.toString(),
                                     style: _textStyle,
                                   ),
                                 ),

@@ -8,11 +8,11 @@ class PurchaseModel {
       required this.quantity});
 
   final String productName;
-  final String cost;
+  late String cost;
   final String price;
-  final String quantity;
+  late String quantity;
   final int id;
-  final double total;
+  late double total;
 
   factory PurchaseModel.fromJson(Map<String, dynamic> json) {
     return PurchaseModel(

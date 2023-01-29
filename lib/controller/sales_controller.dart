@@ -27,6 +27,23 @@ class SalesController extends GetxController {
     update();
   }
 
+  newvalu(int index) {
+    listOfSalesModel[index].soldQunatity = quantitiesController.text;
+    update();
+  }
+
+  newtotal(int index) {
+    total = double.parse(quantitiesController.text) *
+        double.parse(listOfSalesModel[index].soldQunatity);
+    update();
+  }
+
+  // newtotalreselt(index) {
+  //   totalresute += double.parse(newQuantityController.text) *
+  //       double.parse(newCostController.text);
+  //   update();
+  // }
+
   List<Map<String, dynamic>> paymentData = [];
   DateTime? dateTime = DateTime.now();
   Barcode? result;

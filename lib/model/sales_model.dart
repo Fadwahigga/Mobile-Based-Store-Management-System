@@ -6,7 +6,7 @@ class SalesModel {
 
   final String itemName;
   final String price;
-  final String soldQunatity;
+  late String soldQunatity;
 
   factory SalesModel.fromJson(Map<String, dynamic> json) {
     return SalesModel(

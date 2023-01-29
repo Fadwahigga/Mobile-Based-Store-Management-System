@@ -7,21 +7,16 @@ import 'package:gp/controller/purchase_controller.dart';
 import 'confirmAndcancel.dart';
 
 class ProductInformationPopUp extends GetWidget<PurchaseController> {
-  ProductInformationPopUp(
-      {Key? key,
-      required this.index,
-      required this.existQuantity,
-      required this.oldCost})
-      : super(key: key);
+  ProductInformationPopUp({
+    Key? key,
+    required this.index,
+  }) : super(key: key);
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
     fontSize: 15,
   ));
-  String existQuantity;
-  String oldCost;
+
   final int index;
-  TextEditingController newCostController = TextEditingController();
-  TextEditingController newQuantityController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +57,10 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child:
-                          Center(child: Text(existQuantity, style: _textStyle)),
+                      child: Center(
+                          child: Text(
+                              controller.listOfPurchaseModel[index].quantity,
+                              style: _textStyle)),
                     ),
                   ],
                 ),
@@ -83,7 +80,7 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                         color: Colors.white,
                         child: TextFormField(
                             style: _textStyle,
-                            controller: newQuantityController,
+                            controller: controller.newQuantityController,
                             keyboardType: TextInputType.number)),
                   ],
                 ),
@@ -101,7 +98,10 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
-                      child: Center(child: Text(oldCost, style: _textStyle)),
+                      child: Center(
+                          child: Text(
+                              controller.listOfPurchaseModel[index].cost,
+                              style: _textStyle)),
                     ),
                   ],
                 ),
@@ -121,7 +121,7 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                       color: Colors.white,
                       child: TextFormField(
                           style: _textStyle,
-                          controller: newCostController,
+                          controller: controller.newCostController,
                           keyboardType: TextInputType.number),
                     ),
                   ],
@@ -133,7 +133,7 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                   builder: (controller) {
                     return GestureDetector(
                       onTap: () {
-                        controller.removeFromList(index);
+                        controller.deleteItem(index);
                         Get.back();
                       },
                       child: Text(
@@ -155,9 +155,12 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                 GetBuilder<PurchaseController>(builder: (controller) {
                   return GestureDetector(
                       onTap: () {
-                        // oldCost = newCostController as String;
-                        // existQuantity = newQuantityController as String;
                         Get.back();
+                        controller.newvalu(index);
+                        // controller.newtotal(index);
+                        controller.newtotalreselt(index);
+                        controller.newQuantityController.clear();
+                        controller.newCostController.clear();
                       },
                       child: ConfirmAndCancel(Opname: "Save"));
                 }),

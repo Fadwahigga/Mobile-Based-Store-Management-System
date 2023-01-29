@@ -121,6 +121,9 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                 GestureDetector(
                     onTap: () {
                       Get.back();
+                      controller.newvalu(index);
+                      controller.newtotal(index);
+                      controller.quantitiesController.clear();
                     },
                     child: ConfirmAndCancel(Opname: "Save")),
                 const SizedBox(

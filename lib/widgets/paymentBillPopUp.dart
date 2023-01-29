@@ -72,7 +72,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                       color: Colors.white,
                       child: Center(
                           child: TextFormField(
-                              onChanged: (value) {
+                              onChanged: (newValue) {
                                 controller.getChange();
                               },
                               controller: controller.payedController,
@@ -154,12 +154,15 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                 ),
                 GestureDetector(
                     onTap: () {
-                      controller.listOfPurchaseModel.clear();
                       Get.back();
                       // ToDo: Here Fadwa add the payment method that i will explain it.
                       Get.snackbar("Done", "Success process",
                           snackPosition: SnackPosition.BOTTOM,
-                          duration: const Duration(seconds: 3));
+                          duration: const Duration(seconds: 1));
+                      controller.totalOnsave();
+                      controller.listOfPurchaseModel.clear();
+                      controller.payedController.clear();
+                      controller.purchaseMap.clear();
                     },
                     child: ConfirmAndCancel(Opname: "Save")),
                 const SizedBox(

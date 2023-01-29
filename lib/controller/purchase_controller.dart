@@ -15,10 +15,40 @@ class PurchaseController extends GetxController {
 
   Map<String, dynamic> purchaseMap = {};
   getChange() {
-    change = totalresute - double.parse(payedController.text);
+    change = double.parse(payedController.text) - totalresute;
     update();
   }
 
+  totalOnsave() {
+    totalresute = 0.0;
+    change = 0;
+    update();
+  }
+
+// delet from list
+  deleteItem(int index) {
+    removeFromList(index);
+  }
+
+  // set new quantity
+  newvalu(int index) {
+    listOfPurchaseModel[index].quantity = newQuantityController.text;
+    listOfPurchaseModel[index].cost = newCostController.text;
+    update();
+  }
+
+  newtotal(int index) {
+    listOfPurchaseModel[index].total =
+        double.parse(newQuantityController.text) *
+            double.parse(newCostController.text);
+    update();
+  }
+
+  newtotalreselt(index) {
+    totalresute += double.parse(newQuantityController.text) *
+        double.parse(newCostController.text);
+    update();
+  }
   // ************* Methods *****************
 
   setData(InventoryModel snapshot) {

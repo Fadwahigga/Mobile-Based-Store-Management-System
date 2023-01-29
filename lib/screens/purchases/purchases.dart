@@ -188,12 +188,7 @@ class PurchasesPage extends GetWidget<PurchaseController> {
                         Get.defaultDialog(
                           barrierDismissible: false,
                           title: "",
-                          content: ProductInformationPopUp(
-                              existQuantity: controller
-                                  .listOfPurchaseModel[index].quantity,
-                              oldCost:
-                                  controller.listOfPurchaseModel[index].cost,
-                              index: index),
+                          content: ProductInformationPopUp(index: index),
                         );
                       },
                       child: Container(
