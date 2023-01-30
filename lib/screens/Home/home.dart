@@ -22,7 +22,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    MyLocaleController controller = Get.find();
+    MyLocaleController controllerlan = Get.find();
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -32,8 +32,8 @@ class _HomeState extends State<Home> {
             child: InkWell(
               onTap: () {
                 shaedpref.getString("curruntLang") == "ar"
-                    ? controller.ChangeLang("en")
-                    : controller.ChangeLang("ar");
+                    ? controllerlan.ChangeLang("en")
+                    : controllerlan.ChangeLang("ar");
               },
               child: const Image(
                   image: AssetImage("images/Translation.png"),

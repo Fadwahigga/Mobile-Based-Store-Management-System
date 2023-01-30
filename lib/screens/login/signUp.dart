@@ -9,6 +9,7 @@ import 'package:gp/screens/login/login.dart';
 import 'package:gp/widgets/buttonContainer.dart';
 
 import '../../localization/Local_controller.dart';
+import '../../main.dart';
 
 class SignUp extends GetWidget<LoginController> {
   const SignUp({super.key});
@@ -28,7 +29,9 @@ class SignUp extends GetWidget<LoginController> {
                 width: 60,
                 child: InkWell(
                   onTap: () {
-                    controllerlan.ChangeLang("ar");
+                    shaedpref.getString("curruntLang") == "ar"
+                        ? controllerlan.ChangeLang("en")
+                        : controllerlan.ChangeLang("ar");
                   },
                   child: const Image(
                       image: AssetImage("images/Translation.png"),
