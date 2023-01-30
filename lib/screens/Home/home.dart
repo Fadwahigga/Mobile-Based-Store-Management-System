@@ -29,11 +29,17 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         appBar: AppBar(
           actions: [
-            IconButton(
-                onPressed: () {
+            SizedBox(
+              width: 50,
+              child: InkWell(
+                onTap: () {
                   controllerlan.ChangeLang("ar");
                 },
-                icon: Icon(Icons.change_circle))
+                child: Image(
+                    image: AssetImage("images/Translation.png"),
+                    fit: BoxFit.contain),
+              ),
+            )
           ],
           elevation: 0,
           centerTitle: true,
