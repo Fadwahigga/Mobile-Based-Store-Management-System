@@ -6,6 +6,7 @@ import 'package:gp/screens/Inventory%20Screens/Inventory%20.dart';
 import 'package:gp/screens/purchases/purchases.dart';
 import 'package:gp/screens/Performance%20Screens/performance.dart';
 import 'package:gp/screens/Suppliers%20Screens/suppliers.dart';
+import '../../main.dart';
 import '../Account/accounts.dart';
 import '../make_a_sale/cashierScreens.dart';
 import 'Home Widget/drawer.dart';
@@ -21,7 +22,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    MyLocaleController controllerlan = Get.find();
+    MyLocaleController controller = Get.find();
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -30,7 +31,9 @@ class _HomeState extends State<Home> {
             width: 50,
             child: InkWell(
               onTap: () {
-                controllerlan.ChangeLang("ar");
+                shaedpref.getString("curruntLang") == "ar"
+                    ? controller.ChangeLang("en")
+                    : controller.ChangeLang("ar");
               },
               child: const Image(
                   image: AssetImage("images/Translation.png"),

@@ -8,10 +8,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'localization/localization.dart';
 import 'screens/Home/home.dart';
 
+late SharedPreferences shaedpref;
 //New Commit
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
+  shaedpref = await SharedPreferences.getInstance();
   print(prefs.getString('token'));
   runApp(MyApp(prefs: prefs));
 }
@@ -27,7 +29,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: MyBinding(),
-      locale: Get.deviceLocale,
+      locale: shaedpref.getString("curruntLang") == null
+          ? Get.deviceLocale
+          : Locale(shaedpref.getString("curruntLang")!),
       translations: MyLocale(),
       home: prefs.getString('token') != null ? const Home() : const Login(),
     );
