@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: MyBinding(),
+      locale: Get.deviceLocale,
       home: prefs.getString('token') != null ? const Home() : const Login(),
     );
   }
