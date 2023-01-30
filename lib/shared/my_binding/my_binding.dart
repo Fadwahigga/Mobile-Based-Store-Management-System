@@ -5,8 +5,8 @@ import 'package:gp/controller/login_controller.dart';
 import 'package:gp/controller/performance_controller.dart';
 import 'package:gp/controller/sales_controller.dart';
 import 'package:gp/controller/supplier_controller.dart';
-
 import '../../controller/purchase_controller.dart';
+import '../../localization/Local_controller.dart';
 
 class MyBinding extends Bindings {
   @override
@@ -18,5 +18,6 @@ class MyBinding extends Bindings {
     Get.lazyPut(() => PerformanceController(), fenix: true);
     Get.lazyPut(() => PurchaseController(), fenix: true);
     Get.lazyPut(() => SalesController(), fenix: true);
+    Get.lazyPut(() => MyLocaleController(), fenix: true);
   }
 }

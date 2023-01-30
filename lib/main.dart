@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:gp/screens/login/login.dart';
 import 'package:gp/shared/my_binding/my_binding.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'localization/localization.dart';
 import 'screens/Home/home.dart';
 
 //New Commit
@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialBinding: MyBinding(),
       locale: Get.deviceLocale,
+      translations: MyLocale(),
       home: prefs.getString('token') != null ? const Home() : const Login(),
     );
   }

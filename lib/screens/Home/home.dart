@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
           title: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
-              "HOME",
+              "HOME".tr,
               style: GoogleFonts.ebGaramond(
                   textStyle: const TextStyle(
                       color: Colors.black,
