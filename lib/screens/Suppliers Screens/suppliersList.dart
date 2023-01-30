@@ -6,11 +6,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/screens/purchases/purchases_widgets/purchase_search_supplier.dart';
 import 'package:gp/shared/constants.dart';
-import 'package:gp/widgets/suppliersBillsPopUp.dart';
-
 import '../../controller/supplier_controller.dart';
-import '../../widgets/appBar.dart';
 import '../../widgets/confirmAndcancel.dart';
+import '../Home/Home Widget/appBar.dart';
+import 'Supplier Widget/suppliersBillsPopUp.dart';
 
 class SuppliersListPage extends StatefulWidget {
   const SuppliersListPage({super.key});

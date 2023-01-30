@@ -1,9 +1,8 @@
 // ignore_for_file: file_names, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gp/widgets/buttonContainer.dart';
-import '../../widgets/appBar.dart';
+import '../Home/Home Widget/appBar.dart';
 import 'AddNewProduct.dart';
 import 'productsList.dart';
 

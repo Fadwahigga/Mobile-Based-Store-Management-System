@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/supplier_controller.dart';
 
-import 'confirmAndcancel.dart';
+import '../../../widgets/confirmAndcancel.dart';
 
 // ignore: must_be_immutable
 class SuppliersBillsPopUp extends GetWidget<SupplierController> {

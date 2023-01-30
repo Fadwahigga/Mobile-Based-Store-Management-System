@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../widgets/appBar.dart';
-import '../widgets/buttonContainer.dart';
-import 'make_a_sale/makeSale.dart';
+import '../../widgets/buttonContainer.dart';
+import '../Home/Home Widget/appBar.dart';
+import 'makeSale.dart';
 
 class CashierScreensPage extends StatelessWidget {
   const CashierScreensPage({super.key});

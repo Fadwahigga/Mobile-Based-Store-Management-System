@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/login_controller.dart';
-import 'package:gp/screens/cashierScreens.dart';
 
-import '../widgets/buttonContainer.dart';
-import '../widgets/confirmAndcancel.dart';
+import '../../widgets/buttonContainer.dart';
+import '../../widgets/confirmAndcancel.dart';
+import '../make_a_sale/cashierScreens.dart';
 
 class ManegerOrEmployeePage extends GetWidget<LoginController> {
   const ManegerOrEmployeePage({super.key});

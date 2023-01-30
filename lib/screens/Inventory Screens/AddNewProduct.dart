@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/widgets/smallButton.dart';
-
 import '../../controller/inventory_controller.dart';
-import '../../widgets/appBar.dart';
 import '../../widgets/barCode.dart';
+import '../Home/Home Widget/appBar.dart';
 
 class AddNewProductPage extends GetWidget<InventoryController> {
   AddNewProductPage({Key? key}) : super(key: key);

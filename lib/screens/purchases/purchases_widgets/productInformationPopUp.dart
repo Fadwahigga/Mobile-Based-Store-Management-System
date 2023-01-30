@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/purchase_controller.dart';
-import 'confirmAndcancel.dart';
+
+import '../../../widgets/confirmAndcancel.dart';
+
 
 class ProductInformationPopUp extends GetWidget<PurchaseController> {
   ProductInformationPopUp({

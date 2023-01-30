@@ -6,9 +6,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/inventory_controller.dart';
 import '../../shared/constants.dart';
-import '../../widgets/appBar.dart';
 import '../../widgets/confirmAndcancel.dart';
-import '../make_a_sale/make_sale_search.dart';
+import '../Home/Home Widget/appBar.dart';
+import '../make_a_sale/Mak-Sall-widget/make_sale_search.dart';
+
 
 class ProductsListPage extends GetWidget<InventoryController> {
   ProductsListPage({super.key});

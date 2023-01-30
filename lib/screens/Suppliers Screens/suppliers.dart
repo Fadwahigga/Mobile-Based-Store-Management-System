@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gp/controller/supplier_controller.dart';
-import 'package:gp/widgets/appBar.dart';
 import 'package:gp/widgets/buttonContainer.dart';
+import '../Home/Home Widget/appBar.dart';
 import 'addnewSupplier.dart';
 import 'suppliersList.dart';
 

@@ -4,11 +4,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gp/screens/home.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../screens/manegerOrEmployee.dart';
+import '../screens/Home/home.dart';
+import '../screens/login/manegerOrEmployee.dart';
 import '../shared/api_status.dart';
 import '../shared/constants.dart';
 

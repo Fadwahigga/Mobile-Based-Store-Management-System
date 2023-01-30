@@ -5,8 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/performance_controller.dart';
 import 'package:gp/screens/PerformanceCharts/ShowStoreMovementChart.dart';
-
-import '../../widgets/appBar.dart';
+import '../Home/Home Widget/appBar.dart';
 import '../PerformanceCharts/BestSellingChart.dart';
 import '../PerformanceCharts/LeastSellingChart.dart';
 import '../PerformanceCharts/LowStockProductsChart.dart';

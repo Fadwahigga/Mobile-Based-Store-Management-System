@@ -3,16 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:gp/screens/make_a_sale/make_sale_search.dart';
-import 'package:gp/widgets/paymentMakeSellPopUp.dart';
-import 'package:gp/widgets/productMakeSellPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
-
 import '../../controller/sales_controller.dart';
 import '../../shared/constants.dart';
-import '../../widgets/appBar.dart';
 import '../../widgets/barCode.dart';
+import '../Home/Home Widget/appBar.dart';
+import 'Mak-Sall-widget/make_sale_search.dart';
+import 'Mak-Sall-widget/paymentMakeSellPopUp.dart';
+import 'Mak-Sall-widget/productMakeSellPopUp.dart';
 
 class MakeSalePage extends GetWidget<SalesController> {
   final TextStyle _textStyle = GoogleFonts.ebGaramond(

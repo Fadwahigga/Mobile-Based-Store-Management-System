@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/account_controller.dart';
-import 'package:gp/widgets/accountWidget.dart';
 
-import '../widgets/appBar.dart';
+import '../Home/Home Widget/appBar.dart';
+import 'Account widget/accountWidget.dart';
+
 
 class AccountsPage extends GetWidget<AccountController> {
   AccountsPage({super.key});

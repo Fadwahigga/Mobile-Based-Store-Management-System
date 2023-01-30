@@ -6,12 +6,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/purchase_controller.dart';
 import 'package:gp/screens/purchases/purchases_widgets/purchases_shearch_inventory.dart';
 import 'package:gp/shared/constants.dart';
-
-import 'package:gp/widgets/paymentBillPopUp.dart';
 import 'package:gp/widgets/smallButton.dart';
-import '../../widgets/appBar.dart';
 import '../../widgets/barCode.dart';
-import '../../widgets/productInformationPopUp.dart';
+
+import '../Home/Home Widget/appBar.dart';
+import 'purchases_widgets/paymentBillPopUp.dart';
+import 'purchases_widgets/productInformationPopUp.dart';
 
 class PurchasesPage extends GetWidget<PurchaseController> {
   final TextStyle _textStyle = GoogleFonts.ebGaramond(

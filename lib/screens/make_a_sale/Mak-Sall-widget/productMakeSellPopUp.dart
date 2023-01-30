@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/sales_controller.dart';
-import 'confirmAndcancel.dart';
+
+import '../../../widgets/confirmAndcancel.dart';
+
 
 class ProductMakeSellPopUp extends GetWidget<SalesController> {
   ProductMakeSellPopUp({Key? key, required this.index}) : super(key: key);

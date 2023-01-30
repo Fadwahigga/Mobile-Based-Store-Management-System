@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/login_controller.dart';
-import 'package:gp/screens/accounts.dart';
 import 'package:gp/screens/login/login.dart';
 import 'package:gp/screens/login/resetPassword.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../screens/Inventory Screens/Inventory .dart';
-import '../screens/login/ResetManegerPassword.dart';
-import '../screens/cashierScreens.dart';
-import '../screens/Performance Screens/performance.dart';
-import '../screens/purchases/purchases.dart';
-import '../screens/Suppliers Screens/suppliers.dart';
-import 'confirmAndcancel.dart';
+
+import '../../../widgets/confirmAndcancel.dart';
+import '../../Account/accounts.dart';
+import '../../Inventory Screens/Inventory .dart';
+import '../../Performance Screens/performance.dart';
+import '../../Suppliers Screens/suppliers.dart';
+import '../../login/ResetManegerPassword.dart';
+import '../../make_a_sale/cashierScreens.dart';
+import '../../purchases/purchases.dart';
+
 
 class DrawerWidget extends GetWidget<LoginController> {
   DrawerWidget({super.key});

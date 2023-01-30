@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:gp/controller/supplier_controller.dart';
 import 'package:gp/widgets/smallButton.dart';
 
-import '../../widgets/appBar.dart';
+import '../Home/Home Widget/appBar.dart';
 
 class AddNewSupplierPage extends GetWidget<SupplierController> {
   const AddNewSupplierPage({super.key});
