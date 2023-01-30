@@ -5,9 +5,9 @@ import 'package:gp/screens/Inventory%20Screens/Inventory%20.dart';
 import 'package:gp/screens/purchases/purchases.dart';
 import 'package:gp/screens/Performance%20Screens/performance.dart';
 import 'package:gp/screens/Suppliers%20Screens/suppliers.dart';
-import 'package:gp/widgets/drawer.dart';
 import '../Account/accounts.dart';
 import '../make_a_sale/cashierScreens.dart';
+import 'Home Widget/drawer.dart';
 import 'Home Widget/homeWidget.dart';
 
 class Home extends StatefulWidget {
