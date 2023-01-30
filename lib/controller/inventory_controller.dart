@@ -8,7 +8,6 @@ import 'package:gp/model/inventroy_model.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
-
 import '../shared/api_status.dart';
 import '../shared/constants.dart';
 

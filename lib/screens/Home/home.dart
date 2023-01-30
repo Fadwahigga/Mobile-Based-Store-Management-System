@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/localization/Local_controller.dart';
 import 'package:gp/screens/Inventory%20Screens/Inventory%20.dart';
 import 'package:gp/screens/purchases/purchases.dart';
 import 'package:gp/screens/Performance%20Screens/performance.dart';
@@ -20,12 +21,20 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    MyLocaleController controllerlan = Get.find();
     return WillPopScope(
       onWillPop: () async {
         return false;
       },
       child: Scaffold(
         appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {
+                  controllerlan.ChangeLang("ar");
+                },
+                icon: Icon(Icons.change_circle))
+          ],
           elevation: 0,
           centerTitle: true,
           backgroundColor: Colors.white,
@@ -58,7 +67,7 @@ class _HomeState extends State<Home> {
                             Get.to(() => PurchasesPage());
                           },
                           child: HomeWidget(
-                              name: "Purchases", imagepath: "images/1.png")),
+                              name: "Purchases".tr, imagepath: "images/1.png")),
                     ),
                     const SizedBox(
                       width: 20,
@@ -69,7 +78,7 @@ class _HomeState extends State<Home> {
                           Get.to(const CashierScreensPage());
                         },
                         child: HomeWidget(
-                            name: "Make Sale", imagepath: "images/2.png"),
+                            name: "Make Sale".tr, imagepath: "images/2.png"),
                       ),
                     )
                   ],
@@ -88,7 +97,7 @@ class _HomeState extends State<Home> {
                           Get.to(const SuppliersPage());
                         },
                         child: HomeWidget(
-                            name: "Suppliers", imagepath: "images/3.png"),
+                            name: "Suppliers".tr, imagepath: "images/3.png"),
                       ),
                     ),
                     const SizedBox(
@@ -100,7 +109,7 @@ class _HomeState extends State<Home> {
                           Get.to(const InventoryPage());
                         },
                         child: HomeWidget(
-                            name: "Inventory", imagepath: "images/4.png"),
+                            name: "Inventory".tr, imagepath: "images/4.png"),
                       ),
                     )
                   ],
@@ -119,7 +128,7 @@ class _HomeState extends State<Home> {
                         Get.to(AccountsPage());
                       },
                       child: HomeWidget(
-                          name: "Accounts", imagepath: "images/5.png"),
+                          name: "Accounts".tr, imagepath: "images/5.png"),
                     )),
                     const SizedBox(
                       width: 20,
@@ -130,7 +139,7 @@ class _HomeState extends State<Home> {
                           Get.to(const PerformancePage());
                         },
                         child: HomeWidget(
-                            name: "Performance", imagepath: "images/6.png"),
+                            name: "Performance".tr, imagepath: "images/6.png"),
                       ),
                     )
                   ],
@@ -146,7 +155,7 @@ class _HomeState extends State<Home> {
                     color: const Color.fromARGB(255, 39, 62, 82),
                     borderRadius: BorderRadius.circular(10)),
                 child: Center(
-                  child: Text("Generate Offers",
+                  child: Text("Generate Offers".tr,
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                         fontSize: 15,
