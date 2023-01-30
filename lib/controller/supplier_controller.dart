@@ -64,16 +64,16 @@ class SupplierController extends GetxController {
                 ),
                 child: Row(
                   children: [
-                    CircularProgressIndicator(
+                    const CircularProgressIndicator(
                       color: kprimaryColor,
                       backgroundColor: kprimaryColor,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Text(
                       "Save".tr,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.normal),
