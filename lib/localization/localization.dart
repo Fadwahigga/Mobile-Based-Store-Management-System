@@ -91,6 +91,9 @@ class MyLocale implements Translations {
           "Change": "الباقي",
           "Save This Bill To A Supplier Account": "حفظ الفاتورة في حساب المورد",
           "Search Result": "نتيجة البحث",
+          "The product has deleted": "تم حذف المنتج",
+          "Done": "تم",
+          "Success process": "تمت العملية بنجاح",
         },
         "en": {
           "HOME": "HOME",
@@ -178,6 +181,9 @@ class MyLocale implements Translations {
           "Save This Bill To A Supplier Account":
               "Save This Bill To A Supplier Account",
           "Search Result": "Search Result",
+          "The product has deleted": "The product has deleted",
+          "Done": "Done",
+          "Success process": "Success process",
         },
       };
 }

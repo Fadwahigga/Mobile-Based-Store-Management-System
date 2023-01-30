@@ -172,7 +172,7 @@ class PerformanceController extends GetxController {
       });
       if (response.statusCode == 201 || response.statusCode == 200) {
         update();
-        return Get.snackbar('Delete', "The product has deleted",
+        return Get.snackbar("Delete".tr, "The product has deleted".tr,
             snackPosition: SnackPosition.TOP,
             duration: const Duration(seconds: 1));
       }

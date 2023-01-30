@@ -63,7 +63,7 @@ class SupplierController extends GetxController {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
-                  children: const [
+                  children: [
                     CircularProgressIndicator(
                       color: kprimaryColor,
                       backgroundColor: kprimaryColor,
@@ -72,7 +72,7 @@ class SupplierController extends GetxController {
                       width: 20,
                     ),
                     Text(
-                      'Adding...',
+                      "Save".tr,
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 14,
@@ -102,7 +102,7 @@ class SupplierController extends GetxController {
           nameController.clear();
           phoneController.clear();
           Get.back();
-          return Get.snackbar('Supplier', 'The supplier has added successfully',
+          return Get.snackbar("Done".tr, "Success process".tr,
               snackPosition: SnackPosition.BOTTOM,
               duration: const Duration(seconds: 2));
         }

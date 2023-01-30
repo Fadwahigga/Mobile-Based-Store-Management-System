@@ -68,7 +68,7 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                   width: MediaQuery.of(context).size.width - 250,
                   color: Colors.white,
                   child: TextFormField(
-                      onChanged: (value) {
+                      onFieldSubmitted: (value) {
                         controller.getChange();
                       },
                       controller: controller.PayedController,
@@ -100,24 +100,21 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                GetBuilder<SalesController>(
-                  builder: (controller) {
-                    return GestureDetector(
-                        onTap: () {
-                          controller.payment(
-                              paymentData: controller.paymentData);
-                          controller.totalOnsave();
-                          Get.back();
-                          Get.snackbar("Done", "Success process",
-                              snackPosition: SnackPosition.BOTTOM,
-                              duration: const Duration(seconds: 3));
-                        },
-                        child: ConfirmAndCancel(Opname: "Save".tr));
-                  },
-                ),
+                GestureDetector(
+                    onTap: () {
+                      controller.payment(paymentData: controller.paymentData);
+                      Get.back();
+                      controller.totalOnsave();
+                      Get.snackbar("Done".tr, "Success process".tr,
+                          snackPosition: SnackPosition.BOTTOM,
+                          duration: const Duration(seconds: 2));
+                    },
+                    child: ConfirmAndCancel(Opname: "Save".tr)),
                 GestureDetector(
                   onTap: () {
                     Get.back();
+                    controller.change = 0;
+                    controller.PayedController.clear();
                   },
                   child: ConfirmAndCancel(Opname: "Cancel".tr),
                 ),

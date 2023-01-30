@@ -28,7 +28,7 @@ class SalesController extends GetxController {
   // ********************************** Methods ****************************
   /////////////////////////////////////// Get Change
   getChange() {
-    change = totalResultselse - double.parse(PayedController.text);
+    change = double.parse(PayedController.text) - totalResultselse;
     update();
   }
 
@@ -36,6 +36,7 @@ class SalesController extends GetxController {
   totalOnsave() {
     totalResultselse = 0.0;
     change = 0;
+
     update();
   }
 
@@ -164,7 +165,7 @@ class SalesController extends GetxController {
       listOfSalesModel.clear();
       PayedController.clear();
       paymentData.clear();
-      return Get.back();
+
       // ApiStatus.checkStatus(response);
 
       quantitiesController.clear();

@@ -118,7 +118,6 @@ class PurchaseController extends GetxController {
       listOfPurchaseModel.clear();
       payedController.clear();
       purchaseMap.clear();
-      return Get.back();
 
       // ApiStatus.checkStatus(response);
 
