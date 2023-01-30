@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
                 onTap: () {
                   controllerlan.ChangeLang("ar");
                 },
-                child: Image(
+                child: const Image(
                     image: AssetImage("images/Translation.png"),
                     fit: BoxFit.contain),
               ),
