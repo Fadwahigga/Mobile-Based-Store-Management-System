@@ -73,11 +73,16 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                       color: Colors.white,
                       child: Center(
                           child: TextFormField(
-                              onChanged: (newValue) {
-                                controller.getChange();
+                              onEditingComplete: () {
+                                controller.change = (double.parse(
+                                        controller.payedController.text) -
+                                    controller.totalresute);
+                                FocusScope.of(context).unfocus();
                               },
                               controller: controller.payedController,
+                              autofocus: false,
                               style: _textStyle,
+                              textInputAction: TextInputAction.next,
                               keyboardType: TextInputType.number)),
                     ),
                   ],
@@ -171,6 +176,9 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                     GestureDetector(
                       onTap: () {
                         Get.back();
+                        controller.payedController.clear();
+                        controller.change = 0;
+                        controller.purchaseMap.clear();
                       },
                       child: ConfirmAndCancel(Opname: "Cancel".tr),
                     ),

@@ -68,8 +68,11 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                   width: MediaQuery.of(context).size.width - 250,
                   color: Colors.white,
                   child: TextFormField(
-                      onFieldSubmitted: (value) {
-                        controller.getChange();
+                      onEditingComplete: () {
+                        controller.change =
+                            (double.parse(controller.PayedController.text) -
+                                controller.totalResultselse);
+                        FocusScope.of(context).unfocus();
                       },
                       controller: controller.PayedController,
                       style: _textStyle,
