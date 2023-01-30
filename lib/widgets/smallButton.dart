@@ -10,6 +10,7 @@ class SmallButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 50,
       margin: const EdgeInsets.only(left: 120, right: 120),
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(

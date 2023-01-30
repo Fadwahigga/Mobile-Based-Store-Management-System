@@ -27,7 +27,7 @@ class MakeSalePage extends GetWidget<SalesController> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Make A Sale")),
+          child: AppBarWidget(appBarTitle: "Make A Sale".tr)),
       body: Column(
         children: [
           ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +57,7 @@ class MakeSalePage extends GetWidget<SalesController> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    "choose bill date",
+                    "Choose Bill Date".tr,
                     style: _textStyle,
                   ),
                   Text(
@@ -109,7 +109,7 @@ class MakeSalePage extends GetWidget<SalesController> {
                   ),
                 ),
                 Text(
-                  "Search Product Name Or SN",
+                  "Search Product Name Or SN".tr,
                   style: _textStyle,
                 ),
                 IconButton(
@@ -118,7 +118,8 @@ class MakeSalePage extends GetWidget<SalesController> {
                           context: context,
                           // delegate to customize the search bar
                           delegate: MakeSaleSearch(
-                              apiPath: apiInventory, nameAtapi: "item_name"));
+                              apiPath: apiInventory,
+                              nameAtapi: "item_name".tr));
                     },
                     icon: Icon(
                       Icons.search,
@@ -141,19 +142,19 @@ class MakeSalePage extends GetWidget<SalesController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Product Name",
+                  "Product Name".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Price",
+                  "Price".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Quantity",
+                  "Quantity".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Total",
+                  "Total".tr,
                   style: _textStyle2,
                 ),
               ],
@@ -248,13 +249,23 @@ class MakeSalePage extends GetWidget<SalesController> {
                 margin: EdgeInsets.only(left: 20, right: 20),
                 padding: EdgeInsets.all(5),
                 child: Center(
-                  child: Text(
-                      "TOTAL = ${controller.totalResultselse.toString()}",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white))),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("TOTAL".tr,
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white))),
+                      Text("  ${controller.totalResultselse.toString()}",
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white)))
+                    ],
+                  ),
                 ),
               );
             },
@@ -272,7 +283,7 @@ class MakeSalePage extends GetWidget<SalesController> {
                 content: PaymentMakeSellPopUp(),
               );
             },
-            child: SmallButton(buttonName: "Payment"),
+            child: SmallButton(buttonName: "Payment".tr),
           ),
           SizedBox(
             height: 10,

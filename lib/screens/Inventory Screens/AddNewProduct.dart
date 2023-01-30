@@ -19,7 +19,7 @@ class AddNewProductPage extends GetWidget<InventoryController> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(70.0),
-          child: AppBarWidget(appBarTitle: "Add New Product")),
+          child: AppBarWidget(appBarTitle: "Add New Product".tr)),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
@@ -43,7 +43,7 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                               Image(image: AssetImage("images/barcode.jpg"))),
                     ),
                     Text(
-                      "Product Serial Number",
+                      "Product Serial Number".tr,
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                         fontSize: 18,
@@ -61,7 +61,7 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelStyle: const TextStyle(fontSize: 20),
-                    labelText: "Product Name",
+                    labelText: "Product Name".tr,
                     floatingLabelBehavior: FloatingLabelBehavior.always),
               ),
               const SizedBox(
@@ -72,7 +72,7 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    labelText: "Category",
+                    labelText: "Category".tr,
                     labelStyle: const TextStyle(fontSize: 20),
                     floatingLabelBehavior: FloatingLabelBehavior.always),
               ),
@@ -105,7 +105,7 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                             borderRadius: BorderRadius.circular(10)),
                         hintText:
                             "${controller.dateTime!.day.toString()}/${controller.dateTime!.month.toString()}/${controller.dateTime!.year.toString()}",
-                        labelText: "Expiration Date",
+                        labelText: "Expiration Date".tr,
                         labelStyle: const TextStyle(fontSize: 20),
                         floatingLabelBehavior: FloatingLabelBehavior.always),
                   );
@@ -124,7 +124,7 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Cost",
+                        "Cost".tr,
                         style: _textStyle,
                       ),
                       SizedBox(
@@ -142,7 +142,7 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                         width: 3,
                       ),
                       Text(
-                        "Price",
+                        "Price".tr,
                         style: _textStyle,
                       ),
                       SizedBox(
@@ -160,7 +160,7 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                         width: 5,
                       ),
                       Text(
-                        "Quantity",
+                        "Quantity".tr,
                         style: _textStyle,
                       ),
                       SizedBox(
@@ -192,7 +192,7 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                       cost: controller.costController.text.toString(),
                       category: controller.categoryController.text.toString(),
                       price: controller.priceController.text.toString()),
-                  child: SmallButton(buttonName: "Save"))
+                  child: SmallButton(buttonName: "Save".tr))
             ],
           ),
         ),

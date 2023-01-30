@@ -18,7 +18,7 @@ class _PerformancePageState extends State<PerformancePage> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Performance")),
+          child: AppBarWidget(appBarTitle: "Performance".tr)),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -32,7 +32,8 @@ class _PerformancePageState extends State<PerformancePage> {
                   onTap: () {
                     Get.to(() => SelesReportsPage());
                   },
-                  child: buttonContainer(buttonContainerText: "Seles Reports"),
+                  child:
+                      buttonContainer(buttonContainerText: "Seles Reports".tr),
                 ),
                 const SizedBox(
                   height: 30,
@@ -42,7 +43,7 @@ class _PerformancePageState extends State<PerformancePage> {
                   onTap: () {
                     Get.to(const Dashboard());
                   },
-                  child: buttonContainer(buttonContainerText: "Dashboard"),
+                  child: buttonContainer(buttonContainerText: "Dashboard".tr),
                 ),
               ],
             ),

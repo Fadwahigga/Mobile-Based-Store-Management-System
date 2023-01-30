@@ -31,7 +31,7 @@ class Dashboard extends GetWidget<PerformanceController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "From",
+                  "From".tr,
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                           fontSize: 15, fontWeight: FontWeight.bold)),
@@ -73,7 +73,7 @@ class Dashboard extends GetWidget<PerformanceController> {
                   ),
                 ),
                 Text(
-                  "To",
+                  "To".tr,
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                           fontSize: 15, fontWeight: FontWeight.bold)),
@@ -121,32 +121,32 @@ class Dashboard extends GetWidget<PerformanceController> {
             height: 10,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Text("Store Movement",
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Text("Store Movement".tr,
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),
           ),
           const ShowStoreMovementChart(),
           Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Text("Best Selling Chart",
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Text("Best Selling Chart".tr,
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),
           ),
           const BestSellingChart(),
           Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Text("Least Selling Chart",
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Text("Least Selling Chart".tr,
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),
           ),
           const LeastSellingChart(),
           Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Text("Low Stock Products",
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Text("Low Stock Products".tr,
                 style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),

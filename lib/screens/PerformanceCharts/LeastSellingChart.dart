@@ -34,9 +34,7 @@ class LeastSellingChart extends GetWidget<PerformanceController> {
             )
           : Container(
               height: MediaQuery.of(context).size.height - 200,
-              padding: const EdgeInsets.only(
-                left: 5,
-              ),
+              padding: const EdgeInsets.all(5),
               child: charts.BarChart(
                 defaultRenderer: charts.BarRendererConfig(
                   maxBarWidthPx: 30,

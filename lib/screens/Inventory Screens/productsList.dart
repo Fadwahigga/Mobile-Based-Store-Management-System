@@ -10,7 +10,6 @@ import '../../widgets/confirmAndcancel.dart';
 import '../Home/Home Widget/appBar.dart';
 import '../make_a_sale/Mak-Sall-widget/make_sale_search.dart';
 
-
 class ProductsListPage extends GetWidget<InventoryController> {
   ProductsListPage({super.key});
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
@@ -24,7 +23,7 @@ class ProductsListPage extends GetWidget<InventoryController> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Products List")),
+          child: AppBarWidget(appBarTitle: "Products List".tr)),
       body: Column(
         children: [
           Container(
@@ -34,7 +33,7 @@ class ProductsListPage extends GetWidget<InventoryController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Search By Product Name",
+                  "Search By Product Name".tr,
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                     fontSize: 18,
@@ -67,19 +66,19 @@ class ProductsListPage extends GetWidget<InventoryController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Product Name",
+                  "Product Name".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Cost",
+                  "Cost".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Price",
+                  "Price".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Quantity",
+                  "Quantity".tr,
                   style: _textStyle2,
                 ),
               ],
@@ -127,7 +126,7 @@ class ProductsListPage extends GetWidget<InventoryController> {
                                             ),
                                             Center(
                                               child: Text(
-                                                "Are You Sure?",
+                                                "Are You Sure?".tr,
                                                 style: _textStyle,
                                               ),
                                             ),
@@ -143,16 +142,17 @@ class ProductsListPage extends GetWidget<InventoryController> {
                                                       Get.back();
                                                     },
                                                     child: ConfirmAndCancel(
-                                                        Opname: " Cancel ")),
+                                                        Opname: "Cancel".tr)),
                                                 GestureDetector(
                                                   onTap: () {
-                                                    controller.deleteProduct(index);
+                                                    controller
+                                                        .deleteProduct(index);
                                                     controller
                                                         .removeFromList(index);
                                                     Get.back();
                                                   },
                                                   child: ConfirmAndCancel(
-                                                      Opname: "   Yes   "),
+                                                      Opname: "Yes".tr),
                                                 ),
                                               ],
                                             )
@@ -165,7 +165,7 @@ class ProductsListPage extends GetWidget<InventoryController> {
                                   foregroundColor: Colors.white,
                                   icon: Icons.delete,
                                   spacing: 10,
-                                  label: 'Delete',
+                                  label:"Delete".tr,
                                   borderRadius: BorderRadius.circular(2),
                                 ),
                                 const SizedBox(
@@ -177,7 +177,7 @@ class ProductsListPage extends GetWidget<InventoryController> {
                                   foregroundColor: Colors.white,
                                   icon: Icons.edit,
                                   autoClose: true,
-                                  label: 'Edit',
+                                  label: "Edit".tr,
                                   spacing: 10,
                                   borderRadius: BorderRadius.circular(2),
                                 ),

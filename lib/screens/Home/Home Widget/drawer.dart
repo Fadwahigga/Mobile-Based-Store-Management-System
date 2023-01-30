@@ -15,7 +15,6 @@ import '../../login/ResetManegerPassword.dart';
 import '../../make_a_sale/cashierScreens.dart';
 import '../../purchases/purchases.dart';
 
-
 class DrawerWidget extends GetWidget<LoginController> {
   DrawerWidget({super.key});
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
@@ -38,40 +37,40 @@ class DrawerWidget extends GetWidget<LoginController> {
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Puechases", style: _textStyle),
+            title: Text("Purchases".tr, style: _textStyle),
             onTap: () {
               Get.to(PurchasesPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Make Sale", style: _textStyle),
+            title: Text("Make Sale".tr, style: _textStyle),
             onTap: () {
               Get.to(const CashierScreensPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Suppliers", style: _textStyle),
+            title: Text("Suppliers".tr, style: _textStyle),
             onTap: () {
               Get.to(const SuppliersPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Inventory", style: _textStyle),
+            title: Text("Inventory".tr, style: _textStyle),
             onTap: () {
               Get.to(const InventoryPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Accounts", style: _textStyle),
+            title: Text("Accounts".tr, style: _textStyle),
             onTap: () => Get.to(() => AccountsPage()),
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Performance", style: _textStyle),
+            title: Text("Performance".tr, style: _textStyle),
             onTap: () {
               Get.to(const PerformancePage());
             },
@@ -79,21 +78,21 @@ class DrawerWidget extends GetWidget<LoginController> {
           const Divider(),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Reset Password", style: _textStyle),
+            title: Text("Reset Password".tr, style: _textStyle),
             onTap: () {
               Get.to(const ResetPassword());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
-            title: Text("Reset Maneger Password", style: _textStyle),
+            title: Text("Reset Maneger Password".tr, style: _textStyle),
             onTap: () {
               Get.to(const ResetManegerPassword());
             },
           ),
           ListTile(
             leading: const Icon(Icons.logout),
-            title: Text("Logout",
+            title: Text("Logout".tr,
                 style: GoogleFonts.ebGaramond(
                     textStyle:
                         const TextStyle(fontSize: 20, color: Colors.red))),
@@ -117,7 +116,7 @@ class DrawerWidget extends GetWidget<LoginController> {
                       ),
                       Center(
                         child: Text(
-                          "Are You Sure?",
+                          "Are You Sure?".tr,
                           style: _textStyle,
                         ),
                       ),
@@ -131,12 +130,12 @@ class DrawerWidget extends GetWidget<LoginController> {
                               onTap: () {
                                 Get.back();
                               },
-                              child: ConfirmAndCancel(Opname: "Cancel")),
+                              child: ConfirmAndCancel(Opname: "Cancel".tr)),
                           GestureDetector(
                             onTap: () {
                               Get.off(const Login());
                             },
-                            child: ConfirmAndCancel(Opname: "   Yes   "),
+                            child: ConfirmAndCancel(Opname: "Yes".tr),
                           ),
                         ],
                       )

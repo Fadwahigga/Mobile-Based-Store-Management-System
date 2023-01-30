@@ -14,7 +14,7 @@ class InventoryPage extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(100.0),
-          child: AppBarWidget(appBarTitle: "Inventory")),
+          child: AppBarWidget(appBarTitle: "Inventory".tr)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -24,7 +24,7 @@ class InventoryPage extends StatelessWidget {
               onTap: () {
                 Get.to(AddNewProductPage());
               },
-              child: buttonContainer(buttonContainerText: "Add New Product"),
+              child: buttonContainer(buttonContainerText: "Add New Product".tr),
             ),
             //////////////////////////////////////////////////////////////////////////////////////
             SizedBox(
@@ -36,7 +36,7 @@ class InventoryPage extends StatelessWidget {
                 Get.to(ProductsListPage());
               },
               child:
-                  buttonContainer(buttonContainerText: "Show List Of Products"),
+                  buttonContainer(buttonContainerText: "Show List Of Products".tr),
             ),
             /////////////////////////////////////////////////////////////////////////////////
           ],

@@ -33,7 +33,7 @@ class ShowStoreMovementChart extends GetWidget<PerformanceController> {
           : Container(
               width: double.infinity,
               height: 600,
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+              padding: const EdgeInsets.all(5),
               child: SfCartesianChart(
                 primaryXAxis: CategoryAxis(),
                 legend: Legend(
@@ -46,7 +46,7 @@ class ShowStoreMovementChart extends GetWidget<PerformanceController> {
                     xValueMapper: (dynamic sales, _) => sales['date'],
                     yValueMapper: (dynamic sales, _) =>
                         int.parse(sales['views']),
-                    name: 'Sales',
+                    name: "Sales".tr,
                     dataLabelSettings: DataLabelSettings(
                         showCumulativeValues: true,
                         labelAlignment: ChartDataLabelAlignment.outer,

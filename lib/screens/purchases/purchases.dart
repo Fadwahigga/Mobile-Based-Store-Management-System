@@ -29,7 +29,7 @@ class PurchasesPage extends GetWidget<PurchaseController> {
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Buy from a Supplier")),
+          child: AppBarWidget(appBarTitle: "Buy from a Supplier".tr)),
       body: Column(
         children: [
           ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,7 +61,7 @@ class PurchasesPage extends GetWidget<PurchaseController> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    "Choose Bill Date",
+                    "Choose Bill Date".tr,
                     style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
                       fontSize: 15,
@@ -117,7 +117,7 @@ class PurchasesPage extends GetWidget<PurchaseController> {
                       child: Image(image: AssetImage("images/barcode.jpg"))),
                 ),
                 Text(
-                  "Search Product Name Or SN",
+                  "Search Product Name Or SN".tr,
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                     fontSize: 15,
@@ -153,19 +153,19 @@ class PurchasesPage extends GetWidget<PurchaseController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Product Name",
+                  "Product Name".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Cost",
+                  "Cost".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Quantity",
+                  "Quantity".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Total",
+                  "Total".tr,
                   style: _textStyle2,
                 ),
               ],
@@ -257,12 +257,23 @@ class PurchasesPage extends GetWidget<PurchaseController> {
                 margin: EdgeInsets.only(left: 20, right: 20),
                 padding: EdgeInsets.all(5),
                 child: Center(
-                  child: Text("TOTAL = ${controller.totalresute.toString()}",
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white))),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("TOTAL".tr,
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white))),
+                      Text("  ${controller.totalresute.toString()}",
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white)))
+                    ],
+                  ),
                 ),
               );
             },
@@ -280,7 +291,7 @@ class PurchasesPage extends GetWidget<PurchaseController> {
                 content: PaymentBillPopUp(),
               );
             },
-            child: SmallButton(buttonName: "BUY"),
+            child: SmallButton(buttonName: "BUY".tr),
           ),
           SizedBox(
             height: 10,

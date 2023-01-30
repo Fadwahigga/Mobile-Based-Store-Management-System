@@ -14,7 +14,7 @@ class CashierScreensPage extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(100.0),
-          child: AppBarWidget(appBarTitle: "Cashier Screens")),
+          child: AppBarWidget(appBarTitle: "Cashier Screens".tr)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -22,9 +22,9 @@ class CashierScreensPage extends StatelessWidget {
             //////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
               onTap: () {
-                Get.to( MakeSalePage());
+                Get.to(MakeSalePage());
               },
-              child: buttonContainer(buttonContainerText: "Cashier 1"),
+              child: buttonContainer(buttonContainerText: "Cashier 1".tr),
             ),
             //////////////////////////////////////////////////////////////////////////////////////
             const SizedBox(
@@ -33,9 +33,9 @@ class CashierScreensPage extends StatelessWidget {
             //////////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
               onTap: () {
-                Get.to( MakeSalePage());
+                Get.to(MakeSalePage());
               },
-              child: buttonContainer(buttonContainerText: "Cashier 2"),
+              child: buttonContainer(buttonContainerText: "Cashier 2".tr),
             ),
             //////////////////////////////////////////////////////////////////////////////////////
 

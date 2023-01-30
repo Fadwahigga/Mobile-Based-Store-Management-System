@@ -10,6 +10,7 @@ class ConfirmAndCancel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 50,
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 39, 62, 82),

@@ -23,7 +23,7 @@ class ManegerOrEmployeePage extends GetWidget<LoginController> {
             GestureDetector(
                 onTap: () {
                   Get.defaultDialog(
-                      title: "Write Maneger Password",
+                      title: "Maneger Password".tr,
                       titleStyle: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                               fontSize: 15, fontWeight: FontWeight.bold)),
@@ -35,16 +35,16 @@ class ManegerOrEmployeePage extends GetWidget<LoginController> {
                               obscureText: true,
                               validator: (password) {
                                 if (password!.trim().isEmpty) {
-                                  return "The field is empty";
+                                  return "The field is empty".tr;
                                 } else if (password.trim().length < 8) {
-                                  return "The password is less than 8 char";
+                                  return "The password is less than 8 char".tr;
                                 }
                               },
                               controller: controller.managerPassController,
-                              decoration: const InputDecoration(
-                                  hintText: "Password",
-                                  hintStyle: TextStyle(fontSize: 12),
-                                  border: OutlineInputBorder(
+                              decoration: InputDecoration(
+                                  hintText: "Password".tr,
+                                  hintStyle: const TextStyle(fontSize: 12),
+                                  border: const OutlineInputBorder(
                                       borderSide: BorderSide(width: 1))),
                             ),
                           ),
@@ -58,21 +58,21 @@ class ManegerOrEmployeePage extends GetWidget<LoginController> {
                                   onTap: () {
                                     Get.back();
                                   },
-                                  child: ConfirmAndCancel(Opname: "Cancel")),
+                                  child: ConfirmAndCancel(Opname: "Cancel".tr)),
                               GestureDetector(
                                 onTap: () => controller.signInManager(
                                     password:
                                         controller.managerPassController.text),
                                 // Get.off(const Home());
 
-                                child: ConfirmAndCancel(Opname: "   OK   "),
+                                child: ConfirmAndCancel(Opname: "Yes".tr),
                               ),
                             ],
                           )
                         ],
                       ));
                 },
-                child: buttonContainer(buttonContainerText: "Maneger")),
+                child: buttonContainer(buttonContainerText: "Maneger".tr)),
             //////////////////////////////////////////////////////////////////////////////////////
             const SizedBox(
               height: 30,
@@ -82,7 +82,7 @@ class ManegerOrEmployeePage extends GetWidget<LoginController> {
               onTap: () {
                 Get.off(const CashierScreensPage());
               },
-              child: buttonContainer(buttonContainerText: "Employees"),
+              child: buttonContainer(buttonContainerText: "Employees".tr),
             )
             /////////////////////////////////////////////////////////////////////////////////
           ],

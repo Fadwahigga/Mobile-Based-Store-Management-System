@@ -51,10 +51,8 @@ class BestSellingChart extends GetWidget<PerformanceController> {
                 ),
               )
             : Container(
+                padding: const EdgeInsets.all(5),
                 height: MediaQuery.of(context).size.height - 200,
-                padding: const EdgeInsets.only(
-                  left: 5,
-                ),
                 child: charts.BarChart(
                   defaultRenderer: charts.BarRendererConfig(
                     maxBarWidthPx: 30,

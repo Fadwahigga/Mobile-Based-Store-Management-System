@@ -8,7 +8,6 @@ import 'package:gp/controller/account_controller.dart';
 import '../Home/Home Widget/appBar.dart';
 import 'Account widget/accountWidget.dart';
 
-
 class AccountsPage extends GetWidget<AccountController> {
   AccountsPage({super.key});
   final TextStyle _textStyle2 = GoogleFonts.ebGaramond(
@@ -19,7 +18,7 @@ class AccountsPage extends GetWidget<AccountController> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Accounts")),
+          child: AppBarWidget(appBarTitle: "Accounts".tr)),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -34,7 +33,7 @@ class AccountsPage extends GetWidget<AccountController> {
                 children: [
                   Center(
                     child: Text(
-                      "Balance",
+                      "Balance".tr,
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                               color: Colors.white,
@@ -74,7 +73,7 @@ class AccountsPage extends GetWidget<AccountController> {
                 return SizedBox(
                     width: double.infinity,
                     child: AccountWidget(
-                        dataName: "Revenue",
+                        dataName: "Revenue".tr,
                         money: controller.revenue.toString()));
               },
             ),
@@ -86,7 +85,7 @@ class AccountsPage extends GetWidget<AccountController> {
                 return SizedBox(
                     width: double.infinity,
                     child: AccountWidget(
-                        dataName: "Purchases",
+                        dataName: "Purchases".tr,
                         money: controller.purchase == null
                             ? "0.0"
                             : "${controller.revenue}"));
@@ -101,7 +100,7 @@ class AccountsPage extends GetWidget<AccountController> {
                 return SizedBox(
                     width: double.infinity,
                     child: AccountWidget(
-                        dataName: "Sales",
+                        dataName: "Sales".tr,
                         money: controller.saels == null
                             ? "0"
                             : "${controller.saels}"));

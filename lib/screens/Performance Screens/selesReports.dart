@@ -38,7 +38,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "From",
+                  "From".tr,
                   style: _textStyle2,
                 ),
                 GetBuilder<PerformanceController>(
@@ -78,7 +78,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                   },
                 ),
                 Text(
-                  "To",
+                  "To".tr,
                   style: _textStyle2,
                 ),
                 GetBuilder<PerformanceController>(
@@ -131,19 +131,19 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Product Name",
+                  "Product Name".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Price",
+                  "Price".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Sold Quantity",
+                  "Sold Quantity".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Total",
+                  "Total".tr,
                   style: _textStyle2,
                 ),
               ],
@@ -181,7 +181,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                                       ),
                                       Center(
                                         child: Text(
-                                          "Are You Sure?",
+                                          "Are You Sure?".tr,
                                           style: _textStyle,
                                         ),
                                       ),
@@ -197,7 +197,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                                                 Get.back();
                                               },
                                               child: ConfirmAndCancel(
-                                                  Opname: " Cancel ")),
+                                                  Opname: "Cancel".tr)),
                                           GestureDetector(
                                             onTap: () {
                                               controller.deleteSalesData(
@@ -206,7 +206,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                                               Get.back();
                                             },
                                             child: ConfirmAndCancel(
-                                                Opname: "   Yes   "),
+                                                Opname: "Yes".tr),
                                           )
                                         ],
                                       )
@@ -219,7 +219,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                             foregroundColor: Colors.white,
                             autoClose: true,
                             icon: Icons.delete,
-                            label: 'Delete',
+                            label: "Delete".tr,
                             spacing: 10,
                             borderRadius: BorderRadius.circular(2),
                           ),

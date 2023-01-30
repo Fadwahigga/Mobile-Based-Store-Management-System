@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/login_controller.dart';
 
+import '../../widgets/buttonContainer.dart';
+
 class ResetPassword extends GetWidget<LoginController> {
   const ResetPassword({super.key});
 
@@ -18,7 +20,7 @@ class ResetPassword extends GetWidget<LoginController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Reset Password",
+              "Reset Password".tr,
               style: GoogleFonts.ebGaramond(
                   textStyle: const TextStyle(
                       fontSize: 30,
@@ -40,7 +42,7 @@ class ResetPassword extends GetWidget<LoginController> {
                             onPressed: () {},
                             icon: const Icon(Icons.remove_red_eye_outlined)),
                         prefixIcon: const Icon(Icons.password),
-                        hintText: "Current Password",
+                        hintText: "Current Password".tr,
                         border: const OutlineInputBorder(
                             borderSide: BorderSide(width: 1))),
                   ),
@@ -55,7 +57,7 @@ class ResetPassword extends GetWidget<LoginController> {
                             onPressed: () {},
                             icon: const Icon(Icons.remove_red_eye_outlined)),
                         prefixIcon: const Icon(Icons.password),
-                        hintText: "New Password",
+                        hintText: "New Password".tr,
                         border: const OutlineInputBorder(
                             borderSide: BorderSide(width: 1))),
                   ),
@@ -66,30 +68,16 @@ class ResetPassword extends GetWidget<LoginController> {
               height: 40,
             ),
             GestureDetector(
-              onTap: () => controller.resetPassword(
-                  key: controller.resetPasswordKey,
-                  currentPasswod: controller.currentPasswodController.text,
-                  newPassword: controller.newPasswordController.text,
-                  isManager: false),
-              // Get.to(const ManegerOrEmployeePage());
+                onTap: () => controller.resetPassword(
+                    key: controller.resetPasswordKey,
+                    currentPasswod: controller.currentPasswodController.text,
+                    newPassword: controller.newPasswordController.text,
+                    isManager: false),
+                // Get.to(const ManegerOrEmployeePage());
 
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 39, 62, 82),
-                    borderRadius: BorderRadius.circular(40)),
-                child: Center(
-                    child: Text(
-                  "Save",
-                  style: GoogleFonts.ebGaramond(
-                      textStyle: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold)),
-                )),
-              ),
-            )
+                child: buttonContainer(
+                  buttonContainerText: "Save".tr,
+                ))
           ],
         ),
       )),

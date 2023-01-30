@@ -30,7 +30,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Suppliers List")),
+          child: AppBarWidget(appBarTitle: "Suppliers List".tr)),
       body: Column(
         children: [
           ///////////////////////////////////////////////////////////////////////////////////////////
@@ -41,7 +41,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Search By Supplier Name",
+                  "Search By Supplier Name".tr,
                   style: GoogleFonts.ebGaramond(
                       textStyle: const TextStyle(
                     fontSize: 15,
@@ -79,11 +79,11 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                   size: 15,
                 ),
                 Text(
-                  "Supplier Name",
+                  "Supplier Name".tr,
                   style: _textStyle2,
                 ),
                 Text(
-                  "Phone number",
+                  "Phone number".tr,
                   style: _textStyle2,
                 ),
               ],
@@ -140,7 +140,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                                               ),
                                               Center(
                                                 child: Text(
-                                                  "Are You Sure?",
+                                                  "Are You Sure?".tr,
                                                   style: _textStyle,
                                                 ),
                                               ),
@@ -157,7 +157,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                                                         Get.back();
                                                       },
                                                       child: ConfirmAndCancel(
-                                                          Opname: " Cancel ")),
+                                                          Opname: "Cancel".tr)),
                                                   GestureDetector(
                                                     onTap: () {
                                                       controller.deleteSupplier(
@@ -167,7 +167,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                                                       Get.back();
                                                     },
                                                     child: ConfirmAndCancel(
-                                                        Opname: "   Yes   "),
+                                                        Opname: "Yes".tr),
                                                   ),
                                                 ],
                                               )
@@ -179,8 +179,8 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                                     backgroundColor: const Color(0xFFFE4A49),
                                     foregroundColor: Colors.white,
                                     icon: Icons.delete,
-                                    spacing: 10,
-                                    label: 'Delete',
+                                    spacing: 5,
+                                    label: "Delete".tr,
                                     autoClose: true,
                                     borderRadius: BorderRadius.circular(2),
                                   ),
@@ -193,8 +193,8 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                                     foregroundColor: Colors.white,
                                     icon: Icons.edit,
                                     autoClose: true,
-                                    spacing: 10,
-                                    label: 'Edit',
+                                    spacing: 5,
+                                    label: "Edit".tr,
                                     borderRadius: BorderRadius.circular(2),
                                   ),
                                 ],

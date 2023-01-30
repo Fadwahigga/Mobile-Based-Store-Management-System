@@ -16,7 +16,7 @@ class AddNewSupplierPage extends GetWidget<SupplierController> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(100.0),
-          child: AppBarWidget(appBarTitle: "Add New Supplier")),
+          child: AppBarWidget(appBarTitle: "Add New Supplier".tr)),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -34,14 +34,14 @@ class AddNewSupplierPage extends GetWidget<SupplierController> {
                       controller: controller.nameController,
                       validator: (name) {
                         if (name!.trim().isEmpty) {
-                          return "The field is empty";
+                          return "The field is empty".tr;
                         }
                       },
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10)),
                           labelStyle: const TextStyle(fontSize: 15),
-                          labelText: "Supplier Name",
+                          labelText: "Supplier Name".tr,
                           floatingLabelBehavior: FloatingLabelBehavior.always),
                     ),
                     const SizedBox(
@@ -51,16 +51,16 @@ class AddNewSupplierPage extends GetWidget<SupplierController> {
                       controller: controller.phoneController,
                       validator: (phone) {
                         if (phone!.trim().length < 10) {
-                          return "Your phone number is less than 10";
+                          return "Your phone number is less than 10".tr;
                         } else if (phone.trim().isEmpty) {
-                          return "The field is empty";
+                          return "The field is empty".tr;
                         }
                       },
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          labelText: "Supplier Phone Number",
+                          labelText: "Supplier Phone Number".tr,
                           labelStyle: const TextStyle(fontSize: 15),
                           floatingLabelBehavior: FloatingLabelBehavior.always),
                     ),
@@ -74,7 +74,7 @@ class AddNewSupplierPage extends GetWidget<SupplierController> {
                   name: controller.nameController.text,
                   phone: controller.phoneController.text,
                   key: controller.supplierKey),
-              child: SmallButton(buttonName: "Save"),
+              child: SmallButton(buttonName: "Save".tr),
             ),
           ],
         ),

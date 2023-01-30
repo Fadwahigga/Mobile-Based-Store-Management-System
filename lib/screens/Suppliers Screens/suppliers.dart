@@ -14,7 +14,7 @@ class SuppliersPage extends GetWidget<SupplierController> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(100.0),
-          child: AppBarWidget(appBarTitle: "Suppliers")),
+          child: AppBarWidget(appBarTitle: "Suppliers".tr)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -24,8 +24,8 @@ class SuppliersPage extends GetWidget<SupplierController> {
                 onTap: () {
                   Get.to(const AddNewSupplierPage());
                 },
-                child:
-                    buttonContainer(buttonContainerText: "Add New Supplier")),
+                child: buttonContainer(
+                    buttonContainerText: "Add New Supplier".tr)),
             //////////////////////////////////////////////////////////////////////////////////////
             const SizedBox(
               height: 30,
@@ -37,7 +37,7 @@ class SuppliersPage extends GetWidget<SupplierController> {
                 controller.getSuppliersData();
               },
               child: buttonContainer(
-                  buttonContainerText: "Show List Of Suppliers"),
+                  buttonContainerText: "Show List Of Suppliers".tr),
             )
             /////////////////////////////////////////////////////////////////////////////////
           ],

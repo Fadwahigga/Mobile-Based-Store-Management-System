@@ -31,7 +31,7 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                   width: double.infinity,
                   color: const Color.fromARGB(255, 39, 62, 82),
                   child: Center(
-                    child: Text("Supplier Invoices",
+                    child: Text("Supplier Invoices".tr,
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
                                 fontSize: 15,
@@ -48,7 +48,7 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        "From",
+                        "From".tr,
                         style: _textStyle,
                       ),
                       GetBuilder<SupplierController>(
@@ -82,7 +82,7 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                         ),
                       ),
                       Text(
-                        "To",
+                        "To".tr,
                         style: _textStyle,
                       ),
                       GetBuilder<SupplierController>(
@@ -132,19 +132,19 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        "Product Name",
+                        "Product Name".tr,
                         style: _textStyle2,
                       ),
                       Text(
-                        "Cost",
+                        "Cost".tr,
                         style: _textStyle2,
                       ),
                       Text(
-                        " Quantity",
+                        "Quantity".tr,
                         style: _textStyle2,
                       ),
                       Text(
-                        "Total",
+                        "Total".tr,
                         style: _textStyle2,
                       ),
                     ],
@@ -205,7 +205,7 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                   onTap: () {
                     Get.back();
                   },
-                  child: ConfirmAndCancel(Opname: "Cancel"),
+                  child: ConfirmAndCancel(Opname: "Cancel".tr),
                 ),
               ],
             ),

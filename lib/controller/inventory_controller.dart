@@ -117,7 +117,7 @@ class InventoryController extends GetxController {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
-                children: const [
+                children: [
                   CircularProgressIndicator(
                     color: kprimaryColor,
                     backgroundColor: kprimaryColor,
@@ -126,7 +126,7 @@ class InventoryController extends GetxController {
                     width: 20,
                   ),
                   Text(
-                    'Adding...',
+                    "Save".tr,
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 14,
