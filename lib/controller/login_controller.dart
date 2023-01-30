@@ -72,17 +72,17 @@ class LoginController extends GetxController {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
-                  children: const [
-                    CircularProgressIndicator(
+                  children: [
+                    const CircularProgressIndicator(
                       color: kprimaryColor,
                       backgroundColor: kprimaryColor,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Text(
-                      'Sign Up...',
-                      style: TextStyle(
+                      "Sign Up".tr,
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.normal),
