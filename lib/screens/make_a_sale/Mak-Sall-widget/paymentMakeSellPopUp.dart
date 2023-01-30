@@ -25,7 +25,7 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
               color: const Color.fromARGB(255, 39, 62, 82),
               child: Center(
                 child: Text(
-                  "Payment Bill",
+                  "Payment Bill".tr,
                   style: GoogleFonts.ebGaramond(
                     textStyle: const TextStyle(
                         fontSize: 15,
@@ -41,7 +41,7 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Total", style: _textStyle),
+                Text("Total".tr, style: _textStyle),
                 GetBuilder<SalesController>(
                   builder: (controller) {
                     return Container(
@@ -62,7 +62,7 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Payed", style: _textStyle),
+                Text("Payed".tr, style: _textStyle),
                 Container(
                   height: 30,
                   width: MediaQuery.of(context).size.width - 250,
@@ -83,7 +83,7 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Change", style: _textStyle),
+                Text("Change".tr, style: _textStyle),
                 Container(
                   height: 30,
                   width: MediaQuery.of(context).size.width - 250,
@@ -97,29 +97,32 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
             const SizedBox(
               height: 30,
             ),
-            GetBuilder<SalesController>(
-              builder: (controller) {
-                return GestureDetector(
-                    onTap: () {
-                      controller.payment(paymentData: controller.paymentData);
-                      controller.totalOnsave();
-                      Get.back();
-                      Get.snackbar("Done", "Success process",
-                          snackPosition: SnackPosition.BOTTOM,
-                          duration: const Duration(seconds: 3));
-                    },
-                    child: ConfirmAndCancel(Opname: "Save"));
-              },
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.back();
-              },
-              child: ConfirmAndCancel(Opname: "Cancel"),
-            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GetBuilder<SalesController>(
+                  builder: (controller) {
+                    return GestureDetector(
+                        onTap: () {
+                          controller.payment(
+                              paymentData: controller.paymentData);
+                          controller.totalOnsave();
+                          Get.back();
+                          Get.snackbar("Done", "Success process",
+                              snackPosition: SnackPosition.BOTTOM,
+                              duration: const Duration(seconds: 3));
+                        },
+                        child: ConfirmAndCancel(Opname: "Save".tr));
+                  },
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: ConfirmAndCancel(Opname: "Cancel".tr),
+                ),
+              ],
+            )
           ],
         ));
   }

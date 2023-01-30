@@ -7,7 +7,6 @@ import 'package:gp/controller/sales_controller.dart';
 
 import '../../../widgets/confirmAndcancel.dart';
 
-
 class ProductMakeSellPopUp extends GetWidget<SalesController> {
   ProductMakeSellPopUp({Key? key, required this.index}) : super(key: key);
 
@@ -30,7 +29,7 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                   width: double.infinity,
                   color: const Color.fromARGB(255, 39, 62, 82),
                   child: Center(
-                    child: Text("Product Information",
+                    child: Text("Product Information".tr,
                         style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                               fontSize: 15,
@@ -46,7 +45,7 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Flexible(
-                      child: Text("Available Quantity", style: _textStyle),
+                      child: Text("Available Quantity".tr, style: _textStyle),
                     ),
                     Container(
                       height: 30,
@@ -65,7 +64,7 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Price", style: _textStyle),
+                    Text("Price".tr, style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -82,7 +81,7 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Quantities", style: _textStyle),
+                    Text("Quantity".tr, style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -104,7 +103,7 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                     controller.totalAfterdeletItem(index);
                     controller.deleteItem(index);
                   },
-                  child: Text("Delete Product From List ",
+                  child: Text("Delete Product From List".tr,
                       style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                         fontSize: 15,
@@ -115,24 +114,26 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                 const SizedBox(
                   height: 30,
                 ),
-                GestureDetector(
-                    onTap: () {
-                      Get.back();
-                      controller.newvalu(index);
-                      controller.newtotal(index);
-                      controller.newtotalreselt(index);
-                      controller.quantitiesController.clear();
-                    },
-                    child: ConfirmAndCancel(Opname: "Save")),
-                const SizedBox(
-                  height: 15,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: ConfirmAndCancel(Opname: "Cancel"),
-                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                        onTap: () {
+                          Get.back();
+                          controller.newvalu(index);
+                          controller.newtotal(index);
+                          controller.newtotalreselt(index);
+                          controller.quantitiesController.clear();
+                        },
+                        child: ConfirmAndCancel(Opname: "Save".tr)),
+                    GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: ConfirmAndCancel(Opname: "Cancel".tr),
+                    ),
+                  ],
+                )
               ],
             ),
           )),

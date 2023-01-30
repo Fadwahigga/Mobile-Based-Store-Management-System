@@ -7,7 +7,6 @@ import 'package:gp/controller/purchase_controller.dart';
 
 import '../../../widgets/confirmAndcancel.dart';
 
-
 class ProductInformationPopUp extends GetWidget<PurchaseController> {
   ProductInformationPopUp({
     Key? key,
@@ -35,7 +34,7 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                   color: const Color.fromARGB(255, 39, 62, 82),
                   child: Center(
                     child: Text(
-                      "Product Information",
+                      "Product Information".tr,
                       style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
                             fontSize: 15,
@@ -51,28 +50,7 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Exist Quantity", style: _textStyle),
-                    const SizedBox(
-                      width: 3,
-                    ),
-                    Container(
-                      height: 30,
-                      width: MediaQuery.of(context).size.width - 250,
-                      color: Colors.white,
-                      child: Center(
-                          child: Text(
-                              controller.listOfPurchaseModel[index].quantity,
-                              style: _textStyle)),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("New Quantity", style: _textStyle),
+                    Text("New Quantity".tr, style: _textStyle),
                     const SizedBox(
                       width: 3,
                     ),
@@ -93,7 +71,7 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Old cost",
+                      "Old cost".tr,
                       style: _textStyle,
                     ),
                     Container(
@@ -114,7 +92,7 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "New cost",
+                      "New cost".tr,
                       style: _textStyle,
                     ),
                     Container(
@@ -140,7 +118,7 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                         Get.back();
                       },
                       child: Text(
-                        "Delete Product From List ",
+                        "Delete Product From List".tr,
                         style: GoogleFonts.ebGaramond(
                           textStyle: const TextStyle(
                             fontSize: 15,
@@ -155,27 +133,29 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                 const SizedBox(
                   height: 30,
                 ),
-                GetBuilder<PurchaseController>(builder: (controller) {
-                  return GestureDetector(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GetBuilder<PurchaseController>(builder: (controller) {
+                      return GestureDetector(
+                          onTap: () {
+                            Get.back();
+                            controller.newvalu(index);
+                            controller.newtotal(index);
+                            controller.newtotalreselt(index);
+                            controller.newCostController.clear();
+                            controller.newQuantityController.clear();
+                          },
+                          child: ConfirmAndCancel(Opname: "Save".tr));
+                    }),
+                    GestureDetector(
                       onTap: () {
                         Get.back();
-                        controller.newvalu(index);
-                        controller.newtotal(index);
-                        controller.newtotalreselt(index);
-                        controller.newCostController.clear();
-                        controller.newQuantityController.clear();
                       },
-                      child: ConfirmAndCancel(Opname: "Save"));
-                }),
-                const SizedBox(
-                  height: 15,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: ConfirmAndCancel(Opname: "Cancel"),
-                ),
+                      child: ConfirmAndCancel(Opname: "Cancel".tr),
+                    ),
+                  ],
+                )
               ],
             ),
           )),

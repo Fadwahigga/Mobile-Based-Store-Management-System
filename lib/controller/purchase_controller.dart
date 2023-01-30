@@ -11,7 +11,7 @@ import 'package:gp/shared/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PurchaseController extends GetxController {
-  // ************* Vaiables ****************
+  // **************************** Vaiables *******************************************
   List<PurchaseModel> listOfPurchaseModel = [];
   RxBool isThereData = false.obs;
   double total = 0;
@@ -20,42 +20,44 @@ class PurchaseController extends GetxController {
   TextEditingController newCostController = TextEditingController();
   TextEditingController newQuantityController = TextEditingController();
   TextEditingController payedController = TextEditingController();
-
   Map<String, dynamic> purchaseMap = {};
+  // ************************************* Methods *********************************************
+  ///////// Get Change
   getChange() {
     change = double.parse(payedController.text) - totalresute;
     update();
   }
 
+//////////////////// reset total and chang after save
   totalOnsave() {
     totalresute = 0.0;
     change = 0;
     update();
   }
 
-  // set new quantity
+  //////////////////////// set new quantity and new cost
   newvalu(int index) {
     listOfPurchaseModel[index].quantity = newQuantityController.text;
     listOfPurchaseModel[index].cost = newCostController.text;
     update();
   }
 
+////////////////////////////// set new total
   newtotal(int index) {
     listOfPurchaseModel[index].total =
         double.parse(newQuantityController.text) *
             double.parse(newCostController.text);
-
     update();
   }
 
+///////////////////////// set new total result
   newtotalreselt(index) {
     totalresute += double.parse(newQuantityController.text) *
         double.parse(newCostController.text);
-
     update();
   }
-  // ************* Methods *****************
 
+////////////////////////////////////// set data
   setData(InventoryModel snapshot) {
     listOfPurchaseModel.add(PurchaseModel(
         total: double.parse(snapshot.cost) * double.parse(snapshot.quantity),
@@ -67,22 +69,26 @@ class PurchaseController extends GetxController {
     update();
   }
 
+/////////////////////////////// remove item from list
   removeFromList(int index) {
     listOfPurchaseModel.removeAt(index);
     update();
   }
 
+///////////////////////////// set total afler delet item
   totalAfterdeletItem(int index) {
     totalresute -= listOfPurchaseModel[index].total;
     update();
   }
 
+////////////////////////////////////////////// set supplier data
   setSupplierData(
       {required String phone, required String name, required int id}) {
     purchaseMap = {'phone': phone, 'name': name, 'id': id};
     update();
   } ////////////////////////////
 
+/////////////////////////////////////// payment function
   List<Map<String, dynamic>> paymentData = [];
   payment({
     required List<Map<String, dynamic>> paymentData,
@@ -121,39 +127,4 @@ class PurchaseController extends GetxController {
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
     }
   }
-///////////////////////////////////
-  // @override
-  // onInit() {
-  //   super.onInit();
-  //   // getSalesReportsData();
-  // }
-
-  //  getSalesReportsData() async {
-  //   try {
-  //     SharedPreferences prefs = await SharedPreferences.getInstance();
-  //     http.Response response =
-  //         await http.get(Uri.http(baseUrl, apiSales), headers: {
-  //       'Accept': 'application/json',
-  //       'Authorization': 'Bearer ${prefs.getString('token')}'
-  //     });
-  //     print("Out check");
-  //     var body = json.decode(response.body);
-  //     print(body);
-  //     // print(json.decode(response.body));
-  //     if (response.statusCode == 201 || response.statusCode == 200) {
-  //       var body = json.decode(response.body);
-  //       print("========================");
-  //       print(body);
-  //       // for (var i = 0; i < body['data'].length; i++) {
-
-  //       // }
-  //       // update();
-  //     }
-  //     ApiStatus.checkStatus(response);
-  //   } catch (e) {
-  //     print(e);
-  //     return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
-  //   }
-  // }
-
 }

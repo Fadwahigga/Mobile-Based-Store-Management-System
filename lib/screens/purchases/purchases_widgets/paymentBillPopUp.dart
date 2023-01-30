@@ -32,7 +32,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                   width: double.infinity,
                   color: const Color.fromARGB(255, 39, 62, 82),
                   child: Center(
-                    child: Text("Payment Bill",
+                    child: Text("Payment Bill".tr,
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
                                 fontSize: 15,
@@ -46,7 +46,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Total", style: _textStyle),
+                    Text("Total".tr, style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -66,7 +66,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Payed", style: _textStyle),
+                    Text("Payed".tr, style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -88,7 +88,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Change", style: _textStyle),
+                    Text("Change".tr, style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -105,7 +105,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                 Row(
                   children: [
                     Text(
-                      "Save This Bill To A Supplier Account",
+                      "Save This Bill To A Supplier Account".tr,
                       style: GoogleFonts.ebGaramond(
                         textStyle: const TextStyle(
                           fontSize: 12,
@@ -131,7 +131,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Supplier Name", style: _textStyle),
+                    Text("Supplier Name".tr, style: _textStyle),
                     Container(
                       height: 30,
                       width: MediaQuery.of(context).size.width - 250,
@@ -143,7 +143,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                                 ? Text(
                                     controller.purchaseMap['name'].toString(),
                                     style: _textStyle)
-                                : Text("Search Result", style: _textStyle);
+                                : Text("Search Result".tr, style: _textStyle);
                           },
                         ),
                       ),
@@ -153,26 +153,29 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                 const SizedBox(
                   height: 30,
                 ),
-                GestureDetector(
-                    onTap: () {
-                      controller.payment(paymentData: controller.paymentData);
-                      controller.totalOnsave();
-                      Get.back();
-                      // ToDo: Here Fadwa add the payment method that i will explain it.
-                      Get.snackbar("Done", "Success process",
-                          snackPosition: SnackPosition.BOTTOM,
-                          duration: const Duration(seconds: 1));
-                    },
-                    child: ConfirmAndCancel(Opname: "Save")),
-                const SizedBox(
-                  height: 15,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: ConfirmAndCancel(Opname: "Cancel"),
-                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                        onTap: () {
+                          controller.payment(
+                              paymentData: controller.paymentData);
+                          controller.totalOnsave();
+                          Get.back();
+                          // ToDo: Here Fadwa add the payment method that i will explain it.
+                          Get.snackbar("Done", "Success process",
+                              snackPosition: SnackPosition.BOTTOM,
+                              duration: const Duration(seconds: 1));
+                        },
+                        child: ConfirmAndCancel(Opname: "Save".tr)),
+                    GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: ConfirmAndCancel(Opname: "Cancel".tr),
+                    ),
+                  ],
+                )
               ],
             ),
           )),

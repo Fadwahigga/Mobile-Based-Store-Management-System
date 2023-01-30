@@ -13,53 +13,57 @@ import '../model/sales_model.dart';
 import '../shared/constants.dart';
 
 class SalesController extends GetxController {
-  // *********** Variables *************
-
+  // ******************************* Variables *****************************
   List<SalesModel> listOfSalesModel = [];
-
   RxBool isThereData = false.obs;
   double change = 0;
   double totalResultselse = 0;
-
+  List<Map<String, dynamic>> paymentData = [];
+  DateTime? dateTime = DateTime.now();
+  Barcode? result;
+  QRViewController? controller;
   TextEditingController quantitiesController = TextEditingController();
   TextEditingController PayedController = TextEditingController();
+
+  // ********************************** Methods ****************************
+  /////////////////////////////////////// Get Change
   getChange() {
     change = totalResultselse - double.parse(PayedController.text);
     update();
   }
 
+//////////////////////////////////////////reset total and chang after save
   totalOnsave() {
     totalResultselse = 0.0;
     change = 0;
     update();
   }
 
+  ////////////////////////////////////////// set new quantity
   newvalu(int index) {
     listOfSalesModel[index].soldQunatity = quantitiesController.text;
     update();
   }
 
+//////////////////////////////////////////////// set new total
   newtotal(int index) {
     listOfSalesModel[index].total = double.parse(quantitiesController.text) *
         double.parse(listOfSalesModel[index].price);
     update();
   }
 
+///////////////////////////////////////// set new total result
   newtotalreselt(index) {
     totalResultselse += double.parse(quantitiesController.text) *
         double.parse(listOfSalesModel[index].price);
     update();
   }
 
-  List<Map<String, dynamic>> paymentData = [];
-  DateTime? dateTime = DateTime.now();
-  Barcode? result;
-  QRViewController? controller;
   // onInit() {
   //   super.onInit();
   //   // getSalesData();
   // }
-
+////// bar code
   void onQRViewCreated(QRViewController controller) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
@@ -68,6 +72,7 @@ class SalesController extends GetxController {
     });
   }
 
+/////////////////////////////////////////////////////set date tim
   void setDateTime(date) {
     dateTime = date;
     update();
@@ -102,6 +107,7 @@ class SalesController extends GetxController {
   //   }
   // }
   ////////////////////////
+  /////////////////////////////////////////////////////////////////set data
   setData(InventoryModel snapshot) {
     listOfSalesModel.add(SalesModel(
         total: double.parse(snapshot.price) * double.parse(snapshot.quantity),
@@ -118,18 +124,20 @@ class SalesController extends GetxController {
   //   update();
   // }
   //////////////////////
+  ///////////////////////////////////////////////////////remove item from list
   deleteItem(int index) {
     listOfSalesModel.removeAt(index);
-
     update();
   }
 
+/////////////////////////////////////////////////////////// set total afler delet item
   totalAfterdeletItem(int index) {
     totalResultselse -= listOfSalesModel[index].total;
     update();
   }
-  //////////////////////////
 
+  //////////////////////////
+//////////////////////////////////////////////////////////////// payment function
   payment({
     required List<Map<String, dynamic>> paymentData,
   }) async {
