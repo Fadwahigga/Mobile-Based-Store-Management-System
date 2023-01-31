@@ -200,8 +200,8 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                                                   Opname: "Cancel".tr)),
                                           GestureDetector(
                                             onTap: () {
-                                              // controller.deleteSalesData(
-                                              //     );
+                                              controller.deleteSalesData(
+                                                 controller.listOfPerfomanceModel[index].id );
                                               controller.removeFromList(index);
                                               Get.back();
                                             },

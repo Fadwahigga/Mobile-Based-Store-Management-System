@@ -159,7 +159,7 @@ class PerformanceController extends GetxController {
   }
 
   //* ========================== DELETE Data =================
-  deleteSalesData(String id) async {
+  deleteSalesData(int id) async {
     isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
