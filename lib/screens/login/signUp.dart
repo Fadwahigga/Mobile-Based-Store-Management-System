@@ -156,7 +156,7 @@ class SignUp extends GetWidget<LoginController> {
                                       fontWeight: FontWeight.bold))),
                           InkWell(
                             onTap: () {
-                              Get.to(() => const Login());
+                              Get.off(() => const Login());
                             },
                             child: Text(
                               "Login".tr,

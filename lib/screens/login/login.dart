@@ -30,8 +30,8 @@ class Login extends GetWidget<LoginController> {
                 child: InkWell(
                   onTap: () {
                     shaedpref.getString("curruntLang") == "ar"
-                    ? controllerlan.ChangeLang("en")
-                    : controllerlan.ChangeLang("ar");
+                        ? controllerlan.ChangeLang("en")
+                        : controllerlan.ChangeLang("ar");
                   },
                   child: const Image(
                       image: AssetImage("images/Translation.png"),
@@ -122,7 +122,7 @@ class Login extends GetWidget<LoginController> {
                                     fontWeight: FontWeight.bold))),
                         InkWell(
                           onTap: () {
-                            Get.to(const SignUp());
+                            Get.off(() => const SignUp());
                           },
                           child: Text(
                             "Sign Up".tr,

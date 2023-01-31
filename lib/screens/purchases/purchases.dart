@@ -110,7 +110,7 @@ class PurchasesPage extends GetWidget<PurchaseController> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(BarCodeClass());
+                    Get.to(() => BarCodeClass());
                   },
                   child: SizedBox(
                       width: 70,
