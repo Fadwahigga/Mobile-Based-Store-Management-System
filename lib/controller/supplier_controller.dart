@@ -151,17 +151,17 @@ class SupplierController extends GetxController {
   ////////////////////////////////
   //================ Delete supplier ////////////////
   RxBool isThereData = false.obs;
-  deleteSupplier(int id) async {
+  deleteSupplier({required int id}) async {
     isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      http.Response response =
-          await http.delete(Uri.http(baseUrl, apiSales), headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Bearer ${prefs.getString('token')}'
-      }, body: {
-        'id': id.toString()
-      });
+      http.Response response = await http.delete(
+        Uri.http(baseUrl, "$apiSuppliers /$id"),
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${prefs.getString('token')}'
+        },
+      );
       if (response.statusCode == 201 || response.statusCode == 200) {
         update();
         return Get.snackbar('Delete', "The product has deleted",

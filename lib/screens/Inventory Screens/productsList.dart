@@ -145,10 +145,10 @@ class ProductsListPage extends GetWidget<InventoryController> {
                                                         Opname: "Cancel".tr)),
                                                 GestureDetector(
                                                   onTap: () {
-                                                    controller
-                                                        .deleteProduct(index);
-                                                    controller
-                                                        .removeFromList(index);
+                                                    controller.deleteProduct(
+                                                        id: index);
+                                                    // controller
+                                                    //     .removeFromList(index);
                                                     Get.back();
                                                   },
                                                   child: ConfirmAndCancel(
@@ -165,7 +165,7 @@ class ProductsListPage extends GetWidget<InventoryController> {
                                   foregroundColor: Colors.white,
                                   icon: Icons.delete,
                                   spacing: 10,
-                                  label:"Delete".tr,
+                                  label: "Delete".tr,
                                   borderRadius: BorderRadius.circular(2),
                                 ),
                                 const SizedBox(

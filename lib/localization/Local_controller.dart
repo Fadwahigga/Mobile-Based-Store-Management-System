@@ -2,12 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import '../main.dart';
 
 class MyLocaleController extends GetxController {
-  
 // Locale initialLang = prefs.getString("lang") == "ar"
 //         ? const Locale("ar")
 //         : const Locale("ar");

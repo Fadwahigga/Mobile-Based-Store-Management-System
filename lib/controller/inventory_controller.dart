@@ -29,7 +29,7 @@ class InventoryController extends GetxController {
   TextEditingController priceController = TextEditingController();
   TextEditingController quantityController = TextEditingController();
 
-  // ********* Methods *************
+  // ******************** Methods ***********************************
 
   @override
   onInit() {
@@ -38,25 +38,22 @@ class InventoryController extends GetxController {
   }
   //============ Delete Product ============
 
-  deleteProduct(int id) async {
+  deleteProduct({required int id}) async {
     isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response = await http.delete(
-          Uri.http(
-            baseUrl,
-            apiInventory,
-          ),
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ${prefs.getString('token')}'
-          },
-          body: {
-            'id': id.toString()
-          });
+        Uri.http(
+          baseUrl,
+          "$apiInventory/$id",
+        ),
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${prefs.getString('token')}'
+        },
+      );
       print(json.decode(response.body));
       if (response.statusCode == 201 || response.statusCode == 200) {
-        print(response.body);
         update();
 
         Get.snackbar('Product', 'The product has deleted successfully',
@@ -142,7 +139,7 @@ class InventoryController extends GetxController {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response =
-          await http.post(Uri.http(baseUrl, apiInventory), headers: {
+          await http.post(Uri.http(baseUrl, apiSuppliers), headers: {
         'Accept': 'application/json',
         'Authorization': 'Bearer ${prefs.getString('token')}'
       }, body: {
@@ -154,12 +151,14 @@ class InventoryController extends GetxController {
         'category': category,
         'price': price,
       });
+      print("Codeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
       print(json.decode(response.body));
       if (response.statusCode == 201 || response.statusCode == 200) {
+        print("Indesssssssssssssssssssssssssss");
         clearText();
         Get.back();
-        Get.snackbar('Product', 'The product has added successfully',
-            snackPosition: SnackPosition.TOP,
+        return Get.snackbar("Done".tr, "Success process".tr,
+            snackPosition: SnackPosition.BOTTOM,
             duration: const Duration(seconds: 2));
       }
       Get.back();

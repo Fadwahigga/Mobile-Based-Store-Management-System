@@ -161,7 +161,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                                                   GestureDetector(
                                                     onTap: () {
                                                       controller.deleteSupplier(
-                                                          index);
+                                                          id: index);
                                                       controller.removeFromList(
                                                           index);
                                                       Get.back();
