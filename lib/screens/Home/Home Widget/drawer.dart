@@ -30,37 +30,36 @@ class DrawerWidget extends GetWidget<LoginController> {
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 39, 62, 82),
             ),
-            accountName:
-                Text(controller.nameController.text, style: _textStyle),
-            accountEmail:
-                Text(controller.emailController.text, style: _textStyle),
+            accountName: Text("Maneger Name", style: _textStyle),
+            accountEmail: Text("ManegerEmail@email.com", style: _textStyle),
+            currentAccountPicture: const CircleAvatar(backgroundColor: Colors.white),
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
             title: Text("Purchases".tr, style: _textStyle),
             onTap: () {
-              Get.to(PurchasesPage());
+              Get.to(() => PurchasesPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
             title: Text("Make Sale".tr, style: _textStyle),
             onTap: () {
-              Get.to(const CashierScreensPage());
+              Get.to(() => const CashierScreensPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
             title: Text("Suppliers".tr, style: _textStyle),
             onTap: () {
-              Get.to(const SuppliersPage());
+              Get.to(() => const SuppliersPage());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
             title: Text("Inventory".tr, style: _textStyle),
             onTap: () {
-              Get.to(const InventoryPage());
+              Get.to(() => const InventoryPage());
             },
           ),
           ListTile(
@@ -72,7 +71,7 @@ class DrawerWidget extends GetWidget<LoginController> {
             leading: const Icon(Icons.navigate_next),
             title: Text("Performance".tr, style: _textStyle),
             onTap: () {
-              Get.to(const PerformancePage());
+              Get.to(() => const PerformancePage());
             },
           ),
           const Divider(),
@@ -80,14 +79,14 @@ class DrawerWidget extends GetWidget<LoginController> {
             leading: const Icon(Icons.navigate_next),
             title: Text("Reset Password".tr, style: _textStyle),
             onTap: () {
-              Get.to(const ResetPassword());
+              Get.to(() => const ResetPassword());
             },
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
             title: Text("Reset Maneger Password".tr, style: _textStyle),
             onTap: () {
-              Get.to(const ResetManegerPassword());
+              Get.to(() => const ResetManegerPassword());
             },
           ),
           ListTile(
@@ -133,7 +132,7 @@ class DrawerWidget extends GetWidget<LoginController> {
                               child: ConfirmAndCancel(Opname: "Cancel".tr)),
                           GestureDetector(
                             onTap: () {
-                              Get.off(const Login());
+                              Get.off(() => const Login());
                             },
                             child: ConfirmAndCancel(Opname: "Yes".tr),
                           ),

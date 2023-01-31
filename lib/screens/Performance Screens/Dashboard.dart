@@ -20,7 +20,7 @@ class Dashboard extends GetWidget<PerformanceController> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Dashboard")),
+          child: AppBarWidget(appBarTitle: "Dashboard".tr)),
       body: ListView(
         shrinkWrap: true,
         children: [

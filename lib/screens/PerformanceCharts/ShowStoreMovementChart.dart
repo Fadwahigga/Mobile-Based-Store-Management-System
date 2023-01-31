@@ -39,7 +39,7 @@ class ShowStoreMovementChart extends GetWidget<PerformanceController> {
                 legend: Legend(
                   isVisible: true,
                 ),
-                tooltipBehavior: TooltipBehavior(enable: false),
+                tooltipBehavior: TooltipBehavior(enable: true),
                 series: <ChartSeries<dynamic, String>>[
                   LineSeries<dynamic, String>(
                     dataSource: controller.dashboardData!['storeMovement'],
@@ -47,6 +47,8 @@ class ShowStoreMovementChart extends GetWidget<PerformanceController> {
                     yValueMapper: (dynamic sales, _) =>
                         int.parse(sales['views']),
                     name: "Sales".tr,
+                    isVisible: true,
+                    isVisibleInLegend: true,
                     dataLabelSettings: DataLabelSettings(
                         showCumulativeValues: true,
                         labelAlignment: ChartDataLabelAlignment.outer,
