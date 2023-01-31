@@ -13,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class PurchaseController extends GetxController {
   // **************************** Vaiables *******************************************
   List<PurchaseModel> listOfPurchaseModel = [];
+  List<Map<String, dynamic>> paymentData = [];
   RxBool isThereData = false.obs;
   double total = 0;
   double totalresute = 0;
@@ -89,7 +90,7 @@ class PurchaseController extends GetxController {
   } ////////////////////////////
 
 /////////////////////////////////////// payment function
-  List<Map<String, dynamic>> paymentData = [];
+
   payment({
     required List<Map<String, dynamic>> paymentData,
   }) async {
