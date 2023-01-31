@@ -81,7 +81,7 @@ class _HomeState extends State<Home> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(const CashierScreensPage());
+                        Get.to(() => const CashierScreensPage());
                       },
                       child: HomeWidget(
                           name: "Make Sale".tr, imagepath: "images/2.png"),
@@ -100,7 +100,7 @@ class _HomeState extends State<Home> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(const SuppliersPage());
+                        Get.to(() => const SuppliersPage());
                       },
                       child: HomeWidget(
                           name: "Suppliers".tr, imagepath: "images/3.png"),
@@ -112,7 +112,7 @@ class _HomeState extends State<Home> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(const InventoryPage());
+                        Get.to(() => const InventoryPage());
                       },
                       child: HomeWidget(
                           name: "Inventory".tr, imagepath: "images/4.png"),
@@ -131,7 +131,7 @@ class _HomeState extends State<Home> {
                   Expanded(
                       child: GestureDetector(
                     onTap: () {
-                      Get.to(AccountsPage());
+                      Get.to(() => AccountsPage());
                     },
                     child: HomeWidget(
                         name: "Accounts".tr, imagepath: "images/5.png"),
@@ -142,7 +142,7 @@ class _HomeState extends State<Home> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(const PerformancePage());
+                        Get.to(() => const PerformancePage());
                       },
                       child: HomeWidget(
                           name: "Performance".tr, imagepath: "images/6.png"),

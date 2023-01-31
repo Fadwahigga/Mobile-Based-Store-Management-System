@@ -99,7 +99,7 @@ class MakeSalePage extends GetWidget<SalesController> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(BarCodeClass());
+                    Get.to(() => BarCodeClass());
                   },
                   child: SizedBox(
                     width: 70,

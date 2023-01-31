@@ -22,7 +22,7 @@ class SuppliersPage extends GetWidget<SupplierController> {
             //////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
                 onTap: () {
-                  Get.to(const AddNewSupplierPage());
+                  Get.to(() => const AddNewSupplierPage());
                 },
                 child: buttonContainer(
                     buttonContainerText: "Add New Supplier".tr)),
@@ -33,7 +33,7 @@ class SuppliersPage extends GetWidget<SupplierController> {
             //////////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
               onTap: () {
-                Get.to(const SuppliersListPage());
+                Get.to(() => const SuppliersListPage());
                 controller.getSuppliersData();
               },
               child: buttonContainer(

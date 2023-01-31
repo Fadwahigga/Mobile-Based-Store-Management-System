@@ -22,7 +22,7 @@ class CashierScreensPage extends StatelessWidget {
             //////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
               onTap: () {
-                Get.to(MakeSalePage());
+                Get.to(() => MakeSalePage());
               },
               child: buttonContainer(buttonContainerText: "Cashier 1".tr),
             ),
@@ -32,9 +32,7 @@ class CashierScreensPage extends StatelessWidget {
             ),
             //////////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
-              onTap: () {
-                Get.to(MakeSalePage());
-              },
+              onTap: () {},
               child: buttonContainer(buttonContainerText: "Cashier 2".tr),
             ),
             //////////////////////////////////////////////////////////////////////////////////////

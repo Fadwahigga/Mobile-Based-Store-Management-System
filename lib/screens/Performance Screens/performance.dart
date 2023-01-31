@@ -41,7 +41,7 @@ class _PerformancePageState extends State<PerformancePage> {
                 ////////////////////////////////////////////////////////////////////////////////////////////////
                 GestureDetector(
                   onTap: () {
-                    Get.to(const Dashboard());
+                    Get.to(() => const Dashboard());
                   },
                   child: buttonContainer(buttonContainerText: "Dashboard".tr),
                 ),

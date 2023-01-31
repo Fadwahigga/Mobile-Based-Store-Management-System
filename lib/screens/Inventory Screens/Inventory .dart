@@ -22,7 +22,7 @@ class InventoryPage extends StatelessWidget {
             //////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
               onTap: () {
-                Get.to(AddNewProductPage());
+                Get.to(() => AddNewProductPage());
               },
               child: buttonContainer(buttonContainerText: "Add New Product".tr),
             ),
@@ -33,10 +33,10 @@ class InventoryPage extends StatelessWidget {
             //////////////////////////////////////////////////////////////////////////////////////
             GestureDetector(
               onTap: () {
-                Get.to(ProductsListPage());
+                Get.to(() => ProductsListPage());
               },
-              child:
-                  buttonContainer(buttonContainerText: "Show List Of Products".tr),
+              child: buttonContainer(
+                  buttonContainerText: "Show List Of Products".tr),
             ),
             /////////////////////////////////////////////////////////////////////////////////
           ],
