@@ -146,9 +146,11 @@ class ProductsListPage extends GetWidget<InventoryController> {
                                                 GestureDetector(
                                                   onTap: () {
                                                     controller.deleteProduct(
-                                                        id: index);
-                                                    // controller
-                                                    //     .removeFromList(index);
+                                                        controller
+                                                            .productsList[index]
+                                                            .id);
+                                                    controller
+                                                        .removeFromList(index);
                                                     Get.back();
                                                   },
                                                   child: ConfirmAndCancel(

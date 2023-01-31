@@ -28,7 +28,7 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
-          child: AppBarWidget(appBarTitle: "Seles Reports")),
+          child: AppBarWidget(appBarTitle: "Seles Reports".tr)),
       body: Column(
         children: [
           Container(
@@ -200,8 +200,8 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                                                   Opname: "Cancel".tr)),
                                           GestureDetector(
                                             onTap: () {
-                                              controller.deleteSalesData(
-                                                  id: index);
+                                              // controller.deleteSalesData(
+                                              //     );
                                               controller.removeFromList(index);
                                               Get.back();
                                             },

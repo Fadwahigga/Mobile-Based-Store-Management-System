@@ -151,7 +151,7 @@ class SupplierController extends GetxController {
   ////////////////////////////////
   //================ Delete supplier ////////////////
   RxBool isThereData = false.obs;
-  deleteSupplier({required int id}) async {
+  deleteSupplier(String id) async {
     isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();

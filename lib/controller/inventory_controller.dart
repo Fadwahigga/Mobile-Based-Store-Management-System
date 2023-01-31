@@ -38,7 +38,7 @@ class InventoryController extends GetxController {
   }
   //============ Delete Product ============
 
-  deleteProduct({required int id}) async {
+  deleteProduct(int id) async {
     isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -139,7 +139,7 @@ class InventoryController extends GetxController {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response =
-          await http.post(Uri.http(baseUrl, apiSuppliers), headers: {
+          await http.post(Uri.http(baseUrl, apiInventory), headers: {
         'Accept': 'application/json',
         'Authorization': 'Bearer ${prefs.getString('token')}'
       }, body: {
