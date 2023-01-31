@@ -47,13 +47,12 @@ class ShowStoreMovementChart extends GetWidget<PerformanceController> {
                     yValueMapper: (dynamic sales, _) =>
                         int.parse(sales['views']),
                     name: "Sales".tr,
-                    isVisible: true,
-                    isVisibleInLegend: true,
                     dataLabelSettings: DataLabelSettings(
                         showCumulativeValues: true,
                         labelAlignment: ChartDataLabelAlignment.outer,
                         labelPosition: ChartDataLabelPosition.outside,
                         isVisible: true,
+                        useSeriesColor: true,
                         textStyle: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(
                           fontSize: 15,

@@ -32,7 +32,8 @@ class DrawerWidget extends GetWidget<LoginController> {
             ),
             accountName: Text("Maneger Name", style: _textStyle),
             accountEmail: Text("ManegerEmail@email.com", style: _textStyle),
-            currentAccountPicture: const CircleAvatar(backgroundColor: Colors.white),
+            currentAccountPicture:
+                const CircleAvatar(backgroundColor: Colors.white),
           ),
           ListTile(
             leading: const Icon(Icons.navigate_next),
@@ -132,7 +133,7 @@ class DrawerWidget extends GetWidget<LoginController> {
                               child: ConfirmAndCancel(Opname: "Cancel".tr)),
                           GestureDetector(
                             onTap: () {
-                              Get.off(() => const Login());
+                              Get.offAll(() => const Login());
                             },
                             child: ConfirmAndCancel(Opname: "Yes".tr),
                           ),
