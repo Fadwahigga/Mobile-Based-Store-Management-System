@@ -202,4 +202,9 @@ class InventoryController extends GetxController {
     dateTime = date;
     update();
   }
+
+  getResult() {
+    result;
+    update();
+  }
 }

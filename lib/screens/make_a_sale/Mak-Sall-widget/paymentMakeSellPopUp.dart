@@ -107,10 +107,8 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                     onTap: () {
                       //////////////////////////////////////////////////////////////////
                       controller.payment(
-                          paymentData: controller.paymentData[
-                                  controller.listOfSalesModel[0].id][
-                              controller.quantitiesController
-                                  .text]); //////////////////////
+                          paymentData:
+                              controller.paymentData); //////////////////////
                       //=============================== WRONGE ===========================
                       Get.back();
                       controller.totalOnsave();

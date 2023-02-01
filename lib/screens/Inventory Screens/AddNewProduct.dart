@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/screens/Inventory%20Screens/Inventory%20Widget/AddBarCode.dart';
 import 'package:gp/widgets/smallButton.dart';
 import '../../controller/inventory_controller.dart';
-import '../../widgets/barCode.dart';
 import '../Home/Home Widget/appBar.dart';
 
 class AddNewProductPage extends GetWidget<InventoryController> {
@@ -35,12 +35,26 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Get.to(BarCodeClass());
+                        Get.to(() => AddBarCode());
                       },
-                      child: SizedBox(
-                          width: 70,
-                          child:
-                              Image(image: AssetImage("images/barcode.jpg"))),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                              width: 70,
+                              child: Image(
+                                  image: AssetImage("images/barcode.jpg"))),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          SizedBox(
+                            width: 70,
+                            child: (controller.result != null)
+                                ? Text(controller.result.toString())
+                                : Text("Again"),
+                          )
+                        ],
+                      ),
                     ),
                     Text(
                       "Product Serial Number".tr,
