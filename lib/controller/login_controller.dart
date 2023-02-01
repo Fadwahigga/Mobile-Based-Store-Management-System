@@ -270,9 +270,9 @@ class LoginController extends GetxController {
           passwordLoginController.clear();
           emailLoginController.clear();
           Get.off(() => const Home(), transition: Transition.zoom);
-          return Get.defaultDialog(
-              title: "Change Passwod",
-              middleText: "Changed password successfully ;)");
+          return Get.snackbar("Done".tr, "Success process".tr,
+            snackPosition: SnackPosition.BOTTOM,
+            duration: const Duration(seconds: 3));
         }
         Get.back();
         ApiStatus.checkStatus(response);

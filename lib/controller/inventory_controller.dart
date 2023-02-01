@@ -56,9 +56,9 @@ class InventoryController extends GetxController {
       if (response.statusCode == 201 || response.statusCode == 200) {
         update();
 
-        Get.snackbar('Product', 'The product has deleted successfully',
-            snackPosition: SnackPosition.TOP,
-            duration: const Duration(seconds: 2));
+        return Get.snackbar("Done".tr, "Success process".tr,
+            snackPosition: SnackPosition.BOTTOM,
+            duration: const Duration(seconds: 3));
       }
 
       ApiStatus.checkStatus(response);
@@ -159,7 +159,7 @@ class InventoryController extends GetxController {
         Get.back();
         return Get.snackbar("Done".tr, "Success process".tr,
             snackPosition: SnackPosition.BOTTOM,
-            duration: const Duration(seconds: 2));
+            duration: const Duration(seconds: 3));
       }
       Get.back();
       ApiStatus.checkStatus(response);

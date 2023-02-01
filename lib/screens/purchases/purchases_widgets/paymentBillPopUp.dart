@@ -163,14 +163,14 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                   children: [
                     GestureDetector(
                         onTap: () {
-                          controller.payment(
-                              paymentData: controller.paymentData);
                           controller.totalOnsave();
                           Get.back();
                           // ToDo: Here Fadwa add the payment method that i will explain it.
                           Get.snackbar("Done".tr, "Success process".tr,
                               snackPosition: SnackPosition.BOTTOM,
                               duration: const Duration(seconds: 2));
+                          controller.payment(
+                              paymentData: controller.paymentData);
                         },
                         child: ConfirmAndCancel(Opname: "Save".tr)),
                     GestureDetector(

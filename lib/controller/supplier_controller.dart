@@ -104,7 +104,7 @@ class SupplierController extends GetxController {
           Get.back();
           return Get.snackbar("Done".tr, "Success process".tr,
               snackPosition: SnackPosition.BOTTOM,
-              duration: const Duration(seconds: 2));
+              duration: const Duration(seconds: 3));
         }
         Get.back();
         ApiStatus.checkStatus(response);
@@ -151,7 +151,7 @@ class SupplierController extends GetxController {
   ////////////////////////////////
   //================ Delete supplier ////////////////
   RxBool isThereData = false.obs;
-  deleteSupplier( int id) async {
+  deleteSupplier(int id) async {
     isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -164,9 +164,9 @@ class SupplierController extends GetxController {
       );
       if (response.statusCode == 201 || response.statusCode == 200) {
         update();
-        return Get.snackbar('Delete', "The product has deleted",
-            snackPosition: SnackPosition.TOP,
-            duration: const Duration(seconds: 1));
+        return Get.snackbar("Done".tr, "Success process".tr,
+            snackPosition: SnackPosition.BOTTOM,
+            duration: const Duration(seconds: 3));
       }
       ApiStatus.checkStatus(response);
     } catch (e) {
