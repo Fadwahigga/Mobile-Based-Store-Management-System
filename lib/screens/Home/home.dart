@@ -6,8 +6,10 @@ import 'package:gp/screens/Inventory%20Screens/Inventory%20.dart';
 import 'package:gp/screens/purchases/purchases.dart';
 import 'package:gp/screens/Performance%20Screens/performance.dart';
 import 'package:gp/screens/Suppliers%20Screens/suppliers.dart';
+import '../../controller/performance_controller.dart';
 import '../../main.dart';
 import '../Account/accounts.dart';
+import '../GenerateOffers/Generate Offers.dart';
 import '../make_a_sale/cashierScreens.dart';
 import 'Home Widget/drawer.dart';
 import 'Home Widget/homeWidget.dart';
@@ -156,22 +158,30 @@ class _HomeState extends State<Home> {
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 39, 62, 82),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Text("Generate Offers".tr,
-                      style: GoogleFonts.ebGaramond(
-                          textStyle: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ))),
-                ),
-              ),
+              GetBuilder<PerformanceController>(builder: (controller) {
+                return GestureDetector(
+                  onTap: () {
+                    Get.to(() => GenerateOffersPage());
+                    controller.getSalesReportsData();
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 39, 62, 82),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Center(
+                      child: Text("Generate Offers".tr,
+                          style: GoogleFonts.ebGaramond(
+                              textStyle: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ))),
+                    ),
+                  ),
+                );
+              }),
               ////////////////////////////////////////////////////////////////////////////////////////////////////
             ],
           ),
