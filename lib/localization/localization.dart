@@ -94,6 +94,7 @@ class MyLocale implements Translations {
           "The product has deleted": "تم حذف المنتج",
           "Done": "تم",
           "Success process": "تمت العملية بنجاح",
+          "Offer Strategy": "طريقة التخفيض",
         },
         "en": {
           "HOME": "HOME",
@@ -184,6 +185,7 @@ class MyLocale implements Translations {
           "The product has deleted": "The product has deleted",
           "Done": "Done",
           "Success process": "Success process",
+          "Offer Strategy": "Offer Strategy",
         },
       };
 }
