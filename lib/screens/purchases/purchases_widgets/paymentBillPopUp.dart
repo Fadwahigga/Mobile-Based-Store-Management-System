@@ -170,7 +170,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                               snackPosition: SnackPosition.BOTTOM,
                               duration: const Duration(seconds: 2));
                           controller.payment(
-                              paymentData: controller.paymentData);
+                              paymentData: controller.listOfPurchaseModel);
                         },
                         child: ConfirmAndCancel(Opname: "Save".tr)),
                     GestureDetector(

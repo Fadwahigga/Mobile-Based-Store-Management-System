@@ -92,13 +92,17 @@ class PurchaseController extends GetxController {
 /////////////////////////////////////// payment function
 
   payment({
-    required List<Map<String, dynamic>> paymentData,
+    required List<PurchaseModel> paymentData,
   }) async {
     isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      print(json.encode(paymentData));
+      //print(json.encode(paymentData));
       for (var i = 0; i < paymentData.length; i++) {
+        print(paymentData[i].id.toString());
+        print(paymentData[i].quantity.toString());
+        print(paymentData[i].cost.toString());
+        print(paymentData[i].price.toString());
         await http.post(
           Uri.http(
             baseUrl,
@@ -109,10 +113,10 @@ class PurchaseController extends GetxController {
             'Authorization': 'Bearer ${prefs.getString('token')}'
           },
           body: {
-            'id': paymentData[i]['id'].toString(),
-            'quantity': paymentData[i]['quantity'].toString(),
-            'cost': paymentData[i]['cost'].toString(),
-            'price': paymentData[i]['price'].toString(),
+            'id': paymentData[i].id.toString(),
+            'quantity': paymentData[i].quantity.toString(),
+            'cost': paymentData[i].cost.toString(),
+            'price': paymentData[i].price.toString(),
           },
         );
       }
