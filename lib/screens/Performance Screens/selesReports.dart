@@ -201,9 +201,18 @@ class SelesReportsPage extends GetWidget<PerformanceController> {
                                           GestureDetector(
                                             onTap: () {
                                               controller.deleteSalesData(
-                                                 controller.listOfPerfomanceModel[index].id );
+                                                  controller
+                                                      .listOfPerfomanceModel[
+                                                          index]
+                                                      .id);
                                               controller.removeFromList(index);
                                               Get.back();
+                                              Get.snackbar("Delete".tr,
+                                                  "The product has deleted".tr,
+                                                  snackPosition:
+                                                      SnackPosition.BOTTOM,
+                                                  duration: const Duration(
+                                                      seconds: 2));
                                             },
                                             child: ConfirmAndCancel(
                                                 Opname: "Yes".tr),

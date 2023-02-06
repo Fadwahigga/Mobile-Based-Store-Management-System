@@ -161,7 +161,7 @@ class SalesController extends GetxController {
           },
         );
       }
-      paymentData.clear();
+
       PayedController.clear();
 
       // ApiStatus.checkStatus(response);

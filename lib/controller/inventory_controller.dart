@@ -52,13 +52,9 @@ class InventoryController extends GetxController {
           'Authorization': 'Bearer ${prefs.getString('token')}'
         },
       );
-      print(json.decode(response.body));
+      // print(json.decode(response.body));
       if (response.statusCode == 201 || response.statusCode == 200) {
         update();
-
-        return Get.snackbar("Done".tr, "Success process".tr,
-            snackPosition: SnackPosition.BOTTOM,
-            duration: const Duration(seconds: 3));
       }
 
       ApiStatus.checkStatus(response);
@@ -156,6 +152,7 @@ class InventoryController extends GetxController {
       if (response.statusCode == 201 || response.statusCode == 200) {
         print("Indesssssssssssssssssssssssssss");
         clearText();
+        print(result!.code);
         Get.back();
         return Get.snackbar("Done".tr, "Success process".tr,
             snackPosition: SnackPosition.BOTTOM,
@@ -203,8 +200,8 @@ class InventoryController extends GetxController {
     update();
   }
 
-  getResult() {
-    result;
-    update();
-  }
+  // getResult() {
+  //   barcoderesult = result.toString();
+  //   update();
+  // }
 }

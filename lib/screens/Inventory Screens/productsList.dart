@@ -152,6 +152,16 @@ class ProductsListPage extends GetWidget<InventoryController> {
                                                     controller
                                                         .removeFromList(index);
                                                     Get.back();
+                                                    Get.snackbar(
+                                                        "Delete".tr,
+                                                        "The product has deleted"
+                                                            .tr,
+                                                        snackPosition:
+                                                            SnackPosition
+                                                                .BOTTOM,
+                                                        duration:
+                                                            const Duration(
+                                                                seconds: 2));
                                                   },
                                                   child: ConfirmAndCancel(
                                                       Opname: "Yes".tr),

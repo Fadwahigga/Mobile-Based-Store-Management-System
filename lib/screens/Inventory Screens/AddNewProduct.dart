@@ -50,8 +50,8 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                           SizedBox(
                             width: 70,
                             child: (controller.result != null)
-                                ? Text(controller.result.toString())
-                                : Text("Again"),
+                                ? Text(controller.result!.code.toString())
+                                : Text("test"),
                           )
                         ],
                       ),
