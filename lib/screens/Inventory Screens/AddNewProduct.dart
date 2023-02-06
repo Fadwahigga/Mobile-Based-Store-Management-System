@@ -47,12 +47,26 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                           SizedBox(
                             height: 5,
                           ),
-                          SizedBox(
-                            width: 70,
-                            child: (controller.result != null)
-                                ? Text(controller.result!.code.toString())
-                                : Text("test"),
-                          )
+                          GetBuilder<InventoryController>(
+                              builder: (controller) {
+                            return SizedBox(
+                              width: 120,
+                              child: (controller.result != null)
+                                  ? Center(
+                                      child: Text(
+                                          controller.result!.code.toString(),
+                                          style: GoogleFonts.ebGaramond(
+                                              textStyle: const TextStyle(
+                                            fontSize: 15,
+                                          ))))
+                                  : Center(
+                                      child: Text("Bar Code",
+                                          style: GoogleFonts.ebGaramond(
+                                              textStyle: const TextStyle(
+                                            fontSize: 18,
+                                          )))),
+                            );
+                          })
                         ],
                       ),
                     ),
@@ -196,16 +210,18 @@ class AddNewProductPage extends GetWidget<InventoryController> {
                 height: 40,
               ),
               InkWell(
-                  onTap: () => controller.addNewProduct(
-                      barcode: controller.result.toString(),
-                      itemName:
-                          controller.productNameController.text.toString(),
-                      stockQuantity:
-                          controller.quantityController.text.toString(),
-                      expirationDate: controller.dateTime.toString(),
-                      cost: controller.costController.text.toString(),
-                      category: controller.categoryController.text.toString(),
-                      price: controller.priceController.text.toString()),
+                  onTap: () {
+                    controller.addNewProduct(
+                        barcode: controller.result!.code.toString(),
+                        itemName:
+                            controller.productNameController.text.toString(),
+                        stockQuantity:
+                            controller.quantityController.text.toString(),
+                        expirationDate: controller.dateTime.toString(),
+                        cost: controller.costController.text.toString(),
+                        category: controller.categoryController.text.toString(),
+                        price: controller.priceController.text.toString());
+                  },
                   child: SmallButton(buttonName: "Save".tr))
             ],
           ),

@@ -167,6 +167,14 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                                                       controller.removeFromList(
                                                           index);
                                                       Get.back();
+                                                      Get.snackbar("Done".tr,
+                                                          "Success process".tr,
+                                                          snackPosition:
+                                                              SnackPosition
+                                                                  .BOTTOM,
+                                                          duration:
+                                                              const Duration(
+                                                                  seconds: 2));
                                                     },
                                                     child: ConfirmAndCancel(
                                                         Opname: "Yes".tr),
@@ -226,8 +234,7 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                                     SizedBox(
                                       width: 100,
                                       child: Text(
-                                        controller.supplierList[index]['phone']
-                                            .toString(),
+                                        controller.supplierList[index]['phone'],
                                         style: _textStyle,
                                       ),
                                     ),

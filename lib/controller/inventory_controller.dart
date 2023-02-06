@@ -15,12 +15,9 @@ class InventoryController extends GetxController {
   // ********* Variables ***********
   List<InventoryModel> productsList = [];
   RxBool isThereData = false.obs;
-
   GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-
   DateTime? dateTime = DateTime.now();
   Barcode? result;
-
   QRViewController? controller;
 
   TextEditingController productNameController = TextEditingController();
@@ -151,12 +148,13 @@ class InventoryController extends GetxController {
       print(json.decode(response.body));
       if (response.statusCode == 201 || response.statusCode == 200) {
         print("Indesssssssssssssssssssssssssss");
-        clearText();
-        print(result!.code);
+
         Get.back();
+        clearText();
+
         return Get.snackbar("Done".tr, "Success process".tr,
             snackPosition: SnackPosition.BOTTOM,
-            duration: const Duration(seconds: 3));
+            duration: const Duration(seconds:2));
       }
       Get.back();
       ApiStatus.checkStatus(response);

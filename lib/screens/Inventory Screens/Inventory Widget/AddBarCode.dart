@@ -38,7 +38,7 @@ class AddBarCode extends GetWidget<InventoryController> {
                     child: Center(
                       child: (controller.result != null)
                           ? Text(
-                              '${controller.result.toString()} Now click on search')
+                              '${controller.result!.code.toString()} Now click on search')
                           : Text(
                               'Touch the screen and point the camera to Scan a code'),
                     ),

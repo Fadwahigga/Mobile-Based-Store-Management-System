@@ -16,7 +16,7 @@ class SupplierController extends GetxController {
 
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
-
+  RxBool isThereData = false.obs;
   List<Map<String, dynamic>> supplierList = [];
   List<SupplierModel> listOfSupplierModel = [];
 
@@ -63,17 +63,17 @@ class SupplierController extends GetxController {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
-                  children: [
-                    const CircularProgressIndicator(
+                  children: const [
+                    CircularProgressIndicator(
                       color: kprimaryColor,
                       backgroundColor: kprimaryColor,
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 20,
                     ),
                     Text(
-                      "Save".tr,
-                      style: const TextStyle(
+                      'Adding...',
+                      style: TextStyle(
                           color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.normal),
@@ -102,9 +102,9 @@ class SupplierController extends GetxController {
           nameController.clear();
           phoneController.clear();
           Get.back();
-          return Get.snackbar("Done".tr, "Success process".tr,
+          return Get.snackbar('Supplier', 'The supplier has added successfully',
               snackPosition: SnackPosition.BOTTOM,
-              duration: const Duration(seconds: 3));
+              duration: const Duration(seconds: 2));
         }
         Get.back();
         ApiStatus.checkStatus(response);
@@ -150,24 +150,25 @@ class SupplierController extends GetxController {
 
   ////////////////////////////////
   //================ Delete supplier ////////////////
-  RxBool isThereData = false.obs;
   deleteSupplier(int id) async {
     isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response = await http.delete(
-        Uri.http(baseUrl, "$apiSuppliers /$id"),
+        Uri.http(
+          baseUrl,
+          "$apiSuppliers/$id",
+        ),
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer ${prefs.getString('token')}'
         },
       );
+      // print(json.decode(response.body));
       if (response.statusCode == 201 || response.statusCode == 200) {
         update();
-        return Get.snackbar("Done".tr, "Success process".tr,
-            snackPosition: SnackPosition.BOTTOM,
-            duration: const Duration(seconds: 3));
       }
+
       ApiStatus.checkStatus(response);
     } catch (e) {
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
@@ -189,8 +190,7 @@ class SupplierController extends GetxController {
         var body = json.decode(response.body);
         print(body);
         listOfSupplierModel.clear();
-        //body['data']['invoices'].length
-        for (var i = 0; i < listOfSupplierModel.length; i++) {
+        for (var i = 0; i < body['data']['invoices'].length; i++) {
           listOfSupplierModel
               .add(SupplierModel.fromJson(body['data']['invoices'][i]));
         }

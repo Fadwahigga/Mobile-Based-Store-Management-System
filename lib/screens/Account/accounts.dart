@@ -88,7 +88,7 @@ class AccountsPage extends GetWidget<AccountController> {
                         dataName: "Purchases".tr,
                         money: controller.purchase == null
                             ? "0.0"
-                            : "${controller.revenue}"));
+                            : "${controller.purchase}"));
               },
             ),
             //////////////////////////////////////////////////////////////////////////////////////////
@@ -101,9 +101,9 @@ class AccountsPage extends GetWidget<AccountController> {
                     width: double.infinity,
                     child: AccountWidget(
                         dataName: "Sales".tr,
-                        money: controller.saels == null
-                            ? "0"
-                            : "${controller.saels}"));
+                        money: controller.sales == null
+                            ? "0.0"
+                            : "${controller.sales}"));
               },
             )
           ],

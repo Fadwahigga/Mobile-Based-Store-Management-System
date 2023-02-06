@@ -119,10 +119,8 @@ class PurchaseController extends GetxController {
       }
 
       payedController.clear();
-      purchaseMap.clear();
 
       // ApiStatus.checkStatus(response);
-
     } catch (e) {
       print(e);
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());

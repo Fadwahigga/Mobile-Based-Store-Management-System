@@ -11,20 +11,20 @@ import '../shared/constants.dart';
 
 class AccountController extends GetxController {
   // ********* Variables *************
-  String? saels;
+  String? sales;
   String? purchase;
   String? revenue;
   String? balance;
 
   // ********** Methods **************
-    
-    @override
-    onInit() {
-      super.onInit();
-      getAccountData();
-    }
 
-    getAccountData() async {
+  @override
+  onInit() {
+    super.onInit();
+    getAccountData();
+  }
+
+  getAccountData() async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response =
@@ -38,7 +38,7 @@ class AccountController extends GetxController {
         var body = json.decode(response.body);
         print("insideeeeeeeeeee");
         print(body);
-        saels = body['sales'].toString();
+        sales = body['sales'].toString();
         purchase = body['purchase'].toString();
         revenue = body['revenue'].toString();
         balance = body['balance'].toString();
@@ -49,5 +49,4 @@ class AccountController extends GetxController {
       return Get.defaultDialog(title: 'Oops!', middleText: e.toString());
     }
   }
-
 }
