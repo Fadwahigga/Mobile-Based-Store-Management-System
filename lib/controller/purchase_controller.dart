@@ -1,7 +1,4 @@
 // ignore_for_file: avoid_print
-
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -106,7 +103,7 @@ class PurchaseController extends GetxController {
         await http.post(
           Uri.http(
             baseUrl,
-            apiSales,
+            apiPurchase,
           ),
           headers: {
             'Accept': 'application/json',
@@ -120,7 +117,7 @@ class PurchaseController extends GetxController {
           },
         );
       }
-      listOfPurchaseModel.clear();
+      paymentData.clear();
       payedController.clear();
       purchaseMap.clear();
 
