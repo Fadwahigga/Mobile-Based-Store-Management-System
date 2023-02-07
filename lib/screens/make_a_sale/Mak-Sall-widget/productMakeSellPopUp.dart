@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, body_might_complete_normally_nullable
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -86,6 +86,13 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
                       child: TextFormField(
+                        validator: (value) {
+                          if (double.parse(value!) >
+                              double.parse(controller
+                                  .listOfSalesModel[index].soldQunatity)) {
+                            return "nn";
+                          }
+                        },
                         style: _textStyle,
                         keyboardType: TextInputType.number,
                         controller: controller.quantitiesController,

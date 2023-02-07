@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gp/controller/sales_controller.dart';
+import 'package:gp/screens/make_a_sale/cashierScreens.dart';
 
 import '../../../widgets/confirmAndcancel.dart';
 
@@ -109,13 +110,14 @@ class PaymentMakeSellPopUp extends GetWidget<SalesController> {
                       controller.payment(
                           paymentData: controller
                               .listOfSalesModel); //////////////////////
-                      
+
                       Get.back();
                       controller.totalOnsave();
                       Get.snackbar("Done".tr, "Success process".tr,
+                          backgroundColor: Colors.white,
                           snackPosition: SnackPosition.BOTTOM,
                           duration: const Duration(seconds: 2));
-                      
+                      Get.to(() => const CashierScreensPage());
                     },
                     child: ConfirmAndCancel(Opname: "Save".tr)),
                 GestureDetector(

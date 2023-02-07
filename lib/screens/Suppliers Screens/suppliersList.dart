@@ -108,12 +108,15 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              controller.getSupplierInvoices(
-                                  id: controller.supplierList[index]['id']);
                               Get.defaultDialog(
                                 barrierDismissible: false,
                                 title: "",
                                 content: SuppliersBillsPopUp(),
+                              );
+                              controller.getSupplierInvoices(
+                                id: controller.supplierList[index]['id'],
+                                to: controller.dateTimeTo,
+                                from: controller.dateTimeFrom,
                               );
                             },
                             child: Slidable(

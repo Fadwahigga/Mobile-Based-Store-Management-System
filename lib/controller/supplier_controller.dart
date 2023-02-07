@@ -176,11 +176,13 @@ class SupplierController extends GetxController {
   }
 
   //* ================ HERE To Get Supplier Invoices ===================
-  getSupplierInvoices({required int id}) async {
+  getSupplierInvoices(
+      {required DateTime to, required DateTime from, required int id}) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response = await http.get(
-        Uri.http(baseUrl, "$apiSuppliers/$id"),
+        Uri.http(baseUrl, "$apiSuppliers/$id",
+            {'to': to.toString(), 'from': from.toString()}),
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer ${prefs.getString('token')}'

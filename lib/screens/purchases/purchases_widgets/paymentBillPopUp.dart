@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gp/screens/Home/home.dart';
 import 'package:gp/screens/purchases/purchases_widgets/purchase_search_supplier.dart';
 
 import '../../../controller/purchase_controller.dart';
@@ -163,14 +164,17 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                   children: [
                     GestureDetector(
                         onTap: () {
-                          controller.totalOnsave();
-                          Get.back();
-                          // ToDo: Here Fadwa add the payment method that i will explain it.
-                          Get.snackbar("Done".tr, "Success process".tr,
-                              snackPosition: SnackPosition.BOTTOM,
-                              duration: const Duration(seconds: 2));
                           controller.payment(
                               paymentData: controller.listOfPurchaseModel);
+
+                          Get.back();
+                          controller.totalOnsave();
+                          // ToDo: Here Fadwa add the payment method that i will explain it.
+                          Get.snackbar("Done".tr, "Success process".tr,
+                              backgroundColor: Colors.white,
+                              snackPosition: SnackPosition.BOTTOM,
+                              duration: const Duration(seconds: 2));
+                          Get.to(() => const Home());
                         },
                         child: ConfirmAndCancel(Opname: "Save".tr)),
                     GestureDetector(

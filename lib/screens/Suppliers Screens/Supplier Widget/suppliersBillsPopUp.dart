@@ -68,6 +68,7 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                               },
                             ).then((value) {
                               controller.setDateFrom(value!);
+                              
                             });
                           },
                           child: Container(
