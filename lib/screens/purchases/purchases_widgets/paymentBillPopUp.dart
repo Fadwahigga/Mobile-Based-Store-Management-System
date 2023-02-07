@@ -166,7 +166,7 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                         onTap: () {
                           controller.payment(
                               paymentData: controller.listOfPurchaseModel,
-                              purchaseMap: controller.purchaseMap['id']);
+                              supplier_id: controller.purchaseMap['id']);
 
                           Get.back();
                           controller.totalOnsave();

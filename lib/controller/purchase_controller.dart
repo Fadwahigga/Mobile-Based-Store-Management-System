@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, non_constant_identifier_names
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -92,13 +92,13 @@ class PurchaseController extends GetxController {
 
   payment(
       {required List<PurchaseModel> paymentData,
-      required int purchaseMap}) async {
+      required int supplier_id}) async {
     isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       //print(json.encode(paymentData));
       for (var i = 0; i < paymentData.length; i++) {
-        print(purchaseMap.toString());
+        print( supplier_id.toString());
         print(paymentData[i].id.toString());
         print(paymentData[i].quantity.toString());
         print(paymentData[i].cost.toString());
@@ -113,7 +113,7 @@ class PurchaseController extends GetxController {
             'Authorization': 'Bearer ${prefs.getString('token')}'
           },
           body: {
-            'supplier_id': purchaseMap.toString(),
+            'supplier_id': supplier_id.toString(),
             'id': paymentData[i].id.toString(),
             'quantity': paymentData[i].quantity.toString(),
             'cost': paymentData[i].cost.toString(),

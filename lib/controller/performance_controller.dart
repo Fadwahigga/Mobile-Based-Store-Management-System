@@ -139,7 +139,7 @@ class PerformanceController extends GetxController {
         series3.add(charts.Series(
           id: "Quantity",
           data: dashboardData!['lowStock'] ?? [],
-          domainFn: (dynamic series, _) => series['barcode'] ?? "null",
+          domainFn: (dynamic series, _) => series['item_name'] ?? "null",
           measureFn: (dynamic series, _) =>
               int.parse(series['stock_quantity'] ?? "null"),
           colorFn: (dynamic series, _) =>

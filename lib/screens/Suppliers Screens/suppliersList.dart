@@ -115,8 +115,6 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                               );
                               controller.getSupplierInvoices(
                                 id: controller.supplierList[index]['id'],
-                                to: controller.dateTimeTo,
-                                from: controller.dateTimeFrom,
                               );
                             },
                             child: Slidable(
