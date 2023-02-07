@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gp/localization/Local_controller.dart';
 import 'package:gp/screens/login/login.dart';
+import 'package:gp/screens/login/manegerOrEmployee.dart';
 import 'package:gp/shared/my_binding/my_binding.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'localization/localization.dart';
-import 'screens/Home/home.dart';
 
 late SharedPreferences shaedpref;
 //New Commit
@@ -33,7 +33,9 @@ class MyApp extends StatelessWidget {
           ? Get.deviceLocale
           : Locale(shaedpref.getString("curruntLang")!),
       translations: MyLocale(),
-      home: prefs.getString('token') != null ? const Home() : const Login(),
+      home: prefs.getString('token') != null
+          ? const ManegerOrEmployeePage()
+          : const Login(),
     );
   }
 }

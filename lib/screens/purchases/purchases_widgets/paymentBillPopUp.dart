@@ -165,7 +165,8 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                     GestureDetector(
                         onTap: () {
                           controller.payment(
-                              paymentData: controller.listOfPurchaseModel);
+                              paymentData: controller.listOfPurchaseModel,
+                              purchaseMap: controller.purchaseMap);
 
                           Get.back();
                           controller.totalOnsave();
@@ -174,7 +175,9 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                               backgroundColor: Colors.white,
                               snackPosition: SnackPosition.BOTTOM,
                               duration: const Duration(seconds: 2));
-                          Get.to(() => const Home());
+                          
+                          Get.off(() => const Home());
+                          controller.listOfPurchaseModel.clear();
                         },
                         child: ConfirmAndCancel(Opname: "Save".tr)),
                     GestureDetector(
