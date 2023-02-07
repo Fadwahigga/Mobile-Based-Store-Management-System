@@ -90,12 +90,13 @@ class PurchaseController extends GetxController {
 
   payment(
       {required List<PurchaseModel> paymentData,
-      required Map<String, dynamic> purchaseMap}) async {
+      required int purchaseMap}) async {
     isThereData.value = false;
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       //print(json.encode(paymentData));
       for (var i = 0; i < paymentData.length; i++) {
+        print(purchaseMap.toString());
         print(paymentData[i].id.toString());
         print(paymentData[i].quantity.toString());
         print(paymentData[i].cost.toString());
@@ -110,7 +111,7 @@ class PurchaseController extends GetxController {
             'Authorization': 'Bearer ${prefs.getString('token')}'
           },
           body: {
-            'supplier_id': purchaseMap['id'].toString(),
+            'supplier_id': purchaseMap.toString(),
             'id': paymentData[i].id.toString(),
             'quantity': paymentData[i].quantity.toString(),
             'cost': paymentData[i].cost.toString(),
@@ -120,7 +121,7 @@ class PurchaseController extends GetxController {
       }
 
       payedController.clear();
-      purchaseMap.clear();
+
       // ApiStatus.checkStatus(response);
     } catch (e) {
       print(e);

@@ -7,7 +7,6 @@ import 'package:gp/controller/sales_controller.dart';
 import 'package:gp/screens/make_a_sale/cashierScreens.dart';
 
 import '../../../widgets/confirmAndcancel.dart';
-import '../../Home/home.dart';
 
 class PaymentMakeSellPopUp extends GetWidget<SalesController> {
   PaymentMakeSellPopUp({Key? key}) : super(key: key);
