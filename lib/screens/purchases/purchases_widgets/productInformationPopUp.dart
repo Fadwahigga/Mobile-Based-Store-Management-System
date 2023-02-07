@@ -151,6 +151,8 @@ class ProductInformationPopUp extends GetWidget<PurchaseController> {
                     GestureDetector(
                       onTap: () {
                         Get.back();
+                        controller.newCostController.clear();
+                        controller.newQuantityController.clear();
                       },
                       child: ConfirmAndCancel(Opname: "Cancel".tr),
                     ),

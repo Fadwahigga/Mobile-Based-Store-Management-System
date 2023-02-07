@@ -175,9 +175,9 @@ class PaymentBillPopUp extends GetWidget<PurchaseController> {
                               backgroundColor: Colors.white,
                               snackPosition: SnackPosition.BOTTOM,
                               duration: const Duration(seconds: 2));
-                          Get.off(() => const Home());
-                          controller.listOfPurchaseModel.clear();
-                          controller.purchaseMap.clear();
+                          // Get.off(() => const Home());
+                          // controller.listOfPurchaseModel.clear();
+                          // controller.purchaseMap.clear();
                         },
                         child: ConfirmAndCancel(Opname: "Save".tr)),
                     GestureDetector(

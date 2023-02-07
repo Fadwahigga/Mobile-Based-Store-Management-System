@@ -75,8 +75,10 @@ class PurchaseController extends GetxController {
 
 ///////////////////////////// set total afler delet item
   totalAfterdeletItem(int index) {
-    totalresute -= listOfPurchaseModel[index].total;
-    update();
+    if (totalresute > 0) {
+      totalresute -= listOfPurchaseModel[index].total;
+      update();
+    }
   }
 
 ////////////////////////////////////////////// set supplier data

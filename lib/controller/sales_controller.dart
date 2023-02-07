@@ -40,8 +40,16 @@ class SalesController extends GetxController {
 
   ////////////////////////////////////////// set new quantity
   newvalu(int index) {
-    listOfSalesModel[index].soldQunatity = quantitiesController.text;
-    update();
+    if (double.parse(quantitiesController.text) <
+        double.parse(listOfSalesModel[index].soldQunatity)) {
+      listOfSalesModel[index].soldQunatity = quantitiesController.text;
+      update();
+    } else {
+      Get.snackbar("Alert!".tr, "The Quantity Is Not Available".tr,
+          backgroundColor: Colors.white,
+          snackPosition: SnackPosition.BOTTOM,
+          duration: const Duration(seconds: 3));
+    }
   }
 
 //////////////////////////////////////////////// set new total
@@ -53,9 +61,11 @@ class SalesController extends GetxController {
 
 ///////////////////////////////////////// set new total result
   newtotalreselt(index) {
-    totalResultselse += double.parse(quantitiesController.text) *
-        double.parse(listOfSalesModel[index].price);
-    update();
+    if (totalResultselse > 0) {
+      totalResultselse += double.parse(quantitiesController.text) *
+          double.parse(listOfSalesModel[index].price);
+      update();
+    }
   }
 
   // onInit() {
@@ -163,7 +173,6 @@ class SalesController extends GetxController {
       }
 
       PayedController.clear();
-      
 
       // ApiStatus.checkStatus(response);
 

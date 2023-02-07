@@ -95,6 +95,8 @@ class MyLocale implements Translations {
           "Done": "تم",
           "Success process": "تمت العملية بنجاح",
           "Offer Strategy": "طريقة التخفيض",
+          "Alert!": "تنبه",
+          "The Quantity Is Not Available": "الكمية غير متوفرة",
         },
         "en": {
           "HOME": "HOME",
@@ -186,6 +188,7 @@ class MyLocale implements Translations {
           "Done": "Done",
           "Success process": "Success process",
           "Offer Strategy": "Offer Strategy",
+          "Alert!": "Alert!",
         },
       };
 }
