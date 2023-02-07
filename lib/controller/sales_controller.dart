@@ -40,7 +40,7 @@ class SalesController extends GetxController {
 
   ////////////////////////////////////////// set new quantity
   newvalu(int index) {
-    if (double.parse(quantitiesController.text) <
+    if (double.parse(quantitiesController.text) <=
         double.parse(listOfSalesModel[index].soldQunatity)) {
       listOfSalesModel[index].soldQunatity = quantitiesController.text;
       update();
@@ -61,11 +61,9 @@ class SalesController extends GetxController {
 
 ///////////////////////////////////////// set new total result
   newtotalreselt(index) {
-    if (totalResultselse > 0) {
-      totalResultselse += double.parse(quantitiesController.text) *
-          double.parse(listOfSalesModel[index].price);
-      update();
-    }
+    totalResultselse += double.parse(quantitiesController.text) *
+        double.parse(listOfSalesModel[index].price);
+    update();
   }
 
   // onInit() {
@@ -141,8 +139,10 @@ class SalesController extends GetxController {
 
 /////////////////////////////////////////////////////////// set total afler delet item
   totalAfterdeletItem(int index) {
-    totalResultselse -= listOfSalesModel[index].total;
-    update();
+    if (totalResultselse > 0) {
+      totalResultselse -= listOfSalesModel[index].total;
+      update();
+    }
   }
 
 //////////////////////////////////// payment function /////////////////////////////////

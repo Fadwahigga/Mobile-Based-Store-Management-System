@@ -86,13 +86,6 @@ class ProductMakeSellPopUp extends GetWidget<SalesController> {
                       width: MediaQuery.of(context).size.width - 250,
                       color: Colors.white,
                       child: TextFormField(
-                        validator: (value) {
-                          if (double.parse(value!) >
-                              double.parse(controller
-                                  .listOfSalesModel[index].soldQunatity)) {
-                            return "nn";
-                          }
-                        },
                         style: _textStyle,
                         keyboardType: TextInputType.number,
                         controller: controller.quantitiesController,
