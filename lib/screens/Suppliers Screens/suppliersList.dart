@@ -111,10 +111,9 @@ class _SuppliersListPageState extends State<SuppliersListPage> {
                               Get.defaultDialog(
                                 barrierDismissible: false,
                                 title: "",
-                                content: SuppliersBillsPopUp(),
-                              );
-                              controller.getSupplierInvoices(
-                                id: controller.supplierList[index]['id'],
+                                content: SuppliersBillsPopUp(
+                                  index: index,
+                                ),
                               );
                             },
                             child: Slidable(

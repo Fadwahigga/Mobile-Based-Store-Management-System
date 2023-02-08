@@ -9,8 +9,8 @@ import '../../../widgets/confirmAndcancel.dart';
 
 // ignore: must_be_immutable
 class SuppliersBillsPopUp extends GetWidget<SupplierController> {
-  SuppliersBillsPopUp({Key? key}) : super(key: key);
-
+  SuppliersBillsPopUp({Key? key, required this.index}) : super(key: key);
+  final int index;
   final TextStyle _textStyle = GoogleFonts.ebGaramond(
       textStyle: const TextStyle(
     fontSize: 15,
@@ -68,7 +68,11 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                               },
                             ).then((value) {
                               controller.setDateFrom(value!);
-                              
+                              controller.getSupplierInvoices(
+                                id: controller.supplierList[index]['id'],
+                                to: controller.dateTimeTo,
+                                from: controller.dateTimeFrom,
+                              );
                             });
                           },
                           child: Container(
@@ -103,6 +107,11 @@ class SuppliersBillsPopUp extends GetWidget<SupplierController> {
                               },
                             ).then((value) {
                               controller.setDateTo(value!);
+                              controller.getSupplierInvoices(
+                                id: controller.supplierList[index]['id'],
+                                to: controller.dateTimeTo,
+                                from: controller.dateTimeFrom,
+                              );
                             });
                           },
                           child: Container(

@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gp/screens/Home/home.dart';
 import 'package:gp/screens/purchases/purchases_widgets/purchase_search_supplier.dart';
 
 import '../../../controller/purchase_controller.dart';

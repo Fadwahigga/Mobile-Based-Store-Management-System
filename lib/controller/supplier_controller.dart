@@ -121,7 +121,10 @@ class SupplierController extends GetxController {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response = await http.get(
-        Uri.http(baseUrl, apiSuppliers),
+        Uri.http(
+          baseUrl,
+          apiSuppliers,
+        ),
         headers: {
           'Accept': 'application/json',
           'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -176,13 +179,15 @@ class SupplierController extends GetxController {
   }
 
   //* ================ HERE To Get Supplier Invoices ===================
-  getSupplierInvoices({required int id}) async {
+  getSupplierInvoices(
+      {required id, required DateTime to, required DateTime from}) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       http.Response response = await http.get(
         Uri.http(
           baseUrl,
           "$apiSuppliers/$id",
+          {'to': to.toString(), 'from': from.toString()},
         ),
         headers: {
           'Accept': 'application/json',
@@ -192,7 +197,7 @@ class SupplierController extends GetxController {
       if (response.statusCode == 201 || response.statusCode == 200) {
         var body = json.decode(response.body);
         print(body);
-        listOfSupplierModel.clear();
+
         for (var i = 0; i < body['data']['invoices'].length; i++) {
           listOfSupplierModel
               .add(SupplierModel.fromJson(body['data']['invoices'][i]));
