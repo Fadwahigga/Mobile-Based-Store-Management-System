@@ -10,7 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class PurchaseController extends GetxController {
   // **************************** Vaiables *******************************************
   List<PurchaseModel> listOfPurchaseModel = [];
-  List<PurchaseModel> paymentData = [];
+  List<Map<String, dynamic>> paymentData = [];
   RxBool isThereData = false.obs;
   double total = 0;
   double totalresute = 0;
@@ -35,7 +35,10 @@ class PurchaseController extends GetxController {
 
   //////////////////////// set new quantity and new cost
   newvalu(int index) {
-    listOfPurchaseModel[index].quantity = newQuantityController.text;
+    listOfPurchaseModel[index].quantity =
+        (double.parse(newQuantityController.text) +
+                double.parse(listOfPurchaseModel[index].quantity))
+            .toString();
     listOfPurchaseModel[index].cost = newCostController.text;
     update();
   }
@@ -98,7 +101,7 @@ class PurchaseController extends GetxController {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       //print(json.encode(paymentData));
       for (var i = 0; i < paymentData.length; i++) {
-        print( supplier_id.toString());
+        print(supplier_id.toString());
         print(paymentData[i].id.toString());
         print(paymentData[i].quantity.toString());
         print(paymentData[i].cost.toString());

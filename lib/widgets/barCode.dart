@@ -22,7 +22,7 @@ class BarCodeClass extends StatelessWidget {
               ? FutureBuilder<List<InventoryModel>>(
                   future: PurchasesRepo.getProductList(
                       apiPath: apiInventory,
-                      nameAtapi: "item_name",
+                      nameAtapi: 'barcode',
                       itemName: controller.result.toString()),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
