@@ -1,4 +1,4 @@
-Mobile-Based-Store-Management-System
+Mobile Based Store Management System
 
 The Mobile Store Management System is a complete package for stores that will allow store manager tracking of their sales and inventory, accounting, billing systems, and supplier information. Moreover, it provides sales reports, tracks store performance, and suggests the right offers using machine learning model for store products.
 
